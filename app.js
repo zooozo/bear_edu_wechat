@@ -11,6 +11,14 @@ App({
           })
         }
       }
+    });
+    wx.getSystemInfo({
+      success:(res)=> {
+        this.globalData.screen={
+          w: res.screenWidth,
+          h: res.screenHeight
+        }
+      }
     })
   },
   globalData: {

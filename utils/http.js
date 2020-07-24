@@ -9,12 +9,13 @@ function request(params, isGetTonken) {
     globalData.requestQueue.push(params);
     return;
   }
+
   wx.request({
     url: config.domain + params.url, //接口请求地址
     data: params.data,
     header: {
       // 'content-type': params.method == "GET" ? 'application/x-www-form-urlencoded' : 'application/json;charset=utf-8',
-      'Authorization': params.login ? undefined : wx.getStorageSync('token')
+      'Authorization': params.login ? '' : wx.getStorageSync('token')
     },
     method: params.method == undefined ? "POST" : params.method,
     dataType: 'json',
@@ -26,12 +27,14 @@ function request(params, isGetTonken) {
           params.callBack(res.data);
         }
 
-      } else if (res.statusCode == 500) {
+      }
+      else if (res.statusCode == 500) {
         wx.showToast({
           title: "服务器出了点小差",
           icon: "none"
         });
-      } else if (res.statusCode == 401) {
+      }
+      else if (res.statusCode == 401) {
         // 添加到请求队列
         globalData.requestQueue.push(params);
         // 是否正在登陆
@@ -40,13 +43,15 @@ function request(params, isGetTonken) {
           //重新获取token,再次请求接口
           getToken();
         }
-      } else if (res.statusCode == 400) {
+      }
+      else if (res.statusCode == 400) {
         wx.showToast({
           title: res.data,
           icon: "none"
         })
 
-      } else {
+      }
+      else {
         //如果有定义了params.errCallBack，则调用 params.errCallBack(res.data)
         if (params.errCallBack) {
           params.errCallBack(res);

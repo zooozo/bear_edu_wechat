@@ -1,6 +1,11 @@
 {
-  "backgroundTextStyle": "dark",
-  "navigationBarTextStyle": "black",
+  "backgroundTextStyle": "#fff",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#F1527E",
   "enablePullDownRefresh": true,
-  "navigationBarTitleText": "亚米科技mall4j"
+  "navigationBarTitleText": "中羽协",
+  "usingComponents": {
+    "tabList": "../../components/tabbar/tabbar"
+  }
+
 }
