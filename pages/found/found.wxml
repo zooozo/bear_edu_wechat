@@ -1,8 +1,8 @@
 <view class="container">
     <view class="flex-box">
         <tabs active="{{ activeIndex }}" bind:change="onChange" line-width="20" line-height="4" animated
-              border="{{false}}" style="flex:1;width:750rpx;" class="flex-box">
-            <view slot="nav-right" class="flex-center">
+              border="{{false}}" style="flex:1;width:750rpx;" class="flex-box" sticky>
+            <view slot="nav-right" class="flex-center btn-box">
                 <view class="btn flex-center">
                     发动态
                 </view>
@@ -42,11 +42,11 @@
                             </view>
                             <view class="flex-box  flex-space talking">
                                 <view style="margin-right:30rpx;">
-                                    <image src="../../images/test/q1.jpg"></image>
+                                    <image src="../../images/test/q1.jpg" style="margin-right:12rpx;"></image>
                                     <text>1000</text>
                                 </view>
                                 <view>
-                                    <image src="../../images/test/q2.jpg"></image>
+                                    <image src="../../images/test/q2.jpg" style="margin-right:12rpx;"></image>
                                     <text>800</text>
                                 </view>
                             </view>

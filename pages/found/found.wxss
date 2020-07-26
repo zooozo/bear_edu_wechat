@@ -13,6 +13,9 @@ background:var(--tabs-bottom-bar-color,linear-gradient(246deg,rgba(248,151,120,1
 .container .flex-box{
 
     align-items: center;
+}.container .flex-box .btn-box{
+
+   background:#fff;
 }
 .container .flex-box .btn{
     width:120rpx;
@@ -26,6 +29,7 @@ background:var(--tabs-bottom-bar-color,linear-gradient(246deg,rgba(248,151,120,1
 .container .flex-box .van-sticky{
     min-width:750rpx;
     border-bottom:2rpx solid #EDEDED;
+    height:50px !important;
 }
 
 
