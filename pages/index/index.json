@@ -1,9 +1,10 @@
 {
-  "backgroundTextStyle": "#fff",
+  "backgroundTextStyle": "light",
   "navigationBarTextStyle": "white",
   "navigationBarBackgroundColor": "#F1527E",
-  "enablePullDownRefresh": true,
+  "enablePullDownRefresh": false,
   "navigationBarTitleText": "中羽协",
+
   "usingComponents": {
     "tabList": "../../components/tabbar/tabbar"
   }

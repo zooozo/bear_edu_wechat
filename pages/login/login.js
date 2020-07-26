@@ -5,9 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    wxloginTimer:null,
+    wxLoginCode:null,
   },
-
+  GetUserInfo(res) {
+     wx.login({
+      success: r => {
+        this.data.wxloginTimer = new Date().getTime();
+        this.data.wxLoginCode = r.code;
+        wx.getUserInfo({
+          success: (res) => {
+            // this.apiLogin(res.iv, res.encryptedData)
+          }
+        });
+      }
+    });
+  },
   onGotUserInfo: function (res) {
     
     http.updateUserInfo();

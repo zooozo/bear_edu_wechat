@@ -11,7 +11,7 @@
     padding: 10rpx 0;
     font-size:30rpx;
     color:#AAAAAA;
-    font-weight:600;
+    font-weight:800;
 }
 .tab:after{
     content: "";
@@ -44,7 +44,7 @@
 }
 .swiper_con{
     font-size:36rpx;
-    font-weight:600;
+    font-weight:800;
     color:#333333;
 }
 
@@ -60,7 +60,7 @@
 .tabBorer{
     color:#333333;
     font-size:36rpx;
-    font-weight:600;
+    font-weight:800;
 }
 .tabBorer:after {
     content: "";

@@ -1,46 +1,114 @@
 <!--index.wxml-->
 <view class="container">
-  <view class='bg-sear'>
-    <view class="searchBox">
-      <view class='section' bindtap='toSearchPage'>
-        <image src='../../images/icon/search.png' class='search-img'></image>
-        <text class='placeholder'>请输入昵称/ID</text>
-      </view>
+    <view class='bg-sear'>
+        <view class="searchBox">
+            <view class='section' bindtap='toSearchPage'>
+                <image src='../../images/icon/search.png' class='search-img'></image>
+                <text class='placeholder'>请输入昵称/ID</text>
+            </view>
+        </view>
     </view>
-  </view>
-  <view class="content">
-<!--    分类模块-->
-    <view>
-      <tabList tabList="{{tabList}}"  bind:PostCurrentIndex="getCurrentIndex"></tabList>
-      <swiper
-              autoplay="{{true}}"  duration="{{800}}" current="{{currentIndex}}">
-        <block wx:for="{{backgroundList}}" wx:key="*this">
-          <swiper-item class="flex-center">
-            <image class="swiper-Image " src="{{item}}"></image>
-          </swiper-item>
-        </block>
-      </swiper>
-      <view class="dots">
-        <view class="dotsRow">
-          <view wx:for="{{backgroundList}}" wx:key="index"
-                class="{{index == currentIndex ? ' active' : 'dotsItem'}}"></view>
-        </view>
-      </view>
-    </view>
-<!--    新人专享-->
-    <view class="newPerson">
-      <view class="flex-box flex-space">
+    <view class="content">
+        <!--    分类模块-->
         <view>
-          <text>新人专享</text>
-          <text>|</text>
-          <text>30元起</text>
+            <tabList tabList="{{tabList}}" bind:PostCurrentIndex="getCurrentIndex"></tabList>
+            <swiper
+                    autoplay="{{true}}" duration="{{800}}" current="{{currentIndex}}">
+                <block wx:for="{{backgroundList}}" wx:key="*this">
+                    <swiper-item class="flex-center">
+                        <image class="swiper-Image " src="{{item}}"></image>
+                    </swiper-item>
+                </block>
+            </swiper>
+            <view class="dots">
+                <view class="dotsRow">
+                    <view wx:for="{{backgroundList}}" wx:key="index"
+                          class="{{index == currentIndex ? ' active' : 'dotsItem'}}"></view>
+                </view>
+            </view>
         </view>
+        <!--    新人专享-->
+        <view class="newPerson">
+            <view class="flex-box flex-space per-title">
+                <view>
+                    <text class="t1">新人专享</text>
+                    <text class="line">|</text>
+                    <text class="t2">30元起</text>
+                </view>
+                <view class="flex-center">
+                    更多>
+                </view>
+            </view>
+            <view class="newPerson-part">
+                <view class="person-box" wx:for="{{imgList}}" wx:key="{{index}}">
+                    <view style="position:relative">
+                        <!--?x-oss-process=image/crop,x_0,y_50,w_50,h_50,center-->
+                        <image src="../../images/timg.jpeg"></image>
+                        <view class="module">
+                            <view>羽毛球陪练</view>
+                            <view style="margin-top:4rpx">￥30/h</view>
+                        </view>
+                    </view>
+                    <view class="name cutTxt1">青菜坨坨</view>
+                    <view class="person">新人专享</view>
+                </view>
+            </view>
+        </view>
+        <!--最新赛事-->
         <view>
-          更多>
-        </view>
-      </view>
+            <view class="newPerson">
+                <view class="flex-box flex-space per-title">
+                    <view>
+                        <text class="t1">最新赛事</text>
+                        <text class="line">|</text>
+                        <text class="t2">可在线报名</text>
+                    </view>
+                    <view class="flex-center">
+                        更多赛事>
+                    </view>
+                </view>
+            </view>
+            <scroll-view scroll-x enable-flex>
+                <view class="match">
+                    <view class="match-box " wx:for="{{matchList}}" wx:key="{{index}}">
+                        <view>
+                            萍乡启创队
+                        </view>
+                        <image src="../../images/vs.jpg" class="vsLogo"></image>
+                        <view>
+                            长沙四方坪队
+                        </view>
+                        <view class="time">08.16 15:00</view>
+                    </view>
+                </view>
 
+            </scroll-view>
+        </view>
+        <!--猜你喜欢-->
+        <view class="favorite">
+            <view class="newPerson notMargin">
+                <text class="t1">猜你喜欢</text>
+            </view>
+            <view class="imageList">
+                <!--index!=0 &&index%2==0   如果不是第一个并且它的INDEX是偶数的话单独设置一下-->
+                <view  wx:for="{{ImageList}}" wx:key="{{index}}" class="imageListItem" style="top:{{index!=0 &&index%2==0?'-20':'0'}}rpx;margin-bottom:{{index!=0 &&index%2==0?'0':'40'}}rpx;height:{{index!=0 &&index%2==0?'400':'440'}}rpx">
+                    <image src="../../images/timg.jpeg" class="{{index%2==0?'img1':'img2'}}"></image>
+                    <view  class="{{index%2==0?'module1':'module2'}}" style="bottom:{{index==0?'60':'20'}}rpx">
+                        <view class="name">
+                           <text> 羽毛球陪练</text><text>¥90/h</text>
+                        </view>
+                        <veiw class="name1">
+
+                            <text>呆呆滴77</text>
+                            <image src="../../images/LV.jpg" class="lvLogo"></image>
+                        </veiw>
+                    </view>
+                </view>
+            </view>
+
+        </view>
     </view>
-  </view>
+
+
 </view>
-<wxs module="wxs" src="../../wxs/number.wxs" />
+<wxs module="wxs" src="../../wxs/number.wxs"/>

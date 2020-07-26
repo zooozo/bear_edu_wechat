@@ -31,13 +31,13 @@ Component({
 
         //点击切换，滑块index赋值
         checkCurrent: function(e) {
-            console.log(e,'e-----')
+
             const that = this;
                 let num=Number( e.currentTarget.dataset.current)
             if (that.data.currentData === num) {
                 return false;
             } else {
-                console.log("不等于")
+
                 that.setData({
                     currentData: e.currentTarget.dataset.current,
                     scrollX:e.detail.x

@@ -1,0 +1,63 @@
+<view class="container">
+    <view class="flex-box">
+        <tabs active="{{ activeIndex }}" bind:change="onChange" line-width="20" line-height="4" animated
+              border="{{false}}" style="flex:1;width:750rpx;" class="flex-box">
+            <view slot="nav-right" class="flex-center">
+                <view class="btn flex-center">
+                    发动态
+                </view>
+            </view>
+            <tab title="{{item.name}}" wx:for="{{categoryList}}"
+                 title-style="color:{{activeIndex==index?'#333':'#999999'}};font-weight:{{activeIndex==index?'700':'500'}}"
+                 wx:key="{{index}}">
+                <view class="content">
+                    <view class="list-item" wx:for="{{list}}" wx:key="{{index}}">
+                        <!--用户信息-->
+                        <view class="flex-box flex-space user">
+                            <view class="flex-box">
+                                <image src="../../images/timg.jpeg" class="headImg"></image>
+                                <view class="userInfo">
+                                    <view>成都小甜甜</view>
+                                    <view>
+                                        <image src="../../images/LV.jpg" class="lv1"></image>
+                                        <image src="../../images/LV.jpg" class="lv2"></image>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="{{item.type==1?'trend':'disabledTrend'}} flex-center">
+                                {{item.type==1?'关注':'已关注'}}
+                            </view>
+                        </view>
+                        <view class="title">在江北国际智谷吃的第一顿饭，真是太好吃了！</view>
+                        <!--图片集合   length判断有问题-->
+                        <view class="flex-box imgBox">
+                            <image src="{{item}}" wx:for="{{item.imagelist}}" wx:key="{{index}}"
+                                   class="{{Number(item.imagelist.length)<3?'imgType2':'imgType1'}}"></image>
+                        </view>
+                        <view class="item-foot flex-box flex-space">
+                            <view class="flex-box">
+                                <text>{{item.pos}}</text>
+                                <view class="point"></view>
+                                <text>{{item.time}}</text>
+                            </view>
+                            <view class="flex-box  flex-space talking">
+                                <view style="margin-right:30rpx;">
+                                    <image src="../../images/test/q1.jpg"></image>
+                                    <text>1000</text>
+                                </view>
+                                <view>
+                                    <image src="../../images/test/q2.jpg"></image>
+                                    <text>800</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </tab>
+
+        </tabs>
+
+    </view>
+
+
+</view>

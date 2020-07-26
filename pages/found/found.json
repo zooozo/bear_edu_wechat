@@ -1,0 +1,10 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#F1527E",
+  "navigationBarTitleText": "发现",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "tabs": "../../vant/tabs/index",
+    "tab": "../../vant/tab/index"
+  }
+}

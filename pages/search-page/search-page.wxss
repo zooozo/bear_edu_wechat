@@ -32,7 +32,8 @@
   line-height: 48rpx;
   vertical-align: top;
   background: #f7f7f7;
-  font-size: 28rpx;
+  color:#979797;
+  font-size: 24rpx;
 }
 
 .search-bar .search-hint {
@@ -51,6 +52,14 @@
   top: 14rpx;
   display: block;
 }
+.search-bar .search-box .search-cancel {
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 14rpx;
+  display: block;
+}
 
 /* 热门搜索&搜索历史 */
 
@@ -62,8 +71,9 @@
 
 .search-display .title-text {
   padding: 30rpx 0;
-  font-size: 30rpx;
+  font-size: 26rpx;
   color: #666;
+  font-weight:700;
 }
 
 .hot-search .hot-search-tags {
@@ -92,7 +102,7 @@
 
 .history-search .title-text.history-line {
   position: relative;
-  border-top: 2rpx solid #e1e1e1;
+  /*border-top: 2rpx solid #e1e1e1;*/
 }
 
 .history-search .his-search-tags {
@@ -117,9 +127,9 @@
 }
 
 .clear-history image {
-  width: 32rpx;
-  height: 32rpx;
+  width: 50rpx;
+  height: 50rpx;
   position: absolute;
   right: 10rpx;
-  top: 30rpx;
+  top: 50rpx;
 }

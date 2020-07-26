@@ -44,6 +44,9 @@ padding-left:10rpx;
 .flex-space{
   justify-content: space-between;
 }
+.flex-around{
+  justify-content: space-around;
+}
 
 .flex-colomn{
   flex-direction: column;
@@ -57,3 +60,34 @@ padding-left:10rpx;
   border-radius:23rpx;
 }
 
+.cutTxt{
+  word-break: break-all;
+
+  text-overflow: ellipsis;
+
+  display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+
+  -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+
+  -webkit-line-clamp: 2; /** 显示的行数 **/
+
+  overflow: hidden;  /** 隐藏超出的内容 **/
+}.cutTxt1{
+   word-break: break-all;
+
+   text-overflow: ellipsis;
+
+   display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+
+   -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+
+   -webkit-line-clamp: 1; /** 显示的行数 **/
+
+   overflow: hidden;  /** 隐藏超出的内容 **/
+ }
+ image{
+   vertical-align: bottom;
+ }
+ .notMargin {
+margin:0;
+ }

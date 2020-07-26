@@ -1,11 +1,11 @@
 {
   "pages": [
-    
+    "pages/found/found",
     "pages/index/index",
     "pages/logs/logs",
     "pages/user/user",
     "pages/basket/basket",
-    "pages/category/category",
+
     "pages/search-page/search-page",
     "pages/delivery-address/delivery-address",
     "pages/editAddress/editAddress",
@@ -25,7 +25,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "中羽协",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
@@ -39,7 +39,7 @@
         "selectedIconPath": "images/tabbar/homepage-sel.png"
       },
       {
-        "pagePath": "pages/category/category",
+        "pagePath": "pages/found/found",
         "text": "分类",
         "iconPath": "images/tabbar/category.png",
         "selectedIconPath": "images/tabbar/category-sel.png"
