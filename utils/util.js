@@ -8,7 +8,35 @@ const formatTime = date => {
 
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
+const formatTimeObject=(leftTime)=> {
+  let d, h, m, s, ms;
+  if (leftTime >= 0) {
+    //传入的是秒，去掉了1000
+    let overTime = '';
+    d = Math.floor(leftTime / 60 / 60 / 24);
+    d > 0 && (overTime += (d + "天"));
+    h = Math.floor(leftTime / 60 / 60 % 24);
 
+    h = h < 10 ? "0" + h : h;
+    overTime += h;
+    m = Math.floor(leftTime / 60 % 60);
+    m = m < 10 ? "0" + m : m;
+    overTime += (':' + m);
+    s = Math.floor(leftTime % 60);
+    s = s < 10 ? "0" + s : s;
+    overTime += (':' + s);
+
+
+    return {
+      overTime: overTime,
+      day: d,
+      hour: h,
+      min: m,
+      send: s,
+      Time: (h > 0 ? h : '00') + "小时" + (m > 0 ? m : '00') + "分" + (s > 0 ? s : '00') + '秒' // status == 1,
+    }
+  }
+}
 const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
@@ -24,6 +52,7 @@ const formatHtml = content => {
 }
 
 module.exports = {
+  formatTimeObject,
   formatTime: formatTime,
   formatHtml: formatHtml
 }

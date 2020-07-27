@@ -2,6 +2,7 @@
 //获取应用实例
 var http = require("../../utils/http.js");
 var config = require("../../utils/config.js");
+
 const app = getApp()
 
 Page({
@@ -45,12 +46,13 @@ Page({
         console.log("3333")
         let params = {
             url: '/index/index',
-            method: "POST",
+            method: "GET",
             data: {
                 nickName:'坦诚',
                 userNumber:123456
             },
             callBack:res=>{
+
                this.setData({
                    orderEntryList:[...res.records]
                })

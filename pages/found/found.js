@@ -2,51 +2,52 @@
 
 var http = require("../../utils/http.js");
 var config = require("../../utils/config.js");
-
+var utils = require("../../utils/util.js");
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        list: [
-            {
-                type: 1,
-                imagelist: [
-                    "../../images/test/j1.png",
-                    "../../images/test/j2.png",
-                    "../../images/test/j3.png",
-                ],
-                pos:'22km',
-                time:'2小时'
-            },{
-                type: 2,
-                imagelist: [
-                    "../../images/test/j1.png",
-
-                ],
-                pos:'1km',
-                time:'4小时'
-            },{
-                type: 1,
-                imagelist: [
-                    "../../images/test/j1.png",
-                    "../../images/test/j2.png",
-
-                ],
-                pos:'1km',
-                time:'11:50'
-            },{
-                type: 2,
-                imagelist: [
-                    "../../images/test/j1.png",
-                    "../../images/test/j2.png",
-                    "../../images/test/j3.png",
-                ],
-                pos:'6km',
-                time:'6:50'
-            },
-        ],
+        // list: [
+        //     {
+        //         type: 1,
+        //         imagelist: [
+        //             "../../images/test/j1.png",
+        //             "../../images/test/j2.png",
+        //             "../../images/test/j3.png",
+        //         ],
+        //         pos:'22km',
+        //         time:'2小时'
+        //     },{
+        //         type: 2,
+        //         imagelist: [
+        //             "../../images/test/j1.png",
+        //
+        //         ],
+        //         pos:'1km',
+        //         time:'4小时'
+        //     },{
+        //         type: 1,
+        //         imagelist: [
+        //             "../../images/test/j1.png",
+        //             "../../images/test/j2.png",
+        //
+        //         ],
+        //         pos:'1km',
+        //         time:'11:50'
+        //     },{
+        //         type: 2,
+        //         imagelist: [
+        //             "../../images/test/j1.png",
+        //             "../../images/test/j2.png",
+        //             "../../images/test/j3.png",
+        //         ],
+        //         pos:'6km',
+        //         time:'6:50'
+        //     },
+        // ],
+        list:[],
         activeIndex: 0,
         categoryList: [
             {
@@ -76,7 +77,18 @@ Page({
           method:'GET',
           data:this.data.params,
           callBack:(res)=>{
-              console.log(res,'res----')
+              // let time=utils.formatTime(res.data.records[0].timeAgo*60*60*1000)
+                let arr=[];
+                let now=Date.now()/1000;
+              let createTime;
+                res.data.records.forEach((item)=>{
+                    createTime=new Date(item.createTime).getTime()/1000;
+                    item.timeLong=utils.formatTimeObject(now-createTime)
+                    arr.push(item)
+                })
+              this.setData({
+                  list:[...this.data.list,...arr]
+              })
           }
 
       }

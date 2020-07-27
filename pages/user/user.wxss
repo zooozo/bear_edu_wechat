@@ -2,12 +2,14 @@
 
 page {
   background-color: #f7f7f7;
-  padding-bottom: 60rpx;
+ height:100%;
 
 }
 .container{
     font-family:PingFangSC-Semibold,PingFang SC;
     background-color:#F1527E;
+    display:flex;
+    flex-direction: column;
 }
 .userAvatar{
     width:144rpx;
@@ -47,12 +49,17 @@ page {
     font-size:24rpx;
     opacity: .6;
 
+}.user-box  .editor{
+   width:40rpx;
+    height:40rpx;
+    margin-left:10rpx;
 }
 
 .content{
     border-radius:40rpx 40rpx 0 0;
     background:#fff;
     min-height:400rpx;
+    flex:1;
 }
 .content .list{
     height:200rpx;
@@ -66,4 +73,52 @@ page {
     height:100rpx;
     margin-bottom:4rpx;
 }
+.settingList{
+    display:flex;
+    flex-direction: column;
+    margin-top:30rpx;
+}
+.settingList .list-row{
+    height:120rpx;
+    align-items: center;
+    padding:0 30rpx;
 
+}
+.settingList .list-row .left-png{
+    height:50rpx;
+    width:50rpx;
+    align-items: center;
+    margin-right:20rpx;
+}
+.settingList .list-row .right-png{
+    height:20rpx;
+    width:20rpx;
+
+}
+
+.row-item{
+   align-items: center;
+    flex:1;
+    border-bottom:1rpx solid #EDEDED;
+    height:100%;
+    font-size:28rpx;
+    color:#333;
+}
+.row-item:last-child{
+    border:none;
+}
+.foot{
+    background:#fff;
+    padding-bottom:30rpx;
+}
+.foot .btn{
+    width:340rpx;
+    height:76rpx;
+    border-radius:47rpx;
+    border:2rpx solid #E5E5E5;
+    color: #666666;
+    font-size:28rpx;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}

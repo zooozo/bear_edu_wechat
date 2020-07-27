@@ -15,6 +15,12 @@ Page({
       {url:'../../images/icon/quan.png',text:'优惠券'},
       {url:'../../images/icon/qiandao.png',text:'签到有礼'},
       {url:'../../images/icon/bag.png',text:'我的钱包'},
+    ],
+    settingList:[
+      {url:'../../images/icon/lishi.png',text:'浏览历史',path:''},
+      {url:'../../images/icon/kefu.png',text:'在线客服',path:''},
+      {url:'../../images/icon/help.png',text:'帮助与反馈',path:''},
+      {url:'../../images/icon/setting.png',text:'设置',path:''},
     ]
   },
 

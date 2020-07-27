@@ -15,12 +15,16 @@
                         <!--用户信息-->
                         <view class="flex-box flex-space user">
                             <view class="flex-box">
-                                <image src="../../images/timg.jpeg" class="headImg"></image>
+                                <image src="{{item.momentsImgUrl}}" class="headImg"></image>
                                 <view class="userInfo">
-                                    <view>成都小甜甜</view>
-                                    <view>
+                                    <view>{{item.nickName}}</view>
+                                    <view class="flex-box">
                                         <image src="../../images/icon/lady.png" class="lv1"></image>
-                                        <image src="../../images/icon/lv.png" class="lv2"></image>
+                                        <view class="lv-box">
+                                            <view class="lv-text">LV {{item.skillLevel}}</view>
+                                            <image src="../../images/icon/lv.png" class="lv2"></image>
+                                        </view>
+
                                     </view>
                                 </view>
                             </view>
@@ -28,7 +32,7 @@
                                 {{item.type==1?'关注':'已关注'}}
                             </view>
                         </view>
-                        <view class="title">在江北国际智谷吃的第一顿饭，真是太好吃了！</view>
+                        <view class="title">{{item.momentsContent}}</view>
                         <!--图片集合   length判断有问题-->
                         <view >
                             <view  wx:if="{{Number(item.imagelist.length)<3}}" class="flex-box imgBox">
@@ -43,29 +47,28 @@
                             </view>
 
 
-
+<!--333844800-->
 
                         </view>
                         <view class="item-foot flex-box flex-space">
                             <view class="flex-box">
                                 <text>{{item.pos}}</text>
                                 <view class="point"></view>
-                                <text>{{item.time}}</text>
+                                <text>{{item.timeLong.day>0?item.timeLong.day+'天':item.timeLong.hour+'小时'}}前</text>
                             </view>
                             <view class="flex-box  flex-space talking">
-                                <view style="margin-right:30rpx;">
+                                <view style="margin-right:30rpx;" class="flex-box flex-y-center">
                                     <image src="../../images/icon/zan1.png" style="margin-right:12rpx;"></image>
-                                    <text>1000</text>
+                                    <text>{{item.likeCount}}</text>
                                 </view>
-                                <view>
+                                <view class="flex-box flex-y-center">
                                     <image src="../../images/icon/talk.png" style="margin-right:12rpx;"></image>
-                                    <text>800</text>
+                                    <text>{{item.commentCount}}</text>
                                 </view>
                             </view>
                         </view>
                     </view>
                 </view>
-
             </tab>
 
         </tabs>

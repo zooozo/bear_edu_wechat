@@ -60,8 +60,10 @@ background:var(--tabs-bottom-bar-color,linear-gradient(246deg,rgba(248,151,120,1
     margin-right:12rpx;
 }
 .content .list-item .userInfo .lv2{
-   width:88rpx;
+    width:88rpx;
     height:28rpx;
+    position:absolute;
+    top:0;left:0;
 }
 .content .list-item .user .trend{
     border-radius:26rpx;
@@ -123,4 +125,21 @@ background:var(--tabs-bottom-bar-color,linear-gradient(246deg,rgba(248,151,120,1
 .content .list-item .item-foot image{
    width:36rpx;
     height:36rpx;
+}
+
+.lv-box{
+    position:relative;
+    text-align: center;
+    width:88rpx;
+    height:28rpx;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding-left:12rpx;
+}
+.lv-box .lv-text{
+    position:relative;z-index:10;
+    font-size:20rpx;
+    color:#fff;
+
 }
