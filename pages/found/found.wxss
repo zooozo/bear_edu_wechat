@@ -122,5 +122,5 @@ background:var(--tabs-bottom-bar-color,linear-gradient(246deg,rgba(248,151,120,1
 }
 .content .list-item .item-foot image{
    width:36rpx;
-    height:30rpx;
+    height:36rpx;
 }

@@ -53,11 +53,11 @@ padding-left:10rpx;
 }
 
 .defaultBtn{
-  width:343rpx;
-  height:45rpx;
+  width:689rpx;
+  height:90rpx;
   background:linear-gradient(246deg,rgba(248,151,120,1) 0%,rgba(241,75,127,1) 100%);
   box-shadow:0 2rpx 12rpx 0rpx rgba(241,75,127,0.35);
-  border-radius:23rpx;
+  border-radius:46rpx;
 }
 
 .cutTxt{
@@ -88,6 +88,11 @@ padding-left:10rpx;
  image{
    vertical-align: bottom;
  }
- .notMargin {
-margin:0;
+
+.notMargin {
+   margin:0;
+ }
+.lvLogo {
+   width:88rpx;
+    height:32rpx;
  }

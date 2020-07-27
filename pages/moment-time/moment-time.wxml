@@ -1,0 +1,27 @@
+<view class="container">
+    <view style="align-self: center">
+        <textarea placeholder="说点什么，让大家看到不一样的你..." placeholder-class="text-holder" value="{{InputText}}" bindinput="getInputText"></textarea>
+    </view>
+    <view class="imgList-box">
+<!--        <view  wx:if="{{upLoadList.length>0}}">-->
+<!--            <image wx:for="{{upLoadList}}" src="{{item}}" wx:key="index"></image>-->
+<!--        </view>-->
+        <view>
+            <uploader upload-text="上传照片"
+                      accept="media"
+                      bind:after-read="getUpLoadImage"
+                      bind:before-read="beforeUpload"
+                      bind:delete="deleteImage"
+                      use-before-read multiple
+                      deletable
+                      file-list="{{ upLoadList }}"
+            ></uploader>
+        </view>
+
+    </view>
+     <view class="flex-center">
+
+
+         <view class="defaultBtn flex-center {{!upLoadList || !InputText.length?'bg2':'bg1'}}" bindtap="postMomentTime">发布</view>
+     </view>
+</view>

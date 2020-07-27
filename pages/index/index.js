@@ -14,11 +14,14 @@ Page({
         ImageList: [1, 1, 1, 1, 1, 11, 1, 1, 1, 1],
         imgList: [1, 1, 1],
         currentIndex: 0,
+        ossImageTypeList:['?x-oss-process=image/crop,x_0,y_0,w_166,h_200,north','?x-oss-process=image/crop,x_0,y_0,w_166,h_220,north'],
         backgroundList: [
             ['https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2534506313,1688529724&fm=26&gp=0.jpg',
                 'https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3892521478,1695688217&fm=26&gp=0.jpg'],
             ['https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1906469856,4113625838&fm=26&gp=0.jpg',
                 'https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3892521478,1695688217&fm=26&gp=0.jpg'],
+        ],
+        orderEntryList: [
         ]
     },
     onLoad(){
@@ -48,7 +51,9 @@ Page({
                 userNumber:123456
             },
             callBack:res=>{
-                console.log(res,'res---')
+               this.setData({
+                   orderEntryList:[...res.records]
+               })
             }
         }
         http.request(params);

@@ -1,11 +1,12 @@
 {
   "pages": [
 
+    "pages/user/user",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/user/user",
+
     "pages/basket/basket",
-    "pages/found/found",
+
     "pages/search-page/search-page",
     "pages/delivery-address/delivery-address",
     "pages/editAddress/editAddress",
@@ -20,8 +21,15 @@
     "pages/login/login",
     "pages/prod-classify/prod-classify",
     "pages/recent-news/recent-news",
-    "pages/news-detail/news-detail"
+    "pages/news-detail/news-detail",
+    "pages/moment-time/moment-time",
+    "pages/found/found"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于动态展示"
+    }
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

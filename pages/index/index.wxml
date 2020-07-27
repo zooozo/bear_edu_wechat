@@ -91,16 +91,17 @@
             </view>
             <view class="imageList">
                 <!--index!=0 &&index%2==0   如果不是第一个并且它的INDEX是偶数的话单独设置一下-->
-                <view  wx:for="{{ImageList}}" wx:key="index" class="imageListItem" style="top:{{index!=0 &&index%2==0?'-20':'0'}}rpx;margin-bottom:{{index!=0 &&index%2==0?'0':'40'}}rpx;height:{{index!=0 &&index%2==0?'400':'440'}}rpx">
-                    <image src="../../images/timg.jpeg" class="{{index%2==0?'img1':'img2'}}"></image>
+                <view  wx:for="{{orderEntryList}}" wx:key="index" class="imageListItem" style="top:{{index!=0 &&index%2==0?'-20':'0'}}rpx;margin-bottom:{{index!=0 &&index%2==0?'0':'40'}}rpx;height:{{index!=0 &&index%2==0?'400':'440'}}rpx">
+                    <image src="{{item.trainerImg}}{{index%2==0?ossImageTypeList[0]:ossImageTypeList[1]}}" class="{{index%2==0?'img1':'img2'}}"></image>
+                    <!--?x-oss-process=image/crop,x_0,y_50,w_50,h_50,center-->
                     <view  class="{{index%2==0?'module1':'module2'}}" style="bottom:{{index==0?'60':'20'}}rpx">
                         <view class="name">
-                           <text> 羽毛球陪练</text><text>¥90/h</text>
+                           <text>{{item.nickName}}</text><text style="margin-left:8rpx;">¥{{item.orderPrice || 10}}/h</text>
                         </view>
                         <veiw class="name1">
 
-                            <text>呆呆滴77</text>
-                            <image src="../../images/LV.jpg" class="lvLogo"></image>
+                            <text>{{item.nickName}}</text>
+                            <image src="../../images/icon/lv.png" class="lvLogo"></image>
                         </veiw>
                     </view>
                 </view>

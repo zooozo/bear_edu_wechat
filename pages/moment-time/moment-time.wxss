@@ -1,0 +1,43 @@
+.container{
+    display:flex;
+    flex-direction: column;
+    padding-top:40rpx;
+}
+
+.text-holder{
+    font-size:28rpx;
+    color:#CECECE;
+}
+.upload{
+    margin-top:30rpx;
+    padding-left:30rpx;
+}
+.imgList-box{
+    display:flex;
+    padding:0 20rpx 0 40rpx;
+    flex-wrap: wrap;
+    margin-top:40rpx;
+}
+.imgList-box image{
+    width:200rpx;
+    height:200rpx;
+    border-radius:16rpx;
+    margin-left:10rpx;
+    flex-shrink: 0;
+    object-fit: scale-down;
+    margin-bottom:20rpx;
+}
+.container .defaultBtn{
+    margin-top:200rpx;
+    font-size:32rpx;
+    color:#F8F8F8
+}
+
+.bg1{
+    background: linear-gradient(246deg,rgba(248,151,120,1) 0%,rgba(241,75,127,1) 100%);
+
+}
+.bg2{
+    background: linear-gradient(246deg,rgba(248,151,120,1) 0%,rgba(241,75,127,.5) 100%);
+
+}

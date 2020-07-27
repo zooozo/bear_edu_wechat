@@ -3,15 +3,15 @@
         <tabs active="{{ activeIndex }}" bind:change="onChange" line-width="20" line-height="4" animated
               border="{{false}}" style="flex:1;width:750rpx;" class="flex-box" sticky>
             <view slot="nav-right" class="flex-center btn-box">
-                <view class="btn flex-center">
+                <view class="btn flex-center" bindtap="goToPage">
                     发动态
                 </view>
             </view>
             <tab title="{{item.name}}" wx:for="{{categoryList}}"
                  title-style="color:{{activeIndex==index?'#333':'#999999'}};font-weight:{{activeIndex==index?'700':'500'}}"
-                 wx:key="{{index}}">
-                <view class="content" wx:if="{{activeIndex==0}}">
-                    <view class="list-item" wx:for="{{list}}" wx:key="{{index}}">
+                 wx:key="index">
+                <view class="content">
+                    <view class="list-item" wx:for="{{list}}" wx:key="index">
                         <!--用户信息-->
                         <view class="flex-box flex-space user">
                             <view class="flex-box">
@@ -19,8 +19,8 @@
                                 <view class="userInfo">
                                     <view>成都小甜甜</view>
                                     <view>
-                                        <image src="../../images/LV.jpg" class="lv1"></image>
-                                        <image src="../../images/LV.jpg" class="lv2"></image>
+                                        <image src="../../images/icon/lady.png" class="lv1"></image>
+                                        <image src="../../images/icon/lv.png" class="lv2"></image>
                                     </view>
                                 </view>
                             </view>
@@ -32,12 +32,12 @@
                         <!--图片集合   length判断有问题-->
                         <view >
                             <view  wx:if="{{Number(item.imagelist.length)<3}}" class="flex-box imgBox">
-                                <image src="{{item}}" wx:for="{{item.imagelist}}" wx:key="{{index}}"
+                                <image src="{{item}}" wx:for="{{item.imagelist}}" wx:key="index"
                                        class="imgType2"></image>
                             </view>
 
                             <view wx:else class="flex-box imgBox">
-                                <image src="{{item}}" wx:for="{{item.imagelist}}" wx:key="{{index}}"
+                                <image src="{{item}}" wx:for="{{item.imagelist}}" wx:key="index"
                                        class="imgType1" >
                                 </image>
                             </view>
@@ -54,20 +54,18 @@
                             </view>
                             <view class="flex-box  flex-space talking">
                                 <view style="margin-right:30rpx;">
-                                    <image src="../../images/test/q1.jpg" style="margin-right:12rpx;"></image>
+                                    <image src="../../images/icon/zan1.png" style="margin-right:12rpx;"></image>
                                     <text>1000</text>
                                 </view>
                                 <view>
-                                    <image src="../../images/test/q2.jpg" style="margin-right:12rpx;"></image>
+                                    <image src="../../images/icon/talk.png" style="margin-right:12rpx;"></image>
                                     <text>800</text>
                                 </view>
                             </view>
                         </view>
                     </view>
                 </view>
-                <view class="content" wx:else>
 
-                </view>
             </tab>
 
         </tabs>

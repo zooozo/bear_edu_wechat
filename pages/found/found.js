@@ -57,32 +57,38 @@ Page({
                 name: '关注',
                 id: 2,
             },
-        ]
+        ],
+        params:{
+            requestType:3,
+            pageSize:10,
+            pageNum:1
+        }
 
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-        var ths = this;
-        //加载分类列表
-        var params = {
-            url: "/found/categoryInfo",
-            method: "GET",
-            data: {
-                parentId: ''
-            },
-            callBack: function (res) {
-                // console.log(res);
-                ths.setData({
-                    categoryImg: res[0].pic,
-                    categoryList: res,
-                });
-                ths.getProdList(res[0].categoryId)
-            }
-        };
+
+    getMomentsList(){
+      let params={
+          url:'/moments/pageMoments',
+          method:'GET',
+          data:this.data.params,
+          callBack:(res)=>{
+              console.log(res,'res----')
+          }
+
+      }
         http.request(params);
+    },
+    goToPage(){
+        wx.navigateTo({
+            url:'../moment-time/moment-time'
+        })
+    },
+    onLoad: function (options) {
+       this.getMomentsList();
     },
 
     /**

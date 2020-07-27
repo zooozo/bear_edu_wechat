@@ -9,7 +9,13 @@ Page({
   data: {
     orderAmount: '',
     sts: '',
-    collectionCount: 0
+    collectionCount: 0,
+    list:[
+      {url:'../../images/icon/order.png',text:'订单'},
+      {url:'../../images/icon/quan.png',text:'优惠券'},
+      {url:'../../images/icon/qiandao.png',text:'签到有礼'},
+      {url:'../../images/icon/bag.png',text:'我的钱包'},
+    ]
   },
 
   /**
