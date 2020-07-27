@@ -40,7 +40,7 @@
                 </view>
             </view>
             <view class="newPerson-part">
-                <view class="person-box" wx:for="{{imgList}}" wx:key="{{index}}">
+                <view class="person-box" wx:for="{{imgList}}" wx:key="index">
                     <view style="position:relative">
                         <!--?x-oss-process=image/crop,x_0,y_50,w_50,h_50,center-->
                         <image src="../../images/timg.jpeg"></image>
@@ -70,7 +70,7 @@
             </view>
             <scroll-view scroll-x enable-flex>
                 <view class="match">
-                    <view class="match-box " wx:for="{{matchList}}" wx:key="{{index}}">
+                    <view class="match-box " wx:for="{{matchList}}" wx:key="index">
                         <view>
                             萍乡启创队
                         </view>
@@ -91,7 +91,7 @@
             </view>
             <view class="imageList">
                 <!--index!=0 &&index%2==0   如果不是第一个并且它的INDEX是偶数的话单独设置一下-->
-                <view  wx:for="{{ImageList}}" wx:key="{{index}}" class="imageListItem" style="top:{{index!=0 &&index%2==0?'-20':'0'}}rpx;margin-bottom:{{index!=0 &&index%2==0?'0':'40'}}rpx;height:{{index!=0 &&index%2==0?'400':'440'}}rpx">
+                <view  wx:for="{{ImageList}}" wx:key="index" class="imageListItem" style="top:{{index!=0 &&index%2==0?'-20':'0'}}rpx;margin-bottom:{{index!=0 &&index%2==0?'0':'40'}}rpx;height:{{index!=0 &&index%2==0?'400':'440'}}rpx">
                     <image src="../../images/timg.jpeg" class="{{index%2==0?'img1':'img2'}}"></image>
                     <view  class="{{index%2==0?'module1':'module2'}}" style="bottom:{{index==0?'60':'20'}}rpx">
                         <view class="name">

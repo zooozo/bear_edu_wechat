@@ -87,12 +87,8 @@ var getToken = function() {
           if (!result.nickName) {
             updateUserInfo();
           }
+          console.log(result,'result----')
           if (result.userStutas == 0) {
-            wx.showModal({
-              showCancel: false,
-              title: '提示',
-              content: '您已被禁用，不能购买，请联系客服'
-            })
             wx.setStorageSync('token', '');
           } else {
             wx.setStorageSync('token', 'bearer' + result.access_token); //把token存入缓存，请求接口数据时要用

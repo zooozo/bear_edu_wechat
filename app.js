@@ -1,17 +1,17 @@
 //app.js
 var http = require("utils/http.js");
 App({
-  onLaunch: function () {
+  onLaunch:function () {
     http.getToken();
-    wx.getSetting({
-      success(res) {
-        if (!res.authSetting['scope.userInfo']) {
-          wx.navigateTo({
-            url: '/pages/login/login',
-          })
-        }
-      }
-    });
+    // wx.getSetting({
+    //   success(res) {
+    //     if (!res.authSetting['scope.userInfo']) {
+    //       wx.navigateTo({
+    //         url: '/pages/login/login',
+    //       })
+    //     }
+    //   }
+    // });
     wx.getSystemInfo({
       success:(res)=> {
         this.globalData.screen={

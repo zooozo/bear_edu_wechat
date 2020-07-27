@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/found/found",
+
     "pages/index/index",
     "pages/logs/logs",
     "pages/user/user",
     "pages/basket/basket",
-
+    "pages/found/found",
     "pages/search-page/search-page",
     "pages/delivery-address/delivery-address",
     "pages/editAddress/editAddress",
@@ -29,32 +29,32 @@
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "selectedColor": "#3a86b9",
-    "color": "#b8b8b8",
+    "selectedColor": "#FF5A5A",
+    "color": "#C9C9C9",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "images/tabbar/homepage.png",
-        "selectedIconPath": "images/tabbar/homepage-sel.png"
+        "iconPath": "images/tabbar/home.png",
+        "selectedIconPath": "images/tabbar/home-active.png"
       },
       {
         "pagePath": "pages/found/found",
-        "text": "分类",
-        "iconPath": "images/tabbar/category.png",
-        "selectedIconPath": "images/tabbar/category-sel.png"
+        "text": "发现",
+        "iconPath": "images/tabbar/found.png",
+        "selectedIconPath": "images/tabbar/found-active.png"
       },
       {
         "pagePath": "pages/basket/basket",
-        "text": "购物车",
-        "iconPath": "images/tabbar/basket.png",
-        "selectedIconPath": "images/tabbar/basket-sel.png"
+        "text": "消息",
+        "iconPath": "images/tabbar/news.png",
+        "selectedIconPath": "images/tabbar/news-active.png"
       },
       {
         "pagePath": "pages/user/user",
         "text": "我的",
-        "iconPath": "images/tabbar/user.png",
-        "selectedIconPath": "images/tabbar/user-sel.png"
+        "iconPath": "images/tabbar/my.png",
+        "selectedIconPath": "images/tabbar/my-active.png"
       }
     ]
   },

@@ -22,16 +22,7 @@ Page({
         ]
     },
     onLoad(){
-        wx.getSetting({
-            success(res) {
 
-                if (!res.authSetting['scope.userInfo']) {
-                    wx.navigateTo({
-                        url: '/pages/login/login',
-                    })
-                }
-            }
-        })
 
         this.getFavirateList();
     },
@@ -47,12 +38,14 @@ Page({
     // https://badmtn.weizhukeji.com/badmtn-apip/index/index
     // https://badmtn.weizhukeji.com/badmtn-api/index/index
     getFavirateList() {
+
+        console.log("3333")
         let params = {
             url: '/index/index',
             method: "POST",
             data: {
                 nickName:'坦诚',
-                userNumber:'8'
+                userNumber:123456
             },
             callBack:res=>{
                 console.log(res,'res---')

@@ -30,9 +30,21 @@
                         </view>
                         <view class="title">在江北国际智谷吃的第一顿饭，真是太好吃了！</view>
                         <!--图片集合   length判断有问题-->
-                        <view class="flex-box imgBox">
-                            <image src="{{item}}" wx:for="{{item.imagelist}}" wx:key="{{index}}"
-                                   class="{{Number(item.imagelist.length)<3?'imgType2':'imgType1'}}"></image>
+                        <view >
+                            <view  wx:if="{{Number(item.imagelist.length)<3}}" class="flex-box imgBox">
+                                <image src="{{item}}" wx:for="{{item.imagelist}}" wx:key="{{index}}"
+                                       class="imgType2"></image>
+                            </view>
+
+                            <view wx:else class="flex-box imgBox">
+                                <image src="{{item}}" wx:for="{{item.imagelist}}" wx:key="{{index}}"
+                                       class="imgType1" >
+                                </image>
+                            </view>
+
+
+
+
                         </view>
                         <view class="item-foot flex-box flex-space">
                             <view class="flex-box">
