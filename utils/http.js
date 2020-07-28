@@ -14,7 +14,7 @@ function request(params, isGetTonken) {
     url: config.domain + params.url, //接口请求地址
     data: params.data,
     header: {
-      // 'content-type': params.method == "GET" ? 'application/x-www-form-urlencoded' : 'application/json;charset=utf-8',
+      // 'content-type': params.form && params.form === 1 ? 'content-type:multipart/form-data': 'application/json;charset=utf-8',
       'Authorization': params.login ? '' : wx.getStorageSync('token')
     },
     method: params.method == undefined ? "POST" : params.method,
@@ -87,7 +87,6 @@ var getToken = function() {
           if (!result.nickName) {
             updateUserInfo();
           }
-          console.log(result,'result----')
           if (result.userStutas == 0) {
             wx.setStorageSync('token', '');
           } else {
@@ -115,7 +114,8 @@ function updateUserInfo() {
         method: "PUT",
         data: {
           avatarUrl: userInfo.avatarUrl,
-          nickName: userInfo.nickName
+          nickName: userInfo.nickName,
+          gender:userInfo.gender
         }
       });
     }

@@ -1,0 +1,27 @@
+<view class="container">
+    <view class="header-title">
+        *姓名和证件照号码必须为本人，身份认证绑定后无法进行修改
+    </view>
+    <view class="content">
+        <view class="flex-box flex-space flex-y-center row">
+            <view class="t1">认证方式</view>
+            <view class="t2">身份证(快捷认证)</view>
+        </view>
+        <view class="flex-box flex-space flex-y-center row">
+            <view class="t1">用户姓名</view>
+            <view><input placeholder="请输入真实姓名" class="ipt" placeholder-class="placeholder-class"  bind:blur="getTrainerName"/></view>
+        </view>
+        <view class="flex-box flex-space flex-y-center row">
+            <view class="t1">证件号码</view>
+            <view><input placeholder="请输入证件号码" class="ipt" type="idcard"  placeholder-class="placeholder-class" bind:blur="getIdCard"/></view>
+        </view>
+    </view>
+    <view class="foot" bindtap="nextStep">
+        <view class="defaultBtn flex-center">
+            下一步
+        </view>
+    </view>
+    <view class="foot-text" >
+        您提供的证件信息将受到严格的保护，仅用于身份验证、提现打款，未经本人许可不会用于其他用途
+    </view>
+</view>

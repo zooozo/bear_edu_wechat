@@ -1,0 +1,41 @@
+<view class="container">
+<!--    步数-->
+    <view>
+        <view class="step-box">
+            <view class="item itemActive"></view>
+            <view class="item"></view>
+            <view class="item"></view>
+            <view class="item"></view>
+        </view>
+        <view>
+            <view class="step">第一步: 认证方式</view>
+            <view class="step-text">请完成您的认证方式，将会获得更多权益哦～</view>
+        </view>
+    </view>
+    <view class="photo">
+        <view class="flex-box ">
+            <view class="step"> 上传照片</view>
+            <view class="step-text"> (禁止盗用他人图片，发现将会封号)</view>
+        </view>
+        <view>
+            <view class="border-box flex-center flex-colomn" bindtap="chooseLocalImage" wx:if="{{!uploadImage}}">
+                <image src="../../../images/icon/border.png" class="bg"></image>
+                <image src="../../../images/icon/photo.png" class="photoImage"></image>
+                <view>
+                    清晰显示当前本人一张运动类的照片
+                </view>
+            </view>
+            <view class="border-box" wx:else>
+                <image class="bg" src="{{uploadImage}}"></image>
+                <image class="cancel" src="../../../images/icon/cancel.png" bindtap="deleteImage"></image>
+            </view>
+        </view>
+
+    </view>
+    <view class="flex-center" bindtap="nextStep">
+        <view class="defaultBtn flex-center">
+            下一步
+        </view>
+    </view>
+
+</view>

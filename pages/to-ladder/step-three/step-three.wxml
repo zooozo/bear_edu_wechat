@@ -1,0 +1,50 @@
+<view class="container">
+    <!--    步数-->
+    <view>
+        <view class="step-box">
+            <view class="item itemActive"></view>
+            <view class="item itemActive"></view>
+            <view class="item itemActive"></view>
+            <view class="item"></view>
+        </view>
+        <view>
+            <view class="step">第三步: 选择技能</view>
+            <view class="step-text">请完成您的认证方式，将会获得更多权益哦～</view>
+        </view>
+    </view>
+    <view class="skillList">
+        <view class="row flex-box flex-space flex-y-center" wx:for="{{list2}}" wx:key="{{index}}" data-currentIndex="{{index}}" bindtap="showCurrentModal">
+            <view>
+                {{item.name}}
+            </view>
+            <view class="right-part">
+                <text class="{{index==3?'price':''}}">{{item.text}}</text>
+                <image src="../../../images/icon/right.png" class="right-png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="flex-center">
+        <view class="defaultBtn">下一步</view>
+    </view>
+
+<!--    技能等级-->
+    <view class="skillLeave" wx:if="{{showSkillModal}}">
+        <view class="modal"></view>
+        <view class="content">
+            <view class="flex-box flex-space flex-y-center skill-title">
+                <image src="../../../images/icon/cancel2.png" class="cancel"></image>
+                <view style="font-weight:700">选择技能等级</view>
+                <view class="sure" bindtap="closeModal">确定</view>
+            </view>
+            <view>
+                <view class="list-block {{currentIndex==index?'active':''}}" wx:for="{{list}}" wx:key="index" bindtap="selectSkill" data-idx="{{index}}">
+                    <view class="title">{{item.name}}</view>
+                    <view>
+                        {{item.text}}
+                    </view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+</view>

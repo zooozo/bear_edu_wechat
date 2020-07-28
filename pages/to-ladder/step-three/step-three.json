@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "uploader":"../../../vant/uploader"
+  },
+  "backgroundTextStyle": "light",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#F1527E",
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "成为陪练"
+}

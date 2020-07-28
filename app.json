@@ -1,29 +1,19 @@
 {
   "pages": [
-
-    "pages/user/user",
-    "pages/index/index",
-    "pages/logs/logs",
-
-    "pages/basket/basket",
-
-    "pages/search-page/search-page",
-    "pages/delivery-address/delivery-address",
-    "pages/editAddress/editAddress",
-    "pages/orderList/orderList",
-    "pages/order-detail/order-detail",
-    "pages/submit-order/submit-order",
-    "pages/binding-phone/binding-phone",
-    "pages/express-delivery/express-delivery",
-    "pages/pay-result/pay-result",
-    "pages/search-prod-show/search-prod-show",
-    "pages/prod/prod",
-    "pages/login/login",
-    "pages/prod-classify/prod-classify",
-    "pages/recent-news/recent-news",
-    "pages/news-detail/news-detail",
+    "pages/to-ladder/step-three/step-three",
+    "pages/to-ladder/step-two/step-two",
+    "pages/to-ladder/step-one/step-one",
     "pages/moment-time/moment-time",
-    "pages/found/found"
+    "pages/to-ladder/ladder",
+    "pages/index/index",
+    "pages/login/login",
+    "pages/user/user",
+    "pages/news/news-page",
+    "pages/search-page/search-page",
+    "pages/logs/logs",
+    "pages/found/found",
+    "pages/search-show/search-show"
+
   ],
   "permission": {
     "scope.userLocation": {
@@ -53,7 +43,7 @@
         "selectedIconPath": "images/tabbar/found-active.png"
       },
       {
-        "pagePath": "pages/basket/basket",
+        "pagePath": "pages/news/news-page",
         "text": "消息",
         "iconPath": "images/tabbar/news.png",
         "selectedIconPath": "images/tabbar/news-active.png"

@@ -1,9 +1,14 @@
 /**app.wxss**/
+
+page{
+    height:100%;
+}
 .container {
   height: 100%;
   box-sizing: border-box;
   color: #333;
   font-family: helvetica,'Heiti SC',PingFangSC-Light;
+    position:relative;
 } 
 .price{
   font-family: Arial;
@@ -61,6 +66,7 @@ padding-left:10rpx;
   background:linear-gradient(246deg,rgba(248,151,120,1) 0%,rgba(241,75,127,1) 100%);
   box-shadow:0 2rpx 12rpx 0rpx rgba(241,75,127,0.35);
   border-radius:46rpx;
+
 }
 
 .cutTxt{

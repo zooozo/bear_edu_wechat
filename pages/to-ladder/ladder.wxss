@@ -1,0 +1,56 @@
+.container{
+    font-family: 'PingFangSC-Regular,PingFang SC';
+}
+
+
+.header-title{
+    color:#F14B7F;
+    font-size:22rpx;
+    height:78rpx;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content .row{
+    height:100rpx;
+    padding:0 32rpx;
+
+}
+.content .row .t1{
+    font-weight:700;
+    font-size:30rpx;
+    color:#333;
+
+}
+.content .row .t2{
+    font-size:30rpx;
+    color:#666;
+
+}
+.content .row .ipt{
+   text-align: right;
+    flex:1
+}
+.placeholder-class{
+   text-align: right;
+    color:#CECECE;
+    font-size:30rpx;
+}
+
+.foot{
+    margin-top:80rpx;
+    margin-bottom:60rpx;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size:32rpx;
+    color:#F8F8F8;
+}
+
+.foot-text{
+    padding:0 32rpx;
+    color:#aaa;
+    font-size:22rpx;
+    line-height:40rpx;
+}

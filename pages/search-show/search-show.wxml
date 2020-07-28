@@ -1,0 +1,26 @@
+<!--pages/search-prod-show/search-prod-show.wxml-->
+<view class='container'>
+    <view class='search-bar'>
+        <view class='search-box'>
+            <input placeholder="请输入昵称/ID" class='sear-input' confirm-type='search' bindconfirm='toSearchProdPage' bindinput='getSearchContent' value='{{prodName}}'></input>
+            <image src='../../images/icon/search.png' class='search-img'></image>
+            <image src='../../images/icon/cancel.png' class='search-cancel'></image>
+        </view>
+        <text class='search-hint' bindtap='goBackIndex'>取消</text>
+    </view>
+    <view class="search-list">
+        <view class="search-list-item">
+            <image src="../../images/timg.jpeg" class="headImg"></image>
+            <view class="flex-box flex-colomn ">
+                <text>成都小甜甜</text>
+                <image src="../../images/icon/lv.png" class="lvLogo"></image>
+            </view>
+        </view>
+    </view>
+    <view class="search-list">
+        <view class="search-list-item" style="justify-content: center">
+            未搜索到相关信息
+        </view>
+    </view>
+</view>
+<wxs module="wxs" src="../../wxs/number.wxs" />

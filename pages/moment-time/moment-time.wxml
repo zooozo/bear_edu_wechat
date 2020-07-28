@@ -1,6 +1,6 @@
 <view class="container">
     <view style="align-self: center">
-        <textarea placeholder="说点什么，让大家看到不一样的你..." placeholder-class="text-holder" value="{{InputText}}" bindinput="getInputText"></textarea>
+        <textarea placeholder="说点什么，让大家看到不一样的你..." placeholder-class="text-holder"  bindinput="getInputText"></textarea>
     </view>
     <view class="imgList-box">
 <!--        <view  wx:if="{{upLoadList.length>0}}">-->

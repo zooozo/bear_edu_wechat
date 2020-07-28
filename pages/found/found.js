@@ -144,6 +144,13 @@ Page({
      */
     onReachBottom: function () {
 
+        if(this.data.params.pageNum<this.data.list.pages){
+
+            this.setData({
+                'params.pageNum':this.data.params.pageNum+1
+            })
+            this.getMomentsList();
+        }
     },
 
     /**
@@ -156,55 +163,17 @@ Page({
     /**
      * 分类点击事件
      */
-    onMenuTab: function (e) {
-        console.log(e);
-        var id = e.currentTarget.dataset.id;
-        var index = e.currentTarget.dataset.index;
-        // this.getProdList(id);
-        this.getProdList(this.data.categoryList[index].categoryId);
+
+
+    onChange(event) {
+
         this.setData({
-            categoryImg: this.data.categoryList[index].pic,
-            selIndex: index
-        });
+            activeIndex: event.detail.name,
+            'params.requestType':event.detail.name==0?3:2,
+            'params.pageNum':1,
+            list:[],
+        })
+        this.getMomentsList();
     },
 
-    // 跳转搜索页
-    toSearchPage: function () {
-        wx.navigateTo({
-            url: '/pages/search-page/search-page',
-        })
-    },
-    getProdList(categoryId) {
-        //加载分类列表
-        var params = {
-            url: "/prod/pageProd",
-            method: "GET",
-            data: {
-                categoryId: categoryId
-            },
-            callBack: (res) => {
-                // console.log(res);
-                this.setData({
-                    productList: res.records,
-                });
-            }
-        };
-        http.request(params);
-    },
-    onChange(event) {
-        // wx.showToast({
-        //   title: `切换到标签 ${event.detail.name}`,
-        //   icon: 'none',
-        // });
-        this.setData({
-            activeIndex: event.detail.name
-        })
-    },
-//跳转商品详情页
-    toProdPage: function (e) {
-        var prodid = e.currentTarget.dataset.prodid;
-        wx.navigateTo({
-            url: '/pages/prod/prod?prodid=' + prodid,
-        })
-    },
 })

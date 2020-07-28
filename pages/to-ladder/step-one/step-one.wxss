@@ -1,0 +1,83 @@
+.step-box {
+    height: 120rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.step-box .item {
+    width: 60rpx;
+    height: 8rpx;
+    background-color: #E2E2E2;
+    border-radius: 4rpx;
+    margin-right: 20rpx;
+}
+
+.step-box .itemActive {
+    background-color: #F14B7F;
+}
+
+.step {
+    text-align: center;
+    font-size: 30rpx;
+    color: #333;
+    margin-bottom:12rpx;
+    font-weight:700;
+}
+.step-text{
+    color:#aaa;
+    font-size:24rpx;
+    text-align: center;
+}
+
+.photo{
+    margin-top:100rpx;
+    padding:0 32rpx;
+}
+.photo .step{
+    margin-right:20rpx;
+    margin-bottom:0;
+    display:flex;
+    align-items: center;
+}
+.photo .step-text{
+    display:flex;
+    align-items: center;
+}
+
+.photo .border-box{
+    position:relative;
+    width:686rpx;
+    height:304rpx;
+    margin-top:28rpx;
+    margin-bottom:80rpx;
+    color:#CECECE;
+    font-size:24rpx;
+
+}
+.photo .border-box .bg{
+    position:absolute;
+    top:0;
+    left:0;
+    width:686rpx;
+    height:304rpx;
+}
+.photo .border-box .photoImage{
+    width:84rpx;
+    height:84rpx;
+    margin-bottom:20rpx;
+}
+
+.flex-center{
+    color:#F8F8F8;
+    font-size:32rpx;
+}
+
+.cancel{
+    width:32rpx;
+    height:32rpx;
+    position:absolute;
+    top:-10rpx;
+    right:-10rpx;
+}

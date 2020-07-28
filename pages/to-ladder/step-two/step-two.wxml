@@ -1,0 +1,33 @@
+<view class="container">
+    <view>
+        <view class="step-box">
+            <view class="item itemActive"></view>
+            <view class="item itemActive"></view>
+            <view class="item"></view>
+            <view class="item"></view>
+        </view>
+        <view>
+            <view class="step">第二步: 填写资料</view>
+            <view class="step-text">请完成您的资料，将会获得更多权益哦～</view>
+        </view>
+        <view class="flex-center border-box flex-colomn">
+            <textarea placeholder="一句话介绍下自己" placeholder-style="font-size:28rpx;color:#CECECE"></textarea>
+            <view class="middle-txt">发布一个动态，正式加入陪练~</view>
+            <textarea placeholder="说点什么，让大家看到不一样的你..." placeholder-style="font-size:28rpx;color:#CECECE"></textarea>
+        </view>
+        <view class="foot">
+            <view style="position:relative;box-sizing: border-box" wx:for="{{imageList}}" wx:key="index">
+                <image class="{{imageList.length>0?'img-m':'img-z'}}"  src="{{item}}" ></image>
+                <image src="../../../images/icon/cancel.png" class="cancel" bindtap="deleteImage" data-idx="{{index}}"></image>
+            </view>
+
+            <view class="photo" bindtap="chooseLocalImage">
+                <image src="../../../images/icon/photo.png" class="photo-icon"></image>
+                <view>
+                    上传照片
+                </view>
+            </view>
+            <view class='defaultBtn flex-center'>下一步</view>
+        </view>
+    </view>
+</view>

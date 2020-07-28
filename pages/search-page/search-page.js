@@ -83,7 +83,7 @@ Page({
 
       // 跳转到商品列表页
       wx.navigateTo({
-        url: '/pages/search-prod-show/search-prod-show?prodName=' + this.data.prodName,
+        url: '../search-show/search-show?prodName=' + this.data.prodName,
       })
     }
   },
