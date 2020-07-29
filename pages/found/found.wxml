@@ -15,11 +15,11 @@
                         <!--用户信息-->
                         <view class="flex-box flex-space user">
                             <view class="flex-box">
-                                <image src="{{item.momentsImgUrl}}" class="headImg"></image>
+                                <image src="{{item.pic}}" class="headImg"></image>
                                 <view class="userInfo">
                                     <view>{{item.nickName}}</view>
                                     <view class="flex-box" style="margin-top:8rpx;">
-                                        <image src="../../images/icon/lady.png" class="lv1"></image>
+                                        <image src="{{item.sex==1?'../../images/icon/man.png':'../../images/icon/lady.png'}}" class="lv1"></image>
                                         <view class="lv-box">
                                             <view class="lv-text">LV {{item.skillLevel}}</view>
                                             <image src="../../images/icon/lv.png" class="lv2"></image>

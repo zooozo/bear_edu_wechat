@@ -82,7 +82,7 @@
 /*选择技能等级*/
 .skillLeave {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
@@ -98,9 +98,9 @@
     position: relative;
     z-index: 10;
     border-radius: 32rpx 32rpx 0 0;
-    font-size:28rpx;
-    color:#333;
-    padding:0 32rpx;
+    font-size: 28rpx;
+    color: #333;
+    padding: 0 32rpx;
     box-sizing: border-box;
 }
 
@@ -108,19 +108,21 @@
     width: 24rpx;
     height: 24rpx;
 }
+
 .skillLeave .content .sure {
     width: 100rpx;
     height: 56rpx;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    border-radius:28rpx;
-    border:2rpx solid rgba(241,75,127,1);
-    color:#F14B7F;
-    font-size:24rpx;
+    border-radius: 28rpx;
+    border: 2rpx solid rgba(241, 75, 127, 1);
+    color: #F14B7F;
+    font-size: 24rpx;
 }
+
 .skillLeave .content .skill-title {
-    height:128rpx;
+    height: 128rpx;
 }
 
 .skillLeave .modal {
@@ -133,22 +135,90 @@
 
 }
 
-.list-block{
-    padding:28rpx;
+.list-block {
+    padding: 28rpx;
+    font-size: 26rpx;
+    color: #666;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 4rpx 24rpx 0px rgba(241, 75, 127, 0.07);
+    border-radius: 8px;
+    border: 2rpx solid rgba(207, 207, 207, 1);
+    margin-bottom: 20rpx;
+}
+
+.active {
+    color: #F14B7F;
+    background: rgba(255, 240, 245, 1);
+    border: 2rpx solid rgba(241, 75, 127, 1);
+}
+
+.list-block .title {
+    font-weight: 700;
+    margin-bottom: 10rpx;
+}
+
+.time-list {
+    margin-top: 40rpx;
+    margin-bottom: 28rpx;
+
+}
+
+.time-list .icon {
+    width: 28rpx;
+    height: 28rpx;
+    margin-right: 10rpx;
+}
+
+.time-list .time-head {
+    font-size: 26rpx;
+    color: #666;
+    margin-right: 40rpx;
+}
+
+.weak-list {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.weak-list .week-item {
+    width: 160rpx;
+    height: 60rpx;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-right:14rpx;
     font-size:26rpx;
-    color:#666;
-    background:rgba(255,255,255,1);
-    box-shadow:0 4rpx 24rpx 0px rgba(241,75,127,0.07);
-    border-radius:8px;
-    border:2rpx solid rgba(207,207,207,1);
-    margin-bottom:20rpx;
+    border-radius:8rpx;
+
+    box-sizing:border-box;
+    margin-bottom:24rpx;
 }
-.active{
+.week-item:nth-child(4){
+    margin:0;
+}
+
+.week-item-active{
     color:#F14B7F;
-    background:rgba(255,240,245,1);
-    border:2rpx solid rgba(241,75,127,1);
+    border:2rpx solid #F14B7F;
 }
-.list-block .title{
-   font-weight:700;
-    margin-bottom:10rpx;
+.week-item-normal{
+    color:#666666;
+    border:2rpx solid #CFCFCF;
 }
+
+.foot-time{
+    color:#aaa;
+    font-size:24rpx;
+}
+
+.picker-style{
+    border-top:2rpx solid #D6D6D6;
+    border-bottom:2rpx solid #D6D6D6;
+    height:52rpx;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+

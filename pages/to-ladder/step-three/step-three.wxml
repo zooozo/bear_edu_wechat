@@ -13,7 +13,7 @@
         </view>
     </view>
     <view class="skillList">
-        <view class="row flex-box flex-space flex-y-center" wx:for="{{list2}}" wx:key="{{index}}" data-currentIndex="{{index}}" bindtap="showCurrentModal">
+        <view class="row flex-box flex-space flex-y-center" wx:for="{{list2}}" wx:key="index" data-current="{{index}}" bindtap="showCurrentModal" >
             <view>
                 {{item.name}}
             </view>
@@ -28,13 +28,13 @@
     </view>
 
 <!--    技能等级-->
-    <view class="skillLeave" wx:if="{{showSkillModal}}">
+    <view class="skillLeave" wx:if="{{showSkillModal}}" >
         <view class="modal"></view>
         <view class="content">
             <view class="flex-box flex-space flex-y-center skill-title">
-                <image src="../../../images/icon/cancel2.png" class="cancel"></image>
+                <image src="../../../images/icon/cancel2.png" class="cancel" bindtap="closeModal"></image>
                 <view style="font-weight:700">选择技能等级</view>
-                <view class="sure" bindtap="closeModal">确定</view>
+                <view class="sure" bindtap="closeModal" data-choose="choose">确定</view>
             </view>
             <view>
                 <view class="list-block {{currentIndex==index?'active':''}}" wx:for="{{list}}" wx:key="index" bindtap="selectSkill" data-idx="{{index}}">
@@ -45,6 +45,48 @@
                 </view>
             </view>
         </view>
+    </view>
+    <view class="skillLeave" wx:if="{{!showOrderTimeModal}}" >
+        <view class="modal"></view>
+        <view class="content">
+            <view class="flex-box flex-space flex-y-center skill-title">
+                <image src="../../../images/icon/cancel2.png" class="cancel" bindtap="closeModal"></image>
+                <view style="font-weight:700">选择接单时间</view>
+                <view class="sure" bindtap="closeModal" data-choose="choose">确定</view>
+            </view>
+            <view class="time-list flex-box">
+                <view class="time-head flex-box flex-y-center" bindtap="chooseTimeTum" data-cur="1">
+                    <image src="{{certainTimesIndex==1?'../../../images/icon/circle2.png':'../../../images/icon/circle.png'}}" class="icon"></image>
+                    <view>全部时间段</view>
+                </view>
+                <view class="time-head flex-box flex-y-center" bindtap="chooseTimeTum" data-cur="2">
+                    <image src="{{certainTimesIndex==2?'../../../images/icon/circle2.png':'../../../images/icon/circle.png'}}" class="icon"></image>
+                    <view>全部时间段</view>
+                </view>
+            </view>
+            <view class="weak-list">
+                <view class="week-item {{item.selected?'week-item-active':'week-item-normal'}}"  wx:for="{{weekList}}" wx:key="index" data-week="{{index}}" bindtap="chooseWeekItem">
+                    {{item.name}}
+                </view>
+            </view>
+            <view class="foot-time">
+                <view>选择时间段（举例 19:00 至 21:00）</view>
+                <view class="flex-box flex-space" style="width:90%;margin:0 auto;">
+                    <picker-view indicator-style="height: 40px;" style="width: 200rpx; height:200px;" indicator-class="picker-style">
+                        <picker-view-column>
+                            <view wx:for="{{hour}}" wx:key="years" style="line-height: 50px; text-align: center;">{{item}}</view>
+                        </picker-view-column>
+                    </picker-view>
+                    <view style="align-self:center">至</view>
+                    <picker-view indicator-style="height: 40px;" style="width: 200rpx; height:200px;" indicator-class="picker-style">
+                        <picker-view-column>
+                            <view wx:for="{{hour}}" wx:key="years" style="line-height: 50px; text-align: center;">{{item}}</view>
+                        </picker-view-column>
+                    </picker-view>
 
+                </view>
+
+            </view>
+        </view>
     </view>
 </view>

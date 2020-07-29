@@ -20,7 +20,6 @@ padding-left:10rpx;
 }
 
 
-
 /* 价格数字显示不同大小 */
 
 .symbol {
