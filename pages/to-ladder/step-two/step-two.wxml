@@ -27,7 +27,7 @@
                     上传照片
                 </view>
             </view>
-            <view class='defaultBtn flex-center'>下一步</view>
+            <view class='defaultBtn flex-center' bindtap="nextStep">下一步</view>
         </view>
     </view>
 </view>

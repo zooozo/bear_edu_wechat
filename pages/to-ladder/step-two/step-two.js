@@ -35,5 +35,30 @@ Page({
             imageList: arr
         })
 
+    },
+
+
+nextStep(){
+    // "uploadFile:fail Error [ERR_TLS_CERT_ALTNAME_INVALID]: Hostname/IP does not match certificate's altnames: Host: badmtn.weizhukeji.com. is not in the cert's altnames: DNS:dev.weizhukeji.com"
+        this.data.imageList.forEach((item)=>{
+            wx.uploadFile({
+                url: "https://badmtn.weizhukeji.com/badmtn-api/api/file/upload",    //模拟接口
+                filePath: item,
+                name: 'file',
+                header: {
+                    'content-type': 'multipart/form-data',
+                    'Authorization':  wx.getStorageSync('token')
+                },
+                formData: {
+                    folderName: 'file'
+                },
+                success: function(res){
+                    console.log(res,'res====')
+
+                },fail:(err)=>{
+                    console.log(err,'err---')
+                }
+            })
+        })
     }
 });

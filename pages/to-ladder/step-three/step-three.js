@@ -23,45 +23,58 @@ Page({
             {name: '星期五', id: 5, selected: false},
             {name: '星期六', id: 6, selected: false},
         ],
-        hour: [
+        skillList:[
+            {name:'平抽球',id:1,selected: false},
+            {name:'杀球',id:2,selected: false},
+            {name:'高远球',id:3,selected: false},
+            {name:'斜线球',id:4,selected: false},
+            {name:'吊球',id:5,selected: false},
+            {name:'搓球',id:6,selected: false},
+            {name:'扑球',id:7,selected: false},
+            {name:'挑球',id:8,selected: false},
+            {name:'假动作',id:9,selected: false},
+            {name:'劈叉',id:10,selected: false},
+            {name:'往前勾对角',id:11,selected: false},
+            {name:'滑板吊球',id:12,selected: false},
+
 
         ],
-        hour2: [
-
-        ],
+        hour: [],
+        hour2: [],
 
         currentIndex: 0,
-        showSkillModal: false,
-        showOrderTimeModal: false,
-        showSkillModalList: false,
-        animationData: {},
+        showSkillModal: false,//是否技能等级模块
+        showOrderTimeModal: false, //是否显示选择时间模块
+        showSkillModalList: false,//是否显示擅长技能
+
         ModalStatus: 'close',
         certainTimesIndex: 1,
         weekItemIndex: 1,
-        chooseWeekList:[],
+        chooseWeekList: [],
+        chooseSkillArr: [],
+        chooseHour: '',
+        chooseHour1: '',
+
     },
     onLoad: function (options) {
         app.globalData.params = {}
-        let arr=[]
-        for(let i=1;i<=24;i++){
-            if(i<10){
-                arr.push('0'+i)
-            }else{
-                arr.push(i+"")
+        let arr = []
+        for (let i = 1; i <= 24; i++) {
+            if (i < 10) {
+                arr.push('0' + i)
+            } else {
+                arr.push(i + "")
             }
         }
-        for(let i=1;i<=24;i++){
-            if(i<10){
-                arr.push('0'+i)
-            }else{
-                arr.push(i+"")
-            }
-        }
+
         this.setData({
-            hour:arr,
-            hour2:arr
+            hour: arr,
+            hour2: arr
         })
-        console.log(arr,'arr--')
+
+    },
+    submit(){
+        app.globalData.params.orderTime=this.data.chooseHour+""+this.data.chooseHour1
     },
     selectSkill(e) {
         this.setData({
@@ -69,19 +82,64 @@ Page({
         })
     },
     closeModal(e) {
-        this.util(this.data.showSkillModalList);
-        if (e.currentTarget.dataset.choose == 'choose') {
+
+        if (e.currentTarget.dataset.choose == 'chooseSkillLeave') {
             app.globalData.params.skillLevel = this.data.currentIndex;
+            this.setData({
+                showSkillModal: false
+            })
+        } else if (e.currentTarget.dataset.choose == 'chooseTime') {
+            // 如果当前选择是全部时间段  certainTimesIndex   1：全部   2:按周
+            if (this.data.certainTimesIndex == 1) {
+                app.globalData.params.orderDate = '';
+                app.globalData.params.weekTime = '';
+            } else {
+                // 今天
+                let today = new Date();
+                console.log(today)
+                // 今天几号
+                let DayNumber = today.getDate();
+                // 今天星期几
+                let week = today.getDay();//获取存储当前日期
+                console.log(week)
+                this.data.chooseWeekList.sort((item) => {
+                    return item['id'] - item['id']
+                })
+                let sconds = 24 * 3600 * 1000
+                let str = '', weekStr = ''
+                this.data.chooseWeekList.forEach((item) => {
+
+                    let day, num;
+                    if (week - item.id >= 0) {
+                        // 如果今天的星期减去当前item的星期大于0的话就是选的今天前面的
+                        // 算出后一个星期的日期的查额
+                        num = 7 - (week - item.id)
+                        day = new Date(today.getTime() + (num * sconds))
+                        console.log(day.getDate(), 'day---');
+                    } else {
+                        day = new Date(today.getTime() + (item.id - week) * sconds)
+
+                    }
+                    str += day.getDate() + ','
+                    weekStr += item.id + ","
+
+                })
+                app.globalData.params.orderDate = str;
+                app.globalData.params.weekTime = weekStr;
+
+
+            }
+
+            this.setData({
+                showSkillModal: false
+            })
         }
-        this.setData({
-            showSkillModal: false
-        })
+
         this.util();
     },
 
     showCurrentModal(e) {
-        console.log(e, 'e-----')
-        this.util();
+
         let index = e.currentTarget.dataset.current
         console.log(index, 'index---')
         switch (index) {
@@ -116,92 +174,88 @@ Page({
             certainTimesIndex: e.currentTarget.dataset.cur
         })
     },
-    // 选择星期几
-    chooseWeekItem(e) {
+    chooseSkillList(e) {
+
+        if(this.data.chooseSkillArr.length>4){
+            wx.showToast({
+                title: '最多只能选择5个技能'
+
+            })
+            return;
+        }
         let index = Number(e.currentTarget.dataset.week);
         // 保存当前数组中的值
-        let currentItemStatus ="weekList[" + index + "].selected";
-        let currentItem=this.data.weekList[index]
+        let currentItemStatus = "skillList[" + index + "].selected";
+        let currentItem = this.data.skillList[index]
         // 保存选中的星期数组
-        let  arr=this.data.chooseWeekList;
+        let arr = this.data.chooseSkillArr;
+
         this.setData({
-            [currentItemStatus]: !this.data.weekList[index].selected
+            [currentItemStatus]: !this.data.skillList[index].selected
         })
-        if(this.data.weekList[index].selected){
-            console.log(arr,currentItemStatus,'arr----')
+        if (this.data.skillList[index].selected) {
+
             arr.push(currentItem)
-           this.setData({
-               chooseWeekList:arr
-           })
-        }else{
+
+            this.setData({
+                chooseSkillArr: arr
+            })
+        } else {
             // 去重删除取消选中的星期
-            arr.forEach((item,idx)=>{
-                if(item.id==this.data.weekList[index].id){
-                    arr.splice(idx,1)
+            arr.forEach((item, idx) => {
+                if (item.id == this.data.skillList[index].id) {
+                    arr.splice(idx, 1)
                 }
             })
             this.setData({
-                chooseWeekList:arr
+                chooseSkillArr: arr
             })
         }
 
     },
-    util(currentStatus) {
-        /* 动画部分 */
-        // 第1步：创建动画实例
-        let that = this
-        var animation = wx.createAnimation({
-            duration: 200,  //动画时长
-            timingFunction: "linear", //线性
-            delay: 0  //0则不延迟
-        });
-
-        // 第2步：这个动画实例赋给当前的动画实例
-
-
-        // 第3步：执行第一组动画
-        animation.opacity(0).rotateX(-100).step();
-
-        // 第4步：导出动画对象赋给数据对象储存
+    // 选择星期几
+    chooseWeekItem(e) {
+        let index = Number(e.currentTarget.dataset.week);
+        // 保存当前数组中的值
+        let currentItemStatus = "weekList[" + index + "].selected";
+        let currentItem = this.data.weekList[index]
+        // 保存选中的星期数组
+        let arr = this.data.chooseWeekList;
         this.setData({
-            animationData: animation.export()
+            [currentItemStatus]: !this.data.weekList[index].selected
+        })
+        if (this.data.weekList[index].selected) {
+            console.log(arr, currentItemStatus, 'arr----')
+            arr.push(currentItem)
+            this.setData({
+                chooseWeekList: arr
+            })
+        } else {
+            // 去重删除取消选中的星期
+            arr.forEach((item, idx) => {
+                if (item.id == this.data.weekList[index].id) {
+                    arr.splice(idx, 1)
+                }
+            })
+            this.setData({
+                chooseWeekList: arr
+            })
+        }
+
+    },
+    getTimer(e) {
+        let hour = this.data.hour[e.detail.value[0]]
+        this.setData({
+            chooseHour: hour
         })
 
-        // 第5步：设置定时器到指定时候后，执行第二组动画
-        setTimeout(function () {
-            // 执行第二组动画
-            animation.opacity(1).rotateX(0).step();
-            // 给数据对象储存的第一组动画，更替为执行完第二组动画的动画对象
-            this.setData({
-                animationData: animation
-            })
+    },
+    getTimer2(e) {
+        let hour = this.data.hour2[e.detail.value[0]]
+        this.setData({
+            chooseHour1: hour
+        })
 
-            //关闭
-            console.log(that.data.ModalStatus, '2222')
-            if (that.data.ModalStatus == "close") {
-                that.setData(
-                    {
-                        showModalStatus: false
-                    }
-                );
-            }
-            console.log(that.data.showModalStatus, '2222')
-            // this.setData(
-            //     {
-            //         showSkillModal: false
-            //     }
-            // );
-
-        }.bind(this), 200)
-
-        // 显示
-        if (that.data.ModalStatus == "open") {
-            this.setData(
-                {
-                    showModalStatus: true
-                }
-            );
-        }
     }
 
 
