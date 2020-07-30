@@ -48,7 +48,8 @@ Page({
                     folderName: 'file'
                 },
                 success: function (res) {
-                    app.globalData.params.trainerImg=that.data.trainerImg
+                    let oss='https://eco-culture.oss-cn-shenzhen.aliyuncs.com/'
+                    app.globalData.params.trainerImg=oss+res.data
                     wx.navigateTo({
                         url:'../step-two/step-two'
                     })

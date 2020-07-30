@@ -1,9 +1,9 @@
 {
   "pages": [
-
+    "pages/to-ladder/step-three/step-three",
     "pages/to-ladder/ladder",
     "pages/to-ladder/step-two/step-two",
-    "pages/to-ladder/step-three/step-three",
+
     "pages/to-ladder/step-four/step-four",
 
     "pages/training-space/index",
