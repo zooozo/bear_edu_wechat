@@ -1,21 +1,25 @@
 /**app.wxss**/
 
-page{
-    height:100%;
+page {
+    height: 100%;
+    display:flex;
+    flex-direction: column;
 }
+
 .container {
-  height: 100%;
-  box-sizing: border-box;
-  color: #333;
-  font-family: helvetica,'Heiti SC',PingFangSC-Light;
-    position:relative;
-} 
-.price{
-  font-family: Arial;
-  display: inline-block;
-  color: #eb2444;
-  padding-bottom:10rpx;
-padding-left:10rpx;
+    height:100%;
+    box-sizing: border-box;
+    color: #333;
+    font-family: helvetica, 'Heiti SC', PingFangSC-Light;
+    position: relative;
+}
+
+.price {
+    font-family: Arial;
+    display: inline-block;
+    color: #eb2444;
+    padding-bottom: 10rpx;
+    padding-left: 10rpx;
 
 }
 
@@ -23,84 +27,90 @@ padding-left:10rpx;
 /* 价格数字显示不同大小 */
 
 .symbol {
-  font-size: 24rpx;
+    font-size: 24rpx;
 }
 
 .big-num {
-  font-size: 32rpx;
+    font-size: 32rpx;
 }
 
 .small-num {
-  font-size: 24rpx;
+    font-size: 24rpx;
 }
 
 
-.flex-center{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.flex-box{
-  display:flex;
-}
-
-.flex-space{
-  justify-content: space-between;
-}
-.flex-around{
-  justify-content: space-around;
-}
-.flex-y-center{
+.flex-center {
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-.flex-colomn{
-  flex-direction: column;
+.flex-box {
+    display: flex;
 }
 
-.defaultBtn{
-  width:689rpx;
-  height:90rpx;
-  background:linear-gradient(246deg,rgba(248,151,120,1) 0%,rgba(241,75,127,1) 100%);
-  box-shadow:0 2rpx 12rpx 0rpx rgba(241,75,127,0.35);
-  border-radius:46rpx;
+.flex-space {
+    justify-content: space-between;
+}
+
+.flex-around {
+    justify-content: space-around;
+}
+
+.flex-y-center {
+    align-items: center;
+}
+
+.flex-colomn {
+    flex-direction: column;
+}
+
+.defaultBtn {
+    width: 689rpx;
+    height: 90rpx;
+    background: linear-gradient(246deg, rgba(248, 151, 120, 1) 0%, rgba(241, 75, 127, 1) 100%);
+    box-shadow: 0 2rpx 12rpx 0rpx rgba(241, 75, 127, 0.35);
+    border-radius: 46rpx;
 
 }
 
-.cutTxt{
-  word-break: break-all;
+.cutTxt {
+    word-break: break-all;
 
-  text-overflow: ellipsis;
+    text-overflow: ellipsis;
 
-  display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+    display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
 
-  -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
 
-  -webkit-line-clamp: 2; /** 显示的行数 **/
+    -webkit-line-clamp: 2; /** 显示的行数 **/
 
-  overflow: hidden;  /** 隐藏超出的内容 **/
-}.cutTxt1{
-   word-break: break-all;
+    overflow: hidden; /** 隐藏超出的内容 **/
+}
 
-   text-overflow: ellipsis;
+.cutTxt1 {
+    word-break: break-all;
 
-   display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+    text-overflow: ellipsis;
 
-   -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+    display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
 
-   -webkit-line-clamp: 1; /** 显示的行数 **/
+    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
 
-   overflow: hidden;  /** 隐藏超出的内容 **/
- }
- image{
-   vertical-align: bottom;
- }
+    -webkit-line-clamp: 1; /** 显示的行数 **/
+
+    overflow: hidden; /** 隐藏超出的内容 **/
+}
+
+image {
+    vertical-align: bottom;
+}
 
 .notMargin {
-   margin:0;
- }
+    margin: 0;
+}
+
 .lvLogo {
-   width:88rpx;
-    height:32rpx;
- }
+    width: 88rpx;
+    height: 32rpx;
+}

@@ -1,0 +1,64 @@
+.step-box {
+    height: 120rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.step-box .item {
+    width: 60rpx;
+    height: 8rpx;
+    background-color: #E2E2E2;
+    border-radius: 4rpx;
+    margin-right: 20rpx;
+}
+
+.step-box .itemActive {
+    background-color: #F14B7F;
+}
+
+.step {
+    text-align: center;
+    font-size: 30rpx;
+    color: #333;
+    margin-bottom:12rpx;
+    font-weight:700;
+}
+.step-text{
+    color:#aaa;
+    font-size:24rpx;
+    text-align: center;
+}
+
+.foot{
+    text-align:center;
+    margin-top:200rpx;
+    color:#AAAAAA;
+    font-size:24rpx;
+}
+.foot image{
+    width:108rpx;
+    height:108rpx;
+
+}
+
+.foot .over{
+    font-size:30rpx;
+    color:#333;
+    font-weight:700;
+    margin-top:32rpx;
+    margin-bottom:12rpx;
+}
+
+.foot-btn{
+    width:206rpx;
+    height:76rpx;
+    border-radius:46rpx;
+    border:2rpx solid rgba(241,75,127,1);
+    font-size:28rpx;
+    color:#F14B7F;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}

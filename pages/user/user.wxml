@@ -57,9 +57,9 @@
         </view>
     </view>
     <!--陪练按钮-->
-    <view class="flex-center foot">
+    <navigator url="/pages/to-ladder/ladder" class="flex-center foot">
         <view class="btn">
             我想当陪练赚钱
         </view>
-    </view>
+    </navigator>
 </view>

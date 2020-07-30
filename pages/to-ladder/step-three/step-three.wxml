@@ -18,7 +18,8 @@
                 {{item.name}}
             </view>
             <view class="right-part">
-                <text class="{{index==3?'price':''}}">{{item.text}}</text>
+                <text wx:if="{{index!=3}}">{{item.text}}</text>
+                <input   wx:else class="price" placeholder="¥100/1小时"  type="number" bindblur="getOrderPrice"/>
                 <image src="../../../images/icon/right.png" class="right-png"></image>
             </view>
         </view>
@@ -92,13 +93,13 @@
         </view>
     </view>
     <!--选择技能-->
-    <view class="skillLeave" wx:if="{{!showOrderTimeModal}}" >
+    <view class="skillLeave" wx:if="{{showSkillModalList}}" >
         <view class="modal"></view>
         <view class="content">
             <view class="flex-box flex-space flex-y-center skill-title">
                 <image src="../../../images/icon/cancel2.png" class="cancel" bindtap="closeModal"></image>
                 <view style="font-weight:700">擅长技能</view>
-                <view class="sure" bindtap="closeModal" data-choose="chooseTime">确定</view>
+                <view class="sure" bindtap="closeModal" data-choose="chooseSkill">确定</view>
             </view>
             <view class="weak-list" >
                 <view class="week-item {{item.selected?'week-item-active':'week-item-normal'}}"  wx:for="{{skillList}}" wx:key="index" data-week="{{index}}" bindtap="chooseSkillList">

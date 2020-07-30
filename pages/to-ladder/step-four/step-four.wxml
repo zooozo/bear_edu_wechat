@@ -1,0 +1,26 @@
+<view>
+    <view>
+        <view class="step-box">
+            <view class="item itemActive"></view>
+            <view class="item itemActive"></view>
+            <view class="item itemActive"></view>
+            <view class="item itemActive"></view>
+        </view>
+        <view>
+            <view class="step">第四步: 客服审核</view>
+            <view class="step-text">请完成您的认证方式，将会获得更多权益哦～</view>
+        </view>
+    </view>
+    <view class="foot">
+        <image src="../../../images/icon/check.png"></image>
+        <view class="over">资料提交成功</view>
+        <view >申请完成，等待客服审核</view>
+
+    </view>
+
+    <navigator url="/pages/user/user" open-type="switchTab" class="flex-center" style="margin-top:100rpx;">
+        <view class="foot-btn">
+            完成
+        </view>
+    </navigator>
+</view>

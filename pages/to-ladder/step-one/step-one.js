@@ -12,8 +12,9 @@ Page({
             sizeType: ['original', 'compressed'],
             sourceType: ['album', 'camera'],
             success:(res)=>{
+                // console.log(res,'res---')
                 this.setData({
-                    trainerImg:res.tempFilePaths
+                    trainerImg:res.tempFilePaths[0]
                 })
             }
         })
@@ -24,16 +25,39 @@ Page({
       })
     },
     nextStep(){
-        if(!this.data.uploadImage){
+        let that=this;
+        if(!this.data.trainerImg){
             wx.showModal({
                 title:'提示',
                 content:'请上传本人的一张运动类图片'
             })
         }else{
-            app.globalData.params.trainerImg=this.data.trainerImg
-            wx.navigateTo({
-                url:'../step-two/step-two'
+            wx.showLoading({
+                title:'上传图片中',
+                mask:true
             })
+            wx.uploadFile({
+                url: "https://dev.weizhukeji.com/badmtn-api/api/file/upload",    //模拟接口
+                filePath: that.data.trainerImg,
+                name: 'file',
+                header: {
+                    'content-type': 'multipart/form-data',
+                    'Authorization': wx.getStorageSync('token')
+                },
+                formData: {
+                    folderName: 'file'
+                },
+                success: function (res) {
+                    app.globalData.params.trainerImg=that.data.trainerImg
+                    wx.navigateTo({
+                        url:'../step-two/step-two'
+                    })
+                },
+                fail: (err) => {
+                    console.log(err,'err')
+                }
+            })
+
         }
 
     }

@@ -1,5 +1,5 @@
 var config = require("config.js");
-
+const app=getApp();
 //统一的网络请求方法
 function request(params, isGetTonken) {
   // 全局变量
@@ -83,6 +83,7 @@ var getToken = function() {
           principal: res.code
         },
         callBack: result => {
+          app.globalData.userInfo=res.data
           // 没有获取到用户昵称，说明服务器没有保存用户的昵称，也就是用户授权的信息并没有传到服务器
           if (!result.nickName) {
             updateUserInfo();
@@ -116,6 +117,9 @@ function updateUserInfo() {
           avatarUrl: userInfo.avatarUrl,
           nickName: userInfo.nickName,
           gender:userInfo.gender
+        },
+        callBack:()=>{
+
         }
       });
     }

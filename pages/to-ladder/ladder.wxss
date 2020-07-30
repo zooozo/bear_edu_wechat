@@ -11,9 +11,11 @@
     align-items: center;
     justify-content: center;
 }
-
+.content{
+    margin-top:40rpx;
+}
 .content .row{
-    height:100rpx;
+    height:120rpx;
     padding:0 32rpx;
 
 }

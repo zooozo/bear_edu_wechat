@@ -1,0 +1,87 @@
+<view class="container">
+    <view class="header-title">
+        <image src="../../images/timg.jpeg" class="head-img"></image>
+        <view class="userInfo">
+            <view class="flex-box">
+                <image src="../../images/timg.jpeg" class="avatar"></image>
+                <view style="margin-left:32rpx">
+                    <view class="name">成都小甜甜</view>
+                    <view class="flex-box rate">
+                        <view style="margin-right:20rpx;">
+                            <text>服务</text>
+                            <text  class="t1">35人</text>
+                        </view>
+                        <view>
+                            <text>好评率</text>
+                            <text  class="t2">97%</text>
+                        </view>
+                    </view>
+                    <view class="copyId">
+                        <view>
+                            ID:2910290123
+                        </view>
+                        <view>
+                            复制
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+            <view class="follow">
+                关注
+            </view>
+        </view>
+    </view>
+    <view class="content">
+        <view class="intruduce">
+            手抖菜鸡王牌，钢枪能挡子弹，苟分躲躲迷藏，只要是老板喜欢，立马变成盒子
+        </view>
+
+        <view class="trainer">
+            <view class="flex-box flex-space flex-y-center">
+                <view class="badmtn-traner">羽毛球陪练</view>
+                <view class="price"><text class="txt">¥30</text><text class="txt1">/1小时</text></view>
+            </view>
+            <view style="margin-top:28rpx;margin-bottom:20rpx;">
+                <text style="color:#999">接单时间： </text><text> 周一至周日  19:00 ~ 21:00</text>
+            </view>
+            <view >
+                <text style="color:#999">擅长球技：</text> <text>假动作、吊球、挑球</text>
+            </view>
+        </view>
+
+        <view class="skill">
+            <view class="badmtn-traner">技能认证</view>
+            <image src="../../images/test/badmtn.png" class="pic"></image>
+            <view><text style="color:#999">业余等级：</text><text style="color:#666">3级</text></view>
+        </view>
+        <view class="answering">
+<!--            <image src="../../images/timg.jpeg" class="avatar1"></image>-->
+            <view class="badmtn-traner">用户评价 <text style="color:#999;font-size:24rpx">(200)</text></view>
+            <view class="skill-list" style="{{skillList.length<3?'width:70%':' justify-content: space-between'}}">
+                <view class="skill-item" wx:for="{{skillList}}" wx:key="index">
+                    {{item.text}}{{item.num}}
+                </view>
+            </view>
+            <view class="user-order">
+                <image src="../../images/timg.jpeg" class="avatar"></image>
+                <view style="margin-left:24rpx;">
+                    <view class="badmtn-traner">成都小甜甜</view>
+                    <view class="flex-center">
+                        <text>07-30</text>
+                        <view class="order-num">
+                            第一次下单
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="appraise">
+                球技很好很赞，球技很好很赞球技很好很赞，球技很好很赞，球技很好很赞
+            </view>
+            <view class="more">
+                查看更多评价
+            </view>
+        </view>
+    </view>
+
+</view>

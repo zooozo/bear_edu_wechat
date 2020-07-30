@@ -18,7 +18,7 @@
             <view class="step-text"> (禁止盗用他人图片，发现将会封号)</view>
         </view>
         <view>
-            <view class="border-box flex-center flex-colomn" bindtap="chooseLocalImage" wx:if="{{!uploadImage}}">
+            <view class="border-box flex-center flex-colomn" bindtap="chooseLocalImage" wx:if="{{!trainerImg}}">
                 <image src="../../../images/icon/border.png" class="bg"></image>
                 <image src="../../../images/icon/photo.png" class="photoImage"></image>
                 <view>
@@ -26,7 +26,7 @@
                 </view>
             </view>
             <view class="border-box" wx:else>
-                <image class="bg" src="{{uploadImage}}"></image>
+                <image class="bg" src="{{trainerImg}}"></image>
                 <image class="cancel" src="../../../images/icon/cancel.png" bindtap="deleteImage"></image>
             </view>
         </view>

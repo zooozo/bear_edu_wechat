@@ -1,5 +1,5 @@
 const app = getApp();
-
+const http=require('../../../utils/http')
 Page({
     data: {
         list: [
@@ -57,7 +57,6 @@ Page({
 
     },
     onLoad: function (options) {
-        app.globalData.params = {}
         let arr = []
         for (let i = 1; i <= 24; i++) {
             if (i < 10) {
@@ -74,7 +73,21 @@ Page({
 
     },
     submit(){
+
+
+        if(!app.globalData.params.skillLevel)
+
         app.globalData.params.orderTime=this.data.chooseHour+""+this.data.chooseHour1
+        app.globalData.params.skillLevel = this.data.currentIndex;
+        app.globalData.params.receivingType=this.data.certainTimesIndex
+        http.request({
+            url:'/trainer/addTrainer',
+            data:app.globalData.params,
+            callBack:(res)=>{
+                console.log(res)
+
+            }
+        })
     },
     selectSkill(e) {
         this.setData({
@@ -82,18 +95,18 @@ Page({
         })
     },
     closeModal(e) {
-
         if (e.currentTarget.dataset.choose == 'chooseSkillLeave') {
-            app.globalData.params.skillLevel = this.data.currentIndex;
             this.setData({
                 showSkillModal: false
             })
-        } else if (e.currentTarget.dataset.choose == 'chooseTime') {
+        }
+        else if (e.currentTarget.dataset.choose == 'chooseTime') {
             // 如果当前选择是全部时间段  certainTimesIndex   1：全部   2:按周
             if (this.data.certainTimesIndex == 1) {
                 app.globalData.params.orderDate = '';
-                app.globalData.params.weekTime = '';
-            } else {
+                app.globalData.params.weekTime = '1,2,3,4,5,6,7';
+            }
+            else {
                 // 今天
                 let today = new Date();
                 console.log(today)
@@ -131,11 +144,25 @@ Page({
             }
 
             this.setData({
-                showSkillModal: false
+                showOrderTimeModal: false
+            })
+        }else if(e.currentTarget.dataset.choose=='chooseSkill'){
+            // begoodSkill
+
+            let str=''
+            this.data.chooseSkillArr.forEach((item)=>{
+                console.log(item,'item---')
+                str+=item.name+',';
+            })
+
+            app.globalData.params.begoodSkill=str;
+
+            this.setData({
+                showSkillModalList: false
             })
         }
 
-        this.util();
+
     },
 
     showCurrentModal(e) {
@@ -167,6 +194,12 @@ Page({
         this.setData({
             ModalStatus: 'open'
         })
+    },
+    // 获取当前输入的价格
+    getOrderPrice(e){
+        let num=e.detail.value;
+
+        app.globalData.params.orderPrice=num*10*10
     },
     // 点击时间段事件
     chooseTimeTum(e) {
@@ -201,7 +234,6 @@ Page({
                 chooseSkillArr: arr
             })
         } else {
-            // 去重删除取消选中的星期
             arr.forEach((item, idx) => {
                 if (item.id == this.data.skillList[index].id) {
                     arr.splice(idx, 1)

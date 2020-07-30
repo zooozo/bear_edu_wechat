@@ -1,7 +1,11 @@
 .container{
-    padding-bottom:80rpx;
-}
 
+    box-sizing: content-box;
+
+}
+page{
+    flex:1;
+}
 .step-box {
     height: 120rpx;
     display: flex;
@@ -48,6 +52,7 @@
 
 .border-box textarea {
     height: 300rpx;
+    color:#333;
 }
 
 .border-box .middle-txt {
@@ -78,7 +83,14 @@
     position:absolute;
     top:-10rpx;
     right:-10rpx;
-}
+}.foot .cancel2{
+     width: 50rpx;
+     height: 50rpx;
+     position: absolute;
+     top: -30rpx;
+     right: 30rpx;
+
+ }
 .photo {
     display: flex;
     flex-direction: column;
@@ -100,7 +112,7 @@
 .foot .defaultBtn{
     font-size:32rpx;
     color:#F8F8F8;
-    margin-top:80rpx;
+    margin-top:40rpx;
     flex-shrink: 0;
 }
 

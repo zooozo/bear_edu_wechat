@@ -5,7 +5,9 @@
     justify-content: center;
 }
 
-
+.container{
+    height:100%;
+}
 .step-box .item {
     width: 60rpx;
     height: 8rpx;
@@ -64,6 +66,7 @@
     font-size: 30rpx;
     color: #666666;
     font-weight: 400;
+    text-align: right;
 }
 
 .defaultBtn {
