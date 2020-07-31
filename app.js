@@ -28,6 +28,7 @@ App({
     isLanding: true,
     // 购物车商品数量
     totalCartCount: 0,
+    userInfo:{},
     imageHost:'http://eco-culture.oss-cn-shenzhen.aliyuncs.com/',
     params:{}
 

@@ -84,6 +84,9 @@ var getToken = function() {
         },
         callBack: result => {
 
+          var globalData = getApp().globalData;
+          console.log(globalData,'globalData-----------')
+          globalData.userInfo=result
           // 没有获取到用户昵称，说明服务器没有保存用户的昵称，也就是用户授权的信息并没有传到服务器
           if (!result.nickName) {
             updateUserInfo();
@@ -93,8 +96,7 @@ var getToken = function() {
           } else {
             wx.setStorageSync('token', 'bearer' + result.access_token); //把token存入缓存，请求接口数据时要用
           }
-          var globalData = getApp().globalData;
-          globalData.userInfo=result
+
           globalData.isLanding = false;
           while (globalData.requestQueue.length) {
             request(globalData.requestQueue.pop());

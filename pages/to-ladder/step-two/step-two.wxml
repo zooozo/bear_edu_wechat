@@ -32,7 +32,7 @@
             <view class="photo" bindtap="chooseLocalImage"  wx:if="{{!videoUrl}}">
                 <image src="../../../images/icon/photo.png" class="photo-icon"></image>
                 <view>
-                    上传照片/视频
+                    上传照片
                 </view>
             </view>
 

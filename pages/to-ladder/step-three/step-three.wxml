@@ -25,7 +25,7 @@
         </view>
     </view>
     <view class="flex-center">
-        <view class="defaultBtn" bindtap="submit">下一步</view>
+        <view class="defaultBtn" bindtap="OnSubmit">下一步</view>
     </view>
 
 <!--    技能等级-->

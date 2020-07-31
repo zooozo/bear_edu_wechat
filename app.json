@@ -1,13 +1,12 @@
 {
   "pages": [
+    "pages/to-ladder/update-trainer/index",
+    "pages/user/user",
     "pages/to-ladder/step-three/step-three",
     "pages/to-ladder/ladder",
     "pages/to-ladder/step-two/step-two",
-
     "pages/to-ladder/step-four/step-four",
-
     "pages/training-space/index",
-    "pages/user/user",
     "pages/to-ladder/step-one/step-one",
     "pages/index/index",
     "pages/moment-time/moment-time",

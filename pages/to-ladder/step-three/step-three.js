@@ -24,7 +24,7 @@ Page({
             {name: '星期六', id: 6, selected: false},
         ],
         skillList:[
-            {name:'平抽球',id:1,selected: true},
+            {name:'平抽球',id:1,selected: false},
             {name:'杀球',id:2,selected: false},
             {name:'高远球',id:3,selected: false},
             {name:'斜线球',id:4,selected: false},
@@ -73,7 +73,7 @@ Page({
         })
 
     },
-    submit(){
+    OnSubmit(){
         // begoodSkill: "扑球,往前勾对角,滑板吊球,挑球,斜线球,"
         // idNumber: "36030219900506353x"
         // orderDate: ""
@@ -89,15 +89,17 @@ Page({
 
         if(!app.globalData.params.skillLevel)
 
-        app.globalData.params.orderTime=this.data.chooseHour+""+this.data.chooseHour1
+        app.globalData.params.orderTime=this.data.chooseHour+","+this.data.chooseHour1
         app.globalData.params.skillLevel = Number(this.data.currentIndex)+1;
         app.globalData.params.receivingType=this.data.certainTimesIndex;
-        app.globalData.params.user_id=app.globalData.userInfo.userId;
+        app.globalData.params.userId=app.globalData.userInfo.userId;
+        app.globalData.params.nickName=app.globalData.userInfo.nickName;
             console.log(this.data.clickCount,app.globalData.params.begoodSkill,'count---')
             if(!app.globalData.params.skillLevel || this.data.clickCount<1){
                 wx.showModal({
                     title: '提示',
                     content: '请选择技能等级',
+                    showCancel:false
                 })
                 return
             }
@@ -105,6 +107,7 @@ Page({
                 wx.showModal({
                     title: '提示',
                     content: '请选择接单时间',
+                    showCancel:false
                 })
                 return
             }
@@ -112,6 +115,7 @@ Page({
                 wx.showModal({
                     title: '提示',
                     content: '请选择擅长技能 ',
+                    showCancel:false
                 })
                 return
             }
@@ -119,6 +123,7 @@ Page({
                 wx.showModal({
                     title: '提示',
                     content: '请输入接单价格 ',
+                    showCancel:false
                 })
                 return
             }
@@ -128,7 +133,9 @@ Page({
             url:'/trainer/addTrainer',
             data:app.globalData.params,
             callBack:(res)=>{
-                console.log(res)
+              wx.navigateTo({
+                  url:'../step-four/step-four'
+              })
 
             }
         })
@@ -146,6 +153,15 @@ Page({
                 app.globalData.params.weekTime = '1,2,3,4,5,6,7';
             }
             else {
+                if(!this.data.chooseHour || !this.data.chooseHour1){
+                    wx.showModal({
+                        title: '提示',
+                        content: '请选择接单小时区间 ',
+                        showCancel:false
+                    })
+                    return
+                }
+
                 // 今天
                 let today = new Date();
                 console.log(today)
@@ -157,26 +173,12 @@ Page({
                 this.data.chooseWeekList.sort((item) => {
                     return item['id'] - item['id']
                 })
-                let sconds = 24 * 3600 * 1000
-                let str = '', weekStr = ''
+                let  weekStr = ''
                 this.data.chooseWeekList.forEach((item) => {
-
-                    let day, num;
-                    if (week - item.id >= 0) {
-                        // 如果今天的星期减去当前item的星期大于0的话就是选的今天前面的
-                        // 算出后一个星期的日期的查额
-                        num = 7 - (week - item.id)
-                        day = new Date(today.getTime() + (num * sconds))
-                        console.log(day.getDate(), 'day---');
-                    } else {
-                        day = new Date(today.getTime() + (item.id - week) * sconds)
-
-                    }
-                    str += day.getDate() + ','
                     weekStr += item.id + ","
 
                 })
-                app.globalData.params.orderDate = str;
+
                 app.globalData.params.weekTime = weekStr;
 
 
@@ -188,7 +190,14 @@ Page({
         }
         else if(e.currentTarget.dataset.choose=='chooseSkill'){
             // begoodSkill
-
+            if(this.data.chooseSkillArr.length==0){
+                wx.showModal({
+                    title: '提示',
+                    content: '请选择擅长技能 ',
+                    showCancel:false
+                })
+                return
+            }
             let str=''
             this.data.chooseSkillArr.forEach((item)=>{
                 console.log(item,'item---')
@@ -262,7 +271,6 @@ Page({
                 this.setData({
                     showSkillModalList: true,
                     [current]:'平抽球',
-                    'chooseSkillArr[0]':'平抽球',
                     clickCount:num,
 
                 })

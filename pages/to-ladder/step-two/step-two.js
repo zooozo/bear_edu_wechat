@@ -201,7 +201,7 @@ Page({
                    mask:true
                })
                // 先判断是否是上传了视频还是图片
-               let oss='https://eco-culture.oss-cn-shenzhen.aliyuncs.com/'
+
                if(this.data.videoUrl &&this.data.videoUrl.length>0){
                    wx.uploadFile({
                        url: "https://dev.weizhukeji.com/badmtn-api/api/file/upload",    //模拟接口
@@ -217,7 +217,7 @@ Page({
                        success: function (res) {
                            console.log(res,'视频上传')
                            that.setData({
-                               'params.momentsImgUrl':oss+res.data
+                               'params.momentsImgUrl':res.data
                            })
                            http.request({
                                url:'/moments/savePublishMoments',
@@ -249,7 +249,7 @@ Page({
                                folderName: 'file'
                            },
                            success: function (res) {
-                               str+=oss+res.data+","
+                               str+=res.data+","
                                //如果是最后一个在set进去
                                if(index==that.data.imageList.length-1){
                                    that.setData({
