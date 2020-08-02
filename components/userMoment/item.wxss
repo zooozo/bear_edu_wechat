@@ -1,0 +1,116 @@
+
+@import "../../app.wxss";
+ .list-item{
+    padding:0 30rpx 36rpx;
+    border-bottom:2rpx solid #EDEDED
+}
+ .list-item .user{
+    height:156rpx;
+    align-items: center;
+}
+
+.list-item .headImg{
+    width:100rpx;
+    height:100rpx;
+    border-radius:50%;
+    margin-right:28rpx;
+}
+
+ .list-item .userInfo{
+    color:#333;
+    font-size:30rpx;
+    font-weight:700;
+}
+.list-item .userInfo .lv1{
+    width:44rpx;
+    height:28rpx;
+    margin-right:12rpx;
+}
+.list-item .userInfo .lv2{
+    width:88rpx;
+    height:28rpx;
+    position:absolute;
+    top:0;left:0;
+}
+.list-item .user .trend{
+    border-radius:26rpx;
+    width:96rpx;
+    height:52rpx;
+    color:#F14B7F;
+    font-size:24rpx;
+    border:2rpx solid rgba(241,75,127,1);
+}
+.list-item .user .disabledTrend{
+    border-radius:26rpx;
+    width:120rpx;
+    height:52rpx;
+    color:#999999;
+    font-size:24rpx;
+    border:2rpx solid rgba(229,229,229,1);
+}
+ .list-item .title {
+
+    color:#666;
+    font-size:28rpx;
+
+}
+.list-item .imgBox {
+    margin-top:20rpx;
+    flex-wrap: wrap;
+
+}
+.list-item .imgBox .imgType1{
+    width:224rpx;
+    height:224rpx;
+}
+
+ .list-item .imgBox .imgType2{
+    width:340rpx;
+    height:340rpx;
+}
+.list-item .imgBox .imgType2:last-child{
+    margin-right:0 !important;
+}
+.list-item .imgBox image{
+    flex-shrink: 0;
+    margin-bottom:20rpx;
+
+    border-radius:10rpx;
+}
+ .list-item .item-foot{
+    font-size:24rpx;
+    color:#C9C9C9;
+    margin-top:26rpx;
+}
+.list-item .item-foot .point{
+    width:6rpx;
+    height:6rpx;
+    border-radius:50%;
+    background:#DCDCDC;
+    margin:0 16rpx;
+}
+.list-item .item-foot .talking{
+    color:#C9C9C9;
+    font-size:24rpx;
+}
+ .list-item .item-foot image{
+    width:36rpx;
+    height:36rpx;
+}
+
+.lv-box{
+    position:relative;
+    text-align: center;
+    width:88rpx;
+    height:28rpx;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding-left:12rpx;
+}
+.lv-box .lv-text{
+    position:relative;z-index:10;
+    font-size:20rpx;
+    color:#fff;
+
+}

@@ -3,6 +3,6 @@
   "navigationBarTitleText": "发布动态",
   "navigationBarTextStyle": "black",
   "usingComponents": {
-        "uploader":"../../vant/uploader"
+
   }
 }

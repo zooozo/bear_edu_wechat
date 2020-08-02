@@ -79,7 +79,7 @@ Page({
         return new Promise((re,rj)=>{
             wx.getSetting({
                 success(res) {
-                    console.log(res,'设置信息')
+                  // 如果是还未授权的就弹出授权
                     if (res.authSetting['scope.userLocation'] ==null) {
                         wx.authorize({
                             scope: 'scope.userLocation',
@@ -102,10 +102,12 @@ Page({
                             }
                         })
                     }else if(res.authSetting['scope.userLocation']===false){
+                        // 如果是弹出了授权然后用户点击了拒绝
                         wx.showModal({
                             title: '提示',
                             content: '请在设置中允许获取您的地理位置',
                             success:(res)=>{
+                                // 打开设置让用户打开位置权限
                                 wx.openSetting({
                                     success (res) {
                                         console.log(res.authSetting)

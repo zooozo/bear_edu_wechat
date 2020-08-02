@@ -94,8 +94,8 @@ Page({
         app.globalData.params.receivingType=this.data.certainTimesIndex;
         app.globalData.params.userId=app.globalData.userInfo.userId;
         app.globalData.params.nickName=app.globalData.userInfo.nickName;
-            console.log(this.data.clickCount,app.globalData.params.begoodSkill,'count---')
-            if(!app.globalData.params.skillLevel || this.data.clickCount<1){
+
+            if(!app.globalData.params.skillLevel  && this.data.clickCount<1){
                 wx.showModal({
                     title: '提示',
                     content: '请选择技能等级',
@@ -103,7 +103,7 @@ Page({
                 })
                 return
             }
-            if(!app.globalData.params.receivingType|| this.data.clickCount<2){
+            if(!app.globalData.params.receivingType && this.data.clickCount<2){
                 wx.showModal({
                     title: '提示',
                     content: '请选择接单时间',
@@ -111,7 +111,7 @@ Page({
                 })
                 return
             }
-            if(!app.globalData.params.begoodSkill|| this.data.clickCount<3){
+            if(!app.globalData.params.begoodSkill && this.data.clickCount<3){
                 wx.showModal({
                     title: '提示',
                     content: '请选择擅长技能 ',
@@ -179,7 +179,7 @@ Page({
 
                 })
 
-                app.globalData.params.weekTime = weekStr;
+                app.globalData.params.weekTime = weekStr.substring(0,weekStr.length-1);
 
 
             }
@@ -204,8 +204,8 @@ Page({
                 str+=item.name+',';
             })
 
-            app.globalData.params.begoodSkill=str;
-            console.log( app.globalData.params.begoodSkill,'skilll000')
+            app.globalData.params.begoodSkill=str.substring(0,str.length-1);
+
             this.setData({
                 showSkillModalList: false
             })
@@ -311,9 +311,10 @@ Page({
     },
     // 选择擅长技能
     chooseSkillList(e) {
+        // 先检查选中的数组里面有没有这个值
+        let bool=this.data.chooseSkillArr.includes(this.data.skillList[index].name);
 
-
-        if(this.data.chooseSkillArr.length>4){
+        if(this.data.chooseSkillArr.length>4 && !bool) {
             wx.showToast({
                 title: '最多只能选择5个技能'
 
@@ -341,7 +342,7 @@ Page({
             })
             this.setData({
                 chooseSkillArr: arr,
-               [currentList2]:str
+               [currentList2]:str.substring(0,str.length-1)
             })
         } else {
             arr.forEach((item, idx) => {
@@ -367,7 +368,7 @@ Page({
             [currentItemStatus]: !this.data.weekList[index].selected
         })
         if (this.data.weekList[index].selected) {
-            console.log(arr, currentItemStatus, 'arr----')
+
             arr.push(currentItem)
             this.setData({
                 chooseWeekList: arr

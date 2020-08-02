@@ -62,7 +62,7 @@ Page({
         pageShowData: {},
         clickCount: 0,
         certainTimesIndex: 0,//选择是全部时间段还是按周
-        trainerImg: null,
+        orderPrice:null,
         params: {
             orderTime: '',
             receivingType: '',
@@ -101,30 +101,51 @@ Page({
             callBack: res => {
                 // let current = "list2[" + index + "].text"
                 let time = res.orderTime.split(',')
-                let txt=''
-                if(res.skillLevel==1){
+                let chooseArr=res.begoodSkill.split(',')
+                let type=res.receivingType==1?'全部时间段':'按周'
+                let txt='',num=Number(res.skillLevel)
+                if(num==1){
                     txt='业余一级'
-                }else if(res.skillLevel==2){
+                }else if(num==2){
                     txt='业余二级'
                 }else{
                     txt="业余三级"
                 }
 
 
+
+               // 设置他之前选择的技能选中状态
+
+                chooseArr.forEach((item)=>{
+                    let selectIndex=this.data.skillList.findIndex((itm)=>itm.name==item)
+                    if(selectIndex>-1){
+                        let cur="skillList[" + selectIndex + "].selected";
+
+                        this.setData({
+                            [cur]:true,
+
+                        })
+                    }
+
+                })
+
+
                 this.setData({
                     chooseHour: time[0],
                     chooseHour1: time[1],
-                    currentIndex:res.skillLevel,
+                    currentIndex:res.skillLevel-1,
                     certainTimesIndex:res.receivingType,
-                    'params.orderPrice':parseInt(res.orderPrice/100),
+                    orderPrice:parseInt(res.orderPrice/100),
                     "list2[0].text":txt,
-                    trainerImg:res.trainerImg,
+                    "list2[1].text":type,
+                    'list2[2].text':res.begoodSkill,
+                    'params.trainerImg':res.trainerImg,
+                    'params.begoodSkill':res.begoodSkill,
                     'params.trainerDescribe':res.trainerDescribe,
-                    chooseSkillArr:res.begoodSkill.split(','),
-                })
+                    chooseSkillArr:chooseArr.filter((item)=>item.length>0),
 
-                console.log(res, 'res----')
-                console.log(this.data.chooseHour, this.data.chooseHour1, 'res----')
+
+                })
             }
         }, false)
     },
@@ -146,9 +167,11 @@ Page({
         this.setData({
             'params.userId': app.globalData.userInfo.userId,
             'params.nickName': app.globalData.userInfo.nickName,
-            "params.receivingType": this.data.certainTimesIndex,
+            "params.receivingType": Number(this.data.certainTimesIndex),
             "params.skillLevel": Number(this.data.currentIndex) + 1,
-            "params.orderTime": time
+            "params.orderTime": time,
+            "params.orderPrice": this.data.orderPrice*100,
+            "params.weekTime": this.data.certainTimesIndex==1?'1,2,3,4,5,6,7':this.data.params.weekTime
         })
 
         if (!this.data.params) {
@@ -232,8 +255,11 @@ Page({
         else if (e.currentTarget.dataset.choose == 'chooseTime') {
             // 如果当前选择是全部时间段  certainTimesIndex   1：全部   2:按周
             if (this.data.certainTimesIndex == 1) {
-                app.globalData.params.orderDate = '';
-                app.globalData.params.weekTime = '1,2,3,4,5,6,7';
+                this.setData({
+                    'params.weekTime' : '1,2,3,4,5,6,7'
+                })
+
+
             } else {
                 if (!this.data.chooseHour || !this.data.chooseHour1) {
                     wx.showModal({
@@ -247,8 +273,8 @@ Page({
                 // 今天
                 let today = new Date();
                 console.log(today)
-                // 今天几号
-                let DayNumber = today.getDate();
+
+
                 // 今天星期几
                 let week = today.getDay();//获取存储当前日期
                 console.log(week)
@@ -260,8 +286,10 @@ Page({
                     weekStr += item.id + ","
 
                 })
+                this.setData({
+                    'params.weekTime' : weekStr.substring(0,weekStr.length-1)
+                })
 
-                app.globalData.params.weekTime = weekStr;
 
 
             }
@@ -285,8 +313,10 @@ Page({
                 console.log(item, 'item---')
                 str += item.name + ',';
             })
+            this.setData({
+                "params.begoodSkill":str.substring(0,str.length-1)
+            })
 
-            app.globalData.params.begoodSkill = str;
             console.log(app.globalData.params.begoodSkill, 'skilll000')
             this.setData({
                 showSkillModalList: false
@@ -316,11 +346,15 @@ Page({
                     console.log("技能")
 
                    this.data.chooseSkillArr.forEach((item,index)=>{
+
                       let idx=this.data.skillList.findIndex((itm)=>item.id==itm.id)
-                       let current="skillList[" + idx + "].selected";
-                       this.setData({
-                           [current]:false
-                       })
+                       if(idx>-1){
+                           let current="skillList[" + idx + "].selected";
+                           this.setData({
+                               [current]:false
+                           })
+                       }
+
                    })
                     this.setData({
                         showSkillModalList: false,
@@ -358,24 +392,27 @@ Page({
     },
     // 选择擅长技能
     chooseSkillList(e) {
+        // arr.includes('baidu')
 
 
-        if (this.data.chooseSkillArr.length > 4) {
+        let index = Number(e.currentTarget.dataset.week);
+        // 先检查选中的数组里面有没有这个值
+        let bool=this.data.chooseSkillArr.includes(this.data.skillList[index].name);
+        if (this.data.chooseSkillArr.length > 4 && !bool) {
             wx.showToast({
                 title: '最多只能选择5个技能'
 
             })
             return;
         }
-        let index = Number(e.currentTarget.dataset.week);
         // 保存当前数组中的值
         let currentItemStatus = "skillList[" + index + "].selected";
         // 点击当前的第几个item
         let currentList2 = "list2[" + this.data.currentList2Index + "].text"
-        let currentItem = this.data.skillList[index]
+        let currentItem = this.data.skillList[index].name
         // 保存选中的星期数组
         let arr = this.data.chooseSkillArr;
-
+        console.log(arr,'arr----')
         this.setData({
             [currentItemStatus]: !this.data.skillList[index].selected
         })
@@ -384,20 +421,27 @@ Page({
             arr.push(currentItem)
             let str = '';
             arr.forEach((item) => {
-                str += item.name + ','
+                str += item + ','
             })
+
             this.setData({
                 chooseSkillArr: arr,
                 [currentList2]: str
             })
+            console.log(str,'chosseArrr')
         } else {
+            let str = '';
             arr.forEach((item, idx) => {
-                if (item.id == this.data.skillList[index].id) {
+                if (item == this.data.skillList[index].name) {
                     arr.splice(idx, 1)
                 }
             })
+            arr.forEach((item) => {
+                str += item + ','
+            })
             this.setData({
-                chooseSkillArr: arr
+                chooseSkillArr: arr,
+                [currentList2]: str
             })
         }
 
@@ -447,20 +491,6 @@ Page({
         })
 
     },
-    getTimer(e) {
-        let hour = this.data.hour[e.detail.value[0]]
-        this.setData({
-            chooseHour: hour
-        })
-
-    },
-    getTimer2(e) {
-        let hour = this.data.hour2[e.detail.value[0]]
-        this.setData({
-            chooseHour1: hour
-        })
-
-    },
     // 选择大张图片
     chooseLocalImage() {
         wx.chooseImage({
@@ -470,7 +500,6 @@ Page({
             success: (res) => {
                 // console.log(res,'res---')
                 this.setData({
-                    trainerImg: res.tempFilePaths[0],
                     "params.trainerImg": res.tempFilePaths[0]
                 })
             }
@@ -478,7 +507,7 @@ Page({
     },
     deleteImage() {
         this.setData({
-            trainerImg: null
+            'params.trainerImg': null
         })
     },
 });

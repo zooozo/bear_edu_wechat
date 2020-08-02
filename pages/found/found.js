@@ -47,22 +47,22 @@ Page({
         //         time:'6:50'
         //     },
         // ],
-        list:[],
+        list: [],
         activeIndex: 0,
         categoryList: [
             {
                 name: '广场',
-                id: 1,
+                id: 2,
             },
             {
                 name: '关注',
-                id: 2,
+                id: 3,
             },
         ],
-        params:{
-            requestType:3,
-            pageSize:10,
-            pageNum:1
+        params: {
+            requestType: 2,
+            pageSize: 10,
+            pageNum: 1
         }
 
     },
@@ -70,37 +70,52 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-
-    getMomentsList(){
-      let params={
-          url:'/moments/pageMoments',
-          method:'GET',
-          data:this.data.params,
-          callBack:(res)=>{
-              // let time=utils.formatTime(res.data.records[0].timeAgo*60*60*1000)
-                let arr=[];
-                let now=Date.now()/1000;
-              let createTime;
-                res.data.records.forEach((item)=>{
-                    createTime=new Date(item.createTime).getTime()/1000;
-                    item.timeLong=utils.formatTimeObject(now-createTime)
+    clickThumbs(e){
+        let currentIndex=e.currentTarget.dataset.current
+        http.request({
+            url:'/userLike/saveUserLike',
+            data:{
+                momentsId:this.data.list[currentIndex].id,
+                beLikeUid:this.data.list[currentIndex].userId,
+                likeFlag:1
+            }
+        })
+    },
+    getMomentsList() {
+        let params = {
+            url: '/moments/pageMoments',
+            method: 'GET',
+            data: this.data.params,
+            callBack: (res) => {
+                // let time=utils.formatTime(res.data.records[0].timeAgo*60*60*1000)
+                let arr = [];
+                let now = Date.now() / 1000;
+                let createTime;
+                res.data.records.forEach((item) => {
+                    // 先换算一下时间  后端返回有距离多少个小时，和创建时间
+                    createTime = new Date(item.createTime).getTime() / 1000;
+                    item.timeLong = utils.formatTimeObject(now - createTime)
                     arr.push(item)
-                })
-              this.setData({
-                  list:[...this.data.list,...arr]
-              })
-          }
 
-      }
+
+
+                })
+
+                this.setData({
+                    list: [...this.data.list, ...arr]
+                })
+            }
+
+        }
         http.request(params);
     },
-    goToPage(){
+    goToPage() {
         wx.navigateTo({
-            url:'../moment-time/moment-time'
+            url: '../moment-time/moment-time'
         })
     },
     onLoad: function (options) {
-       this.getMomentsList();
+        this.getMomentsList();
     },
 
     /**
@@ -144,10 +159,10 @@ Page({
      */
     onReachBottom: function () {
 
-        if(this.data.params.pageNum<this.data.list.pages){
+        if (this.data.params.pageNum < this.data.list.pages) {
 
             this.setData({
-                'params.pageNum':this.data.params.pageNum+1
+                'params.pageNum': this.data.params.pageNum + 1
             })
             this.getMomentsList();
         }
@@ -169,9 +184,9 @@ Page({
 
         this.setData({
             activeIndex: event.detail.name,
-            'params.requestType':event.detail.name==0?3:2,
-            'params.pageNum':1,
-            list:[],
+            'params.requestType': this.data.categoryList[ event.detail.name].id,
+            'params.pageNum': 1,
+            list: [],
         })
         this.getMomentsList();
     },

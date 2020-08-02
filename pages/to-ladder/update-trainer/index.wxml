@@ -8,14 +8,14 @@
                 </view>
                 <view class="right-part">
                     <text wx:if="{{index!=3}}">{{item.text}}</text>
-                    <input   wx:else class="price" placeholder="¥100/1小时"  type="number" bindblur="getOrderPrice" value="{{params.orderPrice}}"/>
+                    <input   wx:else class="price" placeholder="¥100/1小时"  type="number" bindblur="getOrderPrice" value="{{orderPrice}}"/>
                     <image src="../../../images/icon/right.png" class="right-png"></image>
                 </view>
             </view>
         </view>
         <view class="photo">
             <view class="title"><text>上传照片</text><text class="txt">(禁止盗用他人图片，发现将会封号)</text></view>
-            <view class="border-box flex-center flex-colomn" bindtap="chooseLocalImage" wx:if="{{!trainerImg}}">
+            <view class="border-box flex-center flex-colomn" bindtap="chooseLocalImage" wx:if="{{!params.trainerImg}}">
                 <image src="../../../images/icon/border.png" class="bg"></image>
                 <image src="../../../images/icon/photo.png" class="photoImage"></image>
                 <view>
@@ -23,7 +23,7 @@
                 </view>
             </view>
             <view class="border-box" wx:else>
-                <image class="bg" src="{{trainerImg}}"></image>
+                <image class="bg" src="{{params.trainerImg}}"></image>
                 <image class="cancel" src="../../../images/icon/cancel.png" bindtap="deleteImage"></image>
             </view>
         </view>

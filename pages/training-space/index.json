@@ -2,5 +2,6 @@
   "navigationBarTitleText": "个人空间",
   "navigationBarBackgroundColor": "#F1527E",
   "usingComponents": {
+    "recommendItem":"../../components/recommendItem/recommendItem"
   }
 }

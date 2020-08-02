@@ -5,7 +5,7 @@
             <view class="flex-box">
                 <image src="../../images/timg.jpeg" class="avatar"></image>
                 <view style="margin-left:32rpx">
-                    <view class="name">成都小甜甜</view>
+                    <view class="name">{{userData.nickName}}</view>
                     <view class="flex-box rate">
                         <view style="margin-right:20rpx;">
                             <text>服务</text>
@@ -18,17 +18,17 @@
                     </view>
                     <view class="copyId">
                         <view>
-                            ID:2910290123
+                            ID:{{userData.userId}}
                         </view>
-                        <view>
+                        <view bindtap="copyId">
                             复制
                         </view>
                     </view>
                 </view>
             </view>
 
-            <view class="follow">
-                关注
+            <view class="follow" bindtap="tapFollow">
+                {{userData.attentionFlag?'已关注':'关注'}}
             </view>
         </view>
     </view>
@@ -40,20 +40,20 @@
         <view class="trainer">
             <view class="flex-box flex-space flex-y-center">
                 <view class="badmtn-traner">羽毛球陪练</view>
-                <view class="price"><text class="txt">¥30</text><text class="txt1">/1小时</text></view>
+                <view class="price"><text class="txt">¥{{userData.orderPrice}}</text><text class="txt1">/1小时</text></view>
             </view>
             <view style="margin-top:28rpx;margin-bottom:20rpx;">
-                <text style="color:#999">接单时间： </text><text> 周一至周日  19:00 ~ 21:00</text>
+                <text style="color:#999">接单时间： </text><text>{{userData.weekList}}  {{userData.orderTime[0]+':00'}} ~ {{userData.orderTime[1]+':00'}}</text>
             </view>
             <view >
-                <text style="color:#999">擅长球技：</text> <text>假动作、吊球、挑球</text>
+                <text style="color:#999">擅长球技：</text> <text>{{userData.begoodSkill}}</text>
             </view>
         </view>
 
         <view class="skill">
             <view class="badmtn-traner">技能认证</view>
             <image src="../../images/test/badmtn.png" class="pic"></image>
-            <view><text style="color:#999">业余等级：</text><text style="color:#666">3级</text></view>
+            <view><text style="color:#999">业余等级：</text><text style="color:#666">{{userData.skillLevel}}级</text></view>
         </view>
         <view class="answering">
 <!--            <image src="../../images/timg.jpeg" class="avatar1"></image>-->
@@ -78,10 +78,18 @@
             <view class="appraise">
                 球技很好很赞，球技很好很赞球技很好很赞，球技很好很赞，球技很好很赞
             </view>
-            <view class="more">
-                查看更多评价
+            <view class="flex-center">
+                <view class="more">
+                    查看更多评价
+                </view>
             </view>
-        </view>
-    </view>
 
+        </view>
+
+
+    </view>
+    <view class="recommend">
+        <view style="color:#333;font-size:30rpx;font-weight:700;">相关推荐</view>
+        <recommendItem list="{{RecommendList}}"></recommendItem>
+    </view>
 </view>

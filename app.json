@@ -1,21 +1,25 @@
 {
   "pages": [
+    "pages/training-space/index",
+    "pages/index/index",
+
+    "pages/found/found",
+
     "pages/to-ladder/update-trainer/index",
     "pages/user/user",
+
+    "pages/moment-time/moment-time",
     "pages/to-ladder/step-three/step-three",
     "pages/to-ladder/ladder",
     "pages/to-ladder/step-two/step-two",
     "pages/to-ladder/step-four/step-four",
-    "pages/training-space/index",
     "pages/to-ladder/step-one/step-one",
-    "pages/index/index",
-    "pages/moment-time/moment-time",
-    "pages/login/login",
 
+    "pages/login/login",
     "pages/news/news-page",
     "pages/search-page/search-page",
     "pages/logs/logs",
-    "pages/found/found",
+
     "pages/search-show/search-show"
 
   ],

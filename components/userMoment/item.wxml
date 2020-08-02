@@ -1,0 +1,48 @@
+<view class="list-item">
+  <!--用户信息-->
+  <view class="flex-box flex-space user">
+    <view class="flex-box">
+      <image src="{{item.pic}}" class="headImg"></image>
+      <view class="userInfo">
+        <view>{{item.nickName}}</view>
+        <view class="flex-box" style="margin-top:8rpx;">
+          <image src="{{item.sex==1?'../../images/icon/man.png':'../../images/icon/lady.png'}}" class="lv1"></image>
+          <view class="lv-box">
+            <view class="lv-text">LV {{item.skillLevel}}</view>
+            <image src="../../images/icon/lv.png" class="lv2"></image>
+          </view>
+
+        </view>
+      </view>
+    </view>
+    <view class="{{item.delFlag==0?'trend': 'disabledTrend'}} flex-center" bindtap="clickLike">
+      {{item.delFlag==0? '关注': '已关注'}}
+    </view>
+  </view>
+  <view class="title">{{item.momentsContent}}</view>
+  <!--图片集合   length判断有问题-->
+  <view >
+    <view  class="flex-box imgBox">
+      <image src="{{item}}" wx:for="{{imageList}}" wx:key="index"
+             class="{{className}}" style="margin-right:{{index !=0 && index %2==0?'0':'8rpx'}}"></image>
+    </view>
+
+  </view>
+  <view class="item-foot flex-box flex-space">
+    <view class="flex-box flex-y-center">
+      <text>{{item.pos}}</text>
+      <view class="point"></view>
+      <text>{{item.timeLong.day>0?item.timeLong.day+'天':item.timeLong.hour>0?item.timeLong.hour+'小时':item.timeLong.min+"分钟"}}前</text>
+    </view>
+    <view class="flex-box  flex-space talking">
+      <view style="margin-right:30rpx;" class="flex-box flex-y-center" bindtap="clickThumbs" data-current="{{index}}">
+        <image src="../../images/icon/zan1.png" style="margin-right:12rpx;"></image>
+        <text>{{item.likeCount}}</text>
+      </view>
+      <view class="flex-box flex-y-center">
+        <image src="../../images/icon/talk.png" style="margin-right:12rpx;"></image>
+        <text>{{item.commentCount}}</text>
+      </view>
+    </view>
+  </view>
+</view>

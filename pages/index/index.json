@@ -6,7 +6,8 @@
   "navigationBarTitleText": "中羽协",
 
   "usingComponents": {
-    "tabList": "../../components/tabbar/tabbar"
+    "tabList": "../../components/tabbar/tabbar",
+    "recommendItem":"../../components/recommendItem/recommendItem"
   }
 
 }

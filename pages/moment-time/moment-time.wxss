@@ -8,24 +8,55 @@
     font-size:28rpx;
     color:#CECECE;
 }
-.upload{
-    margin-top:30rpx;
-    padding-left:30rpx;
-}
-.imgList-box{
+.foot{
+    padding-left:32rpx;
     display:flex;
-    padding:0 20rpx 0 40rpx;
     flex-wrap: wrap;
-    margin-top:40rpx;
 }
-.imgList-box image{
-    width:200rpx;
-    height:200rpx;
-    border-radius:16rpx;
-    margin-left:10rpx;
-    flex-shrink: 0;
-    object-fit: scale-down;
-    margin-bottom:20rpx;
+.foot .img-z{
+    width:0;height:0;
+}
+.foot .img-m{
+    width:160rpx;
+    height:160rpx;
+    border-radius:32rpx;
+    margin-left:40rpx;
+    margin-bottom:30rpx;
+}
+.foot .cancel{
+    width:32rpx;
+    height:32rpx;
+    position:absolute;
+    top:-10rpx;
+    right:-10rpx;
+}.foot .cancel2{
+     width: 50rpx;
+     height: 50rpx;
+     position: absolute;
+     top: -30rpx;
+     right: 30rpx;
+
+ }
+ .image-box{
+     flex-wrap: wrap;
+ }
+.photo {
+    display: flex;
+    flex-direction: column;
+    width:160rpx;
+    height:160rpx;
+    justify-content: center;
+    align-items: center;
+    font-size:24rpx;
+    color:#AAAAAA;
+    border-radius:32rpx;
+    border:2rpx solid rgba(226,226,226,1);
+    margin-left:40rpx;
+}
+
+.photo .photo-icon {
+    width: 48rpx;
+    height: 48rpx;
 }
 .container .defaultBtn{
     margin-top:200rpx;
