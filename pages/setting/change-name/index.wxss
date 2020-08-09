@@ -1,0 +1,30 @@
+.container {
+    padding: 0 32rpx;
+    color:#aaa;
+    font-size:22rpx;
+}
+
+.name {
+    margin-bottom: 20rpx;
+    height:112rpx;
+    border-bottom: 2rpx solid #ededed;
+    display:flex;
+    align-items: center;
+}
+
+.placeholder-color {
+    color: #CECECE;
+    font-size: 28rpx;
+}
+
+.name input{
+    width:600rpx;
+    color:#333;
+}
+
+.defaultBtn{
+    color:#fff;
+    font-size:32rpx;
+    box-shadow:0 2rpx 12rpx 0 rgba(241,75,127,0.35);
+    margin-top:80rpx;
+}

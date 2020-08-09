@@ -1,0 +1,14 @@
+<view class="skillLeave" >
+    <view class="modal"></view>
+    <view class="content">
+        <view class="flex-box flex-space flex-y-center skill-title">
+            <image src="../../images/icon/cancel2.png" class="cancel" bindtap="closeModal"></image>
+            <view style="font-weight:700">{{title}}</view>
+            <view class="sure" bindtap="closeModal" data-choose="chooseSkill">确定</view>
+        </view>
+        <view class="weak-list">
+            <slot name="content"></slot>
+        </view>
+
+    </view>
+</view>

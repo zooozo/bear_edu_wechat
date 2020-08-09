@@ -1,0 +1,83 @@
+<!--index.wxml-->
+<view class="container">
+    <view>
+        <view>
+            <view class="page-font">头像</view>
+            <image src="../../images/timg.jpeg" class="page-img"></image>
+        </view>
+        <view class="flex-box flex-space" style="margin-top:62rpx;">
+            <view>
+                <view class="page-font">视频认证</view>
+                <image src="../../images/timg.jpeg" class="page-img2"></image>
+            </view>
+            <view>
+                <view class="page-font">形象照</view>
+                <image src="../../images/timg.jpeg" class="page-img2"></image>
+            </view>
+        </view>
+    </view>
+    <view style="margin-top:124rpx;">
+        <view class="row">
+            <view >
+                昵称
+            </view>
+            <view class="flex-center" bindtap="tapRowType" data-tapclick="1">
+                <text class="font2">{{listShowData.userName}}</text>
+                <image src="../../images/icon/right.png" class="icon"></image>
+            </view>
+        </view>
+        <view class="row">
+            <view >
+                年龄/星座
+            </view>
+            <view class="flex-center" bindtap="tapRowType" data-tapclick="2">
+                <text class="font2">21/处女座</text>
+                <image src="../../images/icon/right.png" class="icon"></image>
+            </view>
+        </view>
+        <view class="row">
+            <view >
+                家乡
+            </view>
+            <view class="flex-center">
+                <text class="font1">请填写家乡</text>
+                <image src="../../images/icon/right.png" class="icon"></image>
+            </view>
+        </view> <view class="row">
+            <view >
+                签名
+            </view>
+            <view class="flex-center">
+                <text class="font1">介绍一下自己呗</text>
+                <image src="../../images/icon/right.png" class="icon"></image>
+            </view>
+        </view> <view class="row">
+            <view >
+                兴趣
+            </view>
+            <view class="flex-center">
+                <text class="font1">请输入您的兴趣</text>
+                <image src="../../images/icon/right.png" class="icon"></image>
+            </view>
+        </view> <view class="row">
+            <view >
+                职业
+            </view>
+            <view class="flex-center">
+                <text class="font1">请选择行业</text>
+                <image src="../../images/icon/right.png" class="icon"></image>
+            </view>
+        </view> <view class="row">
+            <view >
+                学校
+            </view>
+            <view class="flex-center">
+                <text class="font1">请填写学校</text>
+                <image src="../../images/icon/right.png" class="icon"></image>
+            </view>
+        </view>
+    </view>
+    <view class="defaultBtn flex-center">
+            确定
+    </view>
+</view>

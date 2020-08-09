@@ -1,0 +1,30 @@
+.container{
+    padding:0 32rpx;
+}
+
+
+.row{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    color:#333;
+    font-size:30rpx;
+    border-bottom:2rpx solid #EDEDED;
+    height:102rpx;
+}
+.row .icon{
+    width:24rpx;
+    height:22rpx;
+    margin-left:8rpx;
+}
+.page-body{
+    width:100%;
+}.page-body .selected-date{
+    text-align: center;
+}
+
+ .defaultBtn{
+     color:#fff;
+     font-size:32rpx;
+     margin-top:80rpx;
+ }

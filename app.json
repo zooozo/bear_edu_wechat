@@ -1,5 +1,10 @@
 {
   "pages": [
+    "pages/setting/change-date/index",
+    "pages/setting/index",
+    "pages/setting/change-name/index",
+
+    "pages/moment-time/detail/detail",
     "pages/training-space/index",
     "pages/index/index",
 
@@ -9,6 +14,7 @@
     "pages/user/user",
 
     "pages/moment-time/moment-time",
+
     "pages/to-ladder/step-three/step-three",
     "pages/to-ladder/ladder",
     "pages/to-ladder/step-two/step-two",

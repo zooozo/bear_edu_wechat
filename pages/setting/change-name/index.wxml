@@ -1,0 +1,11 @@
+<view class="container">
+    <view class="name">
+        <input type="text" maxlength="20" placeholder-class="placeholder-color" placeholder="请输入昵称" bindinput="getNewName"/>
+    </view>
+    <view>
+        输入一个响亮的昵称
+    </view>
+    <view class="defaultBtn flex-center" bindtap="saveName">
+            保存
+    </view>
+</view>

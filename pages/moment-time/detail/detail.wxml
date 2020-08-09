@@ -1,0 +1,31 @@
+<view>
+    <view>
+        <userItem></userItem>
+    </view>
+    <view class="list">
+        <view class="itemBox" wx:for="{{list}}" wx:key="index">
+            <view class="flex-box">
+                <image src="../../../images/timg.jpeg" class="head"></image>
+                <view class="leave-message">
+                    <view class="flex-box flex-space">
+                        <view class="flex-box flex-y-center">
+                            <view class="name">一颗小米粒mily</view>
+                            <image src="../../../images/icon/lady.png" class="lady"></image>
+                        </view>
+                        <image src="../../../images/icon/zan.png" class="zan"></image>
+                    </view>
+
+                    <view class="time">一小时前</view>
+                    <view class="text">哇，看上就好美味～</view>
+                    <view class="message">
+                        <view class="flex-box">
+                            <view class="userName">lynn：</view>
+                            <view class="txt">哈哈哈哈</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+        </view>
+    </view>
+</view>

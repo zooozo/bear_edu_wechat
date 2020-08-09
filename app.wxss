@@ -114,3 +114,8 @@ image {
     width: 88rpx;
     height: 32rpx;
 }
+
+.lady{
+    width:44rpx;
+    height:28rpx;
+}
