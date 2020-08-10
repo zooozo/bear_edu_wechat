@@ -7,26 +7,18 @@ Page({
   data: {
     wxloginTimer:null,
     wxLoginCode:null,
+    showType:2,
   },
-  GetUserInfo(res) {
-     wx.login({
-      success: r => {
-        this.data.wxloginTimer = new Date().getTime();
-        this.data.wxLoginCode = r.code;
-        wx.getUserInfo({
-          success: (res) => {
-            // this.apiLogin(res.iv, res.encryptedData)
-          }
-        });
-      }
-    });
-  },
+
   onGotUserInfo: function (res) {
-    
-    http.updateUserInfo();
+    http.updateUserInfo()
     wx.navigateBack({
       delta: 1
     })
+  },
+  getPhoneNumber: function (e) {
+    console.log(e,'res----')
+
   },
   /**
    * 生命周期函数--监听页面加载
@@ -34,6 +26,7 @@ Page({
   onLoad: function (options) {
 
   },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

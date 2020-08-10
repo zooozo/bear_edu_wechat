@@ -111,16 +111,11 @@ Page({
                 }else{
                     txt="业余三级"
                 }
-
-
-
                // 设置他之前选择的技能选中状态
-
                 chooseArr.forEach((item)=>{
                     let selectIndex=this.data.skillList.findIndex((itm)=>itm.name==item)
                     if(selectIndex>-1){
                         let cur="skillList[" + selectIndex + "].selected";
-
                         this.setData({
                             [cur]:true,
 
@@ -156,15 +151,12 @@ Page({
     // app.globalData.params.nickName=app.globalData.userInfo.nickName;
 
     updateTrainer() {
-        let time = ''
-        if (!this.data.chooseHour || !this.data.chooseHour1) {
-            time = ''
-        } else {
-            time = this.data.chooseHour + "," + this.data.chooseHour1
-        }
+
+        let time = this.data.hour.slice(this.data.chooseHour, Number(this.data.chooseHour1) + 1).toString();
 
 
         this.setData({
+           " params.begoodSkill":this.data.chooseSkillArr,
             'params.userId': app.globalData.userInfo.userId,
             'params.nickName': app.globalData.userInfo.nickName,
             "params.receivingType": Number(this.data.certainTimesIndex),
@@ -259,7 +251,6 @@ Page({
                     'params.weekTime' : '1,2,3,4,5,6,7'
                 })
 
-
             } else {
                 if (!this.data.chooseHour || !this.data.chooseHour1) {
                     wx.showModal({
@@ -308,16 +299,16 @@ Page({
                 })
                 return
             }
-            let str = ''
-            this.data.chooseSkillArr.forEach((item) => {
-                console.log(item, 'item---')
-                str += item.name + ',';
-            })
+            // let str = ''
+            // this.data.chooseSkillArr.forEach((item) => {
+            //     console.log(item, 'item---')
+            //     str += item.name + ',';
+            // })
             this.setData({
-                "params.begoodSkill":str.substring(0,str.length-1)
+                "params.begoodSkill": this.data.chooseSkillArr.toString()
             })
+            console.log(this.data.params.begoodSkill)
 
-            console.log(app.globalData.params.begoodSkill, 'skilll000')
             this.setData({
                 showSkillModalList: false
             })
@@ -343,7 +334,6 @@ Page({
 
                     break;
                 case 2:
-                    console.log("技能")
 
                    this.data.chooseSkillArr.forEach((item,index)=>{
 
@@ -479,15 +469,18 @@ Page({
     },
     getTimer(e) {
         let hour = this.data.hour[e.detail.value[0]]
+        let index = this.data.hour.findIndex((item) => item === hour)
+        console.log(index, 'index----')
         this.setData({
-            chooseHour: hour
+            chooseHour: index
         })
 
     },
     getTimer2(e) {
         let hour = this.data.hour2[e.detail.value[0]]
+        let index = this.data.hour2.findIndex((item) => item === hour)
         this.setData({
-            chooseHour1: hour
+            chooseHour1: index
         })
 
     },

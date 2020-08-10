@@ -35,13 +35,13 @@
 
 }
 
-.imageList .module1 .lvLogo, .module2 .lvLogo {
+.imageList .module1 .lvLogo,.module2 .lvLogo {
     width: 88rpx;
     height: 32rpx;
     margin-left:16rpx;
 }
 
-.imageList .module1 .name, .module2 .name {
+.imageList .module1 .name,.module2 .name {
     color: #fff;
     font-size: 22rpx;
     background:rgba(0,0,0,.4);

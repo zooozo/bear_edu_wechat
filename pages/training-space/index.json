@@ -1,6 +1,7 @@
 {
-  "navigationBarTitleText": "个人空间",
-  "navigationBarBackgroundColor": "#F1527E",
+  "navigationBarTitleText": "陪练空间",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
   "usingComponents": {
     "recommendItem":"../../components/recommendItem/recommendItem"
   }

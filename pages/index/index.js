@@ -1,4 +1,4 @@
-//index.js
+//stadium.js
 //获取应用实例
 var http = require("../../utils/http.js");
 var config = require("../../utils/config.js");

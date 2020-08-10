@@ -1,7 +1,7 @@
 /**app.wxss**/
 
 page {
-    height: 100%;
+
     display:flex;
     flex-direction: column;
 }
@@ -113,6 +113,26 @@ image {
 .lvLogo {
     width: 88rpx;
     height: 32rpx;
+}
+
+/*性别图片*/
+.lv1{
+    width:44rpx;
+    height:28rpx;
+    margin-right:12rpx;
+}
+/*vip图片*/
+.lv2{
+    width:88rpx;
+    height:28rpx;
+    position:absolute;
+    top:0;left:0;
+}
+
+.noData{
+    width:150rpx;
+    height:150rpx;
+
 }
 
 .lady{

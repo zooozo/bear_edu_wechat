@@ -1,20 +1,23 @@
 <view class="container">
     <view class="header-title">
-        <image src="../../images/timg.jpeg" class="head-img"></image>
+        <view style="background-image:url({{userData.pic}})  "  class="head-img">
+
+        </view>
+
         <view class="userInfo">
             <view class="flex-box">
-                <image src="../../images/timg.jpeg" class="avatar"></image>
+                <image src="{{userData.pic}}" class="avatar"></image>
                 <view style="margin-left:32rpx">
                     <view class="name">{{userData.nickName}}</view>
                     <view class="flex-box rate">
-                        <view style="margin-right:20rpx;">
-                            <text>服务</text>
-                            <text  class="t1">35人</text>
-                        </view>
-                        <view>
-                            <text>好评率</text>
-                            <text  class="t2">97%</text>
-                        </view>
+<!--                        <view style="margin-right:20rpx;">-->
+<!--                            <text>服务</text>-->
+<!--                            <text  class="t1">35人</text>-->
+<!--                        </view>-->
+<!--                        <view>-->
+<!--                            <text>好评率</text>-->
+<!--                            <text  class="t2">97%</text>-->
+<!--                        </view>-->
                     </view>
                     <view class="copyId">
                         <view>
@@ -34,7 +37,7 @@
     </view>
     <view class="content">
         <view class="intruduce">
-            手抖菜鸡王牌，钢枪能挡子弹，苟分躲躲迷藏，只要是老板喜欢，立马变成盒子
+            {{userData.trainerDescribe}}
         </view>
 
         <view class="trainer">
@@ -91,5 +94,10 @@
     <view class="recommend">
         <view style="color:#333;font-size:30rpx;font-weight:700;">相关推荐</view>
         <recommendItem list="{{RecommendList}}"></recommendItem>
+    </view>
+
+    <view class="foot-btn">
+        <view class="btn1 btn" bindtap="tapFollow"> {{userData.attentionFlag?'已关注':'关注'}}</view>
+        <view class="btn2 btn" bindtap="goToPayOrder">下单(¥{{userData.orderPrice}}/小时)</view>
     </view>
 </view>

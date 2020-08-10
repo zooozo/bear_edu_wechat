@@ -1,0 +1,21 @@
+<view class="container">
+    <view class="flex-box flex-space">
+        <view class="search-bar">
+            <image src="../../../images/icon/search.png" class="icon" bindtap="searchStadium" ></image>
+            <input placeholder="请输入场馆名称" placeholder-class="holder" bind:blur="getStadiumName" value="{{seachName}}"/>
+            <image src="../../../images/icon/cancel3.png" class="icon" bindtap="clearList" style="margin-left:8rpx;"></image>
+        </view>
+        <view class="cancel" bindtap="GoToPage">
+            取消
+        </view>
+    </view>
+    <view class="stadium-list" wx:if="{{stadiumList.length>0}}">
+        <view wx:for="{{stadiumList}}" wx:key="index">
+            <item item="{{item}}" bindtap="tapItem"></item>
+        </view>
+    </view>
+    <view class="empty" wx:elif="{{stadiumList.length==0 && IsSearch}}">
+        <image src="../../../images/icon/qiandao.png"></image>
+        <view>未搜索到符合条件的球馆</view>
+    </view>
+</view>

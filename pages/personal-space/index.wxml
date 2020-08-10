@@ -1,0 +1,65 @@
+<view class="container">
+    <view>
+        <image src="../../images/timg.jpeg" class="avatar-bg"></image>
+    </view>
+    <view class="content">
+        <view class="userInfo">
+            <view class="userInfo-row">
+                <view class="userName">{{userInfo.nickName}}</view>
+                <view class="likeBtn">关注</view>
+            </view>
+            <view class="userInfo-row1">
+                <text>2小时前</text>
+                <text style="margin-left:46rpx;">100粉丝</text>
+            </view>
+            <view>
+                <view class="flex-box flex-y-center flex-space">
+                    <image src="{{userInfo.sex==1?'../../images/icon/man.png':'../../images/icon/lady.png'}}"
+                           class="lv1"></image>
+                    <!--                    <view style="position:relative;padding-left:12rpx;">-->
+                    <!--                        <image  src="../../images/icon/lv.png" class="lv2"></image>-->
+                    <!--                    </view>-->
+                    <view class="copy" bindtap="copyId">
+                        <text>ID：{{userInfo.userId}}</text>
+                        <text style="margin-left:30rpx;">复制</text>
+                    </view>
+                </view>
+
+            </view>
+        </view>
+        <view class="info">
+            <view class="info-title">资料</view>
+            <view>
+                星座：天蝎座
+            </view>
+            <view class="middle-row">
+                <view>兴趣：</view>
+                <view class="flex-box">
+                    <view class="item">电影</view>
+                    <view class="item">电影</view>
+                    <view class="item">电影</view>
+                </view>
+            </view>
+            <view>
+                签名：成都妹纸性子直 不选别赞
+            </view>
+        </view>
+        <view>
+            <view class="info-title">动态</view>
+            <view wx:if="{{momentList && momentList.length>0}}">
+                <view wx:for="{{momentList}}" wx:key="index">
+                    <momentItem item="{{item}}"></momentItem>
+                </view>
+
+            </view>
+            <view wx:else class="empty">
+                <image src="../../images/icon/bag.png" class="noData"></image>
+                <view>主人很懒,还未发表任何动态</view>
+            </view>
+        </view>
+    </view>
+    <view class="foot-btn">
+        <view class="btn1 btn">关注</view>
+        <view class="btn2 btn">聊天</view>
+    </view>
+</view>

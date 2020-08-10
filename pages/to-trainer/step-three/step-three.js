@@ -1,5 +1,5 @@
 const app = getApp();
-const http=require('../../../utils/http')
+const http = require('../../../utils/http')
 Page({
     data: {
         list: [
@@ -23,25 +23,25 @@ Page({
             {name: '星期五', id: 5, selected: false},
             {name: '星期六', id: 6, selected: false},
         ],
-        skillList:[
-            {name:'平抽球',id:1,selected: false},
-            {name:'杀球',id:2,selected: false},
-            {name:'高远球',id:3,selected: false},
-            {name:'斜线球',id:4,selected: false},
-            {name:'吊球',id:5,selected: false},
-            {name:'搓球',id:6,selected: false},
-            {name:'扑球',id:7,selected: false},
-            {name:'挑球',id:8,selected: false},
-            {name:'假动作',id:9,selected: false},
-            {name:'劈叉',id:10,selected: false},
-            {name:'往前勾对角',id:11,selected: false},
-            {name:'滑板吊球',id:12,selected: false},
+        skillList: [
+            {name: '平抽球', id: 1, selected: false},
+            {name: '杀球', id: 2, selected: false},
+            {name: '高远球', id: 3, selected: false},
+            {name: '斜线球', id: 4, selected: false},
+            {name: '吊球', id: 5, selected: false},
+            {name: '搓球', id: 6, selected: false},
+            {name: '扑球', id: 7, selected: false},
+            {name: '挑球', id: 8, selected: false},
+            {name: '假动作', id: 9, selected: false},
+            {name: '劈叉', id: 10, selected: false},
+            {name: '往前勾对角', id: 11, selected: false},
+            {name: '滑板吊球', id: 12, selected: false},
 
 
         ],
         hour: [],
         hour2: [],
-        currentList2Index:0,
+        currentList2Index: 0,
         currentIndex: 0,
         showSkillModal: false,//是否技能等级模块
         showOrderTimeModal: false, //是否显示选择时间模块
@@ -54,8 +54,8 @@ Page({
         chooseSkillArr: [],
         chooseHour: '',
         chooseHour1: '',
-        pageShowData:{},
-        clickCount:0,
+        pageShowData: {},
+        clickCount: 0,
     },
     onLoad: function (options) {
         let arr = []
@@ -73,7 +73,7 @@ Page({
         })
 
     },
-    OnSubmit(){
+    OnSubmit() {
         // begoodSkill: "扑球,往前勾对角,滑板吊球,挑球,斜线球,"
         // idNumber: "36030219900506353x"
         // orderDate: ""
@@ -87,55 +87,55 @@ Page({
         // user_id: 22
         // weekTime: "1,2,3,4,5,6,7"
 
-        if(!app.globalData.params.skillLevel)
+        if (!app.globalData.params.skillLevel)
 
-        app.globalData.params.orderTime=this.data.chooseHour+","+this.data.chooseHour1
-        app.globalData.params.skillLevel = Number(this.data.currentIndex)+1;
-        app.globalData.params.receivingType=this.data.certainTimesIndex;
-        app.globalData.params.userId=app.globalData.userInfo.userId;
-        app.globalData.params.nickName=app.globalData.userInfo.nickName;
+            app.globalData.params.orderTime = this.data.hour.slice(this.data.chooseHour, Number(this.data.chooseHour1) + 1).toString();
+        app.globalData.params.skillLevel = Number(this.data.currentIndex) + 1;
+        app.globalData.params.receivingType = this.data.certainTimesIndex;
+        app.globalData.params.userId = app.globalData.userInfo.userId;
+        app.globalData.params.nickName = app.globalData.userInfo.nickName;
 
-            if(!app.globalData.params.skillLevel  && this.data.clickCount<1){
-                wx.showModal({
-                    title: '提示',
-                    content: '请选择技能等级',
-                    showCancel:false
-                })
-                return
-            }
-            if(!app.globalData.params.receivingType && this.data.clickCount<2){
-                wx.showModal({
-                    title: '提示',
-                    content: '请选择接单时间',
-                    showCancel:false
-                })
-                return
-            }
-            if(!app.globalData.params.begoodSkill && this.data.clickCount<3){
-                wx.showModal({
-                    title: '提示',
-                    content: '请选择擅长技能 ',
-                    showCancel:false
-                })
-                return
-            }
-            if(!app.globalData.params.orderPrice){
-                wx.showModal({
-                    title: '提示',
-                    content: '请输入接单价格 ',
-                    showCancel:false
-                })
-                return
-            }
+        if (!app.globalData.params.skillLevel && this.data.clickCount < 1) {
+            wx.showModal({
+                title: '提示',
+                content: '请选择技能等级',
+                showCancel: false
+            })
+            return
+        }
+        if (!app.globalData.params.receivingType && this.data.clickCount < 2) {
+            wx.showModal({
+                title: '提示',
+                content: '请选择接单时间',
+                showCancel: false
+            })
+            return
+        }
+        if (!app.globalData.params.begoodSkill && this.data.clickCount < 3) {
+            wx.showModal({
+                title: '提示',
+                content: '请选择擅长技能 ',
+                showCancel: false
+            })
+            return
+        }
+        if (!app.globalData.params.orderPrice) {
+            wx.showModal({
+                title: '提示',
+                content: '请输入接单价格 ',
+                showCancel: false
+            })
+            return
+        }
 
 
         http.request({
-            url:'/trainer/addTrainer',
-            data:app.globalData.params,
-            callBack:(res)=>{
-              wx.navigateTo({
-                  url:'../step-four/step-four'
-              })
+            url: '/trainer/addTrainer',
+            data: app.globalData.params,
+            callBack: (res) => {
+                wx.navigateTo({
+                    url: '../step-four/step-four'
+                })
 
             }
         })
@@ -145,41 +145,33 @@ Page({
             this.setData({
                 showSkillModal: false
             })
-        }
-        else if (e.currentTarget.dataset.choose == 'chooseTime') {
+        } else if (e.currentTarget.dataset.choose == 'chooseTime') {
             // 如果当前选择是全部时间段  certainTimesIndex   1：全部   2:按周
             if (this.data.certainTimesIndex == 1) {
                 app.globalData.params.orderDate = '';
                 app.globalData.params.weekTime = '1,2,3,4,5,6,7';
-            }
-            else {
-                if(!this.data.chooseHour || !this.data.chooseHour1){
+            } else {
+                if (!this.data.chooseHour || !this.data.chooseHour1) {
                     wx.showModal({
                         title: '提示',
                         content: '请选择接单小时区间 ',
-                        showCancel:false
+                        showCancel: false
                     })
                     return
                 }
 
                 // 今天
                 let today = new Date();
-                console.log(today)
-                // 今天几号
-                let DayNumber = today.getDate();
-                // 今天星期几
-                let week = today.getDay();//获取存储当前日期
-                console.log(week)
                 this.data.chooseWeekList.sort((item) => {
                     return item['id'] - item['id']
                 })
-                let  weekStr = ''
+                let weekStr = ''
                 this.data.chooseWeekList.forEach((item) => {
                     weekStr += item.id + ","
 
                 })
 
-                app.globalData.params.weekTime = weekStr.substring(0,weekStr.length-1);
+                app.globalData.params.weekTime = weekStr.substring(0, weekStr.length - 1);
 
 
             }
@@ -187,50 +179,49 @@ Page({
             this.setData({
                 showOrderTimeModal: false
             })
-        }
-        else if(e.currentTarget.dataset.choose=='chooseSkill'){
+        } else if (e.currentTarget.dataset.choose == 'chooseSkill') {
             // begoodSkill
-            if(this.data.chooseSkillArr.length==0){
+            if (this.data.chooseSkillArr.length == 0) {
                 wx.showModal({
                     title: '提示',
                     content: '请选择擅长技能 ',
-                    showCancel:false
+                    showCancel: false
                 })
                 return
             }
-            let str=''
-            this.data.chooseSkillArr.forEach((item)=>{
-                console.log(item,'item---')
-                str+=item.name+',';
+            let str = ''
+            this.data.chooseSkillArr.forEach((item) => {
+                console.log(item, 'item---')
+                str += item.name + ',';
             })
 
-            app.globalData.params.begoodSkill=str.substring(0,str.length-1);
+            app.globalData.params.begoodSkill = str.substring(0, str.length - 1);
 
             this.setData({
                 showSkillModalList: false
             })
-        }else{
-            let current="list2[" + this.data.currentList2Index + "].text"
+        } else {
+            let current = "list2[" + this.data.currentList2Index + "].text"
             switch (this.data.currentList2Index) {
                 case 0:
                     this.setData({
                         showSkillModal: false,
-                        [current]:"请选择技能等级"
+                        [current]: "请选择技能等级"
                     })
 
                     break;
                 case 1:
                     this.setData({
                         showOrderTimeModal: false,
-                        [current]:"请选择时间段"
+                        [current]: "请选择时间段"
                     })
 
                     break;
                 case 2:
                     this.setData({
                         showSkillModalList: false,
-                        chooseSkillArr:[],
-                        [current]:"请选择擅长技能"
+                        chooseSkillArr: [],
+                        [current]: "请选择擅长技能"
                     })
                     break;
             }
@@ -243,17 +234,17 @@ Page({
 
         let index = e.currentTarget.dataset.current
         console.log(index, 'index---')
-        let num=this.data.clickCount
+        let num = this.data.clickCount
         num++
-        let current="list2[" + index + "].text"
+        let current = "list2[" + index + "].text"
         // 先给一个默认的，这样点完成的时候就不会为空
         switch (index) {
             case 0:
 
                 this.setData({
                     showSkillModal: true,
-                    [current]:this.data.list[index].name,
-                    clickCount:num,
+                    [current]: this.data.list[index].name,
+                    clickCount: num,
 
                 })
 
@@ -261,8 +252,8 @@ Page({
             case 1:
                 this.setData({
                     showOrderTimeModal: true,
-                    [current]:'全部时间段',
-                    clickCount:num,
+                    [current]: '全部时间段',
+                    clickCount: num,
 
                 })
 
@@ -270,8 +261,8 @@ Page({
             case 2:
                 this.setData({
                     showSkillModalList: true,
-                    [current]:'平抽球',
-                    clickCount:num,
+                    [current]: '平抽球',
+                    clickCount: num,
 
                 })
                 break;
@@ -282,50 +273,50 @@ Page({
         })
     },
     // 获取当前输入的价格
-    getOrderPrice(e){
-        let num=e.detail.value;
+    getOrderPrice(e) {
+        let num = e.detail.value;
 
-        app.globalData.params.orderPrice=num*10*10
+        app.globalData.params.orderPrice = num * 10 * 10
     },
-    // 点击时间段事件
+    // 点击模块时间分类事件
     chooseTimeTum(e) {
 
-        let current="list2[" + this.data.currentList2Index + "].text"
-        console.log(current,'current---')
-        let txt= e.currentTarget.dataset.cur==1?'全部时间段':'按周'
+        let current = "list2[" + this.data.currentList2Index + "].text"
+        console.log(current, 'current---')
+        let txt = e.currentTarget.dataset.cur == 1 ? '全部时间段' : '按周'
         this.setData({
             certainTimesIndex: e.currentTarget.dataset.cur,
-            [current]:txt
+            [current]: txt
         })
     },
     // 选择技能等级
     selectSkill(e) {
 
-        let current="list2[" + this.data.currentList2Index + "].text"
+        let current = "list2[" + this.data.currentList2Index + "].text"
         this.setData({
 
             currentIndex: e.currentTarget.dataset.idx,
-            [current]:this.data.list[e.currentTarget.dataset.idx].name
+            [current]: this.data.list[e.currentTarget.dataset.idx].name
         })
 
     },
     // 选择擅长技能
     chooseSkillList(e) {
+        let index = Number(e.currentTarget.dataset.week);
         // 先检查选中的数组里面有没有这个值
-        let bool=this.data.chooseSkillArr.includes(this.data.skillList[index].name);
-
-        if(this.data.chooseSkillArr.length>4 && !bool) {
+        let bool = this.data.chooseSkillArr.includes(this.data.skillList[index]);
+        // console.log(bool,this.data.chooseSkillArr,this.data.skillList[index])
+        if (this.data.chooseSkillArr.length > 4 && !bool) {
             wx.showToast({
                 title: '最多只能选择5个技能'
 
             })
             return;
         }
-        let index = Number(e.currentTarget.dataset.week);
         // 保存当前数组中的值
         let currentItemStatus = "skillList[" + index + "].selected";
         // 点击当前的第几个item
-        let currentList2="list2[" + this.data.currentList2Index + "].text"
+        let currentList2 = "list2[" + this.data.currentList2Index + "].text"
         let currentItem = this.data.skillList[index]
         // 保存选中的星期数组
         let arr = this.data.chooseSkillArr;
@@ -336,13 +327,13 @@ Page({
         if (this.data.skillList[index].selected) {
 
             arr.push(currentItem)
-            let str='';
-            arr.forEach((item)=>{
-                str+=item.name+','
+            let str = '';
+            arr.forEach((item) => {
+                str += item.name + ','
             })
             this.setData({
                 chooseSkillArr: arr,
-               [currentList2]:str.substring(0,str.length-1)
+                [currentList2]: str.substring(0, str.length - 1)
             })
         } else {
             arr.forEach((item, idx) => {
@@ -388,15 +379,18 @@ Page({
     },
     getTimer(e) {
         let hour = this.data.hour[e.detail.value[0]]
+        let index = this.data.hour.findIndex((item) => item === hour)
+        console.log(index, 'index----')
         this.setData({
-            chooseHour: hour
+            chooseHour: index
         })
 
     },
     getTimer2(e) {
         let hour = this.data.hour2[e.detail.value[0]]
+        let index = this.data.hour2.findIndex((item) => item === hour)
         this.setData({
-            chooseHour1: hour
+            chooseHour1: index
         })
 
     }

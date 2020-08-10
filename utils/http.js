@@ -83,9 +83,7 @@ var getToken = function() {
           principal: res.code
         },
         callBack: result => {
-
           var globalData = getApp().globalData;
-          console.log(globalData,'globalData-----------')
           globalData.userInfo=result
           // 没有获取到用户昵称，说明服务器没有保存用户的昵称，也就是用户授权的信息并没有传到服务器
           if (!result.nickName) {
@@ -112,17 +110,17 @@ var getToken = function() {
 function updateUserInfo() {
   wx.getUserInfo({
     success: (res) => {
-      var userInfo = JSON.parse(res.rawData)
+      var userInfo = JSON.parse(res.rawData);
+      console.log(userInfo,'wxInfo')
       request({
         url: "/p/user/setUserInfo",
         method: "PUT",
         data: {
           avatarUrl: userInfo.avatarUrl,
           nickName: userInfo.nickName,
-          gender:userInfo.gender
+          sex:userInfo.gender
         },
         callBack:()=>{
-
         }
       });
     }

@@ -1,0 +1,221 @@
+page{
+    height: 100%;
+}
+
+.container{
+    padding:44rpx 32rpx 0;
+    display:flex;
+    flex-direction: column;
+
+    background-color:#fff;
+}
+
+.content-info{
+    flex:1;
+
+}
+
+
+.foot-btn{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    height:140rpx;
+    background:rgba(255,255,255,1);
+
+}
+
+.foot-btn .flex-center{
+    font-size:24rpx;
+    color:#aaa;
+}
+.foot-btn .flex-center .price{
+    font-size:44rpx;
+    color:#F14C7F;
+    padding:0;
+    font-weight:600;
+}
+.foot-btn .flex-center .icon{
+    color:#F14C7F;
+    font-size:26rpx;
+    font-weight:600;
+    margin-right:4rpx;
+}
+
+.foot-btn .btn{
+    width:406rpx;
+    height:90rpx;
+    background:linear-gradient(246deg,rgba(248,151,120,1) 0%,rgba(241,75,127,1) 100%);
+    border-radius:46rpx;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color:#F8F8F8;
+    font-size:32rpx;
+}
+
+.userInfo .avatar {
+    width: 144rpx;
+    height: 144rpx;
+    border-radius: 50%;
+}
+
+.userInfo {
+    display: flex;
+
+    position: relative;
+    z-index: 10;
+    width: 100%;
+}
+
+.nickName{
+    margin-left:32rpx;
+    font-size:36rpx;
+    color:#333;
+    font-weight:700;
+    display:flex;
+    align-items: center;
+}
+
+.nickName .lv-box{
+    position:relative;
+    text-align: center;
+    width:88rpx;
+    height:28rpx;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding-left:12rpx;
+
+}
+.lv-box .lv-text{
+    position:relative;z-index:10;
+    font-size:20rpx;
+    color:#fff;
+
+}
+.line{
+    background:rgba(245,245,245,1);
+    height:16rpx;
+    margin-top:52rpx;
+}
+
+.choose-list .row{
+    height:108rpx;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size:30rpx;
+    color:#333;
+    font-weight:600;
+    border-bottom: 2rpx solid #ededed;
+}
+.choose-list .row:last-child{
+
+    border-bottom:none;
+}
+.choose-list .row .txt{
+    font-size:30rpx;
+    color:#CECECE;
+    font-weight:600;
+}
+.choose-list .row .txt2{
+    font-size:30rpx;
+    color:#666;
+
+}
+
+.text{
+    padding-top:36rpx;
+    color:#aaa;
+    font-size:24rpx;
+}
+
+.skillLeave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.skillLeave .content {
+    min-height: 1000rpx;
+    background: #fff;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    border-radius: 32rpx 32rpx 0 0;
+    font-size: 28rpx;
+    color: #333;
+    padding: 0 32rpx;
+    box-sizing: border-box;
+}
+
+.skillLeave .content .cancel {
+    width: 24rpx;
+    height: 24rpx;
+}
+
+.skillLeave .content .sure {
+    width: 100rpx;
+    height: 56rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 28rpx;
+    border: 2rpx solid rgba(241, 75, 127, 1);
+    color: #F14B7F;
+    font-size: 24rpx;
+}
+
+.skillLeave .content .skill-title {
+    height: 128rpx;
+}
+
+.skillLeave .modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .5);
+    width: 100%;
+    height: 100%;
+
+}
+
+.list-block {
+    padding: 28rpx;
+    font-size: 26rpx;
+    color: #666;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 4rpx 24rpx 0px rgba(241, 75, 127, 0.07);
+    border-radius: 8px;
+    border: 2rpx solid rgba(207, 207, 207, 1);
+    margin-bottom: 20rpx;
+}
+
+.active {
+    color: #F14B7F;
+    background: rgba(255, 240, 245, 1);
+    border: 2rpx solid rgba(241, 75, 127, 1);
+}
+
+.list-block .title {
+    font-weight: 700;
+    margin-bottom: 10rpx;
+}
+
+.time-list {
+    margin-top: 40rpx;
+    margin-bottom: 28rpx;
+
+}
+
+.time-list .icon {
+    width: 28rpx;
+    height: 28rpx;
+    margin-right: 10rpx;
+}

@@ -1,0 +1,28 @@
+<view class="container">
+    <view class="flex-box flex-y-center flex-space header">
+        <view class="block" bindtap="filterStadium" data-creent="1" >
+           <view style="color:{{isOne?'#333':'#666'}}">
+               离我最近
+           </view>
+            <image src="../../../images/icon/arrow-down.png" class="icon {{isOne?'active':''}}" ></image>
+        </view>
+        <view class="block" bindtap="filterStadium" data-creent="2">
+           <view style="color:{{isTwo?'#333':'#666'}}">
+               好评优先
+           </view>
+            <image src="../../../images/icon/arrow-down.png" class="icon {{isTwo?'active':''}}" ></image>
+        </view>
+        <view class="block blockColor" bindtap="filterStadium" data-creent="3">
+           <view>
+               <image src="../../../images/icon/search.png" class="icon1"></image>
+               场馆名称
+           </view>
+
+        </view>
+    </view>
+    <view class="stadium-list">
+        <view wx:for="{{stadiumList}}" wx:key="index">
+            <item item="{{item}}"  bindtap="tapItem" data-current="{{item}}"></item>
+        </view>
+    </view>
+</view>

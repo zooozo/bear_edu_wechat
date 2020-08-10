@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "uploader":"../../../vant/uploader"
+
   },
   "backgroundTextStyle": "light",
   "navigationBarTextStyle": "white",

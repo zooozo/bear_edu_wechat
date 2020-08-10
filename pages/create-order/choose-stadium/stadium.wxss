@@ -1,0 +1,47 @@
+.container{
+    padding: 120rpx 32rpx 0;
+
+}
+.header{
+    height:120rpx;
+    position:fixed;
+    top:0;
+    left:0;
+    background:#fff;
+}
+.block{
+   display:flex;
+    align-items: center;
+    font-size:24rpx;
+    color:#666;
+    width:240rpx;
+    height:68rpx;
+    justify-content: center;
+}
+.blockColor{
+    background-color:#F3F3F3;
+    border-radius:34rpx;
+    padding-left:20rpx;
+    justify-content: flex-start;
+}
+.block .icon{
+    width:26rpx;
+    height:24rpx;
+    margin-left:18rpx;
+
+}.block .icon1{
+    width:32rpx;
+    height:32rpx;
+    margin-right:18rpx;
+}
+
+ .stadium-list{
+     padding:28rpx 0;
+     border-bottom:2rpx solid #ededed;
+ }
+
+ .active{
+     font-size:#333;
+     transform: rotate(180deg);
+     animation: all .5s linear;
+ }

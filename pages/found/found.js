@@ -88,6 +88,8 @@ Page({
             data: this.data.params,
             callBack: (res) => {
                 // let time=utils.formatTime(res.data.records[0].timeAgo*60*60*1000)
+                // pic: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLGqibUOngLiboNMY5b8qkUeDDX6sFl5Wa62libPTHgib1tibrEiayTXhUMJyfrDJqtqh9T52yRfFgPQqhA/132"
+
                 let arr = [];
                 let now = Date.now() / 1000;
                 let createTime;

@@ -1,0 +1,142 @@
+
+.container{
+    padding-bottom: 138rpx;
+}
+
+.avatar-bg {
+    width: 100%;
+    height: 600rpx;
+}
+
+.content {
+    background-color: #fff;
+    border-radius: 40rpx 40rpx;
+    min-height: 600rpx;
+    position: relative;
+    bottom: 60rpx;
+    padding: 0 32rpx;
+}
+
+.userInfo {
+    padding-top: 52rpx;
+    padding-bottom: 90rpx;
+}
+
+.userInfo .userInfo-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.userInfo .userInfo-row .userName {
+    color: #333;
+    font-size: 36rpx;
+    font-weight: 700;
+}
+
+.userInfo .userInfo-row .likeBtn {
+    width: 96rpx;
+    height: 52rpx;
+    border-radius: 26rpx;
+    border: 2rpx solid rgba(241, 75, 127, 1);
+    color: #F14B7F;
+    font-size: 24rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userInfo .userInfo-row1 {
+    margin-top: 8rpx;
+    margin-bottom: 22rpx;
+    color: #c9c9c9;
+    font-size: 24rpx;
+}
+
+.userInfo .copy {
+    padding: 6rpx 20rpx;
+    background: rgba(245, 245, 245, 1);
+    border-radius: 8rpx;
+    color: #999999;
+    font-size: 24rpx;
+}
+
+.info {
+    font-size: 24rpx;
+    color: #999;
+    margin-bottom: 96rpx;
+}
+
+.info-title {
+    font-size: 30rpx;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 24rpx;
+}
+
+.info .middle-row {
+    margin: 20rpx 0;
+    display: flex;
+    align-items: center;
+}
+
+.info .middle-row .item {
+    width: 68rpx;
+    height: 36rpx;
+    border-radius: 8rpx;
+    border: 2rpx solid rgba(56, 168, 255, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #38A8FF;
+    font-size: 22rpx;
+    margin-right: 20rpx;
+}
+
+.empty {
+    padding: 50rpx 0;
+    font-size: 28rpx;
+    color: #333;
+    font-weight: 700;
+    text-align: center;
+}
+
+
+.foot-btn {
+    height: 138rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 32rpx;
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    box-sizing: border-box;
+    background:#fff;
+}
+
+.foot-btn .btn {
+    width: 328rpx;
+    height: 90rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.foot-btn .btn1 {
+    border-radius: 46rpx;
+    border: 2rpx solid rgba(241, 76, 127, 1);
+    color: #F14C7F;
+    font-size: 32rpx;
+    font-weight: 600;
+
+}
+
+.foot-btn .btn2 {
+    background: linear-gradient(246deg, rgba(248, 151, 120, 1) 0%, rgba(241, 75, 127, 1) 100%);
+    border-radius: 46rpx;
+    color: #f8f8f8;
+    font-size: 32rpx;
+}

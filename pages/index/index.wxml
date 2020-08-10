@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!--stadium.wxml-->
 <view class="container">
     <view class='bg-sear'>
         <view class="searchBox">

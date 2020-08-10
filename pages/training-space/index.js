@@ -34,11 +34,14 @@ Page({
             {name: '周六', id: 6},
         ],
         skillLeave: ['业余一级', '业余二级', '业余三级'],
-        userData: {},
+        userData: {
+
+
+        },
         RecommendList:null
     },
     onLoad: function (options) {
-
+            console.log(options,'alsdkfjlasd')
     },
     tapFollow() {
         let bool=Number(!this.data.userData.attentionFlag)
@@ -58,6 +61,21 @@ Page({
             }
         })
     },
+    goToPayOrder(){
+        let user=this.data.userData
+      wx.navigateTo({
+          url:'/pages/create-order/index',
+          event:{
+              // postUserData: function(data) {
+              //     console.log(data,'前一个节目')
+              // },
+          },
+          success(res) {
+              // 把本页面的用户数据用数据带到打开的页面
+              res.eventChannel.emit('postUserData',user)
+          }
+      })
+    },
     copyId() {
         wx.setClipboardData({
             data: this.data.userData.userId + "",
@@ -69,41 +87,31 @@ Page({
             }
         })
     },
-
+    // 获取陪练信息
     getTrainerInfo(){
+        let id=this.options.userId?this.options.userId:app.globalData.userInfo.userId
+        console.log(this.options,app.globalData.userInfo.userId)
         http.request({
             method: 'GET',
             url: '/trainer/queryTrainer',
             data: {
-                userId: 22
+                userId:30
             },
             callBack: (res) => {
-                //     <!--attentionFlag: true-->
-                //     <!--begoodSkill: "扑球,高远球,搓球,杀球,劈叉,"-->
-                //     <!--infoId: null-->
-                //     <!--nickName: null-->
-                //     <!--orderPrice: 20000-->
-                //     <!--orderTime: "09,20"-->
-                //     <!--receivingType: 1-->
-                //     <!--skillLevel: 1-->
-                //     <!--trainerDescribe: "了来咯窘境"-->
-                // <!--trainerImg: "https://eco-culture.oss-cn-shenzhen.aliyuncs.com/2020/07/c374374a86f345e3975ca68fc14c1be3.jpg"-->
-                //     <!--userId: 22-->
-                //     <!--weekTime: "7,4,5,6,"-->
                 res.begoodSkill = res.begoodSkill.replace(/,/g, '、');
                 res.orderTime = res.orderTime.split(',');
                 res.orderPrice = parseInt(res.orderPrice / 100)
-                res.orderTime.sort();
                 if (!res.nickName) {
                     res.nickName = app.globalData.userInfo.nickName
                 }
                 // res.skillLevel=this.data.skillLeave[res.skillLevel-1];
                 res.weekList = ''
-                if (res.receivingType == 1) {
+                if (res.receivingType == 2) {
                     let week = res.weekTime.split(',');
+                    week.sort();
                     week.forEach((itm) => {
                         let index = this.data.weekList.findIndex((item) => item.id == itm);
-                        console.log(index, 'index---')
+
                         if (index > -1) {
                             res.weekList += this.data.weekList[index].name + '、'
                         }
@@ -115,11 +123,28 @@ Page({
 
 
                 this.setData({
-                    userData: res
+                    userData: res,
+                    'userData.pic': app.globalData.userInfo.pic,
                 })
+                this.getAppraise();
             }
         })
     },
+    getAppraise(){
+        http.request({
+            url:'/evaluation/getEvaluationStatistics',
+            method:'GET',
+            data:{
+                beCommentUid:this.data.userData.userId,
+                pageSize:10,
+                pageNum:1
+            },
+            callBack(res){
+
+            }
+        })
+    },
+    // 获取推荐列表
     getRecommendList(){
         console.log("3333")
         let params = {

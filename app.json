@@ -5,14 +5,19 @@
     "pages/setting/change-name/index",
 
     "pages/moment-time/detail/detail",
-    "pages/training-space/index",
-    "pages/index/index",
-
-    "pages/found/found",
-
-    "pages/to-ladder/update-trainer/index",
+    "pages/create-order/choose-stadium/stadium",
+    "pages/create-order/index",
     "pages/user/user",
+    "pages/to-trainer/update-trainer/index",
 
+
+    "pages/create-order/search-stadium/search",
+    "pages/training-space/index",
+    "pages/personal-space/index",
+    "pages/to-trainer/step-three/step-three",
+    "pages/to-trainer/index",
+    "pages/found/found",
+    "pages/index/index",
     "pages/moment-time/moment-time",
 
     "pages/to-ladder/step-three/step-three",
@@ -21,17 +26,19 @@
     "pages/to-ladder/step-four/step-four",
     "pages/to-ladder/step-one/step-one",
 
+    "pages/to-trainer/step-one/step-one",
+    "pages/to-trainer/step-two/step-two",
+    "pages/to-trainer/step-four/step-four",
     "pages/login/login",
     "pages/news/news-page",
     "pages/search-page/search-page",
     "pages/logs/logs",
-
     "pages/search-show/search-show"
 
   ],
   "permission": {
     "scope.userLocation": {
-      "desc": "你的位置信息将用于动态展示"
+      "desc": "我需要获取您当前的位置"
     }
   },
   "window": {

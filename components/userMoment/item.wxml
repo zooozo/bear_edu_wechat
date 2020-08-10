@@ -22,7 +22,10 @@
   <view class="title">{{item.momentsContent}}</view>
   <!--图片集合   length判断有问题-->
   <view >
-    <view  class="flex-box imgBox">
+    <view  class="flex-box imgBox" wx:if="{{videoUrl}}">
+      <video src="{{'http://eco-culture.oss-cn-shenzhen.aliyuncs.com/'+videoUrl}}" enable-play-gesture="{{true}}"></video>
+    </view>
+    <view  class="flex-box imgBox" wx:else>
       <image src="{{item}}" wx:for="{{imageList}}" wx:key="index"
              class="{{className}}" style="margin-right:{{index !=0 && index %2==0?'0':'8rpx'}}"></image>
     </view>

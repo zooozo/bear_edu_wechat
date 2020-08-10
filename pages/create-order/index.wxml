@@ -1,0 +1,81 @@
+<view class="container">
+    <view class="content-info">
+        <view class="userInfo">
+            <image src="../../images/timg.jpeg" class="avatar"></image>
+            <view class="nickName">
+                <view>{{userData.nickName}}</view>
+                <view class="lv-box">
+                    <view class="lv-text">LV {{item.skillLevel || 1}}</view>
+                    <image src="../../images/icon/lv.png" class="lv2"></image>
+                </view>
+
+            </view>
+        </view>
+        <view class="line">
+<!--            中间断层-->
+        </view>
+        <view class="choose-list">
+            <view class="row" bindtap="selectStadium">
+                <view>选择场地</view>
+                <view class="txt">
+                    {{showData.stadium || '请选择场馆'}} >
+                </view>
+            </view>
+            <view class="row">
+                <view>选择时间段</view>
+                <view class="txt">
+                    请选择时间 >
+                </view>
+            </view>
+            <view class="row">
+                <view>选择场地</view>
+                <view class="txt2">
+                    ¥ {{userData.orderPrice}}/小时
+                </view>
+            </view>
+        </view>
+        <view class="line">
+            <!--            中间断层-->
+        </view>
+        <view class="text">
+            <view style="margin-bottom:20rpx;">温馨提示</view>
+
+            <view> 1、陪练人员路费处理办法：3km，陪练人可根据当日实际打车票据或凭证找您报销</view>
+            <view style="margin:20rpx 0;"> 2、请仔细阅读相关法律法规，避免造成人员损失或财产损失</view>
+            <view> 3、陪练人员到场后，会要求用户出示短信验证码，请及时查看手机信息提示，避免错过订单。</view>
+        </view>
+    </view>
+    <view class="foot-btn">
+        <view class="flex-center">
+            <text>合计：</text>
+            <text class="icon">¥</text><text class="price">{{userData.orderPrice}}</text>
+        </view>
+        <view class="btn">
+            立即支付
+        </view>
+    </view>
+    <view class="skillLeave" wx:if="{{showTimeModal}}" >
+        <view class="modal"></view>
+        <view class="content">
+            <view class="flex-box flex-space flex-y-center skill-title">
+                <image src="../../images/icon/cancel2.png" class="cancel" bindtap="closeModal"></image>
+                <view style="font-weight:700">擅长技能</view>
+                <view class="sure" bindtap="closeModal1" data-choose="chooseSkill">确定</view>
+            </view>
+            <tabs active="{{ activeIndex }}" bind:change="onChange" line-width="20" line-height="4" animated
+                  border="{{false}}" style="flex:1;width:750rpx;" class="flex-box" sticky>
+<!--                <view slot="nav-left" class="flex-center btn-box">-->
+<!--                    <view class="btn flex-center" bindtap="goToPage">-->
+<!--                        发动态-->
+<!--                    </view>-->
+<!--                </view>-->
+                <tab title="{{item}}" wx:for="{{categoryList}}"
+                     title-style="color:{{activeIndex==index?'#333':'#999999'}};font-weight:{{activeIndex==index?'700':'500'}}"
+                     wx:key="index">
+                   <view slot="title"> 啊手动阀手动阀</view>
+                </tab>
+
+            </tabs>
+        </view>
+    </view>
+</view>

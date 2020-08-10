@@ -1,0 +1,8 @@
+
+{
+  "navigationBarBackgroundColor": "#F1527E",
+  "navigationBarTitleText": "搜索球馆",
+  "usingComponents": {
+    "item":"../../../components/stadiumItem/item"
+  }
+}

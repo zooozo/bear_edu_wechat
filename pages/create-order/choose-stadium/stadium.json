@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#F1527E",
+  "onReachBottomDistance":10,
+  "navigationBarTitleText": "选择球馆",
+  "usingComponents": {
+      "item":"../../../components/stadiumItem/item"
+  }
+}

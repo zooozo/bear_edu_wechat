@@ -19,5 +19,20 @@ Component({
   /**
    * 组件的方法列表
    */
-  methods: {}
+  methods: {
+
+    goToSpace(e){
+      let currentItem=e.currentTarget.dataset.current
+      if(currentItem.orderPrice && Number(currentItem.orderPrice>0)){
+        wx.navigateTo({
+          url:'/pages/training-space/index?userId='+currentItem.userId
+        })
+      }else{
+        wx.navigateTo({
+          url:'/pages/personal-space/index?userId='+currentItem.userId
+        })
+      }
+
+    }
+  }
 })
