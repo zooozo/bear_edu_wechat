@@ -48,13 +48,13 @@ Page({
             url: '/index/index',
             method: "GET",
             data: {
-                nickName:'坦诚',
-                userNumber:123456
+                nickName:null,
+                userNumber:null
             },
             callBack:res=>{
 
                this.setData({
-                   orderEntryList:[...res.records]
+                   orderEntryList:[...res.data.records]
                })
             }
         }

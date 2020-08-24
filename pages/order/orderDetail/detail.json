@@ -1,9 +1,9 @@
 {
-  "usingComponents": {
-  },
   "backgroundTextStyle": "light",
   "navigationBarTextStyle": "white",
   "navigationBarBackgroundColor": "#1EC19A",
   "enablePullDownRefresh": false,
-  "navigationBarTitleText": "成为陪练"
+  "navigationBarTitleText": "订单详情",
+  "usingComponents": {
+  }
 }

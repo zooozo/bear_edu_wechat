@@ -4,6 +4,5 @@
   class="custom-class {{ utils.bem('tab__pane', { active, inactive: !active }) }}"
   style="{{ shouldShow ? '' : 'display: none;' }}"
 >
-  <slot wx:if="{{title}}" name="title"/>
   <slot wx:if="{{ shouldRender }}" />
 </view>

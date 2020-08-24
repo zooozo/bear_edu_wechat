@@ -4,6 +4,7 @@ page {
 
     display:flex;
     flex-direction: column;
+    background-color:#F5F5F5;
 }
 
 .container {
@@ -139,3 +140,5 @@ image {
     width:44rpx;
     height:28rpx;
 }
+
+

@@ -12,7 +12,7 @@
 <!--    stadiumScore: 4-->
 <!--    stadiumType: 0-->
 <!--    updateTime: null-->
-    <image class="stadium-img" src="{{'http://eco-culture.oss-cn-shenzhen.aliyuncs.com'+item.stadiumImgUrl+'?x-oss-process=image/resize,m_fill,h_100,w_100'}}"></image>
+    <image class="stadium-img" src="{{'http://eco-culture.oss-cn-shenzhen.aliyuncs.com/'+item.stadiumImgUrl+'?x-oss-process=image/resize,m_fill,h_100,w_100'}}"></image>
     <view class="stadium-info">
         <view class="info1" >
             <view class="title cutTxt">{{item.stadiumName}}</view>

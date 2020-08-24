@@ -13,6 +13,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    ossUrl:app.globalData.imageHost,
     imageList: [],
     className:'',
     ossType:'',
@@ -20,6 +21,7 @@ Component({
   },
   ready(){
     let arr=this.data.item.momentsImgUrl.split(",");
+    // console.log(this.data.item.momentsImgUrl,'ir;==')
     // 防止切割逗号的时候会有一个空的元素
     let vedio='';
      arr.forEach((item,index)=>{
@@ -31,6 +33,7 @@ Component({
        }
      })
       let ossType=arr.length<3?'?x-oss-process=image/resize,m_fill,w_112,h_112,limit_0':'?x-oss-process=image/resize,m_fill,w_170,h_170,limit_0'
+    console.log(arr,'arr--')
       this.setData({
         imageList:arr,
         videoUrl:vedio,
@@ -51,14 +54,22 @@ Component({
          url:'/attention/saveUserAttention',
          data:{
            beAttentionUid:this.data.item.userId,
-           attentionFlag:1
+           attentionFlag:Number(!this.data.item.delFlag)
          },
          callBack:(res)=>{
+           this.setData({
+             'item.delFlag':Number(!this.data.item.delFlag)
+           })
            wx.showToast({
-             title:'关注成功'
+             title:this.data.item.delFlag==1?'关注成功':'取消关注成功'
            })
          }
        })
+    },
+    goToDetail(){
+      wx.navigateTo({
+        url:'/pages/moment-time/detail/detail'
+      })
     },
     clickThumbs() {
 

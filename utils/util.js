@@ -26,7 +26,7 @@ const formatTimeObject=(leftTime)=> {
     s = s < 10 ? "0" + s : s;
     overTime += (':' + s);
 
-
+    h=Number(h)+8;
     return {
       overTime: overTime,
       day: d,
@@ -51,8 +51,19 @@ const formatHtml = content => {
   return content;
 }
 
+const getDomClientRect=select=>{
+  console.log(select,'点击的tab')
+  return new Promise((re,rj)=>{
+    wx.createSelectorQuery().selectAll(select).boundingClientRect(function (rect) {
+      console.log(rect,'rect--')
+      re(rect)
+    }).exec()
+  })
+
+}
+
 module.exports = {
   formatTimeObject,
   formatTime: formatTime,
-  formatHtml: formatHtml
+  formatHtml: formatHtml,getDomClientRect
 }

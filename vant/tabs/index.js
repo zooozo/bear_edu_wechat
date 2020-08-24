@@ -15,7 +15,6 @@ component_1.VantComponent({
       this.updateTabs();
     },
     unlinked: function () {
-      console.log("11111")
       this.children = this.children.map(function (child, index) {
         child.index = index;
         return child;
@@ -55,7 +54,6 @@ component_1.VantComponent({
       type: [String, Number],
       value: 0,
       observer: function (name) {
-
         if (name !== this.getCurrentName()) {
           this.setCurrentIndexByName(name);
         }
@@ -83,7 +81,7 @@ component_1.VantComponent({
     },
     swipeThreshold: {
       type: Number,
-      value: 4,
+      value: 5,
       observer: function (value) {
         this.setData({
           scrollable: this.children.length > value || !this.data.ellipsis,
@@ -105,7 +103,7 @@ component_1.VantComponent({
     scrollLeft: 0,
     scrollable: false,
     trackStyle: '',
-    currentIndex: 0,
+    currentIndex: null,
     container: null,
   },
   mounted: function () {
@@ -209,7 +207,6 @@ component_1.VantComponent({
       });
     },
     getCurrentName: function () {
-      console.log(this.children,'children-=--')
       var activeTab = this.children[this.data.currentIndex];
       if (activeTab) {
         return activeTab.getComputedName();
@@ -312,21 +309,39 @@ component_1.VantComponent({
     // watch swipe touch end
     onTouchEnd: function () {
       if (!this.data.swipeable) return;
+      var _a = this,
+        direction = _a.direction,
+        deltaX = _a.deltaX,
+        offsetX = _a.offsetX;
+      var minSwipeDistance = 50;
+      if (direction === 'horizontal' && offsetX >= minSwipeDistance) {
+        var index = this.getAvaiableTab(deltaX);
+        if (index !== -1) {
+          this.setCurrentIndex(index);
+        }
+      }
+    },
+    getAvaiableTab: function (direction) {
       var _a = this.data,
         tabs = _a.tabs,
         currentIndex = _a.currentIndex;
-      var _b = this,
-        direction = _b.direction,
-        deltaX = _b.deltaX,
-        offsetX = _b.offsetX;
-      var minSwipeDistance = 50;
-      if (direction === 'horizontal' && offsetX >= minSwipeDistance) {
-        if (deltaX > 0 && currentIndex !== 0) {
-          this.setCurrentIndex(currentIndex - 1);
-        } else if (deltaX < 0 && currentIndex !== tabs.length - 1) {
-          this.setCurrentIndex(currentIndex + 1);
+      var step = direction > 0 ? -1 : 1;
+      for (
+        var i = step;
+        currentIndex + i < tabs.length && currentIndex + i >= 0;
+        i += step
+      ) {
+        var index = currentIndex + i;
+        if (
+          index >= 0 &&
+          index < tabs.length &&
+          tabs[index] &&
+          !tabs[index].disabled
+        ) {
+          return index;
         }
       }
+      return -1;
     },
   },
 });

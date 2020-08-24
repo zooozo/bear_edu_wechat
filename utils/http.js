@@ -80,7 +80,8 @@ var getToken = function() {
         login: true,
         url: '/login?grant_type=mini_app',
         data: {
-          principal: res.code
+          principal: res.code,
+          loginType:1
         },
         callBack: result => {
           var globalData = getApp().globalData;

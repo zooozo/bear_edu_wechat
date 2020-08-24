@@ -1,8 +1,7 @@
 {
-  "navigationBarBackgroundColor": "#F1527E",
+  "navigationBarBackgroundColor": "#1EC19A",
   "navigationBarTitleText": "创建订单",
   "usingComponents": {
-    "tabs": "../../../vant/tabs/index",
-    "tab": "../../../vant/tab/index"
+    "tabBar": "../../components/tabList/index"
   }
 }

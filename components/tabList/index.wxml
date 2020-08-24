@@ -1,0 +1,16 @@
+<view class="tab-self">
+    <scroll-view enable-flex scroll-x   scroll-with-animation
+                 style="width:100%;position:relative">
+        <view class='title' >
+            <!--                        index==currentIndex?'titleSelAc':-->
+            <view class=" item {{'click'+index}}" bindtap='titleClick'
+                  data-idx='{{index}}'
+                  wx:for="{{tabList}}" wx:key="index" >
+                <text class="t1 {{currentIndex===index?'titleSel':''}}">{{key?item[key]:item}}</text>
+                <text class="t2 {{currentIndex===index?'titleSel':''}}" wx:if="{{key1}}">{{item[key1] || ''}}</text>
+            </view>
+            <view class="line" style="transform: translateX({{scrollX }}rpx)"></view>
+        </view>
+
+    </scroll-view>
+</view>

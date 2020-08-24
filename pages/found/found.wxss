@@ -2,7 +2,6 @@
 background:var(--tabs-bottom-bar-color,linear-gradient(246deg,rgba(248,151,120,1) 0%,rgba(241,75,127,1) 100%));
 
 }
-.container{}
 .container .van-tab{
     flex:initial;
     min-width:120rpx;

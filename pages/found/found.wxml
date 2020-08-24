@@ -7,11 +7,12 @@
                     发动态
                 </view>
             </view>
+
             <tab title="{{item.name}}" wx:for="{{categoryList}}"
                  title-style="color:{{activeIndex==index?'#333':'#999999'}};font-weight:{{activeIndex==index?'700':'500'}}"
                  wx:key="index">
                 <view class="content">
-                    <view   wx:for="{{list}}" wx:key="index">
+                    <view wx:for="{{list}}" wx:key="index">
                         <userItem item="{{item}}"></userItem>
                     </view>
                 </view>

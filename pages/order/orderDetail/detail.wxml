@@ -1,0 +1,48 @@
+<view class="container">
+    <view class="header">
+        <view class="title">
+            <image src="../../../images/icon/whitecancel.png"></image>
+            <text>订单已取消</text>
+        </view>
+        <view style="color:#fff;font-size:24rpx;">
+            原因：不想下单了
+        </view>
+    </view>
+    <view class="content">
+        <view class="order-new">
+            <view class="name">
+               <text> 热衷摄影的少女</text>
+                <image src="../../../images/icon/right.png" class="right"></image>
+            </view>
+            <view class="order-price">
+                <view class="flex-box flex-space flex-y-center">
+                    <text>羽毛球陪练 1小时</text>
+                    <text>¥100.00</text>
+                </view>
+                <view class="flex-box flex-space flex-y-center" style="margin-top:28rpx">
+                    <view class="coupon">
+                        <image src="../../../images/icon/jian.png"></image>
+                        <text>满80减5</text>
+                    </view>
+                    <text>-¥5</text>
+                </view>
+            </view>
+            <view class="order-price flex-box flex-space" style="border:none;padding-bottom:0;">
+                <view class="coupon">
+                    <image src="../../../images/icon/liaotian@2x.png"></image>
+                    <text class="txt">联系ta</text>
+                </view>
+                <view class="flex-box price">
+                    <view>
+                        <text>已优惠 </text>
+                        <text>¥5.00</text>
+                    </view>
+                    <view>
+                        <text>总计 </text>
+                        <text>¥95.00</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

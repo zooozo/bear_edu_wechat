@@ -1,40 +1,31 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/order/orderDetail/detail",
+    "pages/create-order/index",
+    "pages/order/orderIndex",
     "pages/setting/change-date/index",
     "pages/setting/index",
     "pages/setting/change-name/index",
-
     "pages/moment-time/detail/detail",
     "pages/create-order/choose-stadium/stadium",
-    "pages/create-order/index",
     "pages/user/user",
     "pages/to-trainer/update-trainer/index",
-
-
     "pages/create-order/search-stadium/search",
     "pages/training-space/index",
     "pages/personal-space/index",
-    "pages/to-trainer/step-three/step-three",
     "pages/to-trainer/index",
     "pages/found/found",
-    "pages/index/index",
     "pages/moment-time/moment-time",
-
-    "pages/to-ladder/step-three/step-three",
-    "pages/to-ladder/ladder",
-    "pages/to-ladder/step-two/step-two",
-    "pages/to-ladder/step-four/step-four",
-    "pages/to-ladder/step-one/step-one",
-
-    "pages/to-trainer/step-one/step-one",
+    "pages/to-trainer/step-three/step-three",
     "pages/to-trainer/step-two/step-two",
     "pages/to-trainer/step-four/step-four",
+    "pages/to-trainer/step-one/step-one",
     "pages/login/login",
     "pages/news/news-page",
     "pages/search-page/search-page",
     "pages/logs/logs",
     "pages/search-show/search-show"
-
   ],
   "permission": {
     "scope.userLocation": {

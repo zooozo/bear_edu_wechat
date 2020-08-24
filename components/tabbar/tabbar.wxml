@@ -1,7 +1,7 @@
 
 <view class="tabBox">
     <view class='topTabSwiper'>
-        <!--        <view class='tab  {{currentData == 0 ? "tabBorer" : ""}}' data-current="0" bindtap='checkCurrent'>达叔</view>-->
+        <!--        <view class='tabList  {{currentData == 0 ? "tabBorer" : ""}}' data-current="0" bindtap='checkCurrent'>达叔</view>-->
         <view class='tab {{currentData == index ? "tabBorer" : ""}}' wx:for="{{tabList}}" data-current="{{index}}" bindtap='checkCurrent' wx:key="index"
 
         >{{item.name}}</view>

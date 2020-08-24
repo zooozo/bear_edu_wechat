@@ -1,57 +1,59 @@
-page{
+page {
     height: 100%;
 }
 
-.container{
-    padding:44rpx 32rpx 0;
-    display:flex;
+.container {
+    padding: 44rpx 32rpx 0;
+    display: flex;
     flex-direction: column;
 
-    background-color:#fff;
+    background-color: #fff;
 }
 
-.content-info{
-    flex:1;
+.content-info {
+    flex: 1;
 
 }
 
 
-.foot-btn{
-    display:flex;
+.foot-btn {
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    height:140rpx;
-    background:rgba(255,255,255,1);
+    height: 140rpx;
+    background: rgba(255, 255, 255, 1);
 
 }
 
-.foot-btn .flex-center{
-    font-size:24rpx;
-    color:#aaa;
-}
-.foot-btn .flex-center .price{
-    font-size:44rpx;
-    color:#F14C7F;
-    padding:0;
-    font-weight:600;
-}
-.foot-btn .flex-center .icon{
-    color:#F14C7F;
-    font-size:26rpx;
-    font-weight:600;
-    margin-right:4rpx;
+.foot-btn .flex-center {
+    font-size: 24rpx;
+    color: #aaa;
 }
 
-.foot-btn .btn{
-    width:406rpx;
-    height:90rpx;
-    background:linear-gradient(246deg,rgba(248,151,120,1) 0%,rgba(241,75,127,1) 100%);
-    border-radius:46rpx;
-    display:flex;
+.foot-btn .flex-center .price {
+    font-size: 44rpx;
+    color: #F14C7F;
+    padding: 0;
+    font-weight: 600;
+}
+
+.foot-btn .flex-center .icon {
+    color: #F14C7F;
+    font-size: 26rpx;
+    font-weight: 600;
+    margin-right: 4rpx;
+}
+
+.foot-btn .btn {
+    width: 406rpx;
+    height: 90rpx;
+    background: linear-gradient(246deg, rgba(248, 151, 120, 1) 0%, rgba(241, 75, 127, 1) 100%);
+    border-radius: 46rpx;
+    display: flex;
     align-items: center;
     justify-content: center;
-    color:#F8F8F8;
-    font-size:32rpx;
+    color: #F8F8F8;
+    font-size: 32rpx;
 }
 
 .userInfo .avatar {
@@ -68,67 +70,76 @@ page{
     width: 100%;
 }
 
-.nickName{
-    margin-left:32rpx;
-    font-size:36rpx;
-    color:#333;
-    font-weight:700;
-    display:flex;
+.nickName {
+    margin-left: 32rpx;
+    font-size: 36rpx;
+    color: #333;
+    font-weight: 700;
+    display: flex;
     align-items: center;
 }
 
-.nickName .lv-box{
-    position:relative;
+.nickName .lv-box {
+    position: relative;
     text-align: center;
-    width:88rpx;
-    height:28rpx;
-    display:flex;
+    width: 88rpx;
+    height: 28rpx;
+    display: flex;
     align-items: center;
     justify-content: center;
-    padding-left:12rpx;
+    padding-left: 12rpx;
 
 }
-.lv-box .lv-text{
-    position:relative;z-index:10;
-    font-size:20rpx;
-    color:#fff;
+
+.lv-box .lv-text {
+    position: relative;
+    z-index: 10;
+    font-size: 20rpx;
+    color: #fff;
 
 }
-.line{
-    background:rgba(245,245,245,1);
-    height:16rpx;
-    margin-top:52rpx;
+
+.line {
+    background: rgba(245, 245, 245, 1);
+    height: 16rpx;
+    margin-top: 52rpx;
 }
 
-.choose-list .row{
-    height:108rpx;
-    display:flex;
+.choose-list .row {
+    height: 108rpx;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size:30rpx;
-    color:#333;
-    font-weight:600;
+    font-size: 30rpx;
+    color: #333;
+    font-weight: 600;
     border-bottom: 2rpx solid #ededed;
 }
-.choose-list .row:last-child{
 
-    border-bottom:none;
+.choose-list .row:last-child {
+
+    border-bottom: none;
 }
-.choose-list .row .txt{
-    font-size:30rpx;
-    color:#CECECE;
-    font-weight:600;
+
+.choose-list .row .txt {
+    font-size: 30rpx;
+    color: #CECECE;
+    font-weight: 600;
 }
-.choose-list .row .txt2{
-    font-size:30rpx;
+.choose-list .row .txtColor {
     color:#666;
+}
+
+.choose-list .row .txt2 {
+    font-size: 30rpx;
+    color: #666;
 
 }
 
-.text{
-    padding-top:36rpx;
-    color:#aaa;
-    font-size:24rpx;
+.text {
+    padding-top: 36rpx;
+    color: #aaa;
+    font-size: 24rpx;
 }
 
 .skillLeave {
@@ -138,12 +149,13 @@ page{
     width: 100%;
     height: 100%;
     display: flex;
+    z-index: 100;
     flex-direction: column;
     justify-content: flex-end;
 }
 
 .skillLeave .content {
-    min-height: 1000rpx;
+    min-height:600rpx;
     background: #fff;
     width: 100%;
     position: relative;
@@ -153,6 +165,7 @@ page{
     color: #333;
     padding: 0 32rpx;
     box-sizing: border-box;
+
 }
 
 .skillLeave .content .cancel {
@@ -219,3 +232,78 @@ page{
     height: 28rpx;
     margin-right: 10rpx;
 }
+
+.swiper-box {
+    display: flex;
+    height: auto !important;
+    flex-wrap: wrap;
+
+}
+
+.time-item {
+    width: 160rpx;
+    height: 60rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26rpx;
+    border-radius: 8rpx;
+    margin-left: 14rpx;
+    box-sizing: border-box;
+    margin-bottom: 24rpx;
+    position: relative;
+}
+
+.choose-time {
+    color: #333;
+    font-size: 24rpx;
+    margin: 24rpx 0;
+
+}
+
+.choose-time text {
+    font-weight: 600;
+
+}
+
+.time-item:nth-child(1), .time-item:nth-child(5) {
+    margin-left: 0;
+}
+
+.time-item .item-status {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #fff;
+    font-size: 20rpx;
+    padding:0 2rpx;
+    border-radius:8rpx;
+}
+
+.time-item .bg1 {
+    background-color: #f1487f;
+}
+
+.time-item .bg2 {
+    background-color: #B2B2B2;
+}
+
+.default {
+    color: #666;
+    border: 2rpx solid #CFCFCF;
+    font-size: 24rpx;
+}
+
+.active {
+    background-color: #FFF0F5;
+    border: 2rpx solid #f14b7f;
+    color: #F14B7F;
+}
+
+.disable {
+    background-color: #e5e5e5;
+
+}
+
+
+

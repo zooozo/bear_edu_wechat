@@ -1,0 +1,82 @@
+
+.header {
+    min-height: 458rpx;
+    background: linear-gradient(180deg, rgba(30, 193, 154, 1) 0%, rgba(57, 219, 180, 0) 100%);
+    text-align: center;
+    padding-top: 80rpx;
+}
+
+.header .title {
+    font-size: 40rpx;
+    color: #fff;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20rpx;
+}
+
+.header .title image {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 16rpx;
+
+}
+
+.content {
+    padding: 0 32rpx;
+    position: relative;
+    top: -240rpx;
+    box-sizing: border-box;
+}
+
+.content .order-new {
+    background: #fff;
+
+    border-radius: 16rpx;
+    padding-left: 32rpx;
+    padding-bottom: 32rpx;
+}
+
+.content .order-new .name {
+    display: flex;
+    align-items: center;
+    height: 100rpx;
+    border-bottom: 2rpx solid #ededed;
+    font-weight: 700;
+    color: #333;
+    font-size: 30rpx;
+}
+
+.content .order-new .name .right {
+    width: 24rpx;
+    height: 22rpx;
+    margin-left: 24rpx;
+}
+
+
+.order-price {
+    padding: 36rpx 32rpx 36rpx 0;
+    font-size: 26rpx;
+    color: #333;
+    font-weight:600;
+    border-bottom: 2rpx solid #ededed;
+}
+.order-price .coupon text{
+    color:#aaa;
+    font-weight: normal;
+}
+.order-price .coupon image{
+    width:32rpx;
+    height:32rpx;
+    margin-right:12rpx;
+}
+.order-price .coupon .txt{
+    color:#1ec19a;
+    font-weight:600;
+}
+
+.order-price .price{
+    font-size:26rpx;
+    color:#999;
+}

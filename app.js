@@ -112,7 +112,8 @@ App({
     totalCartCount: 0,
     userInfo:{},
     imageHost:'http://eco-culture.oss-cn-shenzhen.aliyuncs.com/',
-    params:{} //用于保存成为陪练几个页面保存数据
+    params:{},//用于保存成为陪练几个页面保存数据,
+    trainerInfo:{}
 
   }
 })

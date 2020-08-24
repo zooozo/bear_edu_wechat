@@ -1,0 +1,12 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#1EC19A",
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "我的订单",
+  "usingComponents": {
+    "tabs": "../../vant/tabs/index",
+    "tab": "../../vant/tab/index",
+    "recommendItem":"../../components/recommendItem/recommendItem"
+  }
+}

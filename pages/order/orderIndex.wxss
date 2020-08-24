@@ -1,0 +1,95 @@
+.container {
+    background-color: #F5F5F5;
+
+}
+
+page {
+    height:100%;
+}
+
+.container .van-tab {
+    flex: initial;
+    min-width: 150rpx;
+    padding-left: 32rpx;
+}
+
+.container .van-tabs__wrap {
+    max-width: 750rpx;
+}
+
+
+.container .flex-box .btn-box {
+
+    background: #fff;
+}
+
+.van-ellipsis {
+    color: #999;
+    font-size: 28rpx;
+}
+
+.container .van-tabs__line {
+    bottom: 12rpx;
+}
+
+.order-list {
+    padding: 0 32rpx;
+    margin-top: 32rpx;
+    min-height: 204rpx;
+
+}
+
+.order-list .order-item {
+    padding: 32rpx;
+    background-color: #fff;
+    margin-bottom: 20rpx;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 16rpx;
+}
+
+.order-list .order-item .order-pic {
+    width: 140rpx;
+    height: 140rpx;
+    border-radius: 8rpx;
+}
+
+.order-list .order-item .user {
+    flex: 1;
+    margin-left: 32rpx;
+    color: #aaa;
+    font-size: 24rpx;
+}
+
+.order-list .order-item .user .name {
+
+    font-weight: 700;
+    color: #333;
+    font-size: 30rpx;
+}
+
+.right-part{
+    font-size:24rpx;
+    color:#333;
+}
+
+.status{
+    color:#aaa;
+}
+
+.notice{
+    text-align: center;
+    color:#aaa;
+    font-size:22rpx;
+    margin-top:32rpx;
+}
+
+.favorite {
+    margin-top: 24rpx;
+    padding:0 32rpx;
+}
+.favorite .t1 {
+   font-size:30rpx;
+    color:#333;
+    font-weight:700;
+}
