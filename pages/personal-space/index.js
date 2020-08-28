@@ -32,7 +32,7 @@ Page({
             url: 'https://badmtn.weizhukeji.com/badmtn-api/p/user/queryUserInfo',
             method: 'GET',
             data: {
-                userId: 8
+                userId: app.globalData.userInfo.userId
             },
             header: {
                 'Authorization': wx.getStorageSync('token')
@@ -57,10 +57,12 @@ Page({
                 pageSize: 10,
                 pageNum:this.data.currentPage
             },
-            callBack(res){
+            callBack:(res)=>{
+
                 this.setData({
                     listData:res.data,
-                    momentList:[...this.data.momentList,...res.data.records]
+                    momentList:this.data.momentList.concat(res.data.records)
+                        // [...this.data.momentList,...res.data.records]
                 })
             }
         })

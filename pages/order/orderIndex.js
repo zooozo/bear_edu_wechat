@@ -93,4 +93,10 @@ Page({
         }
         http.request(params);
     },
+    toOrderDetail(e){
+        let id=e.currentTarget.dataset.order
+        wx.navigateTo({
+            url:'/pages/order/orderDetail/detail?id='+id+'?type='+this.data.activeIndex
+        })
+    }
 });

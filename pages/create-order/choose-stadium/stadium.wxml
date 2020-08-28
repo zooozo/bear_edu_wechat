@@ -24,5 +24,7 @@
         <view wx:for="{{stadiumList}}" wx:key="index">
             <item item="{{item}}"  bindtap="tapItem" data-current="{{item}}"></item>
         </view>
+        <view wx:if="{{stopLoad}}" style="text-align: center;font-size:24rpx;color:#666;">没有更多了</view>
     </view>
+
 </view>

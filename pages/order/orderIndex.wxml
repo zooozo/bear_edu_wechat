@@ -4,7 +4,7 @@
             <tab wx:for="{{tabList}}" wx:key="index" title="{{item.name}}"
                  title-style="color:{{activeIndex==index?'#333':'#999999'}};font-weight:{{activeIndex==index?'700':'500'}}">
                 <view class="order-list">
-                    <view class="order-item" wx:for="{{orderList}}" wx:key="index">
+                    <view class="order-item" wx:for="{{orderList}}" wx:key="index" bindtap="toOrderDetail" data-order="{{item.id}}">
 <!--                        amount: 1-->
 <!--                        beginTime: "2020-08-21 12:00:00"-->
 <!--                        bizPayNo: "4200000706202008215200476514"-->
@@ -41,7 +41,7 @@
             </tab>
         </tabs>
         <view class="notice">
-            <view bindtap="loadMoreOrder">{{orderData.current<orderData.pages?'加载更多':'没有更多了'}}</view>
+            <view bindtap="loadMoreOrder">{{orderData.current< orderData.pages?'加载更多':'没有更多了'}}</view>
             <view style="margin-top:20rpx;">仅显示近三个月的订单记录</view>
         </view>
 

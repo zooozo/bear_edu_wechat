@@ -1,0 +1,57 @@
+.container {
+
+}
+
+.header {
+    height: 180rpx;
+    background: #fff;
+    padding: 0 32rpx;
+    display: flex;
+
+    align-items: center;
+}
+
+.icon {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+
+.row {
+    flex: 1;
+    margin-left: 28rpx;
+    display: flex;
+    justify-content: space-between;
+    color: #aaa;
+    flex-direction: column;
+}
+
+.row .main-name {
+    font-size: 30rpx;
+    color: #333;
+    font-weight: 700;
+}
+
+.row .time {
+    font-size: 22rpx;
+
+}
+
+.row .txt {
+    font-size: 26rpx;
+
+}
+
+.row .dot {
+    width: 34rpx;
+    height: 34rpx;
+    background-color:#FA7474;
+    color:#fff;
+    font-size:24rpx;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:50%;
+    flex-shrink: 0;
+}
+

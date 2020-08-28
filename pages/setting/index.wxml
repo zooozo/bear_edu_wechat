@@ -3,16 +3,22 @@
     <view>
         <view>
             <view class="page-font">头像</view>
-            <image src="../../images/timg.jpeg" class="page-img"></image>
+            <image src="{{listData.pic}}" class="page-img"></image>
         </view>
         <view class="flex-box flex-space" style="margin-top:62rpx;">
             <view>
                 <view class="page-font">视频认证</view>
-                <image src="../../images/timg.jpeg" class="page-img2"></image>
+                <view wx:if="{{!listData.userVideo}}">
+                    <image src="../../images/setting/video.png" class="page-img2" bindtap="uploadVideo" data-type="video"></image>
+                </view>
+                <view wx:else>
+                    <video src="{{listData.userVideo}}" class="page-img2" ></video>
+                </view>
+
             </view>
             <view>
                 <view class="page-font">形象照</view>
-                <image src="../../images/timg.jpeg" class="page-img2"></image>
+                <image src="{{listData.userRunImg?listData.userRunImg:'../../images/setting/images.png'}}" class="page-img2" bindtap="uploadVideo" data-type="images"></image>
             </view>
         </view>
     </view>
@@ -22,7 +28,7 @@
                 昵称
             </view>
             <view class="flex-center" bindtap="tapRowType" data-tapclick="1">
-                <text class="font2">{{listShowData.userName}}</text>
+                <text class="{{listData.nickName?'font2':'font1'}}">{{listData.nickName}}</text>
                 <image src="../../images/icon/right.png" class="icon"></image>
             </view>
         </view>
@@ -31,7 +37,7 @@
                 年龄/星座
             </view>
             <view class="flex-center" bindtap="tapRowType" data-tapclick="2">
-                <text class="font2">21/处女座</text>
+                <text class="{{listData.userAge?'font2':'font1'}}">{{listData.userAge&&listData.userStarseat?listData.userAge+' / '+listData.userStarseat:'请选择日期'}}</text>
                 <image src="../../images/icon/right.png" class="icon"></image>
             </view>
         </view>
@@ -40,44 +46,55 @@
                 家乡
             </view>
             <view class="flex-center">
-                <text class="font1">请填写家乡</text>
+                <input class="font2" placeholder-style="color:#cecece" placeholder="请填写家乡" bindblur="getAutograph" data-even="home" value="{{listData.hometown}}"/>
                 <image src="../../images/icon/right.png" class="icon"></image>
             </view>
-        </view> <view class="row">
+        </view>
+        <view class="row">
             <view >
                 签名
             </view>
-            <view class="flex-center">
-                <text class="font1">介绍一下自己呗</text>
+            <view class="flex-center" bindtap="tapRowType" data-tapclick="3" style="max-width:500rpx">
+                <text class="{{listData.autograph?'font2':'font1'}} cutTxt1">{{listData.autograph?listData.autograph:'介绍一下自己呗'}}</text>
                 <image src="../../images/icon/right.png" class="icon"></image>
             </view>
-        </view> <view class="row">
+        </view> <view class="row" >
             <view >
                 兴趣
             </view>
-            <view class="flex-center">
-                <text class="font1">请输入您的兴趣</text>
+            <view class="flex-center" bindtap="tapRowType" data-tapclick="4">
+                <text class="{{listData.userInterest?'font2':'font1'}}">{{listData.userInterest?listData.userInterest:'请输入您的兴趣'}}</text>
                 <image src="../../images/icon/right.png" class="icon"></image>
             </view>
         </view> <view class="row">
             <view >
                 职业
             </view>
-            <view class="flex-center">
-                <text class="font1">请选择行业</text>
+            <view class="flex-center" style="max-width:500rpx">
+                <input class="font2"
+                       placeholder-style="color:#cecece"
+                       placeholder="请填写职业"
+                       bindblur="getAutograph" data-even="vocation"
+                        value="{{listData.userOccupation}}"
+                />
                 <image src="../../images/icon/right.png" class="icon"></image>
             </view>
         </view> <view class="row">
             <view >
                 学校
             </view>
-            <view class="flex-center">
-                <text class="font1">请填写学校</text>
+            <view class="flex-center" style="max-width:500rpx">
+                <input class="font2"
+                       placeholder-style="color:#cecece"
+                       placeholder="请填写学校"
+                       bindblur="getAutograph"
+                       value="{{listData.userSchool}}"
+                       data-even="school"/>
                 <image src="../../images/icon/right.png" class="icon"></image>
             </view>
         </view>
     </view>
-    <view class="defaultBtn flex-center">
+    <view class="defaultBtn flex-center" bindtap="saveMyData">
             确定
     </view>
 </view>

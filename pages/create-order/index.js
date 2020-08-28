@@ -15,7 +15,7 @@ Page({
             skillLevel: 2,
             trainerDescribe: "爱上了对方开具",
             trainerImg: "2020/08/3e3d7fe79f5a472a9e93bcc0b509e5bc.jpg",
-            userId: 30,
+            userId: 84,
             weekList: "周一、周二、周三、周五、周六、",
             weekTime: "5,1,2,6,3",
         },
@@ -37,6 +37,7 @@ Page({
         tabList: [],
         chooseTimeIndex: [],
         chooseCurrentIndex: null,
+        disableTime:[],
         query:{
             channel:1,
             stadiumId:'',
@@ -48,21 +49,30 @@ Page({
         }
     },
     onLoad: function (options) {
-        console.log(options, 'option----')
+        console.log(options, 'create-order-options----')
         this.setData({
             'showData.stadium':options.name,
             'query.stadiumId':options.id
         })
-        // var query = wx.createSelectorQuery();
-        // //选择id
-        // var that = this;
-        // query.select('.title').boundingClientRect(function (rect) {
-        //     // console.log(rect.width)
-        //     that.setData({
-        //         tabWidth: rect.width
-        //     })
+        // const eventChannel = this.getOpenerEventChannel()
+        // eventChannel.on('postUserData',(data)=>{
+        //         console.log(data,'data====')
         //
-        // }).exec();
+        // })
+        wx.getStorage({
+            key:'trainerUser',
+            success:(res)=> {
+                console.log(res,'res---')
+                this.setData({
+                    userData:res.data
+                })
+            },
+            fail(res) {
+                console.log(res,'error')
+            }
+        });
+
+
     },
     onShow() {
         this.getPayOrderQuanTime()
@@ -74,10 +84,10 @@ Page({
             url: '/trainer/selectTimeQuantum',
             method: 'GET',
             data: {
-                trainerId: 84
+                trainerId: this.data.userData.userId || 84
             },
             callBack: (res) => {
-                console.log(res, 'res---')
+                wx.showLoading()
                 let data = res.data;
                 let arr = data.orderTime.split(',');
                 let today = new Date();
@@ -97,21 +107,49 @@ Page({
                     tabList.push(that.getDateTime(time))
                 }
                 console.log(tabList, 'tabList---')
+                let copyArr=arr.concat();
                 //重组orderTime数组。便于选中显示状态
                 arr.forEach((item, index) => {
                     arr[index] = {
-                        hour: item,
-                        select: false
+                            hour:item,
+                            select:false,
+                            disabled:false
+                        // select: false,  //选中状态
+                        // disable:false   //禁用状态
                     }
                 })
+                console.log(arr,'arr00')
+                // 重组一下已下过单的时间
+                data.mapList.forEach(item=>{
+                    item.actualDate=item.actualDate.substring(5);
+                    item.disableTimeArr=item.timeQuantum.split(',');
+                    item.disableTimeArr.push(Number(item.disableTimeArr[item.disableTimeArr.length-1])+1)
+
+                })
+
+                data.mapList[0].disableTimeArr.forEach((item,index)=>{
+                    let current=arr.findIndex((current)=>current.hour==item);
+                    arr[current].disabled=true
+                })
+
                 data.orderTime = arr;
+
+                //重组下过单时间的列表数组
+
+
+
+                console.log(data.orderTime,'odertime--');
                 this.setData({
+                    disableTime:data.mapList,
                     workTime: data,
                     tabList: tabList,
                     'query.actualDate':today.getFullYear()
                 })
+                wx.hideLoading()
             }
+
         })
+
     },
     // 获取每个Item
     getDateTime(date) {
@@ -135,27 +173,34 @@ Page({
         //如果点击的是同一个
 
         let index = arr2.findIndex((item) => item == idx);
+        if(arr[idx].disabled) return
+        // 点击选中
         if (index>-1) {
             arr2.sort();
-            console.log(idx-1,arr.length-1,'排序前')
-
+            // console.log(idx-1,arr.length-1,'排序前')
+            // console.log(idx,'idx===')
+            // console.log(arr2,'选中的数组')
+            // console.log(arr,'显示时间的数组')
             // 如果点击的不是选中的第一个和最后一个
             if(idx!=arr2[0] && idx !=arr2[arr2.length-1]){
-                let spliceArr=arr2.splice(idx,arr.length-1)
+                let spliceArr=arr2.splice(index,arr.length-1);
+                // console.log(spliceArr,'spliceArr----')
                 // arr[idx].select = !arr[idx].select;
                 //从中间选的把后面的截掉并把状态改成未选中
                 for(let i=0;i<spliceArr.length;i++){
-                    console.log(arr[i],'arr2====')
+                    // console.log(arr[i],'arr2====')
                     arr[spliceArr[i]].select=false;
                 }
             }else{
                 // 如果是第一个或者最后一个就把状态改变并把存入选中的数组删掉
+
                 arr[idx].select=!arr[idx].select
                 arr2.splice(index,1)
-                console.log(arr2,'arr2---')
+                // console.log(arr2,'arr2---')
             }
 
         } else {
+
             arr2 = arr2.concat(idx)
             // 先去重
             arr2 = Array.from(new Set(arr2))
@@ -171,13 +216,10 @@ Page({
                 // i=-1   因为要把自己也删掉
                  for (let i = -1; i < between; i++) {
                     arr[arr2[0] + i+1].select = true;
-
                     // 把中间的也存入选中的数组当中
                     arr2=arr2.concat( arr2[0] + i+1)
-
                 }
             }
-
 
         }
 
@@ -205,29 +247,53 @@ Page({
         // 点击确定关闭
         let date=this.data.query.actualDate+'-'+this.data.tabList[this.data.activeIndex].date;
         let  timeCount=[],arr = this.data.workTime.orderTime,arr2= this.data.chooseTimeIndex;
-        arr2=Array.from(new Set(arr2))
-        arr2.forEach(item=>{
-            timeCount.push(arr[item].hour)
-        })
-        timeCount.sort();
-        // 显示的不需要截掉最后一个。传后台的数据要截掉最后一个
-        this.setData({
-            'showData.QuanTime':this.data.tabList[this.data.activeIndex].date+"  "+timeCount[0]+":00 - "+timeCount[timeCount.length-1]+":00",
-        })
-        timeCount.splice(timeCount.length-1,1)
-        this.setData({
-            'query.actualDate':date,
-            'query.timeCount':timeCount[timeCount.length-1]-timeCount[0]+1,
-            'query.timeQuantum':timeCount.toString(),
-            showTimeModal: false,
-        })
+        if(arr2.length==1){
+            this.setData({
+                showTimeModal: false,
+            })
+        }else{
+            arr2=Array.from(new Set(arr2))
+            arr2.forEach(item=>{
+                timeCount.push(arr[item].hour)
+            })
+            timeCount.sort();
+            // 显示的不需要截掉最后一个。传后台的数据要截掉最后一个
+            this.setData({
+                'showData.QuanTime':this.data.tabList[this.data.activeIndex].date+"  "+timeCount[0]+":00 - "+timeCount[timeCount.length-1]+":00",
+            })
+            timeCount.splice(timeCount.length-1,1)
+            this.setData({
+                'query.actualDate':date,
+                'query.timeCount':timeCount[timeCount.length-1]-timeCount[0]+1,
+                'query.timeQuantum':timeCount.toString(),
+                showTimeModal: false,
+            })
+        }
+
+
+
 
     },
     getTabIndex(data) {
 
         let arr = this.data.workTime.orderTime;
+        let disableTime=this.data.disableTime;
         arr.forEach(item=>{
             item.select=false;
+            item.disabled=false
+        })
+        let currentDay=this.data.tabList[data.detail].date;
+
+        disableTime.forEach((item,index)=>{
+
+            if(item.actualDate==currentDay){
+                item.disableTimeArr.forEach((itm,idx)=>{
+                    let current=arr.findIndex((current)=>current.hour==itm);
+                    arr[current].disabled=true
+                })
+            }
+
+
         })
         this.setData({
 

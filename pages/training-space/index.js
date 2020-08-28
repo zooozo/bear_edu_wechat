@@ -72,20 +72,13 @@ Page({
           },
           success(res) {
               // 把本页面的用户数据用数据带到打开的页面
-              res.eventChannel.emit('postUserData',user)
+              // res.eventChannel.emit('postUserData',user)
+              wx.setStorageSync('trainerUser',user)
           }
       })
     },
     copyId() {
-        wx.setClipboardData({
-            data: this.data.userData.userId + "",
-            success(res) {
-
-            },
-            fail(err) {
-                console.log(err, 'err---')
-            }
-        })
+        app.copyData(this.data.userData.userId)
     },
     // 获取陪练信息
     getTrainerInfo(){
@@ -95,12 +88,13 @@ Page({
             method: 'GET',
             url: '/trainer/queryTrainer',
             data: {
-                userId:30
+                userId:this.options.userId
             },
             callBack: (res) => {
                 res.begoodSkill = res.begoodSkill.replace(/,/g, '、');
                 res.orderTime = res.orderTime.split(',');
-                res.orderPrice = parseInt(res.orderPrice / 100)
+                res.orderPrice = parseFloat(res.orderPrice / 100).toFixed(2)
+
                 if (!res.nickName) {
                     res.nickName = app.globalData.userInfo.nickName
                 }
@@ -145,26 +139,7 @@ Page({
         })
     },
     // 获取推荐列表
-    getRecommendList(){
-        console.log("3333")
-        let params = {
-            url: '/index/index',
-            method: "GET",
-            data: {
-                nickName:'坦诚',
-                userNumber:123456
-            },
-            callBack:res=>{
-
-                this.setData({
-                    RecommendList:[...res.records]
-                })
-            }
-        }
-        http.request(params);
-    },
     onShow() {
         this.getTrainerInfo();
-        this.getRecommendList();
     },
 });

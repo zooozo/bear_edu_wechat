@@ -1,12 +1,12 @@
 <view class="container">
     <view class="content-info">
         <view class="userInfo">
-            <image src="../../images/timg.jpeg" class="avatar"></image>
+            <image src="{{userData.trainerImg}}" class="avatar"></image>
             <view class="nickName">
                 <view>{{userData.nickName}}</view>
                 <view class="lv-box">
                     <view class="lv-text">LV {{item.skillLevel || 1}}</view>
-                    <image src="../../images/icon/lv.png" class="lv2"></image>
+                    <image src="../../images/icon/lv.png" class="lv2" style="margin-left:12rpx"></image>
                 </view>
 
             </view>
@@ -41,7 +41,7 @@
         <view class="text">
             <view style="margin-bottom:20rpx;">温馨提示</view>
 
-            <view> 1、陪练人员路费处理办法：3km，陪练人可根据当日实际打车票据或凭证找您报销</view>
+            <view> 1、陪练人员路费处理办法：{{'<3km'}}免路费，{{ '>3km'}}陪练人可根据当日实际打车票据或凭证找您报销</view>
             <view style="margin:20rpx 0;"> 2、请仔细阅读相关法律法规，避免造成人员损失或财产损失</view>
             <view> 3、陪练人员到场后，会要求用户出示短信验证码，请及时查看手机信息提示，避免错过订单。</view>
         </view>
@@ -69,7 +69,7 @@
                 <swiper duration="{{500}}" current="{{activeIndex}}">
                     <block wx:for="{{workTime.weekTime}}" wx:key="*this">
                         <swiper-item class="swiper-box">
-                            <view class="time-item default {{timeItem.select?'active':''}}" wx:for="{{workTime.orderTime}}" wx:key="index" wx:for-item="timeItem" bindtap="chooseOrderTime" data-choose="{{index}}">
+                            <view class="time-item default {{timeItem.select?'active':''}} {{ timeItem.disabled?'disable':''}}" wx:for="{{workTime.orderTime}}" wx:key="index" wx:for-item="timeItem" bindtap="chooseOrderTime" data-choose="{{index}}">
                                 {{timeItem.hour+":00"}}
                                 <view class="item-status bg1" wx:if="{{chooseTimeIndex[0]==index}}">
                                   开始
@@ -77,7 +77,7 @@
                                 <view class="item-status bg1" wx:elif="{{chooseTimeIndex[chooseTimeIndex.length-1]==index}}">
                                   结束
                                 </view>
-                                <view class="item-status bg2" wx:elif="{{chooseTimeIndex[1]==index}}">
+                                <view class="item-status bg2" wx:elif="{{timeItem.disabled }}">
                                   已满
                                 </view>
                             </view>

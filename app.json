@@ -1,15 +1,21 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/order/orderDetail/detail",
-    "pages/create-order/index",
-    "pages/order/orderIndex",
-    "pages/setting/change-date/index",
+    "pages/news/news-page",
+    "pages/news/chat/index",
+
     "pages/setting/index",
+    "pages/user/user",
+    "pages/setting/my-tastes/index",
+    "pages/order/orderIndex",
+    "pages/order/orderDetail/detail",
+
+    "pages/create-order/index",
+    "pages/appraise/index",
+    "pages/setting/change-date/index",
     "pages/setting/change-name/index",
     "pages/moment-time/detail/detail",
     "pages/create-order/choose-stadium/stadium",
-    "pages/user/user",
     "pages/to-trainer/update-trainer/index",
     "pages/create-order/search-stadium/search",
     "pages/training-space/index",
@@ -22,7 +28,6 @@
     "pages/to-trainer/step-four/step-four",
     "pages/to-trainer/step-one/step-one",
     "pages/login/login",
-    "pages/news/news-page",
     "pages/search-page/search-page",
     "pages/logs/logs",
     "pages/search-show/search-show"

@@ -28,7 +28,7 @@ Page({
     onLoad(){
 
 
-        this.getFavirateList();
+
     },
 
 
@@ -41,28 +41,18 @@ Page({
     },
     // https://badmtn.weizhukeji.com/badmtn-apip/index/index
     // https://badmtn.weizhukeji.com/badmtn-api/index/index
-    getFavirateList() {
 
-        console.log("3333")
-        let params = {
-            url: '/index/index',
-            method: "GET",
-            data: {
-                nickName:null,
-                userNumber:null
-            },
-            callBack:res=>{
-
-               this.setData({
-                   orderEntryList:[...res.data.records]
-               })
-            }
-        }
-        http.request(params);
-    },
     toSearchPage: function () {
         wx.navigateTo({
             url: '/pages/search-page/search-page',
         })
     },
+
+    onShareAppMessage(){
+     return {
+         title:'众羽在线',
+         path:'/pages/index/index',
+         imageUrl:'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2534506313,1688529724&fm=26&gp=0.jpg',
+     }
+    }
 })

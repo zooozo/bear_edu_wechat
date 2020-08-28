@@ -5,5 +5,7 @@
   "enablePullDownRefresh": false,
   "navigationBarTitleText": "订单详情",
   "usingComponents": {
+
+    "recommendItem":"../../components/recommendItem/recommendItem"
   }
 }

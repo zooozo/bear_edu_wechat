@@ -1,12 +1,12 @@
 <view class="container">
     <view class="header-title">
-        <view style="background-image:url({{userData.pic}})  "  class="head-img">
+        <view style="background-image:url({{userData.trainerImg}})  "  class="head-img">
 
         </view>
 
         <view class="userInfo">
             <view class="flex-box">
-                <image src="{{userData.pic}}" class="avatar"></image>
+                <image src="{{userData.trainerImg}}" class="avatar"></image>
                 <view style="margin-left:32rpx">
                     <view class="name">{{userData.nickName}}</view>
                     <view class="flex-box rate">

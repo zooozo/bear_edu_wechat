@@ -12,7 +12,7 @@
 }
 
 .skillLeave .content {
-    min-height: 1000rpx;
+
     background: #fff;
     width: 100%;
     position: relative;

@@ -8,18 +8,19 @@ Component({
 
     },
     data: {
-        scrollX:32,
+        scrollX:15,
         currentIndex:0,
     },
     methods: {
         titleClick(e){
             let index=e.currentTarget.dataset.idx;
             let that=this
-            console.log('.click'+index)
+
             this.createSelectorQuery().selectAll('.click'+index).boundingClientRect(function (rect) {
                 console.log(rect,'rect--')
+                let left=Math.ceil(rect[0].left)
                     that.setData({
-                        scrollX:rect[0].left*2,//换算成rpx单位
+                        scrollX:left,//换算成rpx单位
                         currentIndex:index
                     })
             }).exec()

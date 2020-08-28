@@ -9,7 +9,7 @@
                 <text class="t1 {{currentIndex===index?'titleSel':''}}">{{key?item[key]:item}}</text>
                 <text class="t2 {{currentIndex===index?'titleSel':''}}" wx:if="{{key1}}">{{item[key1] || ''}}</text>
             </view>
-            <view class="line" style="transform: translateX({{scrollX }}rpx)"></view>
+            <view class="line" style="transform: translateX({{scrollX }}px)"></view>
         </view>
 
     </scroll-view>

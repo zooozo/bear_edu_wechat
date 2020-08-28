@@ -7,7 +7,8 @@ Component({
     multipleSlots:true
   },
   properties: {
-    title:String
+    title:String,
+    modalHeight:String,
   },
 
   /**

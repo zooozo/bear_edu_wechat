@@ -1,31 +1,64 @@
 <view class="container">
-    <view class="header">
+    <!--    订单状态:{0:待付款 ,1:付款完成 ,2:已取消,3:已拒单,4:已完成 }-->
+    <view class="header" wx:if="{{orderData.status==1}}">
         <view class="title">
-            <image src="../../../images/icon/whitecancel.png"></image>
-            <text>订单已取消</text>
+            <image src="../../../images/icon/ing.png"></image>
+            <text>{{orderData.statusText}}</text>
         </view>
         <view style="color:#fff;font-size:24rpx;">
-            原因：不想下单了
+            <text>等待陪练师到达场馆 19:00</text>
+            <text>验证码: 889900</text>
+        </view>
+    </view>
+    <view class="header" wx:else>
+        <view class="title">
+            <image src="../../../images/icon/whitecancel.png"></image>
+            <text>{{orderData.statusText}}</text>
+        </view>
+        <view style="color:#fff;font-size:24rpx;">
+            原因：{{orderData.remark}}
         </view>
     </view>
     <view class="content">
         <view class="order-new">
-            <view class="name">
-               <text> 热衷摄影的少女</text>
-                <image src="../../../images/icon/right.png" class="right"></image>
+            <view class="order-user flex-box flex-space flex-y-center">
+                <view class="name " bindtap="ToTrainerSpace">
+                    <text>{{orderData.nickName}}</text>
+                    <image src="../../../images/icon/right.png" class="right"></image>
+                </view>
+                <view wx:if="{{orderData.status==1}}">
+                    <view class="btn" bindtap="showCancelModal" data-state="1">
+                        取消订单
+                    </view>
+                </view>
+                <view wx:elif="{{orderData.status==4}}">
+                    <view class="btn" bindtap="ToLeaveMessage">
+                        立即评价
+                    </view>
+                </view>
+
+
             </view>
+
             <view class="order-price">
                 <view class="flex-box flex-space flex-y-center">
-                    <text>羽毛球陪练 1小时</text>
-                    <text>¥100.00</text>
+                    <text>羽毛球陪练 {{orderData.timeCount}}小时</text>
+                    <text>¥{{orderData.amount}}</text>
                 </view>
                 <view class="flex-box flex-space flex-y-center" style="margin-top:28rpx">
-                    <view class="coupon">
-                        <image src="../../../images/icon/jian.png"></image>
-                        <text>满80减5</text>
+                    <text>羽毛球陪练 {{orderData.timeCount}}小时</text>
+                    <view bindtap="openLocationAddress">
+                        <image src="../../../images/icon/pos.png" class="pos"></image>
+                        <text>导航</text>
                     </view>
-                    <text>-¥5</text>
                 </view>
+                <!--                <view class="flex-box flex-space flex-y-center" style="margin-top:28rpx">-->
+                <!--                    <view class="coupon">-->
+                <!--                        <image src="../../../images/icon/jian.png"></image>-->
+                <!--                        <text>满80减5</text>-->
+                <!--                    </view>-->
+                <!--                    <text>-¥5</text>-->
+                <!--                </view>-->
             </view>
             <view class="order-price flex-box flex-space" style="border:none;padding-bottom:0;">
                 <view class="coupon">
@@ -33,16 +66,58 @@
                     <text class="txt">联系ta</text>
                 </view>
                 <view class="flex-box price">
-                    <view>
-                        <text>已优惠 </text>
-                        <text>¥5.00</text>
-                    </view>
-                    <view>
-                        <text>总计 </text>
-                        <text>¥95.00</text>
+                    <!--                    <view>-->
+                    <!--                        <text>已优惠：</text>-->
+                    <!--                        <text class="p1">¥5.00</text>-->
+                    <!--                    </view>-->
+                    <view style="margin-left:12rpx">
+                        <text>总计：</text>
+                        <text class="p2">¥{{orderData.amount}}</text>
                     </view>
                 </view>
             </view>
+        </view>
+        <view class="order-num">
+            <view class="flex-box flex-space flex-y-center">
+                <view>订单编号</view>
+                <view class="flex-box flex-y-center">
+                    <text>{{orderData.orderCode}}</text>
+                    <view class="copy" bindtap="copyOrderId">复制</view>
+                </view>
+            </view>
+            <view class="flex-box flex-space" style="margin-top:24rpx">
+                <view>下单时间</view>
+                <view>{{orderData.createTime}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="recommend">
+        <view>猜您喜欢</view>
+        <recommendItem></recommendItem>
+    </view>
+    <view class="toastModal v-ani-box {{showModal?'v-ani-show':''}}" >
+        <view class="mask"></view>
+        <view class="Modal">
+            <view class="flex-box flex-space " style="padding: 0 32rpx;">
+                <image src="../../../images/icon/cancel2.png" class="cancel" bindtap="showCancelModal" data-state="0"></image>
+
+                <view class="notice">
+                    <view>取消订单提示</view>
+                    <view style="margin-top:4rpx">下单15分钟内或未开始24小时前可免费消费</view>
+                </view>
+                <view class="sure" bindtap="cancelOrder" data-state="0">确定</view>
+            </view>
+
+            <view style="margin-top:40rpx">
+                <view class="{{index==0?'addBorder-bottom':''}} row" wx:for="{{noticeText}}" wx:key="index" bindtap="chooseReason" data-index="{{index}}">
+                    <text style="min-width:300rpx"> {{item}}</text>
+                    <view class="gou">
+                        <image src="../../../images/icon/gou.png"  wx:if="{{reasonIndex==index}}"></image>
+                    </view>
+
+                </view>
+            </view>
+
         </view>
     </view>
 </view>

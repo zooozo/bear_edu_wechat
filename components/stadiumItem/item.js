@@ -35,8 +35,15 @@ Component({
         arr[i]='../../images/icon/yike.png'
       }
     }
+    let distance=this.data.item.distance
+    if (distance > 1000) {
+      distance = Math.round(distance / 1000) + 'k'
+    } else {
+      distance = Math.ceil(distance)
+    }
     this.setData({
-      iconList:arr
+      iconList:arr,
+      'item.distance':distance
     })
   },
   /**

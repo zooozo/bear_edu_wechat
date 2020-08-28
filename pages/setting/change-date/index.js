@@ -21,8 +21,8 @@ Page({
             {"Start": 921, "End": 1020, "Name": "天秤座"}, {"Start": 1021, "End": 1120, "Name": "天蝎座"},
             {"Start": 1121, "End": 1220, "Name": "射手座"}],//星座
         showData:{
-            age:'18',
-            constellation:'水平座'
+            userAge:'18',
+            userStarseat:'水平座'
         },
         showModal:false
     },
@@ -45,30 +45,20 @@ Page({
 
         })
         this.setData({
-            valueArr: [5, 5, 5],
+            valueArr: [15, 0,0],
         })
     },
-    saveAgeData(){
-        let chageData=wx.getStorageSync('changeData') || {}
+
+    getStatus(data){
+        let changeData=wx.getStorageSync('listData') || {}
         wx.setStorage({
-            key:'changeData',
-            data:Object.assign(chageData,this.data.showData),
+            key:'listData',
+            data:Object.assign(changeData,this.data.showData),
             success(res) {
                 wx.navigateTo({
                     url:'../index'
                 })
             }
-        })
-    },
-    showModalComponent(){
-      this.setData({
-          showModal:true
-      })
-    },
-    getStatus(data){
-        console.log(data,'data--')
-        this.setData({
-            showModal:data.detail.status
         })
     },
 
@@ -93,6 +83,7 @@ Page({
                 days.push(i)
             }
         }
+        console.log(data,'data--')
         this.setData({
             showData:data,
             days,
@@ -138,8 +129,8 @@ Page({
             }
         }
         return{
-            constellation:starTime,
-            age:new Date().getFullYear()-y
+            userStarseat:starTime?starTime:'摩羯座',
+            userAge:new Date().getFullYear()-y
         }
     },
     GetSpecialDays(y) {
