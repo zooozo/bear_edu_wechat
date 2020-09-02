@@ -127,15 +127,14 @@
 
 .foot-btn .btn1 {
     border-radius: 46rpx;
-    border: 2rpx solid rgba(241, 76, 127, 1);
-    color: #F14C7F;
+    border: 2rpx solid #1EC19A;
+    color:#1EC19A;
     font-size: 32rpx;
     font-weight: 600;
 
 }
 
 .foot-btn .btn2 {
-    background: linear-gradient(246deg, rgba(248, 151, 120, 1) 0%, rgba(241, 75, 127, 1) 100%);
     border-radius: 46rpx;
     color: #f8f8f8;
     font-size: 32rpx;

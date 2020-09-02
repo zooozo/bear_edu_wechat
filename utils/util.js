@@ -26,7 +26,7 @@ const formatTimeObject=(leftTime)=> {
     s = s < 10 ? "0" + s : s;
     overTime += (':' + s);
 
-    h=Number(h)+8;
+    // h=Number(h);
     return {
       overTime: overTime,
       day: d,

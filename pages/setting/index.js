@@ -158,22 +158,34 @@ Page({
                 //     'listData.userRunImg':res.data
                 // })
                 that.data.listData.userRunImg=res.data
-
-                app.UploadFileToOss(this.data.listData.userVideo, (res) => {
-                    that.data.listData.userVideo=res.data;
-                    // this.setData({
-                    //     'listData.userVideo':res.data
-                    // })
+                if(!this.data.listData.userVideo){
                     http.request({
                         url:'/p/user/setUser',
                         data:this.data.listData,
                         callBack:(res)=>{
-                           wx.navigateTo({
-                               url:'/pages/user/index'
-                           })
+                            wx.switchTab({
+                                url:'/pages/user/user'
+                            })
                         }
                     })
-                })
+                }else{
+                    app.UploadFileToOss(this.data.listData.userVideo, (res) => {
+                        that.data.listData.userVideo=res.data;
+                        // this.setData({
+                        //     'listData.userVideo':res.data
+                        // })
+                        http.request({
+                            url:'/p/user/setUser',
+                            data:this.data.listData,
+                            callBack:(res)=>{
+                                wx.switchTab({
+                                    url:'/pages/user/user'
+                                })
+                            }
+                        })
+                    })
+                }
+
             })
 
         }

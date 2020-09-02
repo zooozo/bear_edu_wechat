@@ -1,0 +1,59 @@
+<view class="container">
+    <view class="header">
+        <image src="../../../images/qiandai@2x.png" class="bg"></image>
+        <view class="flex-box flex-space flex-y-center" style="flex:1">
+            <view>
+                <view class="t1">
+                    <text style="font-size: 40rpx">¥</text>
+                    {{listData.income}}
+                </view>
+                <view class="t2">我的收入</view>
+            </view>
+            <view class="withDraw" bindtap="toWithDraw">
+                提现
+            </view>
+        </view>
+    </view>
+    <view class="records">
+        <view class="records-title">
+            <view>
+                <view class="txt">账单</view>
+                <view class="txt2">收入¥200.00 支出¥0.00</view>
+            </view>
+            <view class="search-btn">
+                <view bindtap="showBlock">{{showMonth || '近一个月'}}</view>
+                <image src="../../../images/icon/arrow-down.png" class="icon"></image>
+
+                <view class="hover-block" wx:if="{{IsShow}}">
+                    <view class="mouth" bindtap="chooseMonth" data-month="1">近一个月</view>
+                    <view class="mouth" bindtap="chooseMonth" data-month="2">近三个月</view>
+                    <view class="mouth" bindtap="chooseMonth" data-month="3">所有</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <!--        amount: 100-->
+        <!--        createTime: "2020-08-28 10:25:27"-->
+        <!--        id: 40-->
+        <!--        title: "陪练提现"-->
+        <!--        titleCode: 2-->
+        <!--        transferOrderCode: "1299171201113001984"-->
+        <!--        type: 2-->
+        <!--        updateTime: "2020-08-31 14:20:01"-->
+        <!--        userId: 90-->
+
+        <view class="list-item" wx:for="{{recordList}}" wx:key="index">
+            <view>
+                <view class="title">{{item.title}}</view>
+                <view class="time">{{item.updateTime}}</view>
+            </view>
+            <view class="{{item.type==1?'amount1':'amount'}}">
+                {{item.type == 1 ? '+ ' + item.amount : '- ' + item.amount}}
+            </view>
+        </view>
+        <view wx:if="{{stopLoad}}" class="nomore">
+            没有更多了
+        </view>
+    </view>
+</view>

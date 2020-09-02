@@ -17,7 +17,8 @@ Component({
     imageList: [],
     className:'',
     ossType:'',
-    videoUrl:null
+    videoUrl:null,
+    myUserId:''
   },
   ready(){
     let arr=this.data.item.momentsImgUrl.split(",");
@@ -38,7 +39,8 @@ Component({
         imageList:arr,
         videoUrl:vedio,
         className:arr.length<3?'imgType2':'imgType1',
-        ossType:ossType
+        ossType:ossType,
+        myUserId:app.globalData.userInfo.userId
       })
   },
   // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
@@ -50,6 +52,7 @@ Component({
    */
   methods: {
     clickLike(){
+
        http.request({
          url:'/attention/saveUserAttention',
          data:{
@@ -68,7 +71,7 @@ Component({
     },
     goToDetail(){
       wx.navigateTo({
-        url:'/pages/moment-time/detail/detail'
+        url:'/pages/moment-time/detail/detail?id='+this.data.item.id
       })
     },
     clickThumbs() {
@@ -82,5 +85,18 @@ Component({
         }
       })
     },
+    tabAvatar(){
+      wx.setStorage({
+        key:'user',
+        data:this.data.item
+      })
+     let page= getCurrentPages();
+      console.log(page[page.length-1].route,'gea----');
+      if(page[page.length-1].route!= 'pages/personal-space/index'){
+        wx.navigateTo({
+          url:'/pages/personal-space/index?userId='+this.data.item.userId
+        })
+      }
+    }
   }
 })

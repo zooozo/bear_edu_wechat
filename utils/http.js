@@ -3,7 +3,8 @@ var config = require("config.js");
 //统一的网络请求方法
 function request(params, isGetTonken) {
   // 全局变量
-  var globalData = getApp().globalData;
+  console.log(getApp(),'app---')
+  var globalData = getApp()? getApp().globalData:{};
   // 如果正在进行登陆，就将非登陆请求放在队列中等待登陆完毕后进行调用
   if (!isGetTonken && globalData.isLanding) {
     globalData.requestQueue.push(params);
@@ -84,12 +85,22 @@ var getToken = function() {
           loginType:1
         },
         callBack: result => {
+          console.log(result,'reslut-------')
           var globalData = getApp().globalData;
           globalData.userInfo=result
           // 没有获取到用户昵称，说明服务器没有保存用户的昵称，也就是用户授权的信息并没有传到服务器
-          if (!result.nickName) {
-            updateUserInfo();
-          }
+
+          wx.getSetting({
+            success(res) {
+              if (!res.authSetting['scope.userInfo']) {
+                wx.navigateTo({
+                  url: '/pages/mobile/mobile',
+                })
+              }else{
+                getImUserInfo()
+              }
+            }
+          });
           if (result.userStutas == 0) {
             wx.setStorageSync('token', '');
           } else {
@@ -113,6 +124,7 @@ function updateUserInfo() {
     success: (res) => {
       var userInfo = JSON.parse(res.rawData);
       console.log(userInfo,'wxInfo')
+      getApp().globalData.userInfo=userInfo
       request({
         url: "/p/user/setUserInfo",
         method: "PUT",
@@ -122,12 +134,61 @@ function updateUserInfo() {
           sex:userInfo.gender
         },
         callBack:()=>{
+          getImUserInfo()
+
         }
       });
     }
   })
 }
+function getImUserInfo(){
+  request({
+    url:'/instanmessaging/generateIMusers',
+    method:'GET',
+    callBack:(res)=>{
+      console.log(res,'res----');
+      // 如果是新注册的用户
+      if(res.code==200){
+        getApp().globalData.ImUserInfo=res.data;
+        LoginIm();
+      }else{
+        // 已经生成过IM用户数据的
+        checkImUser();
+      }
 
+    }
+  })
+}
+// 登录IM聊天
+function LoginIm(){
+  let that=this;
+request({
+    url:'/instanmessaging/genSigByUserId',
+    method:'GET',
+    callBack:(res)=>{
+      getApp().globalData.$TIM.tim.login({
+        userID: getApp().globalData.ImUserInfo.identifier,
+        userSig:res.data.sign
+      })
+    }
+  })
+}
+function checkImUser(){
+  request({
+    url:'/instanmessaging/getIMusers',
+    method:'GET',
+    callBack:(res)=>{
+      if(res.code==200){
+        getApp().globalData.ImUserInfo=res.data;
+       LoginIm();
+      }
+      // $TIM.tim.login({
+      //     userID: 'user1',
+      //     userSig: 'eJyrVgrxCdZLrSjILEpVsjI2NDU2MwACHbBwWWqRkpWSkZ6BEoRfnJKdWFCQmaJkZWhiYGBsaWBuYASRyUxJzSvJTMsEaygtTi0yhGnJTAeKeBUZe4eb*IT5eVZEBEb6WhZ7V5a7uBhrhzpHePgaOZU65bhGprtb*ht6W9hCNZZk5gIdZGhqaWFibGBsbFQLACAVME8_'
+      // })
+    }
+  })
+}
 //获取购物车商品数量
 function getCartCount() {
   var params = {

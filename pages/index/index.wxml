@@ -36,7 +36,7 @@
                     <text class="t2">30元起</text>
                 </view>
                 <view class="flex-center">
-                    更多>
+                    更多 <image src="../../images/icon/right.png" style="width:24rpx;height:20rpx"></image>
                 </view>
             </view>
             <view class="newPerson-part">
@@ -74,7 +74,7 @@
                         <view>
                             萍乡启创队
                         </view>
-                        <image src="../../images/vs.jpg" class="vsLogo"></image>
+                        <image src="../../images/test/match.png" class="vsLogo"></image>
                         <view>
                             长沙四方坪队
                         </view>

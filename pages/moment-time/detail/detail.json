@@ -2,7 +2,7 @@
   "backgroundTextStyle": "light",
   "navigationBarTitleText": "动态详情",
   "navigationBarTextStyle": "white",
-  "navigationBarBackgroundColor": "#F1527E",
+  "navigationBarBackgroundColor":  "#1EC19A",
   "usingComponents": {
     "userItem":"../../components/userMoment/item"
   }

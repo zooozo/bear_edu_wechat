@@ -1,0 +1,153 @@
+page {
+    background-color: #fff;
+}
+
+.container {
+    padding: 44rpx 32rpx 0;
+}
+
+.header {
+    position: relative;
+    height: 240rpx;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60rpx;
+
+}
+
+.bg {
+    position: absolute;
+    width: 100%;
+    height: 240rpx;
+    z-index: -1;
+    left: 0;
+    top: 0;
+}
+
+.header .t2 {
+    font-size: 24rpx;
+    color: #fff;
+    opacity: .6;
+}
+
+.header .t1 {
+    font-size: 56rpx;
+    color: #fff;
+    font-weight: 600;
+    height: 80rpx
+}
+
+.withDraw {
+    width: 144rpx;
+    height: 64rpx;
+    box-shadow: 0 2rpx 12rpx 0 rgba(241, 75, 127, 0.35);
+    border-radius: 16px;
+    border: 2rpx solid #FFFFFF;
+    color: #fff;
+    font-size: 26rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.records {
+    margin-top: 60rpx;
+}
+
+.records .records-title {
+    height: 130rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2rpx solid #ededed;
+}
+
+.records .records-title .txt {
+    font-size: 30rpx;
+    color: #333;
+    font-weight: 700;
+}
+
+.records .records-title .txt2 {
+    font-size: 24rpx;
+    color: #aaa;
+    font-weight: 700;
+    margin-top: 6rpx;
+}
+
+.search-btn {
+    width: 180rpx;
+    height: 60rpx;
+    border-radius: 32rpx;
+    border: 2rpx solid #E5E5E5;
+    font-size: 24rpx;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+}
+
+.search-btn .icon {
+    width: 22rpx;
+    height: 12rpx;
+    margin-left:10rpx;
+}
+.hover-block{
+    position: absolute;
+    bottom:-200rpx;
+    left:20rpx;
+    width: 100%;
+}
+.hover-block .mouth{
+
+    height:60rpx;
+}
+
+
+.list .list-item{
+    height:116rpx;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2rpx solid #EDEDED;
+}
+
+.list .list-item:last-child{
+    border-bottom: none;
+}
+
+
+.list .list-item .title{
+   color:#666;
+    font-size:28rpx;
+}.list .list-item .time{
+   color:#aaa;
+    font-size:22rpx;
+    margin-top:6rpx;
+}.list .list-item .amount{
+   color:#333;
+    font-size:30rpx;
+    font-weight: 600;
+}
+.list .list-item .amount1{
+   color:#FF7171;
+    font-size:30rpx;
+    font-weight: 600;
+}
+
+.nomore{
+   
+    height:100rpx;
+    font-size:24rpx;
+    color:#aaa;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+

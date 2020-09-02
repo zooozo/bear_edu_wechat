@@ -46,7 +46,7 @@
                 <view class="price"><text class="txt">¥{{userData.orderPrice}}</text><text class="txt1">/1小时</text></view>
             </view>
             <view style="margin-top:28rpx;margin-bottom:20rpx;">
-                <text style="color:#999">接单时间： </text><text>{{userData.weekList}}  {{userData.orderTime[0]+':00'}} ~ {{userData.orderTime[1]+':00'}}</text>
+                <text style="color:#999">接单时间： </text><text>{{userData.weekList}}  {{userData.orderTime[0]+':00'}} ~ {{userData.orderTime[userData.orderTime.length-1]+':00'}}</text>
             </view>
             <view >
                 <text style="color:#999">擅长球技：</text> <text>{{userData.begoodSkill}}</text>

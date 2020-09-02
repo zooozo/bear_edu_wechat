@@ -112,5 +112,6 @@
     position:relative;z-index:10;
     font-size:20rpx;
     color:#fff;
+    padding-left:20rpx;
 
 }

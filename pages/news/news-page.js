@@ -20,6 +20,31 @@ Page({
         this.setData({
             allConversation: app.globalData.$TIM.tim.DBCenter.MessageList
         })
+        this.watch(this.getAllConversation)
+    },
+
+    getAllConversation(value){
+        console.log(value,'value----')
+        this.setData({
+            allConversation: value
+        })
+    },
+    // 时时监听收到消息的数据
+    watch: function (method) {
+        // let obj = DBCenter;
+        Object.defineProperty(app.globalData.$TIM.tim.DBCenter, "MessageList", {
+            configurable: true,
+            enumerable: true,
+            set: function (value) {
+                this._obj = value;
+
+                method(value);
+            },
+            get: function () {
+                // 可以在这里打印一些东西，然后在其他界面调用getApp().globalData.name的时候，这里就会执行。
+                return this._obj
+            }
+        })
     },
     longTimePress(e) {
         let item = this.data.allConversation[e.currentTarget.dataset.current]
@@ -68,18 +93,18 @@ Page({
                 // 保存当前点击的聊天信息
                 app.globalData.currentConversation = conversation
 
-                let name = ''
-                switch (conversation.type) {
-                    case  app.globalData.$TIM.tim.TYPES.CONV_C2C:
-                        name = conversation.userProfile.nick || conversation.userProfile.userID
-                        break
-                    case  app.globalData.$TIM.tim.TYPES.CONV_GROUP:
-                        name = conversation.groupProfile.name || conversation.groupProfile.groupID
-                        break
-                    default:
-                        name = '系统通知'
-                }
-                wx.navigateTo({url: `./chat/index?toAccount=${name}&type=${conversation.type}`})
+                // let name = ''
+                // switch (conversation.type) {
+                //     case  app.globalData.$TIM.tim.TYPES.CONV_C2C:
+                //         name = conversation.userProfile.nick || conversation.userProfile.userID
+                //         break
+                //     case  app.globalData.$TIM.tim.TYPES.CONV_GROUP:
+                //         name = conversation.groupProfile.name || conversation.groupProfile.groupID
+                //         break
+                //     default:
+                //         name = '系统通知'
+                // }
+                wx.navigateTo({url: `./chat/index?toAccount=${conversation.userProfile.userID}&type=${conversation.type}`})
                 return Promise.resolve()
             })
     },

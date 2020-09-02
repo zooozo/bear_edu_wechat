@@ -1,6 +1,6 @@
 <view class="container">
     <view>
-        <image src="../../images/timg.jpeg" class="avatar-bg"></image>
+        <image src="{{userInfo.pic || '../../images/timg.jpeg'}}" class="avatar-bg"></image>
     </view>
     <view class="content">
         <view class="userInfo">
@@ -60,6 +60,6 @@
     </view>
     <view class="foot-btn">
         <view class="btn1 btn">关注</view>
-        <view class="btn2 btn">聊天</view>
+        <view class="btn2 btn theme-color" bindtap="ToImTalk">聊天</view>
     </view>
 </view>

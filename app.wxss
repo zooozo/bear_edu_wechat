@@ -4,7 +4,7 @@ page {
 
     display: flex;
     flex-direction: column;
-    background-color: #F5F5F5;
+    background-color: #fff;
 }
 
 .container {
@@ -69,7 +69,7 @@ page {
 .defaultBtn {
     width: 689rpx;
     height: 90rpx;
-    background: rgba(30, 193, 154, 1);
+    background: #1FC19A;
     box-shadow: 0 2rpx 12rpx 0rpx rgba(241, 75, 127, 0.35);
     border-radius: 46rpx;
     color: #fff;
@@ -169,5 +169,12 @@ image {
     transform: translateY(0px);
     visibility: visible;
     pointer-events: auto;
+}
+
+.theme-color{
+    background-color:#1EC19A
+}
+.theme-font-color{
+    background-color:#1EC19A
 }
 

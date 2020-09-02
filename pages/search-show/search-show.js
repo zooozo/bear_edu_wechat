@@ -1,5 +1,7 @@
 // pages/search-prod-show/search-prod-show.js
 
+import {isNumber} from "../../vant/common/utils";
+
 var http = require('../../utils/http.js');
 Page({
 
@@ -7,23 +9,10 @@ Page({
      * 页面的初始数据
      */
     data: {
-        sts: 0,
-        showType:2,
         searchProdList:[],
         prodName:"",
     },
 
-    changeShowType:function(){
-        var showType = this.data.showType;
-        if (showType==1){
-            showType=2;
-        }else{
-            showType = 1;
-        }
-        this.setData({
-            showType: showType
-        });
-    },
     /**
      * 生命周期函数--监听页面加载
      */
@@ -32,7 +21,7 @@ Page({
         this.setData({
             prodName: options.prodName
         });
-
+        this.getSearchList();
     },
 
     /**
@@ -41,47 +30,35 @@ Page({
     onReady: function () {
 
     },
-
-    //输入商品获取数据
-    getSearchContent: function (e) {
-        this.setData({
-            prodName: e.detail.value
-        });
-    },
-
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        this.toLoadData();
-    },
 
-//请求商品接口
-    toLoadData:function(){
-        var ths = this;
-        //热门搜索
-        var params = {
-            url: "/search/searchProdPage",
-            method: "GET",
-            data: {
-                current: 1,
-                prodName: this.data.prodName,
-                size: 10,
-                sort: this.data.sts
-            },
-            callBack: function (res) {
-                ths.setData({
-                    searchProdList: res.records,
-                });
-            },
-        };
-        http.request(params);
     },
+    getSearchList(){
+        let num=Number(this.data.prodName)
+        let obj={}
+            if(!isNumber(num)){
+                obj.nickName=num;
+            }else{
+                obj.userNumber=num;
+            }
 
+
+        http.request({
+            url:'/index/index',
+            method:'GET',
+            data:obj,
+        })
+    },
+    clearValue(){
+        this.setData({
+            prodName:''
+        })
+    },
 //当前搜索页二次搜索商品
-    toSearchConfirm:function(){
-        this.toLoadData();
-    },
+
 
     /**
      * 生命周期函数--监听页面隐藏
@@ -121,18 +98,4 @@ Page({
     /**
      * 状态点击事件
      */
-    onStsTap: function(e) {
-        var sts = e.currentTarget.dataset.sts;
-        this.setData({
-            sts: sts
-        });
-        this.toLoadData();
-    },
-
-    toProdPage: function (e) {
-        var prodid = e.currentTarget.dataset.prodid;
-        wx.navigateTo({
-            url: '/pages/prod/prod?prodid=' + prodid,
-        })
-    },
 })

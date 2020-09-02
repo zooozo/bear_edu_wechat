@@ -1,19 +1,19 @@
 <view class="container">
-<!--    <view class="header">-->
-<!--        <view >-->
-<!--            <image src="../../images/icon/nes.png" class="icon"></image>-->
-<!--        </view>-->
-<!--        <view class="row">-->
-<!--            <view class="flex-box flex-space flex-y-center">-->
-<!--                <text class="main-name">系统消息</text>-->
-<!--                <text class="time">11:23</text>-->
-<!--            </view>-->
-<!--            <view class="flex-box flex-space flex-y-center" style="margin-top:12rpx;">-->
-<!--                <text class="txt">你有一条新的消息</text>-->
+    <view class="header">
+        <view >
+            <image src="../../images/icon/nes.png" class="icon"></image>
+        </view>
+        <view class="row">
+            <view class="flex-box flex-space flex-y-center">
+                <text class="main-name">系统消息</text>
+                <text class="time">11:23</text>
+            </view>
+            <view class="flex-box flex-space flex-y-center" style="margin-top:12rpx;">
+                <text class="txt">你有一条新的消息</text>
 <!--                <view class="dot">1</view>-->
-<!--            </view>-->
-<!--        </view>-->
-<!--    </view>-->
+            </view>
+        </view>
+    </view>
     <view style="margin-top: 16rpx">
         <view class="header"
               wx:for="{{allConversation}}"

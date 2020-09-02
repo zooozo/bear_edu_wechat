@@ -30,7 +30,7 @@ swiper.pic-swiper .banner {
 
 .container .bg-sear {
     width: 100%;
-    background-color:#F1527E;
+    background-color:#1EC19A;
     padding-bottom: 36rpx;
     text-align: center;
 }

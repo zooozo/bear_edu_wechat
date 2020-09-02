@@ -1,0 +1,9 @@
+<!--pages/login/mobile.wxml-->
+<image src='../../images/logo.png' class='c-logo'></image>
+<view class="title">中羽协</view>
+<view class="msg">申请获取你的手机号</view>
+
+<view>
+    <button  color="#eb2444"  open-type="getPhoneNumber" lang = "zh_CN" bindgetphonenumber = "getPhoneNumber" class=''>获取手机号</button>
+</view>
+

@@ -13,37 +13,41 @@ Page({
         list: [
             {url: '../../images/icon/order.png', text: '订单'},
             {url: '../../images/icon/quan.png', text: '优惠券'},
-            {url: '../../images/icon/qiandao.png', text: '签到有礼'},
+            // {url: '../../images/icon/qiandao.png', text: '签到有礼'},
             {url: '../../images/icon/bag.png', text: '我的钱包'},
         ],
         settingList: [
+            {url: '../../images/icon/qiandao.png', text: '签到有礼', path: ''},
             {url: '../../images/icon/lishi.png', text: '浏览历史', path: ''},
             {url: '../../images/icon/kefu.png', text: '在线客服', path: ''},
-            {url: '../../images/icon/help.png', text: '帮助与反馈', path: ''},
             {url: '../../images/icon/setting.png', text: '设置', path: ''},
         ]
     },
     tapList(e) {
         let type = e.currentTarget.dataset.current;
-        let url='';
+        let url = '';
         switch (Number(type)) {
             case 0:
-                url='/pages/order/orderIndex'
-                wx.navigateTo({url: url});
+                url = '/pages/order/orderIndex'
+
 
                 break;
             case 1:
                 wx.showToast({
-                    title:'开发中',
-                    icon:'none'
+                    title: '开发中',
+                    icon: 'none'
                 })
+                break;
+            case 2:
+                url = '/pages/mybag/index'
+                break;
         }
-        // wx.navigateTo({url: url})
+        wx.navigateTo({url: url});
 
     },
-    tapSettingList(e){
+    tapSettingList(e) {
         let type = e.currentTarget.dataset.current;
-        let url='';
+        let url = '';
         switch (Number(type)) {
             case 0:
                 // url='/pages/order/orderIndex'
@@ -59,7 +63,7 @@ Page({
             case 2:
                 break;
             case 3:
-                url="/pages/setting/index"
+                url = "/pages/setting/index"
                 break;
         }
         wx.navigateTo({url: url});

@@ -1,0 +1,74 @@
+
+.content {
+    /*minheight: 458rpx;*/
+    background: linear-gradient(180deg, rgba(30, 193, 154, 1) 30%, rgba(57, 219, 180, 0) 100%) no-repeat;
+    background-size: 100% 458rpx;
+
+    text-align: center;
+    padding: 100rpx 32rpx 0;
+}
+
+.right-icon {
+    width: 24rpx;
+    height: 22rpx;
+
+}
+
+.header {
+    color: #fefefe;
+    font-size: 24rpx;
+}
+
+.header .type {
+
+    opacity: .8;
+}
+
+.header .t2 {
+    opacity: .5;
+    margin-top: 6rpx;
+}
+
+.withDraw-box {
+    margin-top: 40rpx;
+    min-height: 344rpx;
+    background-color: #fff;
+    border-radius: 16rpx;
+    padding: 44rpx 32rpx 28rpx;
+    color: #666;
+    font-size: 24rpx;
+    text-align: left;
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.withDraw-box .rmb {
+    color: #333;
+    font-size: 68rpx;
+    font-weight: 600;
+}
+
+.withDraw-box .holder {
+    color: #cecece;
+    font-size: 30rpx;
+}
+.withDraw-num{
+    color:#333;
+    font-size:30rpx;
+    margin-left:20rpx;
+}
+
+.foot .txt{
+    color:#aaa;
+    font-size:24rpx
+}.foot .txt2{
+    color:#666;
+    font-size:24rpx
+}
+
+ .foot .all-withDraw{
+     color:#1EC19A;
+     font-size:24rpx;
+     margin-left:60rpx;
+ }

@@ -1,4 +1,5 @@
 const http = require('../../utils/http')
+const utils=require('../../utils/util')
 const app = getApp();
 Page({
     data: {
@@ -10,7 +11,7 @@ Page({
     onLoad: function (options) {
         console.log(options, 'options')
         this.getPersonInfo(options.userId);
-        this.getMomentsList();
+        this.getMomentsList(options.userId);
     },
     // 复制
     copyId() {
@@ -24,23 +25,50 @@ Page({
             }
         })
     },
+    ToImTalk(){
+        wx.showLoading();
+        let conversationID='C2C'+this.data.userInfo.userNumber;
+
+        // app.globalData.$TIM.tim.setMessageRead({conversationID});
+        console.log(' app.globalData.$TIM.tim', app.globalData.$TIM.tim)
+        return app.globalData.$TIM.tim.getConversationProfile(conversationID)
+            .then(({data: {conversation}}) => {
+                console.log(conversation, 'conversation-----')
+                // context.commit('updateCurrentConversation', conversation)
+                // 保存当前点击的聊天信息
+                app.globalData.currentConversation = conversation
+
+                // let name = ''
+                // switch (conversation.type) {
+                //     case  app.globalData.$TIM.tim.TYPES.CONV_C2C:
+                //         name = conversation.userProfile.nick || conversation.userProfile.userID
+                //         break
+                //     case  app.globalData.$TIM.tim.TYPES.CONV_GROUP:
+                //         name = conversation.groupProfile.name || conversation.groupProfile.groupID
+                //         break
+                //     default:
+                //         name = '系统通知'
+                // }
+                wx.hideLoading();
+                wx.navigateTo({url: `/pages/news/chat/index?toAccount=${conversation.userProfile.userID}&type=${conversation.type}`})
+                return Promise.resolve()
+            })
+    },
     // 获取个人信息
     getPersonInfo(id) {
         // app.globalData.userInfo.userId     userId:30
         let that = this;
-        wx.request({
-            url: 'https://badmtn.weizhukeji.com/badmtn-api/p/user/queryUserInfo',
+       http.request({
+            url: '/p/user/queryUserInfo',
             method: 'GET',
             data: {
-                userId: app.globalData.userInfo.userId
+                userId: id || 84
             },
-            header: {
-                'Authorization': wx.getStorageSync('token')
-            },
-            success(res) {
+
+            callBack:(res) =>{
                 console.log(res, 'res----')
                 that.setData({
-                    userInfo: res.data.data
+                    userInfo: res.data
                 })
 
             }
@@ -48,17 +76,29 @@ Page({
 
     },
     // 获取个人动态列表
-    getMomentsList() {
+    getMomentsList(id) {
         http.request({
             url: '/moments/pageMoments',
             method:'GET',
             data: {
                 requestType: 1,
+                userId:id,
                 pageSize: 10,
                 pageNum:this.data.currentPage
             },
             callBack:(res)=>{
+                let arr=[],now = Date.now() / 1000;
+                res.data.records.forEach((item) => {
+                    // 先换算一下时间  后端返回有距离多少个小时，和创建时间
+                 let   createTime = new Date(item.createTime).getTime() / 1000;
 
+                    item.timeLong = utils.formatTimeObject(now - createTime)
+                    console.log(item.timeLong,'timelog------')
+                    arr.push(item)
+
+
+
+                })
                 this.setData({
                     listData:res.data,
                     momentList:this.data.momentList.concat(res.data.records)

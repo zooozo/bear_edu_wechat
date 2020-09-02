@@ -1,21 +1,15 @@
 //app.js
 
+import {tim} from "./plugins/IM_message";
+
 var http = require("utils/http.js");
 
 const $TIM=require("plugins/IM_message")
 
 App({
     onLaunch: function () {
+        this.globalData.$TIM=$TIM;
         http.getToken();
-        wx.getSetting({
-            success(res) {
-                if (!res.authSetting['scope.userInfo']) {
-                    wx.navigateTo({
-                        url: '/pages/login/login',
-                    })
-                }
-            }
-        });
         wx.getSystemInfo({
             success: (res) => {
                 this.globalData.screen = {
@@ -24,8 +18,6 @@ App({
                 }
             }
         })
-
-        this.globalData.$TIM=$TIM;
     },
     userAuthSetting(txt) {
         let that = this;

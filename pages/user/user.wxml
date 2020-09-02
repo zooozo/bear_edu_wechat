@@ -1,38 +1,36 @@
 <!--pages/user/user.wxml-->
 <view class='container'>
-    <!-- 用户信息 -->
-    <view class="user-box">
-        <view class="userInfo flex-box flex-space">
-            <view>
+    <image src="../../images/userbg.png" class="top-bg"></image>
+    <view class="header">
+        <view class="userInfo">
+            <view class="userAvatar">
+                <open-data type="userAvatarUrl"></open-data>
+            </view>
+            <view style="margin-left:32rpx;">
                 <view class="user-nickname">
                     <open-data type="userNickName"></open-data>
                     <image src="../../images/icon/lv.png" class="lvLogo"></image>
                 </view>
-                <view>
+                <view class="message">
                     <text>用走心的签名打动对的人</text>
-                    <image src="../../images/icon/editor.png" class="editor"></image>
+                    <image src="../../images/icon/editor.png" class="editor" bindtap="tapSettingList"  data-current="3"></image>
                 </view>
             </view>
-            <view class="userAvatar">
-                <open-data type="userAvatarUrl"></open-data>
-            </view>
-        </view>
-        <view class="number flex-box">
-            <view class="box">
-                <text class="t1">1000</text>
-                <text class="t2">关注</text>
-            </view>
-            <view class="box">
-                <text class="t1">1000</text>
-                <text class="t2">粉丝</text>
-            </view>
-            <view class="box">
-                <text class="t1">1000</text>
-                <text class="t2">来访</text>
-            </view>
-        </view>
-    </view>
 
+        </view>
+         <view class="flex-box" style="margin-top:84rpx;">
+             <view class="item">
+                 <view class="t1">关注</view>
+                 <view class="t2">968</view>
+             </view> <view class="item">
+                 <view class="t1">关注</view>
+                 <view class="t2">968</view>
+             </view> <view class="item">
+                 <view class="t1">关注</view>
+                 <view class="t2">968</view>
+             </view>
+         </view>
+    </view>
     <view class="content">
         <!--订单 优惠券和钱包按钮-->
         <view class="list flex-box flex-space">
@@ -55,11 +53,12 @@
 
               </view>
         </view>
+        <navigator url="/pages/to-trainer/index" class="flex-center foot">
+            <view class="btn">
+                我想当陪练赚钱
+            </view>
+        </navigator>
     </view>
     <!--陪练按钮-->
-    <navigator url="/pages/to-trainer/index" class="flex-center foot">
-        <view class="btn">
-            我想当陪练赚钱
-        </view>
-    </navigator>
+
 </view>

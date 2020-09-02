@@ -4,9 +4,16 @@
   <!-- 搜索框 -->
   <view class='search-bar'>
     <view class='search-box'>
-      <input placeholder="请输入昵称/ID" class='sear-input'confirm-type='search' bindconfirm='toSearchProdPage' bindinput='getSearchContent' value='{{prodName}}'></input>
+      <input placeholder="请输入昵称/ID"
+             class='sear-input'
+             confirm-type='search'
+             bindconfirm='toSearchProdPage'
+             bindinput='getSearchContent'
+             value='{{prodName}}'
+              placeholder-style="color:#aaa"
+      ></input>
       <image src='../../images/icon/search.png' class='search-img'></image>
-      <image src='../../images/icon/cancel.png' class='search-cancel'></image>
+      <image src='../../images/icon/cancel3.png' class='search-cancel' bindtap="clearValue"></image>
     </view>
     <text class='search-hint' bindtap='goBackIndex'>取消</text>
   </view>

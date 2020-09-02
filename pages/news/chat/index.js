@@ -12,96 +12,10 @@ Page({
         toUser: {},
         positionOfTop: 0,
         showData: {},
-        msgData: {
-            nextReqMessageID: "C2Cuser5-3939000001-34393407-0",
-            isCompleted: true,
-            messageList: [{
-                ID: "C2Cuser5-3939000001-34393407-0",
-                avatar: "",
-                clientSequence: 3939000001,
-                conversationID: "C2Cuser5",
-                conversationSubType: undefined,
-                conversationType: "C2C",
-                flow: "in",
-                from: "user5",
-                geo: {},
-                isPeerRead: false,
-                isPlaceMessage: 0,
-                isRead: true,
-                isResend: false,
-                isRevoked: false,
-                isSystemMessage: false,
-                nick: "",
-                payload: {
-                    text: "在不阿萨德浪费看见爱上了对方就暗示领导看风景阿拉山口打飞机啊阿斯顿发送到发送到发送到发斯蒂芬" +
-                        "阿斯顿发送到发斯蒂芬"
-                },
-                priority: "Normal",
-                protocol: "JSON",
-                random: 34393407,
-                sequence: 3939000001,
-                status: "success",
-                time: 1598492341,
-                to: "user1",
-                type: "TIMTextElem",
-
-            }, {
-                ID: "C2Cuser5-3939000001-34393407-0",
-                avatar: "",
-                clientSequence: 3939000001,
-                conversationID: "C2Cuser5",
-                conversationSubType: undefined,
-                conversationType: "C2C",
-                flow: "in",
-                from: "user1",
-                geo: {},
-                isPeerRead: false,
-                isPlaceMessage: 0,
-                isRead: true,
-                isResend: false,
-                isRevoked: false,
-                isSystemMessage: false,
-                nick: "",
-                payload: {text: "在不"},
-                priority: "Normal",
-                protocol: "JSON",
-                random: 34393407,
-                sequence: 3939000001,
-                status: "success",
-                time: 1598492341,
-                to: "user1",
-                type: "TIMTextElem",
-
-            }, {
-                ID: "C2Cuser5-3939000001-34393407-0",
-                avatar: "",
-                clientSequence: 3939000001,
-                conversationID: "C2Cuser5",
-                conversationSubType: undefined,
-                conversationType: "C2C",
-                flow: "in",
-                from: "user5",
-                geo: {},
-                isPeerRead: false,
-                isPlaceMessage: 0,
-                isRead: true,
-                isResend: false,
-                isRevoked: false,
-                isSystemMessage: false,
-                nick: "",
-                payload: {text: "在不"},
-                priority: "Normal",
-                protocol: "JSON",
-                random: 34393407,
-                sequence: 3939000001,
-                status: "success",
-                time: 1598492341,
-                to: "user1",
-                type: "TIMTextElem",
-
-            }],
-
+        msgData:{
+            messageList:[]
         },
+
         actionList: [{
             txt: '拍摄',
             icon: "../../../images/setting/photo.png"
@@ -126,10 +40,15 @@ Page({
             emojiUrl: '',
             showEmoji: false,
             showList:false
+        },
+        nextReqMessageID:null,//IM翻页消息ID
+        IsLoad:{
+            count:15,   //每次请求的15条信息,
+            stopLoad:false
         }
-
     },
     onLoad(options) {
+        console.log(options,'options====')
         if (!options.type) {
             this.setData({
                 toUser: {
@@ -148,28 +67,29 @@ Page({
                 toUser: options,
                 'params.emojiName': emojiName,
                 'params.emojiMap': emojiMap,
-                'params.emojiUrl': emojiUrl
+                'params.emojiUrl': emojiUrl,
+                ImUserData:app.globalData.ImUserInfo,
+                'ImUserData.avatar':app.globalData.userInfo.pic,
+                'ImUserData.yourAvatar':app.globalData.currentConversation.userProfile.avatar
             })
 
 
         }
-        console.log('params.emojiName', this.data.params.emojiName)
+        // console.log('params.emojiName', this.data.params.emojiName)
         wx.setNavigationBarTitle({
-            title: this.data.toUser.toAccount
+            title: app.globalData.currentConversation.nick
         })
-        util.getDomClientRect('.talkItem').then(res => {
-            this.setData({
-                positionOfTop: res[0].height / 2
-            })
-        })
+        // console.log(app.globalData.currentConversation,'阿里代付会计案例可视对讲')
+        // util.getDomClientRect('.talkItem').then(res => {
+        //     this.setData({
+        //         positionOfTop: res[0].height / 2
+        //     })
+        // })
         this.getDateOfNow();
         this.getMessageListByPage();
-
+        // console.log(this.data.toUser)
     },
-    onShow() {
-        console.log(this.data.toUser)
 
-    },
     // 时时监听收到消息的数据
     watch: function (method) {
         // let obj = DBCenter;
@@ -178,7 +98,7 @@ Page({
             enumerable: true,
             set: function (value) {
                 this._obj = value;
-                console.log('是否会被执行2')
+
                 method(value);
             },
             get: function () {
@@ -191,8 +111,9 @@ Page({
         // app.globalData.currentConversation  当前点击的会话详情。其实就是对面那个人的信息
         console.log(app.globalData.currentConversation, 'currentConversation====')
         console.log(data, '收到的消息')
-        data.virtualDom = $TIM.actions.decodeElement(data);
+        data[0].virtualDom = $TIM.actions.decodeElement(data[0]);
         // 如果是当前聊天的人发过来的就展示
+        console.log(data[0].conversationType + data[0].from,app.globalData.currentConversation.conversationID)
         if ((data[0].conversationType + data[0].from) == app.globalData.currentConversation.conversationID) {
             this.concatMessageList(data)
         }
@@ -201,23 +122,28 @@ Page({
 
     // 获取当前的消息列表
     getMessageListByPage() {
-
-        $TIM.actions.getMessageListData(this.data.toUser.toAccount).then(res => {
-            console.log(res, 'res----');
+        let nextReqMessageID=this.data.nextReqMessageID
+        $TIM.actions.getMessageListData(this.data.toUser.toAccount,nextReqMessageID).then(res => {
+            console.log(res, '当前的消息列表');
 
             res.data.messageList.forEach((item, index) => {
                 res.data.messageList[index].virtualDom = $TIM.actions.decodeElement(item);
             })
-
+            this.data.IsLoad.stopLoad=res.data.messageList<this.data.IsLoad.count
+           if( res.data.messageList.length==0) return ;//如果是空的就不走了
             this.setData({
-                "msgData": res.data
+                "msgData.messageList":[...this.data.msgData.messageList,...res.data.messageList],
+                nextReqMessageID:res.data.nextReqMessageID
             })
+
+
+            // 开始监听收到的数据
             this.watch(this.getCurrentMessage)
             setTimeout(() => {
                 wx.pageScrollTo({
                     scrollTop: 99999
                 })
-            }, 300)
+            }, 200)
         })
 
 
@@ -238,11 +164,17 @@ Page({
         this.setData({
             "msgData.messageList": arr.concat(arrItem)
         })
+
         setTimeout(() => {
             wx.pageScrollTo({
                 scrollTop: 99999
             })
-        }, 300)
+        }, 200)
+    },
+
+    getTextareaHeight(e){
+      // 获取高度 e
+        console.log(e,'e-----');
     },
     // 把当前输入的值保存下来
     getCurrentText(e) {
@@ -289,7 +221,7 @@ Page({
                             wx.authorize({
                                 scope: 'scope.camera',
                                 success: function () {
-                                    self.chooseImage('camera')
+                                    this.chooseImage('camera')
                                 }
                             })
                         }
@@ -338,7 +270,9 @@ Page({
                 })
                 let VideoMessage = $TIM.actions.sendMsg(message)
                 $TIM.sendMessage(VideoMessage).then(res=>{
-                    console.log(res,'发送的视频')
+                    that.setData({
+                        'params.showList': !this.data.params.showList
+                    })
                     that.concatMessageList(res.data.message)
                 })
 
@@ -369,7 +303,9 @@ Page({
                 console.log(ImgMessage,',,message=-===');
                 $TIM.sendMessage(ImgMessage).then((res) => {
                     self.percent = 0
-                    console.log(res,'res----')
+                    self.setData({
+                        'params.showList': !this.data.params.showList
+                    })
                     self.concatMessageList(res.data.message)
                 }).catch((err) => {
                     console.log(err)
@@ -401,10 +337,12 @@ Page({
         //     'params.textContent':e.detail.value
         // })
         // console.log(this.data.toUser.type + 'user5');
+
+        wx.showLoading();
         let query = {
-            to: 'user5',
-            conversationType: 'C2C',
-            payload: {text: e.detail.value}
+            to: this.data.toUser.toAccount,
+            conversationType: this.data.toUser.type,
+            payload: {text:this.data.params.textContent}
         }
         const message = $TIM.actions.sendMsg($TIM.createTextMessage(query))
         console.log(message, '发送的数据')
@@ -413,10 +351,18 @@ Page({
             this.concatMessageList(res.data.message)
             // 清空输入框
             this.setData({
-                'params.textContent': ''
+                'params.textContent': '',
+                'params.showEmoji':false
             })
+            wx.hideLoading();
         }).catch(err => {
             console.log(err, 'err---');
         })
+    },
+    onReachBottom(){
+        if(!this.data.IsLoad.stopLoad){
+            this.getMessageListByPage()
+        }
+
     }
 })

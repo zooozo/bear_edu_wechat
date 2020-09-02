@@ -10,7 +10,7 @@ const tim = TIM.create({
 })
 tim.registerPlugin({'cos-wx-sdk': Cos});
 tim.TYPES=types.default
-console.log(tim.TYPES,'TYPE----');
+tim.setLogLevel(3);
 // 这是保存的消息列表
 let DBCenter={
     MessageList:{},
@@ -22,10 +22,7 @@ let DBCenter={
 let obj={
     nextReqMessageID:null
 }
-tim.login({
-    userID: 'user1',
-    userSig: 'eJyrVgrxCdZLrSjILEpVsjI2NDU2MwACHbBwWWqRkpWSkZ6BEoRfnJKdWFCQmaJkZWhiYGBsaWBuYASRyUxJzSvJTMsEaygtTi0yhGnJTAeKeBUZe4eb*IT5eVZEBEb6WhZ7V5a7uBhrhzpHePgaOZU65bhGprtb*ht6W9hCNZZk5gIdZGhqaWFibGBsbFQLACAVME8_'
-})
+
 // websocket派发事件
 tim.on(TIM.EVENT.CONVERSATION_LIST_UPDATED, (res)=>{
     // 收到会话列表更新通知，可通过遍历 event.data 获取会话列表数据并渲染到页面
@@ -48,10 +45,10 @@ tim.on(TIM.EVENT.MESSAGE_RECEIVED, function(event) {
 
 
 let action={
-    getMessageListData:function (conversationID){
+    getMessageListData:function (conversationID,nextReqMessageID){
         console.log(tim,'tim============')
         return new Promise((re,rj)=>{
-            tim.getMessageList({conversationID:'C2C'+conversationID,count:15}).then(res=>{
+            tim.getMessageList({conversationID:'C2C'+conversationID,nextReqMessageID,count:15}).then(res=>{
                 re(res)
             }).catch(err=>{
                 rj(err)

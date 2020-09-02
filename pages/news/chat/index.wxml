@@ -6,21 +6,23 @@
         <view wx:for="{{msgData.messageList}}" wx:key="index">
 
             <!--            我方聊天记录-->
-            <view class="msg" wx:if="{{item.from=='user1'}}">
-                <image src="{{item.avatar ||'../../../images/logo.png'}}"
-                       class="avatar avatar-self }" style="{{item.type=='TIMImageElem'?'margin-top:40rpx;':''}}"></image>
+
+            <view class="msg" wx:if="{{item.from!=ImUserData.identifier}}">
+                <image src="{{ImUserData.yourAvatar ||'../../../images/logo.png'}}"
+                       class="avatar avatar-self }"
+                       style="{{item.type=='TIMImageElem'?'margin-top:40rpx;':''}}"></image>
                 <view class="talkItem {{item.type!='TIMTextElem'?'imageStyle':'fontStyle'}}"
                       style="{{item.payload.text.length>=10 || item.type=='TIMTextElem'?'height:76rpx ':'min-height:76rpx;'}}">
 
                     <!--                        如果他是文字或者表情-->
                     <view wx:if="{{item.type === 'TIMTextElem'}}" class="flex-box">
-                        <view wx:for="{{item.virtualDom}}" :key="index" wx:for-item="dom" >
+                        <view wx:for="{{item.virtualDom}}" wx:key="index" wx:for-item="dom" class="flex-center">
                             <text wx:if="{{dom.name=='span'}}">{{dom.text}}</text>
                             <image wx:if="{{dom.name=='img'}}" src="{{dom.src}}"
                                    style="width:60rpx;height:60rpx "></image>
                         </view>
                     </view>
-<!--                    发送的图片-->
+                    <!--                    发送的图片-->
                     <view wx:elif="{{item.type === 'TIMImageElem'}}">
                         <image src="{{item.payload.imageInfoArray[1].url}}" class='postImg'></image>
                     </view>
@@ -33,7 +35,7 @@
                                bindleavepictureinpicture="getVideoStatus"
                         ></video>
                     </view>
-                    <view class="badge1" wx:if="{{item.type=='TIMImageElem'}}">
+                    <view class="badge1" wx:if="{{item.type=='TIMTextElem'}}">
                         <!--            尖角-->
                     </view>
                 </view>
@@ -43,7 +45,7 @@
                 <view class="talkItem {{item.type!='TIMTextElem'?'imageStyle':'fontStyle1'}}"
                       style="{{item.payload.text.length>=10|| item.type=='TIMTextElem'?'height:76rpx ':'min-height:76rpx;'}}">
                     <view wx:if="{{item.type === 'TIMTextElem'}}" class="flex-box">
-                        <view wx:for="{{item.virtualDom}}" wx:key="index" wx:for-item="dom" >
+                        <view wx:for="{{item.virtualDom}}" wx:key="index" wx:for-item="dom" class="flex-center">
                             <text wx:if="{{dom.name=='span'}}">{{dom.text}}</text>
                             <image wx:if="{{dom.name=='img'}}" src="{{dom.src}}"
                                    style="width:60rpx;height:60rpx"></image>
@@ -63,13 +65,14 @@
                                 bindleavepictureinpicture="getVideoStatus"
                         ></video>
                     </view>
-                    <view class="badge" wx:if="{{item.type!='TIMImageElem'}}">
+                    <view class="badge" wx:if="{{item.type=='TIMTextElem'}}">
                         <!--            尖角-->
                     </view>
 
                 </view>
-                <image src="{{item.userProfile.avatar ||'../../../images/logo.png'}}"
-                       class="avatar avatar-your" style="{{item.type=='TIMImageElem'?'margin-top:40rpx;':''}}"></image>
+                <image
+                        src="{{ImUserData.avatar ||'../../../images/logo.png'}}"
+                        class="avatar avatar-your" style="{{item.type=='TIMImageElem'?'margin-top:40rpx;':''}}"></image>
             </view>
         </view>
     </view>
@@ -77,17 +80,28 @@
     <view class="foot-module">
         <view class="footGroup">
             <view style="flex:1">
-                <input placeholder="输入聊天内容"
-                       placeholder-class="input-text"
-                       focus="{{true}}"
-                       value="{{params.textContent}}"
-                       bindinput="getCurrentText"
-                       bind:confirm="getTextContent"/>
+                <textarea placeholder="输入聊天内容"
+                          auto-height="{{true}}"
+                          placeholder-class="input-text"
+                          fixed="{{true}}"
+                          value="{{params.textContent}}"
+                          class="textarea-class"
+                          bindinput="getCurrentText"
+                        />
             </view>
-            <view style="margin-left:30rpx;">
+            <view style="margin-left:30rpx;" class="flex-center">
+                <!--                表情-->
                 <image class="icon" src="../../../images/talk/biaoqing.png" bindtap="showModule"
                        data-type="emoji"></image>
-                <image class="icon" src="../../../images/talk/biaoqing2x.png" style="margin-left:26rpx;" bindtap="showModule"  data-type="list"></image>
+                <!--                选择图片或者视频-->
+                <image class="icon"
+                       src="../../../images/talk/biaoqing2x.png"
+                       wx:if="{{!params.textContent || params.textContent.length==0}}"
+                       style="margin-left:26rpx;" bindtap="showModule"
+                       data-type="list"></image>
+                <view class="send-btn" wx:else bindtap="getTextContent">
+                    发送
+                </view>
             </view>
         </view>
 

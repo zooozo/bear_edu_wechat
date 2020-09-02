@@ -2,20 +2,23 @@
   <!--用户信息-->
   <view class="flex-box flex-space user">
     <view class="flex-box">
-      <image src="{{item.pic}}" class="headImg"></image>
+      <image src="{{item.pic}}" class="headImg" bindtap="tabAvatar"></image>
       <view class="userInfo">
         <view>{{item.nickName}}</view>
         <view class="flex-box" style="margin-top:8rpx;">
           <image src="{{item.sex==1?'../../images/icon/man.png':'../../images/icon/lady.png'}}" class="lv1"></image>
-          <view class="lv-box">
-            <view class="lv-text">LV {{item.skillLevel}}</view>
+          <view class="lv-box" wx:if="{{item.skillLevel!=0}}">
+            <view class="lv-text" >LV {{item.skillLevel}}</view>
             <image src="../../images/icon/lv.png" class="lv2"></image>
           </view>
 
         </view>
       </view>
     </view>
-    <view class="{{item.delFlag==0?'trend': 'disabledTrend'}} flex-center" bindtap="clickLike">
+    <view class="{{item.delFlag==0?'trend': 'disabledTrend'}} flex-center"
+          bindtap="clickLike"
+          wx:if="{{item.userId!=myUserId}}"
+    >
       {{item.delFlag==0? '关注': '已关注'}}
     </view>
   </view>

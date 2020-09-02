@@ -49,8 +49,8 @@
     align-items: center;
     font-size:24rpx;
     color:#AAAAAA;
-    border-radius:32rpx;
-    border:2rpx solid rgba(226,226,226,1);
+    border-radius:16rpx;
+    border:2rpx dashed rgba(226,226,226,1);
     margin-left:40rpx;
 }
 
@@ -65,10 +65,10 @@
 }
 
 .bg1{
-    background: linear-gradient(246deg,rgba(248,151,120,1) 0%,rgba(241,75,127,1) 100%);
+    background: rgba(31, 193, 154, 1);
 
 }
 .bg2{
-    background: linear-gradient(246deg,rgba(248,151,120,1) 0%,rgba(241,75,127,.5) 100%);
+    background:rgba(31, 193, 154, .5);
 
 }

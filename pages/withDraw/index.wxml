@@ -1,0 +1,45 @@
+<view class="container">
+    <view class="content">
+        <view class="flex-box header">
+            <view class="type">到账方式</view>
+            <view style="flex:1;text-align:left;margin-left:64rpx">
+                <view class="flex-box flex-space">
+                    <view class="t1">
+                        微信零钱包
+                    </view>
+                    <image class="right-icon" src="../../images/icon/right.png"></image>
+                </view>
+                <view class="t2">
+                    2小时到账
+                </view>
+
+            </view>
+
+        </view>
+        <view class="withDraw-box ">
+            <view>提现金额</view>
+            <view class="flex-box flex-y-center" style="margin-top: 68rpx">
+                <view class="rmb">¥</view>
+                <input type="number"
+                       placeholder-class="holder"
+                       placeholder="请输入提现金额"
+                       class="withDraw-num"
+                       value="{{entryPrice}}"
+                       bindinput="checkEntryPrice"
+                />
+            </view>
+            <view class="foot flex-box flex-y-center">
+                <view>
+                    <text class="txt">零钱余额</text>
+                    <text class="txt2">￥100.00</text>
+                </view>
+                <view class="all-withDraw" bindtap="allWithDraw">
+                    全部提现
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="flex-center" style="margin-top: 80rpx;">
+        <view class="defaultBtn" bindtap="withDraw">确认提现</view>
+    </view>
+</view>

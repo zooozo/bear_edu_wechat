@@ -1,27 +1,32 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/news/news-page",
-    "pages/news/chat/index",
-
-    "pages/setting/index",
+    "pages/moment-time/detail/detail",
     "pages/user/user",
+    "pages/found/found",
+
+    "pages/news/chat/index",
+    "pages/personal-space/index",
+
+    "pages/withDraw/index",
+    "pages/mybag/account-detail/index",
+    "pages/mybag/index",
+    "pages/news/news-page",
+    "pages/setting/index",
     "pages/setting/my-tastes/index",
     "pages/order/orderIndex",
     "pages/order/orderDetail/detail",
-
     "pages/create-order/index",
     "pages/appraise/index",
     "pages/setting/change-date/index",
     "pages/setting/change-name/index",
-    "pages/moment-time/detail/detail",
+
     "pages/create-order/choose-stadium/stadium",
     "pages/to-trainer/update-trainer/index",
     "pages/create-order/search-stadium/search",
     "pages/training-space/index",
-    "pages/personal-space/index",
     "pages/to-trainer/index",
-    "pages/found/found",
+
     "pages/moment-time/moment-time",
     "pages/to-trainer/step-three/step-three",
     "pages/to-trainer/step-two/step-two",
@@ -30,7 +35,8 @@
     "pages/login/login",
     "pages/search-page/search-page",
     "pages/logs/logs",
-    "pages/search-show/search-show"
+    "pages/search-show/search-show",
+    "pages/mobile/mobile"
   ],
   "permission": {
     "scope.userLocation": {

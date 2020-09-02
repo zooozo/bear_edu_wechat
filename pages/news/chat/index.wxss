@@ -124,13 +124,18 @@ page {
 
 .footGroup {
 
-    height: 100rpx;
+    min-height: 100rpx;
     background-color: #fff;
 
     padding:0 32rpx;
     box-sizing: border-box;
     display: flex;
     align-items: center;
+}
+.footGroup .textarea-class{
+
+   height:80rpx;
+    width:500rpx;
 }
 
 .footGroup .input-text {
@@ -192,3 +197,16 @@ page {
     color:#333;
     margin-top:16rpx;
 }
+
+ .send-btn{
+     width:80rpx;
+     height:50rpx;
+     color:#fff;
+     font-size:24rpx;
+     background-color:#3FC7A7;
+     border-radius:10rpx;
+     display:flex;
+     align-items: center;
+     justify-content: center;
+     margin-left:12rpx;
+ }

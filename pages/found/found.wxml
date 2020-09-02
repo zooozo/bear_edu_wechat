@@ -2,11 +2,7 @@
     <view class="flex-box">
         <tabs active="{{ activeIndex }}" bind:change="onChange" line-width="20" line-height="4" animated
               border="{{false}}" style="flex:1;width:750rpx;" class="flex-box" sticky>
-            <view slot="nav-right" class="flex-center btn-box">
-                <view class="btn flex-center" bindtap="goToPage">
-                    发动态
-                </view>
-            </view>
+
 
             <tab title="{{item.name}}" wx:for="{{categoryList}}"
                  title-style="color:{{activeIndex==index?'#333':'#999999'}};font-weight:{{activeIndex==index?'700':'500'}}"
@@ -22,5 +18,10 @@
 
     </view>
 
-
+    <view  class="flex-center btn-box">
+<!--        <view class="btn flex-center" bindtap="goToPage">-->
+<!--            发动态-->
+<!--        </view>-->
+        <image src="../../images/icon/jiahao.png" style="width:48rpx;height:48rpx;" bindtap="goToPage"></image>
+    </view>
 </view>

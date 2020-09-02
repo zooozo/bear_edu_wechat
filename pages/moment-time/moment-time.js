@@ -214,11 +214,10 @@ Page({
                                     folderName: 'file'
                                 },
                                 success: function (res) {
-                                    str+=app.globalData.imageHost+res.data+","
                                     //如果是最后一个在set进去
                                     if(index==that.data.imageList.length-1){
                                         that.setData({
-                                            'params.momentsImgUrl':str
+                                            'params.momentsImgUrl':res.data
                                         })
                                         http.request({
                                             url:'/moments/savePublishMoments',

@@ -35,7 +35,8 @@ Component({
           userNumber:null
         },
         callBack:res=>{
-
+          // let index=res.data.records.findIndex((item)=>item.userId==getApp().globalData.userInfo.userId)
+          // res.data.records.splice(index,1)
           this.setData({
             orderEntryList:[...res.data.records]
           })

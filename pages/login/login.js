@@ -7,17 +7,20 @@ Page({
   data: {
     wxloginTimer:null,
     wxLoginCode:null,
-    showType:2,
+    showType:1,
   },
 
   onGotUserInfo: function (res) {
     http.updateUserInfo()
     wx.navigateBack({
-      delta: 1
+      delta: 2
     })
   },
   getPhoneNumber: function (e) {
     console.log(e,'res----')
+    this.setData({
+      showType:2
+    });
 
   },
   /**

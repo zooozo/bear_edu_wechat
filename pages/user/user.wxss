@@ -1,124 +1,150 @@
 /* pages/user/user.wxss */
 
 page {
-  background-color: #f7f7f7;
- height:100%;
+    background-color: #F5F5F5;
+    height: 100%;
 
 }
-.container{
-    font-family:PingFangSC-Semibold,PingFang SC;
-    background-color:#F1527E;
-    display:flex;
+
+.container {
+    font-family: PingFangSC-Semibold, PingFang SC;
+    position: relative;
+    display: flex;
     flex-direction: column;
 }
-.userAvatar{
-    width:144rpx;
-    height:144rpx;
-    border-radius:50%;
+.top-bg{
+    position: absolute;
+    top:0;
+    left:0;
+    height: 504rpx;
+    width:100%;
+    z-index: -1;
+}
+.header {
+
+    height: 504rpx;
+}
+
+.userInfo {
+    display: flex;
+    margin-left: 64rpx;
+    margin-top:48rpx;
+}
+
+.userInfo .userAvatar {
+    width: 128rpx;
+    height: 128rpx;
+    border-radius: 50%;
     overflow: hidden;
     display: block;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
-.user-box{
-    padding:20rpx 50rpx;
-    height:270rpx;
-
-    box-sizing: border-box;
-    color:#fff;
-    font-size:24rpx;
+.userInfo .user-nickname {
+    font-size: 40rpx;
+    color: #fff;
+}
+.userInfo .message {
+    font-size: 24rpx;
+    color: #fff;
+    margin-top:20rpx;
 }
 
-.user-box .user-nickname{
-   font-size:40rpx;
-    margin-bottom:16rpx;
+.userInfo .editor {
+    width: 32rpx;
+    height: 32rpx;
+    margin-left:20rpx;
 }
-.user-box .number{
-    color:#fff;
-
-}.user-box .number .box{
-   margin-right:48rpx;
-
-}
-.user-box .number .t1{
-    font-size:30rpx;
-    margin-right:8rpx;
-
-}
-.user-box .number .t2{
-    font-size:24rpx;
-    opacity: .6;
-
-}.user-box  .editor{
-   width:40rpx;
-    height:40rpx;
-    margin-left:10rpx;
-}
-
-.content{
-    border-radius:40rpx 40rpx 0 0;
-    background:#fff;
-    min-height:400rpx;
+.header .item{
     flex:1;
-}
-.content .list{
-    height:200rpx;
-    align-items: center;
-    font-size:26rpx;
-    color:#929292
-
-}
-.content .list image{
-    width:100rpx;
-    height:100rpx;
-    margin-bottom:4rpx;
-}
-.settingList{
     display:flex;
     flex-direction: column;
-    margin-top:30rpx;
-}
-.settingList .list-row{
-    height:120rpx;
+    justify-content: center;
     align-items: center;
-    padding:0 30rpx;
-
+    color:#fff;
+}.header .item .t1{
+    opacity: .8;
+    font-size:22rpx;
+}.header .item .t2{
+    margin-top:8rpx;
+    font-size:36rpx;
 }
-.settingList .list-row .left-png{
-    height:50rpx;
-    width:50rpx;
+.content {
+    box-sizing: border-box;
+    margin-top:-124rpx;
+    min-height: 400rpx;
+    flex: 1;
+    padding:0 32rpx;
+}
+
+.content .list {
+    height: 200rpx;
     align-items: center;
-    margin-right:20rpx;
+    font-size: 26rpx;
+    color: #929292;
+    background-color:#fff;
+    border-radius:16rpx;
 }
-.settingList .list-row .right-png{
-    height:20rpx;
-    width:20rpx;
+
+.content .list image {
+    width: 100rpx;
+    height: 100rpx;
+    margin-bottom: 4rpx;
+}
+
+.settingList {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30rpx;
+    background-color:#fff;
+}
+
+.settingList .list-row {
+    height: 120rpx;
+    align-items: center;
+    padding: 0 30rpx;
+    border-radius: 16rpx;
+}
+
+.settingList .list-row .left-png {
+    height: 50rpx;
+    width: 50rpx;
+    align-items: center;
+    margin-right: 20rpx;
+}
+
+.settingList .list-row .right-png {
+    height: 20rpx;
+    width: 20rpx;
 
 }
 
-.row-item{
-   align-items: center;
-    flex:1;
-    border-bottom:1rpx solid #EDEDED;
-    height:100%;
-    font-size:28rpx;
-    color:#333;
+.row-item {
+    align-items: center;
+    flex: 1;
+    border-bottom: 1rpx solid #EDEDED;
+    height: 100%;
+    font-size: 28rpx;
+    color: #333;
 }
-.row-item:last-child{
-    border:none;
+
+.row-item:last-child {
+    border: none;
 }
-.foot{
-    background:#fff;
-    padding-bottom:30rpx;
+
+.foot {
+    background: #fff;
+    padding-bottom: 30rpx;
 }
-.foot .btn{
-    width:340rpx;
-    height:76rpx;
-    border-radius:47rpx;
-    border:2rpx solid #E5E5E5;
+
+.foot .btn {
+    width: 340rpx;
+    height: 76rpx;
+    border-radius: 47rpx;
+    border: 2rpx solid #E5E5E5;
     color: #666666;
-    font-size:28rpx;
-    display:flex;
+    font-size: 28rpx;
+    display: flex;
     align-items: center;
     justify-content: center;
+    margin-top:64rpx;
 }

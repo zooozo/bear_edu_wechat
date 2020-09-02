@@ -61,6 +61,7 @@ Page({
         ],
         params: {
             requestType: 2,
+            userId:0,
             pageSize: 10,
             pageNum: 1
         }
@@ -93,10 +94,13 @@ Page({
                 let arr = [];
                 let now = Date.now() / 1000;
                 let createTime;
+
                 res.data.records.forEach((item) => {
                     // 先换算一下时间  后端返回有距离多少个小时，和创建时间
                     createTime = new Date(item.createTime).getTime() / 1000;
+
                     item.timeLong = utils.formatTimeObject(now - createTime)
+
                     arr.push(item)
 
 
@@ -131,7 +135,6 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
 
     },
 
