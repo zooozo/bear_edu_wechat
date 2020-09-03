@@ -74,9 +74,19 @@ Component({
        })
     },
     goToDetail(){
-      wx.navigateTo({
-        url:'/pages/moment-time/detail/detail?id='+this.data.item.id
+      console.log(this.data.item,'000')
+      let that=this;
+      wx.setStorage({
+        key:'user',
+        data:this.data.item,
+        success(res) {
+          wx.navigateTo({
+            url:'/pages/moment-time/detail/detail?id='+that.data.item.id
+          })
+        }
       })
+
+
     },
     clickThumbs() {
 

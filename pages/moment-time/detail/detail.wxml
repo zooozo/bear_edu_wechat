@@ -10,7 +10,7 @@
                     <view class="flex-box flex-space">
                         <view class="flex-box flex-y-center">
                             <view class="name">{{item.nickName}}</view>
-                            <image src="../../../images/icon/lady.png" class="lady"></image>
+                            <image src="{{item.sex==2?'../../../images/icon/man.png':'../../../images/icon/lady.png'}}" class="lady"></image>
                         </view>
                         <view>
                             <image src="{{item.likeFlag==1?'../../../images/icon/zan.png':'../../../images/icon/zan1.png'}}"

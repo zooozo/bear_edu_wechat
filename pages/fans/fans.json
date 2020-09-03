@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "关注和粉丝",
+  "navigationBarTextStyle":"black",
+  "usingComponents": {
+    "tabs": "../../vant/tabs/index",
+    "tab": "../../vant/tab/index",
+    "vantSwitch": "../../vant/switch/index"
+  }
+}

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/fans/fans",
     "pages/index/index",
     "pages/order/orderIndex",
 
@@ -36,6 +37,7 @@
     "pages/logs/logs",
     "pages/search-show/search-show",
     "pages/mobile/mobile"
+
   ],
   "permission": {
     "scope.userLocation": {

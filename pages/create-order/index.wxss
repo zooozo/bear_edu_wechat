@@ -79,25 +79,8 @@ page {
     align-items: center;
 }
 
-.nickName .lv-box {
-    position: relative;
-    text-align: center;
-    width: 88rpx;
-    height: 28rpx;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-left: 24rpx;
 
-}
 
-.lv-box .lv-text {
-    position: relative;
-    z-index: 10;
-    font-size: 20rpx;
-    color: #fff;
-
-}
 
 .line {
     background: rgba(245, 245, 245, 1);

@@ -105,7 +105,7 @@ Page({
                     'listData.userVideo': res.tempFiles[0].tempFilePath
                 })
             } else {
-                console.log('阿拉山口打飞机按时来得快积分')
+
                 this.setData({
                     'listData.userRunImg': res.tempFiles[0].tempFilePath
                 })
@@ -153,7 +153,7 @@ Page({
             let that=this;
 
             app.UploadFileToOss(this.data.listData.userRunImg,(res)=>{
-                console.log(res,'111')
+
                 // that.setData({
                 //     'listData.userRunImg':res.data
                 // })
