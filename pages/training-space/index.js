@@ -41,7 +41,7 @@ Page({
         RecommendList:null
     },
     onLoad: function (options) {
-            console.log(options,'alsdkfjlasd')
+        this.getTrainerInfo();
     },
     tapFollow() {
         let bool=Number(!this.data.userData.attentionFlag)
@@ -91,6 +91,9 @@ Page({
                 userId:this.options.userId
             },
             callBack: (res) => {
+                console.log(res,'res-----')
+                app.saveWatchHistory(res)
+
                 res.begoodSkill = res.begoodSkill.replace(/,/g, '、');
                 res.orderTime = res.orderTime.split(',');
                 res.orderPrice = parseFloat(res.orderPrice / 100).toFixed(2)
@@ -114,13 +117,13 @@ Page({
                 } else {
                     res.weekList = '周一至周日'
                 }
-
+                // 保存浏览记录
 
                 this.setData({
                     userData: res,
-                    'userData.pic': app.globalData.userInfo.pic,
                 })
                 this.getAppraise();
+                this.getValuation();
             }
         })
     },
@@ -138,8 +141,49 @@ Page({
             }
         })
     },
+    ToImTalk(){
+        wx.showLoading();
+        let conversationID='C2C'+this.data.userData.userNumber;
+
+        // app.globalData.$TIM.tim.setMessageRead({conversationID});
+        console.log(' app.globalData.$TIM.tim', app.globalData.$TIM.tim)
+        return app.globalData.$TIM.tim.getConversationProfile(conversationID)
+            .then(({data: {conversation}}) => {
+                console.log(conversation, 'conversation-----')
+                // context.commit('updateCurrentConversation', conversation)
+                // 保存当前点击的聊天信息
+                app.globalData.currentConversation = conversation
+
+                // let name = ''
+                // switch (conversation.type) {
+                //     case  app.globalData.$TIM.tim.TYPES.CONV_C2C:
+                //         name = conversation.userProfile.nick || conversation.userProfile.userID
+                //         break
+                //     case  app.globalData.$TIM.tim.TYPES.CONV_GROUP:
+                //         name = conversation.groupProfile.name || conversation.groupProfile.groupID
+                //         break
+                //     default:
+                //         name = '系统通知'
+                // }
+                wx.hideLoading();
+                wx.navigateTo({url: `/pages/news/chat/index?toAccount=${conversation.userProfile.userID}&type=${conversation.type}`})
+                return Promise.resolve()
+            })
+    },
+    getValuation(){
+       http.request({
+           url:'/evaluation/getEvaluationPages',
+           method:'GET',
+           data:{
+               beCommentUid:this.data.userData.userId,
+               pageSize:10,
+               pageNum:1
+           }
+       })
+    },
     // 获取推荐列表
     onShow() {
-        this.getTrainerInfo();
+
+
     },
 });

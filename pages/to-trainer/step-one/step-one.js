@@ -48,7 +48,7 @@ Page({
                     folderName: 'file'
                 },
                 success: function (res) {
-
+                    wx.hideLoading();
                     app.globalData.params.trainerImg=res.data
                     wx.navigateTo({
                         url:'../step-two/step-two'

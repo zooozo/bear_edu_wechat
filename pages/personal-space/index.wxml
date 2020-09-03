@@ -6,7 +6,8 @@
         <view class="userInfo">
             <view class="userInfo-row">
                 <view class="userName">{{userInfo.nickName}}</view>
-                <view class="likeBtn">关注</view>
+                <view class="likeBtn {{userInfo.attentionFlag?'like':'IsLike'}}"
+                      bindtap="tapFollow">  {{userInfo.attentionFlag?'已关注':'关注'}}</view>
             </view>
             <view class="userInfo-row1">
                 <text>2小时前</text>
@@ -30,18 +31,22 @@
         <view class="info">
             <view class="info-title">资料</view>
             <view>
-                星座：天蝎座
+                星座：{{userInfo.userStarseat || '暂无'}}
             </view>
             <view class="middle-row">
                 <view>兴趣：</view>
-                <view class="flex-box">
-                    <view class="item">电影</view>
-                    <view class="item">电影</view>
-                    <view class="item">电影</view>
+                <view wx:if="{{userInfo.userInterest.length>0}}" class="flex-box">
+                    <view class="flex-box" wx:for="{{userInfo.userInterest}}" wx:key="index">
+                        <view class="item">{{item}}</view>
+
+                    </view>
+                </view>
+                <view wx:else>
+                    暂无
                 </view>
             </view>
             <view>
-                签名：成都妹纸性子直 不选别赞
+                签名：{{userInfo.autograph  || '暂无'}}
             </view>
         </view>
         <view>
@@ -59,7 +64,7 @@
         </view>
     </view>
     <view class="foot-btn">
-        <view class="btn1 btn">关注</view>
+        <view class="btn1 btn " bindtap="tapFollow">{{userInfo.attentionFlag?'已关注':'关注'}}</view>
         <view class="btn2 btn theme-color" bindtap="ToImTalk">聊天</view>
     </view>
 </view>

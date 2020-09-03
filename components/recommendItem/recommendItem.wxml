@@ -10,7 +10,7 @@
       <veiw class="name1 flex-box flex-y-center">
 
         <text>{{item.nickName}}</text>
-        <view class="lv-box">
+        <view class="lv-box" wx:if="{{item.orderPrice}}">
           <view class="lv-text">LV {{item.skillLevel || 1}}</view>
           <image src="../../images/icon/lv.png" class="lv2"></image>
         </view>

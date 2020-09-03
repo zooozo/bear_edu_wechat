@@ -4,7 +4,7 @@
 
 
 .header-title{
-    color:#F14B7F;
+    color:#FB9927;
     font-size:22rpx;
     height:78rpx;
     display:flex;

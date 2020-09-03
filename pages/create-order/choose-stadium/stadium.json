@@ -1,5 +1,5 @@
 {
-  "navigationBarBackgroundColor": "#F1527E",
+  "navigationBarBackgroundColor":"#1EC19A",
   "onReachBottomDistance":10,
   "navigationBarTitleText": "选择球馆",
   "usingComponents": {

@@ -175,6 +175,6 @@ image {
     background-color:#1EC19A
 }
 .theme-font-color{
-    background-color:#1EC19A
+   color:#1EC19A
 }
 

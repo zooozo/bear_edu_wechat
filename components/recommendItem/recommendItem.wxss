@@ -80,6 +80,7 @@
     position:relative;z-index:10;
     font-size:20rpx;
     color:#fff;
+    padding-left: 26rpx;
 
 }
 .lv2{

@@ -23,7 +23,7 @@ page{
 }
 
 .step-box .itemActive {
-    background-color: #F14B7F;
+    background-color:#1EC19A;
 }
 
 .step {
@@ -100,8 +100,8 @@ page{
     align-items: center;
     font-size:24rpx;
     color:#AAAAAA;
-    border-radius:32rpx;
-    border:2rpx solid rgba(226,226,226,1)
+    border-radius:16rpx;
+    border:2rpx dashed rgba(226,226,226,1)
 }
 
 .photo .photo-icon {

@@ -10,8 +10,13 @@ Page({
     },
     onLoad: function (options) {
         console.log(options, 'options')
-        this.getPersonInfo(options.userId);
+
         this.getMomentsList(options.userId);
+
+
+    },
+    onShow(){
+        this.getPersonInfo(this.options.userId);
     },
     // 复制
     copyId() {
@@ -22,6 +27,25 @@ Page({
             },
             fail(err) {
                 console.log(err, 'err---')
+            }
+        })
+    },
+    // 关注
+    tapFollow() {
+        let bool=Number(!this.data.userInfo.attentionFlag)
+        http.request({
+            url: '/attention/saveUserAttention',
+            data: {
+                beAttentionUid: this.data.userInfo.userId,
+                attentionFlag: bool
+            },
+
+            callBack: (res) => {
+                let attentionFlag=this.data.userInfo.attentionFlag
+                this.setData({
+                    'userInfo.attentionFlag':!attentionFlag
+                })
+
             }
         })
     },
@@ -67,10 +91,17 @@ Page({
 
             callBack:(res) =>{
                 console.log(res, 'res----')
+                if(res.data.userInterest){
+                    res.data.userInterest=res.data.userInterest.split(',')
+                }
+
+
+
                 that.setData({
                     userInfo: res.data
                 })
 
+                app.saveWatchHistory(res.data)
             }
         })
 

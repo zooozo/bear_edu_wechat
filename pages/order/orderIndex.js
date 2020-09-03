@@ -6,16 +6,20 @@ Page({
         tabList: [{name: '我的订单', id: 1}, {name: '陪练订单', id: 2}],
         activeIndex: 0,
         orderData: {},
+        reasonIndex: 0,
         params: {
             pageSize: 3,
             pageNum: 1
         },
+        noticeText: ['临时有事，不想约了', '距离太远，不想约了'],
         orderList: [],
-        orderEntryList:[]
+        orderEntryList:[],
+        showModal:false,
+        cancelData:{}
     },
     onLoad: function (options) {
         this.getOrderList();
-        this.getFavirateList();
+
     },
     onChange(e) {
         this.setData({
@@ -74,29 +78,62 @@ Page({
             this.getOrderList();
         }
     },
-    getFavirateList() {
 
-        console.log("3333")
-        let params = {
-            url: '/index/index',
-            method: "GET",
-            data: {
-                nickName: null,
-                userNumber: null
-            },
-            callBack: res => {
-
-                this.setData({
-                    orderEntryList: [...res.data.records]
-                })
-            }
-        }
-        http.request(params);
-    },
     toOrderDetail(e){
         let id=e.currentTarget.dataset.order
         wx.navigateTo({
             url:'/pages/order/orderDetail/detail?id='+id+'?type='+this.data.activeIndex
         })
-    }
+    },
+    showCancelModal(e) {
+        this.setData({
+           'cancelData.trainerId':getApp().globalData.userInfo.userId,
+           'cancelData.orderCode':e.currentTarget.dataset.current.orderCode,
+        })
+        let bool = e.currentTarget.dataset.state == '1'
+        if(bool){
+            wx.showModal({
+                content:'确定取消订单吗',
+                success:(res) =>{
+                    console.log(res,'res000')
+                    this.setData({
+
+                        showModal: res.confirm
+                    })
+                }
+            })
+        }else{
+            this.setData({
+                showModal: false
+            })
+        }
+    },
+    chooseReason(e) {
+        this.setData({
+            reasonIndex: e.currentTarget.dataset.index
+        })
+    },
+    cancelOrder(){
+
+        http.request({
+            url:'/ballOrder/cancelOrder',
+            data:{
+                orderCode:this.data.cancelData.orderCode,
+                cancelReason:this.data.noticeText[this.data.reasonIndex],
+                cancelType:1,
+                // this.options.type==0?2:1
+                trainerId:this.data.cancelData.trainerId
+            },
+            callBack:(res)=>{
+                console.log(res,'res----')
+                this.setData({
+                    showModal: false
+                })
+                wx.showToast({
+                    title:res.msg,
+                    icon:'none'
+                })
+            }
+        })
+    },
 });

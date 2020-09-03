@@ -46,11 +46,7 @@ Page({
                 showModal: false
             })
         }
-    }
-
-
-
-    ,
+    },
     chooseReason(e) {
         this.setData({
             reasonIndex: e.currentTarget.dataset.index

@@ -64,8 +64,10 @@ Page({
             success:(res)=> {
                 console.log(res,'res---')
                 this.setData({
-                    userData:res.data
+                    userData:res.data,
+                    'query.trainerId':res.data.userId
                 })
+                this.getPayOrderQuanTime()
             },
             fail(res) {
                 console.log(res,'error')
@@ -75,7 +77,7 @@ Page({
 
     },
     onShow() {
-        this.getPayOrderQuanTime()
+
     },
     // 获取可以下单的时间列表
     getPayOrderQuanTime() {
@@ -89,6 +91,7 @@ Page({
             callBack: (res) => {
                 wx.showLoading()
                 let data = res.data;
+                console.log(data,'data-----')
                 let arr = data.orderTime.split(',');
                 let today = new Date();
                 // 单日毫秒数
@@ -120,17 +123,20 @@ Page({
                 })
                 console.log(arr,'arr00')
                 // 重组一下已下过单的时间
-                data.mapList.forEach(item=>{
-                    item.actualDate=item.actualDate.substring(5);
-                    item.disableTimeArr=item.timeQuantum.split(',');
-                    item.disableTimeArr.push(Number(item.disableTimeArr[item.disableTimeArr.length-1])+1)
+                if(data.mapList.length>0){
+                    data.mapList.forEach(item=>{
+                        item.actualDate=item.actualDate.substring(5);
+                        item.disableTimeArr=item.timeQuantum.split(',');
+                        item.disableTimeArr.push(Number(item.disableTimeArr[item.disableTimeArr.length-1])+1)
 
-                })
+                    })
 
-                data.mapList[0].disableTimeArr.forEach((item,index)=>{
-                    let current=arr.findIndex((current)=>current.hour==item);
-                    arr[current].disabled=true
-                })
+                    data.mapList[0].disableTimeArr.forEach((item,index)=>{
+                        let current=arr.findIndex((current)=>current.hour==item);
+                        arr[current].disabled=true
+                    })
+                }
+
 
                 data.orderTime = arr;
 

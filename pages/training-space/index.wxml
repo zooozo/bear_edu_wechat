@@ -97,7 +97,7 @@
     </view>
 
     <view class="foot-btn">
-        <view class="btn1 btn" bindtap="tapFollow"> {{userData.attentionFlag?'已关注':'关注'}}</view>
-        <view class="btn2 btn" bindtap="goToPayOrder">下单(¥{{userData.orderPrice}}/小时)</view>
+        <view class="btn1 btn" bindtap="ToImTalk">聊天</view>
+        <view class="btn2 btn theme-color" bindtap="goToPayOrder">下单(¥{{userData.orderPrice}}/小时)</view>
     </view>
 </view>

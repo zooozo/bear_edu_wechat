@@ -18,7 +18,8 @@ Component({
     className:'',
     ossType:'',
     videoUrl:null,
-    myUserId:''
+    myUserId:'',
+    showBtn:true
   },
   ready(){
     let arr=this.data.item.momentsImgUrl.split(",");
@@ -34,13 +35,16 @@ Component({
        }
      })
       let ossType=arr.length<3?'?x-oss-process=image/resize,m_fill,w_112,h_112,limit_0':'?x-oss-process=image/resize,m_fill,w_170,h_170,limit_0'
-    console.log(arr,'arr--')
+    let page= getCurrentPages();
+    // console.log(page[page.length-1].route,'gea----');
+      let bool=page[page.length-1].route!='pages/found/found'
       this.setData({
         imageList:arr,
         videoUrl:vedio,
         className:arr.length<3?'imgType2':'imgType1',
         ossType:ossType,
-        myUserId:app.globalData.userInfo.userId
+        myUserId:app.globalData.userInfo.userId,
+        showBtn:bool
       })
   },
   // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
@@ -76,12 +80,23 @@ Component({
     },
     clickThumbs() {
 
+      let num=this.data.item.isLike
+      let count=this.data.item.likeCount
+      // console.log(" Number(!this.data.item.isLike)",this.data.item.isLike)
       http.request({
         url: '/userLike/saveUserLike',
         data: {
           momentsId: this.data.item.id,
           beLikeUid: this.data.item.userId,
-          likeFlag: 1
+          likeFlag: num===1?0:1
+        },
+        callBack:(res)=>{
+
+          this.setData({
+            'item.isLike':num===1?0:1,
+            'item.likeCount':num===0?count+1:count-1,
+
+          })
         }
       })
     },
@@ -91,7 +106,7 @@ Component({
         data:this.data.item
       })
      let page= getCurrentPages();
-      console.log(page[page.length-1].route,'gea----');
+      // console.log(page[page.length-1].route,'gea----');
       if(page[page.length-1].route!= 'pages/personal-space/index'){
         wx.navigateTo({
           url:'/pages/personal-space/index?userId='+this.data.item.userId

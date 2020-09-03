@@ -4,11 +4,11 @@ import {tim} from "./plugins/IM_message";
 
 var http = require("utils/http.js");
 
-const $TIM=require("plugins/IM_message")
+const $TIM = require("plugins/IM_message")
 
 App({
     onLaunch: function () {
-        this.globalData.$TIM=$TIM;
+        this.globalData.$TIM = $TIM;
         http.getToken();
         wx.getSystemInfo({
             success: (res) => {
@@ -16,6 +16,15 @@ App({
                     w: res.screenWidth,
                     h: res.screenHeight
                 }
+            }
+        });
+        wx.getStorage({
+            key: 'history',
+            fail: () => {
+                wx.setStorage({
+                    key: 'history',
+                    data: []
+                })
             }
         })
     },
@@ -179,15 +188,15 @@ App({
             }
         })
     },
-    watch: function (ctx, obj,callBack) {
+    watch: function (ctx, obj, callBack) {
         Object.keys(obj).forEach(key => {
             this.observer(ctx.data, key, ctx.data[key], function (value) {
                 obj[key].call(ctx, value)
             })
         })
-        if(callBack){
+        if (callBack) {
             callBack(obj)
-        }else{
+        } else {
             return obj
         }
 
@@ -205,6 +214,59 @@ App({
                 fn && fn(newVal)
                 val = newVal
             },
+        })
+    },
+
+
+    saveWatchHistory(data) {
+        wx.getStorage({
+            key: 'history',
+            success(history) {
+                console.log(history, 'history----')
+                console.log(data, 'datahistory----')
+                let obj = {
+                    nickName: data.nickName,
+                    pic: data.pic || data.trainerImg,
+                    sex: data.sex || 0,
+                    skillLeave: data.skillLeave || 0,
+                    date: Date.now(),
+                    userId: data.userId
+                };
+                // 如果里面有了
+                let index = history.data.findIndex((item) => item.userId == obj.userId);
+                if (index == -1) {
+                    if (history.data.length <= 20) {
+                        let arr = history.data;
+                        arr.unshift(obj)
+                        wx.setStorage({
+                            key: 'history',
+                            data: arr
+                        })
+                    } else {
+                        let arr = history.data;
+                        arr.shift(obj)
+                        wx.setStorage({
+                            key: 'history',
+                            data: arr
+                        })
+                    }
+                    obj = {}
+                }
+
+            }
+        })
+    },
+    // 获取粉丝和关注数据，
+
+    getAttentionPages(params) {
+
+        http.request({
+            url: '/attention/pageUserAttentionPages',
+            data: params,
+            method:'GET',
+            callBack: (res) => {
+                this.globalData.AttentionList = res.data.records;
+            }
         })
     },
 
@@ -229,11 +291,9 @@ App({
         params: {},//用于保存成为陪练几个页面保存数据,
         trainerInfo: {},
         systemInfo: {},
-        TimData:{
-
-        },
-        ImUserInfo:{
-          userId:'user1'
+        TimData: {},
+        ImUserInfo: {
+            userId: 'user1'
         },
 
     }

@@ -21,7 +21,7 @@ page{
 }
 
 .step-box .itemActive {
-    background-color: #F14B7F;
+    background-color: #1EC19A;
 }
 
 .step {

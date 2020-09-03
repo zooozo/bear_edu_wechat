@@ -32,7 +32,7 @@ page {
 
 .foot-btn .flex-center .price {
     font-size: 44rpx;
-    color: #F14C7F;
+    color:#FE6263;
     padding: 0;
     font-weight: 600;
 }
@@ -47,12 +47,12 @@ page {
 .foot-btn .btn {
     width: 406rpx;
     height: 90rpx;
-    background: linear-gradient(246deg, rgba(248, 151, 120, 1) 0%, rgba(241, 75, 127, 1) 100%);
+    background:#1EC19A;
     border-radius: 46rpx;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #F8F8F8;
+    color: #fff;
     font-size: 32rpx;
 }
 
@@ -87,7 +87,7 @@ page {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-left: 12rpx;
+    padding-left: 24rpx;
 
 }
 

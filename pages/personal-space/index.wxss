@@ -39,13 +39,23 @@
     width: 96rpx;
     height: 52rpx;
     border-radius: 26rpx;
-    border: 2rpx solid rgba(241, 75, 127, 1);
-    color: #F14B7F;
+
     font-size: 24rpx;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+.IsLike{
+    border: 2rpx solid rgba(241, 75, 127, 1);
+    color: #F14B7F;
+}
+
+.like{
+    border: 2rpx solid #aaa;
+    color: #aaa;
+}
+
 
 .userInfo .userInfo-row1 {
     margin-top: 8rpx;
@@ -82,7 +92,8 @@
 }
 
 .info .middle-row .item {
-    width: 68rpx;
+    min-width: 68rpx;
+    padding:4rpx;
     height: 36rpx;
     border-radius: 8rpx;
     border: 2rpx solid rgba(56, 168, 255, 1);

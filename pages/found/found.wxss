@@ -42,6 +42,6 @@ background-color:#1EC19A !important;
     border-bottom:2rpx solid #EDEDED;
     height:50px !important;
 }
-tab{
+.content{
     max-width:750rpx;
 }

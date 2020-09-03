@@ -26,14 +26,14 @@
                 </view>
             </view>
             <view class="border-box" wx:else>
-                <image class="bg" src="{{trainerImg}}"></image>
+                <image class="bg2" src="{{trainerImg}}"></image>
                 <image class="cancel" src="../../../images/icon/cancel.png" bindtap="deleteImage"></image>
             </view>
         </view>
 
     </view>
     <view class="flex-center" bindtap="nextStep">
-        <view class="defaultBtn flex-center">
+        <view class="defaultBtn flex-center" style="opacity: {{!trainerImg ?'0.5':1}}">
             下一步
         </view>
     </view>

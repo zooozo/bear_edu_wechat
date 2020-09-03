@@ -55,10 +55,7 @@ Page({
 
                 break;
             case 1:
-                // wx.showToast({
-                //     title:'开发中',
-                //     icon:'none'
-                // })
+                url = "/pages/history/index"
                 break;
             case 2:
                 break;

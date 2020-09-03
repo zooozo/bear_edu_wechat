@@ -11,7 +11,9 @@ Page({
   },
 
   onGotUserInfo: function (res) {
-    http.updateUserInfo()
+    console.log(res,'res----  ')
+    http.Login()
+    // http.updateUserInfo()
     wx.navigateBack({
       delta: 2
     })

@@ -17,7 +17,8 @@
     </view>
     <view class="{{item.delFlag==0?'trend': 'disabledTrend'}} flex-center"
           bindtap="clickLike"
-          wx:if="{{item.userId!=myUserId}}"
+          wx:if="{{item.userId!=myUserId && showBtn}}"
+
     >
       {{item.delFlag==0? '关注': '已关注'}}
     </view>
@@ -42,7 +43,7 @@
     </view>
     <view class="flex-box  flex-space talking">
       <view style="margin-right:30rpx;" class="flex-box flex-y-center" bindtap="clickThumbs" data-current="{{index}}">
-        <image src="../../images/icon/zan1.png" style="margin-right:12rpx;"></image>
+        <image src="{{item.isLike==1?'../../images/icon/zan.png':'../../images/icon/zan1.png'}}" style="margin-right:12rpx;"></image>
         <text>{{item.likeCount}}</text>
       </view>
       <view class="flex-box flex-y-center">

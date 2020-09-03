@@ -59,9 +59,10 @@ Page({
                 id: 3,
             },
         ],
+        stopLoad: false,
         params: {
             requestType: 2,
-            userId:0,
+            userId: 0,
             pageSize: 10,
             pageNum: 1
         }
@@ -71,18 +72,32 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    clickThumbs(e){
-        let currentIndex=e.currentTarget.dataset.current
+    clickThumbs(e) {
+        let currentIndex = e.currentTarget.dataset.current
         http.request({
-            url:'/userLike/saveUserLike',
-            data:{
-                momentsId:this.data.list[currentIndex].id,
-                beLikeUid:this.data.list[currentIndex].userId,
-                likeFlag:1
+            url: '/userLike/saveUserLike',
+            data: {
+                momentsId: this.data.list[currentIndex].id,
+                beLikeUid: this.data.list[currentIndex].userId,
+                likeFlag: 1
             }
         })
     },
+    onChange(event) {
+
+        this.setData({
+            activeIndex: event.detail.name,
+            'params.requestType': this.data.categoryList[event.detail.name].id,
+            'params.pageNum': 1,
+            list: [],
+        })
+        this.getMomentsList();
+    },
     getMomentsList() {
+        wx.showLoading({
+                title: '加载中'
+            }
+        );
         let params = {
             url: '/moments/pageMoments',
             method: 'GET',
@@ -104,12 +119,14 @@ Page({
                     arr.push(item)
 
 
-
                 })
-
+                this.setData({
+                    stopLoad: this.data.params.pageNum <= res.data.pages
+                })
                 this.setData({
                     list: [...this.data.list, ...arr]
                 })
+                wx.hideLoading();
             }
 
         }
@@ -185,15 +202,6 @@ Page({
      */
 
 
-    onChange(event) {
 
-        this.setData({
-            activeIndex: event.detail.name,
-            'params.requestType': this.data.categoryList[ event.detail.name].id,
-            'params.pageNum': 1,
-            list: [],
-        })
-        this.getMomentsList();
-    },
 
 })

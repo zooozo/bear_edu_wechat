@@ -2,7 +2,8 @@
 @import "../../app.wxss";
  .list-item{
     padding:0 30rpx 36rpx;
-    border-bottom:2rpx solid #EDEDED
+    border-bottom:2rpx solid #EDEDED;
+     box-sizing: border-box;
 }
  .list-item .user{
     height:156rpx;
