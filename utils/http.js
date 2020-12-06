@@ -67,7 +67,7 @@ function request(params, isGetTonken) {
         }
     })
 }
-var wx_code=''
+
 //通过code获取token,并保存到缓存
 var getToken = function () {
 
@@ -233,3 +233,7 @@ exports.request = request;
 exports.getCartCount = getCartCount;
 exports.updateUserInfo = updateUserInfo;
 exports.Login = Login;
+
+exports.http={
+    getToken,request,getCartCount,updateUserInfo,Login
+}
