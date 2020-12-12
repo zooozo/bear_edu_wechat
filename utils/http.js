@@ -67,7 +67,7 @@ function request(params, isGetTonken) {
         }
     })
 }
-
+let wx_code;
 //通过code获取token,并保存到缓存
 var getToken = function () {
 
