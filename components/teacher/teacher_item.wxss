@@ -1,0 +1,65 @@
+.teacher_list{
+    padding:0 16rpx;
+
+}
+
+.teacher{
+    width:100%;
+    display:flex;
+    padding:16rpx;
+    margin-bottom:30rpx;
+    background:#4FA39E;
+    border-radius: 18rpx;
+    box-sizing: border-box;
+}
+.teacher image{
+    border-radius: 50%;
+    width:200rpx;
+    height:200rpx;
+    align-self: center;
+}
+
+.teacher_detail{
+    margin-left:40rpx;
+    position:relative;
+    flex:1;
+}
+
+.teacher_name{
+    font-size:60rpx;
+    font-weight: 1000;
+    color:#fff;
+    display:flex;
+    align-items: center;
+
+}
+.teacher_dec{
+    font-size:22rpx;
+    color:#fff;
+    opacity: .8;
+}
+.order_btn{
+    position:absolute;
+    right:20rpx;
+    bottom:20rpx;
+}
+
+.price{
+    color:#FFE567;
+    font-size:26rpx;
+    font-weight:600;
+}
+
+.order{
+    width:120rpx;
+    height:60rpx;
+    background:#FFE567;
+    border-radius:8rpx;
+    color:#4A4966;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-weight:700;
+    font-size:32rpx;
+
+}

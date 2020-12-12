@@ -116,7 +116,7 @@ function Login() {
                     if(!result.pic || !result.userId){
                         updateUserInfo(userInfo)
                     }
-                    getImUserInfo()
+
                     if (result.userStutas == 0) {
                         wx.setStorageSync('token', '');
                     } else {

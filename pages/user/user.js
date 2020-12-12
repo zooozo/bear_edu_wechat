@@ -11,16 +11,17 @@ Page({
         sts: '',
         collectionCount: 0,
         list: [
-            {url: '../../images/icon/order.png', text: '订单'},
+            {url: '../../images/icon/order.png', text: '我的预约'},
             {url: '../../images/icon/quan.png', text: '优惠券'},
             // {url: '../../images/icon/qiandao.png', text: '签到有礼'},
-            {url: '../../images/icon/bag.png', text: '我的钱包'},
+            {url: '../../images/icon/bag.png', text: '我的账号'},
         ],
         settingList: [
-            {url: '../../images/icon/qiandao.png', text: '签到有礼', path: ''},
-            {url: '../../images/icon/lishi.png', text: '浏览历史', path: ''},
-            {url: '../../images/icon/kefu.png', text: '在线客服', path: ''},
+            {url: '../../images/icon/qiandao.png', text: '我的评价', path: ''},
+            {url: '../../images/icon/lishi.png', text: '我的活动', path: ''},
+            {url: '../../images/icon/kefu.png', text: '我的地址', path: ''},
             {url: '../../images/icon/setting.png', text: '设置', path: ''},
+            {url: '../../images/icon/setting.png', text: '关于我们', path: ''},
         ]
     },
     tapList(e) {

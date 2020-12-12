@@ -7,7 +7,7 @@
 
   "usingComponents": {
     "tabList": "../../components/tabbar/tabbar",
-    "recommendItem":"../../components/recommendItem/recommendItem"
+    "teacher":"../../components/teacher/teacher_item"
   }
 
 }

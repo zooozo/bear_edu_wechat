@@ -11,6 +11,7 @@ page {
     position: relative;
     display: flex;
     flex-direction: column;
+    background:#304653;
 }
 .top-bg{
     position: absolute;
@@ -22,7 +23,6 @@ page {
 }
 .header {
 
-    height: 504rpx;
 }
 
 .userInfo {
@@ -54,23 +54,10 @@ page {
     height: 32rpx;
     margin-left:20rpx;
 }
-.header .item{
-    flex:1;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color:#fff;
-}.header .item .t1{
-    opacity: .8;
-    font-size:22rpx;
-}.header .item .t2{
-    margin-top:8rpx;
-    font-size:36rpx;
-}
+
 .content {
     box-sizing: border-box;
-    margin-top:-124rpx;
+    margin-top:40rpx;
     min-height: 400rpx;
     flex: 1;
     padding:0 32rpx;

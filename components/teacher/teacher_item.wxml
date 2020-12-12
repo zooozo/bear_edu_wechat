@@ -1,0 +1,22 @@
+
+<view class="teacher_list">
+    <view class="teacher" wx:for="{{teacher}}">
+        <image src="{{item.image}}"></image>
+        <view class="teacher_detail">
+            <view class="teacher_name">{{item.name}}</view>
+            <view wx:for="{{item.dec}}" wx:for-item="dec" class="teacher_dec">
+                {{dec}}
+            </view>
+
+            <view class="order_btn">
+                <view class="price">
+                    {{item.price}} / 小时
+                </view>
+                <view class="order">
+                        <text>预</text>
+                        <text style="margin-left:14rpx;">约</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,6 +1,6 @@
 {
   "pages": [
-
+    "pages/user/user",
     "pages/index/index",
     "pages/order/orderIndex",
     "pages/fans/fans",
@@ -12,7 +12,7 @@
     "pages/personal-space/index",
     "pages/history/index",
     "pages/moment-time/detail/detail",
-    "pages/user/user",
+
     "pages/found/found",
     "pages/news/chat/index",
     "pages/withDraw/index",
@@ -46,13 +46,14 @@
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "中羽协",
+    "navigationBarBackgroundColor": "#304653",
+    "navigationBarTitleText": "小熊教育",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "selectedColor": "#FF5A5A",
     "color": "#C9C9C9",
+
     "list": [
       {
         "pagePath": "pages/index/index",

@@ -30,7 +30,7 @@ swiper.pic-swiper .banner {
 
 .container .bg-sear {
     width: 100%;
-    background-color:#1EC19A;
+    background-color: #1EC19A;
     padding-bottom: 36rpx;
     text-align: center;
 }
@@ -70,11 +70,11 @@ swiper.pic-swiper .banner {
     background: #fff;
     border-radius: 36rpx 36rpx 0 0;
 
-    padding: 0 32rpx 40rpx;
+    padding: 40rpx 32rpx 40rpx;
 }
 
 .content swiper {
-    height: 220rpx;
+    height: 300rpx;
 }
 
 .content swiper-item {
@@ -83,213 +83,43 @@ swiper.pic-swiper .banner {
 
 .swiper-Image {
     width: 686rpx;
-    height: 220rpx;
-    border-radius: 10rpx;
+    height: 300rpx;
+    border-radius: 20rpx;
 }
 
-.dots {
+.tab {
     display: flex;
+}
+
+.tab_item {
+    flex: 1;
+    display: flex;
+    align-items: center;
     justify-content: center;
+    background: #9F9F9F;
+    color: #fff;
+    height: 70rpx;
+    font-size:29rpx;
+    border-radius: 20rpx 20rpx 0  0 ;
+}
+
+.title{
+    font-size:40rpx;
+    font-weight:600;
+    height:80rpx;
     align-items: center;
-    position: relative;
-    top: -20rpx;
+    padding:0 32rpx;
+    margin-top:30rpx;
 }
 
-.dots .dotsRow {
-    display: flex;
+.watchAll{
+    padding:10rpx;
+    color:#fff;
+    background:#304653;
+    border-radius:14rpx;
+    font-weight: normal;
+    font-size:22rpx;
 }
 
-.dots .dotsRow .active {
-    width: 20rpx;
-    height: 6rpx;
-    border-radius: 6rpx;
-    background: #fff;
-    opacity: .8;
-
-}
-
-.dots .dotsRow .dotsItem {
-    width: 20rpx;
-    height: 6rpx;
-    border-radius: 6rpx;
-    background: #000;
-    opacity: .8;
-
-}
-
-.newPerson {
-    margin-top: 48rpx;
-}
-
-.newPerson .per-title {
-    font-size: 24rpx;
-    color: #aaa;
-}
-
-.newPerson .t1 {
-    font-size: 32rpx;
-    color: #333;
-    font-weight: 800;
-}
-
-.newPerson .line {
-    margin: 0 10rpx;
-}
-
-.newPerson .more {
-    color: #C7C7C7;
-    font-size: 24rpx;
-}
-
-.newPerson-part {
-    margin-top: 24rpx;
-
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 0 2rpx 12rpx 0 rgba(0, 0, 0, .08);
-    padding: 32rpx 24rpx;
-    display: flex;
-    justify-content: space-between;
-    border-radius: 10rpx;
-}
-
-.newPerson-part .person-box image {
-    width: 200rpx;
-    height: 220rpx;
-    border-radius: 10rpx;
-}
-
-.newPerson-part .person-box .name {
-    color: #333;
-    font-size: 26rpx;
-    font-weight: bold;
-    margin-top: 14rpx;
-    margin-bottom: 10rpx;
-    max-width: 200rpx;
-}
-
-.newPerson-part .person-box .person {
-    color: #aaa;
-    font-size: 24rpx;
-    font-weight: bold;
-}
-
-.newPerson-part .person-box .module {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 8rpx;
-    bottom: 12rpx;
-    left: 12rpx;
-    color: #fff;
-    font-size: 20rpx;
-    padding: 10rpx 10rpx;
-}
-
-
-.match {
-    display: flex;
-    padding: 24rpx;
-    flex-wrap: nowrap;
-    white-space: nowrap;
-}
-
-.match .match-box {
-    width: 300rpx;
-    min-height: 268rpx;
-    border-radius: 12rpx;
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 0 4rpx 28rpx 0 rgba(0, 0, 0, 0.1);
-    border: 1rpx solid rgba(213, 212, 212, .1);
-    margin-right: 20rpx;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
-    color: #666666;
-    font-size: 26rpx;
-    padding: 30rpx 0;
-    box-sizing: border-box;
-    font-weight: bold;
-}
-
-.match .match-box .vsLogo {
-    width: 68rpx;
-    height: 68rpx;
-}
-
-.match .match-box .time {
-
-    font-size: 24rpx;
-    color: #aaa;
-}
-
-.favorite {
-    margin-top: 24rpx;
-}
-
-.favorite .imageList .img1 {
-    width: 332rpx;
-    height: 400rpx;
-    border-radius: 10rpx;
-}
-
-.favorite .imageList .img2 {
-    width: 332rpx;
-    height: 440rpx;
-    border-radius: 10rpx;
-}
-
-.imageList {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    white-space: pre-wrap;
-    margin-top: 32rpx;
-
-}
-
-.imageList .module1 {
-    position: absolute;
-    bottom:100rpx;
-    left: 20rpx;
-
-}
-
-.imageList .module2 {
-    position: absolute;
-    bottom: 20rpx;
-    left: 20rpx;
-
-}
-
-.imageList .module1 .lvLogo, .module2 .lvLogo {
-    width: 88rpx;
-    height: 32rpx;
-    margin-left:16rpx;
-}
-
-.imageList .module1 .name, .module2 .name {
-    color: #fff;
-    font-size: 22rpx;
-    background:rgba(0,0,0,.4);
-    border-radius:4px;
-    padding:12rpx;
-}
-
-.imageList .module1 .name1,.module2 .name1{
-    color: #fff;
-    font-size: 28rpx;
-    margin-top: 20rpx;
-}
-
-.imageListItem {
-    margin-bottom: 20rpx;
-    position: relative;
-    display:inline-block;
-}
-
-.notMargin {
-    margin: 0rpx;
-}
 
 
