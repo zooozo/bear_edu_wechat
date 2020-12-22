@@ -4,11 +4,11 @@ import {tim} from "./plugins/IM_message";
 
 var http = require("utils/http.js");
 
-const $TIM = require("plugins/IM_message")
+// const $TIM = require("plugins/IM_message")
 
 App({
     onLaunch: function () {
-        this.globalData.$TIM = $TIM;
+        // this.globalData.$TIM = $TIM;
         http.getToken();
         wx.getSystemInfo({
             success: (res) => {

@@ -8,7 +8,7 @@
                 {{dec}}
             </view>
 
-            <view class="order_btn">
+            <view class="order_btn" bindtap="toTeacherDetail">
                 <view class="price">
                     {{item.price}} / 小时
                 </view>

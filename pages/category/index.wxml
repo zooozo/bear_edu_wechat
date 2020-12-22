@@ -1,0 +1,62 @@
+<view class="container category">
+    <tabs active="{{ activeIndex }}" bind:change="onChange" line-width="20" line-height="4" animated
+          border="{{false}}"  color="#9FC5C7"  sticky type="card" class="flex-box">
+
+        <tab title="{{item.name}}" wx:for="{{categoryList}}" wx:key="index">
+            <view class="header">
+                <view class="address">深圳</view>
+                <view style="position:relative;box-sizing: border-box;">
+                    <image src="../../images/icon/search.png" class="search_icon"></image>
+                    <input placeholder-class="search" placeholder="请输入要搜索的内容" class="search_input"/>
+                </view>
+            </view>
+            <view class="carlender">
+                <view class="flex-space flex-box flex-y-center">
+                    <view class="flex-box flex-y-center">
+                        <image src="../../images/icon/rili.png" style="width:44rpx;height:44rpx;margin-right:20rpx;"></image>
+                        <view>{{TimeOfNow}}</view>
+                    </view>
+                    <view>
+                        <image  src="../../images/icon/right.png" style="width:30rpx;height:30rpx;"></image>
+                    </view>
+                </view>
+                <view class="search_btn">
+                    搜索老师
+                </view>
+            </view>
+
+            <view class="flex-box filter">
+                <view class="cate">
+                    <text>区域</text>
+                    <image src="../../images/icon/bottom.png"></image>
+                </view>
+                <view class="cate">
+                    <text>评分筛选</text>
+                    <image src="../../images/icon/bottom.png"></image>
+                </view>
+                <view class="cate">
+                    <text>按级别查找</text>
+                    <image src="../../images/icon/bottom.png"></image>
+                </view>
+                <view class="cate">
+                    <view class="cate">
+                        <text>默认</text>
+                        <image src="../../images/icon/bottom.png"></image>
+                    </view>
+                </view>
+            </view>
+
+            <view >
+               <teacher></teacher>
+            </view>
+        </tab>
+    </tabs>
+
+
+
+
+
+<!--    <view class="section">-->
+<!--        <picker mode="date" value="{{date}}" start="{{TimeOfNow}}" bindchange="bindDateChange"></picker>-->
+<!--    </view>-->
+</view>

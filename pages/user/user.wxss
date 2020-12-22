@@ -11,16 +11,18 @@ page {
     position: relative;
     display: flex;
     flex-direction: column;
-    background:#304653;
+    background: #304653;
 }
-.top-bg{
+
+.top-bg {
     position: absolute;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     height: 504rpx;
-    width:100%;
+    width: 100%;
     z-index: -1;
 }
+
 .header {
 
 }
@@ -28,7 +30,7 @@ page {
 .userInfo {
     display: flex;
     margin-left: 64rpx;
-    margin-top:48rpx;
+    margin-top: 48rpx;
 }
 
 .userInfo .userAvatar {
@@ -43,24 +45,25 @@ page {
     font-size: 40rpx;
     color: #fff;
 }
+
 .userInfo .message {
     font-size: 24rpx;
     color: #fff;
-    margin-top:20rpx;
+    margin-top: 20rpx;
 }
 
 .userInfo .editor {
     width: 32rpx;
     height: 32rpx;
-    margin-left:20rpx;
+    margin-left: 20rpx;
 }
 
 .content {
     box-sizing: border-box;
-    margin-top:40rpx;
+    margin-top: 40rpx;
     min-height: 400rpx;
     flex: 1;
-    padding:0 32rpx;
+    padding: 0 32rpx;
 }
 
 .content .list {
@@ -68,8 +71,8 @@ page {
     align-items: center;
     font-size: 26rpx;
     color: #929292;
-    background-color:#fff;
-    border-radius:16rpx;
+    background-color: #fff;
+    border-radius: 16rpx;
 }
 
 .content .list image {
@@ -78,17 +81,26 @@ page {
     margin-bottom: 4rpx;
 }
 
+.list-content {
+
+    box-sizing: border-box;
+    border-radius: 20rpx;
+    width:100%;
+}
+
 .settingList {
     display: flex;
+    padding: 0 30rpx;
+    border-radius: 12rpx 12rpx 0 0;
     flex-direction: column;
     margin-top: 30rpx;
-    background-color:#fff;
+    background-color: #fff;
 }
 
 .settingList .list-row {
     height: 120rpx;
     align-items: center;
-    padding: 0 30rpx;
+
     border-radius: 16rpx;
 }
 
@@ -121,6 +133,7 @@ page {
 .foot {
     background: #fff;
     padding-bottom: 30rpx;
+    border-radius: 0 0 12rpx 12rpx;
 }
 
 .foot .btn {
@@ -133,5 +146,5 @@ page {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top:64rpx;
+    margin-top: 64rpx;
 }

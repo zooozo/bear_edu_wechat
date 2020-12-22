@@ -1,7 +1,4 @@
-.teacher_list{
-    padding:0 16rpx;
 
-}
 
 .teacher{
     width:100%;

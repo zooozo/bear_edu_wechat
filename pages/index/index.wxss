@@ -113,7 +113,7 @@ swiper.pic-swiper .banner {
 }
 
 .watchAll{
-    padding:10rpx;
+    padding:10rpx 20rpx;
     color:#fff;
     background:#304653;
     border-radius:14rpx;

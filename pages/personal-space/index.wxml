@@ -2,7 +2,60 @@
     <view>
         <image src="{{userInfo.pic || '../../images/timg.jpeg'}}" class="avatar-bg"></image>
     </view>
-    <view class="content">
+<!--    <view class="content">-->
+<!--        <view class="description p1">-->
+<!--            <view class="title">教师概况</view>-->
+<!--            <view class="row">-->
+<!--                <text class="t1">姓名:</text>-->
+<!--                <text class="t2">旷毅<image src="../../images/icon/man.png" class="lv1"></image></text>-->
+<!--            </view>-->
+<!--            <view class="row">-->
+<!--                <text  class="t1">年龄:</text>-->
+<!--                <text class="t2">22岁</text>-->
+<!--            </view>-->
+<!--            <view class="row">-->
+<!--                <text  class="t1">教龄:</text>-->
+<!--                <text class="t2">1年</text>-->
+<!--            </view>-->
+<!--            <view class="row">-->
+<!--                <text  class="t1">个人优势:</text>-->
+<!--                <text class="t2">擅长人教版、外研版1-9年级英语冲刺/培优/巩固/补弱;毕业于中山大学(985/211工程),拥有英语学科高级中学能力素养、教师职业道德素养以及丰富的社会实践经验</text>-->
+<!--            </view>-->
+<!--        </view>-->
+<!--        <view class="description p2">-->
+<!--            <view class="title">学业成就</view>-->
+<!--            <view class="row">-->
+<!--                <text class="t1">本科经历:</text>-->
+<!--                <text class="t2">中山大学 汉语言文学本科</text>-->
+<!--            </view>-->
+<!--            <view class="row">-->
+<!--                <text class="t1">其他学业成就:</text>-->
+<!--                <view class="t2">-->
+<!--                    <view>中山大学 汉语言文学本科</view>-->
+<!--                    <view>中山大学 汉语言文学本科</view>-->
+<!--                    <view>中山大学 汉语言文学本科</view>-->
+<!--                </view>-->
+<!--            </view>-->
+<!--        </view>-->
+<!--        <view class="description p3">-->
+<!--            <view class="title">学业成就</view>-->
+<!--            <view class="row">-->
+<!--                <text class="t1">本科经历:</text>-->
+<!--                <text class="t2">中山大学 汉语言文学本科</text>-->
+<!--            </view>-->
+<!--            <view class="row">-->
+<!--                <text class="t1">其他学业成就:</text>-->
+<!--                <view class="t2">-->
+<!--                    <view>中山大学 汉语言文学本科</view>-->
+<!--                    <view>中山大学 汉语言文学本科</view>-->
+<!--                    <view>中山大学 汉语言文学本科</view>-->
+<!--                </view>-->
+<!--            </view>-->
+<!--        </view>-->
+
+
+
+
         <view class="userInfo">
             <view class="userInfo-row">
                 <view class="userName">{{userInfo.nickName}}</view>
@@ -62,9 +115,9 @@
                 <view>主人很懒,还未发表任何动态</view>
             </view>
         </view>
-    </view>
+<!--    </view>-->
     <view class="foot-btn">
-        <view class="btn1 btn " bindtap="tapFollow">{{userInfo.attentionFlag?'已关注':'关注'}}</view>
-        <view class="btn2 btn theme-color" bindtap="ToImTalk">聊天</view>
+<!--        <view class="btn1 btn " bindtap="tapFollow">{{userInfo.attentionFlag?'已关注':'关注'}}</view>-->
+        <view class="btn2 btn theme-color" bindtap="ToConfirmOrder">预约上课</view>
     </view>
 </view>

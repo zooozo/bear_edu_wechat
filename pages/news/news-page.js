@@ -16,11 +16,11 @@ Page({
 
     },
     onShow() {
-        console.log(app.globalData.$TIM, 'messageData---')
-        this.setData({
-            allConversation: app.globalData.$TIM.tim.DBCenter.MessageList
-        })
-        this.watch(this.getAllConversation)
+        // console.log(app.globalData.$TIM, 'messageData---')
+        // this.setData({
+        //     allConversation: app.globalData.$TIM.tim.DBCenter.MessageList
+        // })
+        // this.watch(this.getAllConversation)
     },
 
     getAllConversation(value){
@@ -32,19 +32,19 @@ Page({
     // 时时监听收到消息的数据
     watch: function (method) {
         // let obj = DBCenter;
-        Object.defineProperty(app.globalData.$TIM.tim.DBCenter, "MessageList", {
-            configurable: true,
-            enumerable: true,
-            set: function (value) {
-                this._obj = value;
-
-                method(value);
-            },
-            get: function () {
-                // 可以在这里打印一些东西，然后在其他界面调用getApp().globalData.name的时候，这里就会执行。
-                return this._obj
-            }
-        })
+        // Object.defineProperty(app.globalData.$TIM.tim.DBCenter, "MessageList", {
+        //     configurable: true,
+        //     enumerable: true,
+        //     set: function (value) {
+        //         this._obj = value;
+        //
+        //         method(value);
+        //     },
+        //     get: function () {
+        //         // 可以在这里打印一些东西，然后在其他界面调用getApp().globalData.name的时候，这里就会执行。
+        //         return this._obj
+        //     }
+        // })
     },
     longTimePress(e) {
         let item = this.data.allConversation[e.currentTarget.dataset.current]

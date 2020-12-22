@@ -71,5 +71,11 @@ Component({
                   },
             ]
       },
-      methods: {}
+      methods: {
+            toTeacherDetail(){
+                  wx.navigateTo({
+                        url:'/pages/personal-space/index'
+                  })
+            }
+      }
 });

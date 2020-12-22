@@ -3,8 +3,8 @@ import {emojiName, emojiMap, emojiUrl} from '../../../plugins/utils/emojiMap'
 
 const util = require('../../../utils/util')
 const app = getApp()
-const $TIM = app.globalData.$TIM.tim;
-const DBCenter = app.globalData.$TIM.tim.DBCenter
+// const $TIM = app.globalData.$TIM.tim;
+// const DBCenter = app.globalData.$TIM.tim.DBCenter
 
 
 Page({

@@ -42,7 +42,7 @@
             </view>
         </view>
         <!--设置列表-->
-        <view style="border-radius:20rpx;">
+        <view class="list-content">
             <view class="settingList">
                 <view class="flex-box flex-space list-row" wx:for="{{settingList}}" wx:key="index" bindtap="tapSettingList" data-current="{{index}}">
                     <image src="{{item.url}}" class="left-png"></image>

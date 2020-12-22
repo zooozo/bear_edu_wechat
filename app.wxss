@@ -2,6 +2,7 @@
 
 page {
 
+    font-family: PingFangSC-Medium, PingFang SC;
     display: flex;
     flex-direction: column;
     background-color: #fff;
@@ -13,6 +14,19 @@ page {
     color: #333;
     font-family: helvetica, 'Heiti SC', PingFangSC-Light;
     position: relative;
+}
+
+.category .van-tabs__scroll.van-tabs__scroll--card{
+    margin:0;
+
+}.category .van-tabs__wrap, .van-tabs__nav.van-tabs__nav--card{
+    height:40px !important;
+
+}.category .van-ellipsis{
+    height:40px !important;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .price {

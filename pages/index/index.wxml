@@ -22,7 +22,7 @@
 
             <view class="flex-box flex-space title">
                 <text>教师代表</text>
-                <view class="watchAll">查看全部</view>
+                <view class="watchAll" bindtap="toCategoryList">查看全部</view>
             </view>
             <teacher teacher="{{teacher}}"></teacher>
         </view>

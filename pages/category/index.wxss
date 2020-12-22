@@ -1,0 +1,87 @@
+page{
+    width:100%;
+    height:100%;
+    background: #9FC5C7;
+}
+
+.header{
+    display:flex;
+    align-items: center;
+    margin-top:30rpx;
+}
+.address{
+    width:200rpx;
+    height:60rpx;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color:#fff;
+}
+
+.search{
+    color:#C8C8C8;
+    font-size:26rpx;
+
+
+}
+.search_icon{
+    width:40rpx;
+    height:40rpx;
+    position:absolute;
+    z-index: 50;
+    top:10rpx;
+    left:6rpx;
+}
+.search_input{
+    width:520rpx;
+    border-radius: 5rpx;
+    height:60rpx;
+    background:#fff;
+    padding-left:50rpx;
+    box-sizing: border-box;
+}
+
+.carlender{
+    background:#fff;
+    min-height:200rpx;
+    padding:30rpx;
+    border-radius:12rpx;
+    margin-top:30rpx;
+    color:#1A1A1A;
+    font-size:26rpx;
+}
+.carlender .search_btn{
+   border:1px solid #FF9680;
+    color:#FF9680;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height:80rpx;
+    margin-top:60rpx;
+    border-radius:10rpx;
+
+}
+
+.van-tabs.van-tabs--card{
+    width:100%;
+    padding:0 32rpx;
+    box-sizing: border-box;
+}
+.filter{
+    background:#fff;
+    height:80rpx;
+    margin-top:40rpx;
+    margin-bottom:40rpx;
+}
+.filter .cate{
+    flex:1;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size:26rpx;
+}.filter .cate image{
+    width:20rpx;
+    height:26rpx;
+    margin-left:10rpx;
+}
