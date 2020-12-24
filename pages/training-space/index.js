@@ -88,7 +88,7 @@ Page({
             method: 'GET',
             url: '/trainer/queryTrainer',
             data: {
-                userId:this.options.userId
+                userId:110
             },
             callBack: (res) => {
                 console.log(res,'res-----')

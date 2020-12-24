@@ -1,0 +1,63 @@
+<!--index.wxml-->
+<view class="container">
+    <view>
+        <view class="row">
+            <view>姓名</view>
+            <view class="flex-center" >
+                <input placeholder="请输入真实姓名" data-item="name" bindblur='getChangeValuse'/>
+            </view>
+        </view>
+        <view class="row">
+            <view>身份证号码</view>
+            <view class="flex-center">
+                <input placeholder="请输入身份号码" data-item="idCard" bindblur='getChangeValuse'/>
+            </view>
+        </view>
+        <view class="row">
+            <view>联系方式</view>
+            <view class="flex-center">
+                <input placeholder="请输入手机号码"  data-item="userPhone" bindblur='getChangeValuse'/>
+            </view>
+        </view>
+        <view class="row">
+            <view>性别</view>
+            <view class="flex-box">
+                <view class="sex {{query.sex=='男'?'sex_active':''}}"  bindtap="chooseSex" data-sex="男">男</view>
+                <view class="sex {{query.sex=='女'?'sex_active':''}}"  bindtap="chooseSex" data-sex="女">女</view>
+            </view>
+        </view>
+    </view>
+    <view>
+        <!--        <view>-->
+        <!--            <view class="page-font">头像</view>-->
+        <!--            <image src="{{listData.pic}}" class="page-img"></image>-->
+        <!--        </view>-->
+        <view class="flex-box flex-space" style="margin-top:62rpx;">
+            <view>
+                <view class="page-font">头像</view>
+                <image src="{{query.headImg?query.headImg:'../../images/setting/images.png'}}"
+                       class="page-img2" bindtap="uploadVideo" data-item="headImg"></image>
+            </view>
+            <view>
+                <view class="page-font">身份证</view>
+                <image src="{{query.cardImg?query.cardImg:'../../images/setting/images.png'}}"
+                       class="page-img2" bindtap="uploadVideo" data-item="cardImg"></image>
+            </view>
+        </view>
+        <view class="flex-box flex-space" style="margin-top:62rpx;">
+            <view>
+                <view class="page-font">教师资格证或专业证书</view>
+                <image src="{{query.credentialsImg?query.credentialsImg:'../../images/setting/images.png'}}"
+                       class="page-img2" bindtap="uploadVideo" data-item="credentialsImg"></image>
+            </view>
+            <view>
+                <view class="page-font">学历证书</view>
+                <image src="{{query.diplomaImg?query.diplomaImg:'../../images/setting/images.png'}}"
+                       class="page-img2" bindtap="uploadVideo" data-item="diplomaImg"></image>
+            </view>
+        </view>
+    </view>
+    <view class="defaultBtn flex-center" bindtap="submitFormData">
+        确定
+    </view>
+</view>

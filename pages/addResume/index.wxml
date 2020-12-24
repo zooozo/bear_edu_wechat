@@ -1,0 +1,75 @@
+<!--index.wxml-->
+<view class="container">
+    <view>
+        <view class="row">
+            <view>姓名</view>
+            <view class="flex-center">
+                <input placeholder="姓名" data-item="name" bindblur='getChangeValuse'/>
+            </view>
+        </view>
+        <view class="row">
+            <view>年龄</view>
+            <view class="flex-center">
+                <input placeholder="请输入年龄" type='number' data-item="age" bindblur='getChangeValuse'/>
+            </view>
+        </view>
+        <view class="row">
+            <view>教龄</view>
+            <view class="flex-center">
+                <input placeholder="请输入教龄" type='number' data-item="teachAge" bindblur='getChangeValuse'/>
+            </view>
+        </view>
+        <view class="row addHeight">
+            <view>个人优势</view>
+            <view class="flex-center">
+                <textarea placeholder="请输入个人优势"
+                          auto-height
+                          data-item="advantage" bindblur='getChangeValuse'/>
+            </view>
+        </view>
+        <view class="row addHeight">
+            <view>本科经历</view>
+            <view class="flex-center">
+                <textarea placeholder="请输入本科经历"
+                          auto-height
+                          data-item="undergraduate" bindblur='getChangeValuse'/>
+            </view>
+        </view>
+        <view class="row addHeight">
+            <view>研究生经历</view>
+            <view class="flex-center">
+                <textarea placeholder="请输入研究生经历"
+                          auto-height
+                          data-item="postgraduate" bindblur='getChangeValuse'/>
+            </view>
+        </view>
+        <view class="row addHeight">
+            <view>其他学业成就</view>
+            <view class="flex-center">
+                <textarea placeholder="请输入其他学业成就"
+                          auto-height
+                          data-item="other" bindblur='getChangeValuse'/>
+            </view>
+        </view>
+        <view class="row addHeight">
+            <view>工作经历</view>
+            <view class="flex-center">
+                <textarea placeholder="请输入工作经历"
+                          auto-height
+                          data-item="working" bindblur='getChangeValuse'/>
+            </view>
+        </view>
+        <view class="row addHeight">
+            <view>自我介绍</view>
+            <view class="flex-center">
+                <textarea placeholder="请输入自我介绍"
+                          auto-height
+                          data-item="introduce" bindblur='getChangeValuse'/>
+            </view>
+        </view>
+
+        <view class="defaultBtn flex-center" bindtap="submitFormData">
+            确定
+        </view>
+    </view>
+</view>

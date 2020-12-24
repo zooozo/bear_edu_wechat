@@ -74,7 +74,7 @@ Component({
       methods: {
             toTeacherDetail(){
                   wx.navigateTo({
-                        url:'/pages/personal-space/index'
+                        url:'/pages/training-space/index'
                   })
             }
       }

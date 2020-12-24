@@ -209,3 +209,7 @@ image {
    color:#1EC19A
 }
 
+textarea{
+    width:346rpx;
+    height:100rpx;
+}

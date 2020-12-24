@@ -25,28 +25,21 @@ Page({
             orderEntryList: [],
       },
       onLoad() {
-
+            this.getCateGory();
       },
 
+      getCateGory(){
+        http.request({
+              method: 'GET',
+              url:'/bear-admin/category/categoryInfo',
+              data:{
+                    parentId:0
+              },
+              callBack(res){
+                    console.log(res,'res---')
+              }
 
-      // 获取子组件的Index
-      chooseTabList(e) {
-
-            let index = e.currentTarget.dataset.index;
-
-      },
-      toCategoryList(){
-        wx.navigateTo({
-              url:'/pages/category/index'
         })
-      },
-      // https://badmtn.weizhukeji.com/badmtn-apip/index/index
-      // https://badmtn.weizhukeji.com/badmtn-api/index/index
-
-      toSearchPage: function () {
-            wx.navigateTo({
-                  url: '/pages/search-page/search-page',
-            })
       },
 
       onShareAppMessage() {

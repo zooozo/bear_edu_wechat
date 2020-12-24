@@ -1,6 +1,6 @@
 <!--pages/user/user.wxml-->
 <view class='container'>
-<!--    <image src="../../images/userbg.png" class="top-bg"></image>-->
+    <image src="../../images/userbg.png" class="top-bg"></image>
     <view class="header">
         <view class="userInfo">
             <view class="userAvatar">
@@ -9,7 +9,7 @@
             <view style="margin-left:32rpx;">
                 <view class="user-nickname">
                     <open-data type="userNickName"></open-data>
-
+                    <image src="../../images/icon/lv.png" class="lvLogo"></image>
                 </view>
                 <view class="message">
                     <text>用走心的签名打动对的人</text>
@@ -18,18 +18,18 @@
             </view>
 
         </view>
-<!--         <view class="flex-box" style="margin-top:84rpx;">-->
-<!--             <view class="item">-->
-<!--                 <view class="t1">关注</view>-->
-<!--                 <view class="t2">968</view>-->
-<!--             </view> <view class="item">-->
-<!--                 <view class="t1">关注</view>-->
-<!--                 <view class="t2">968</view>-->
-<!--             </view> <view class="item">-->
-<!--                 <view class="t1">关注</view>-->
-<!--                 <view class="t2">968</view>-->
-<!--             </view>-->
-<!--         </view>-->
+        <view class="flex-box" style="margin-top:84rpx;">
+            <view class="item">
+                <view class="t1">关注</view>
+                <view class="t2">968</view>
+            </view> <view class="item">
+            <view class="t1">关注</view>
+            <view class="t2">968</view>
+        </view> <view class="item">
+            <view class="t1">关注</view>
+            <view class="t2">968</view>
+        </view>
+        </view>
     </view>
     <view class="content">
         <!--订单 优惠券和钱包按钮-->
@@ -42,25 +42,22 @@
             </view>
         </view>
         <!--设置列表-->
-        <view class="list-content">
-            <view class="settingList">
-                <view class="flex-box flex-space list-row" wx:for="{{settingList}}" wx:key="index" bindtap="tapSettingList" data-current="{{index}}">
-                    <image src="{{item.url}}" class="left-png"></image>
-                    <view class="flex-box flex-space row-item">
+        <view class="settingList">
+            <view class="flex-box flex-space list-row" wx:for="{{settingList}}" wx:key="index" bindtap="tapSettingList" data-current="{{index}}">
+                <image src="{{item.url}}" class="left-png"></image>
+                <view class="flex-box flex-space row-item">
 
-                        <text>{{item.text}}</text>
-                        <image src="../../images/icon/right.png" class="right-png"></image>
-                    </view>
-
+                    <text>{{item.text}}</text>
+                    <image src="../../images/icon/right.png" class="right-png"></image>
                 </view>
+
             </view>
-            <navigator url="/pages/to-trainer/index" class="flex-center foot">
-                <view class="btn">
-                    我想当陪练赚钱
-                </view>
-            </navigator>
         </view>
-
+        <navigator url="/pages/toTeacher/teacher" class="flex-center foot">
+            <view class="btn">
+                申请成为教师
+            </view>
+        </navigator>
     </view>
     <!--陪练按钮-->
 

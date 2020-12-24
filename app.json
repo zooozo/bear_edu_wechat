@@ -1,9 +1,18 @@
 {
   "pages": [
+    "pages/user/user",
+    "pages/addResume/index",
+    "pages/toTeacher/teacher",
+
+
+    "pages/coupon/coupon",
+    "pages/index/index",
+
+    "pages/training-space/index",
     "pages/personal-space/index",
     "pages/category/index",
-    "pages/index/index",
-    "pages/user/user",
+
+
     "pages/fans/fans",
     "pages/order/orderIndex",
 
@@ -23,24 +32,21 @@
     "pages/mybag/index",
     "pages/news/news-page",
     "pages/setting/index",
-    "pages/setting/my-tastes/index",
 
     "pages/order/orderDetail/detail",
     "pages/create-order/index",
     "pages/appraise/index",
-    "pages/setting/change-date/index",
-    "pages/setting/change-name/index",
+
     "pages/create-order/choose-stadium/stadium",
     "pages/to-trainer/update-trainer/index",
     "pages/create-order/search-stadium/search",
-    "pages/training-space/index",
+
     "pages/moment-time/moment-time",
     "pages/login/login",
     "pages/search-page/search-page",
     "pages/logs/logs",
     "pages/search-show/search-show",
-    "pages/mobile/mobile",
-    "pages/coupon/coupon"
+    "pages/mobile/mobile"
 
   ],
   "permission": {
