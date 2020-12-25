@@ -1,6 +1,7 @@
 <!--stadium.wxml-->
 <view class="container">
     <view >
+        <image src="../../images/userbg.png" class="top-bg"></image>
         <!--    分类模块-->
         <view class="content">
             <swiper

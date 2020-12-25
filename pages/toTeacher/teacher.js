@@ -123,7 +123,7 @@ Page({
                         content: "请上传头像"
                   })
             }else{
-                  this.query.sex=this.query.sex=='男'?0:1
+                  this.data.query.sex=this.data.query.sex=='男'?0:1
                   http.request({
                         url:'/apply/addTrainer',
                         method:'POST',
