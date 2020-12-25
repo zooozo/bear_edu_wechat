@@ -31,7 +31,7 @@ Page({
       getCateGory(){
         http.request({
               method: 'GET',
-              url:'/bear-admin/category/categoryInfo',
+              url:'/category/categoryInfo',
               data:{
                     parentId:0
               },
@@ -44,9 +44,7 @@ Page({
 
       onShareAppMessage() {
             return {
-                  title: '众羽在线',
-                  path: '/pages/index/index',
-                  imageUrl: 'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2534506313,1688529724&fm=26&gp=0.jpg',
+
             }
       }
 })

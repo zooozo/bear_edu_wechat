@@ -1,0 +1,25 @@
+<view class="container">
+
+    <tabs active="{{ activeIndex }}" bind:change="onChange" line-width="20" line-height="4" animated
+          border="{{false}}" color="#9FC5C7" background="#F5F5F5" sticky>
+        <tab title="{{item.name}}" wx:for="{{categoryList}}" wx:key="index">
+            <view style="margin-top:24rpx;">
+                <view class="couponItem" wx:for="{{couponList}}" wx:key="{{item.id}}">
+                    <image src="../../images/bear/coupon.png" class="bg"></image>
+                    <view class=" left-part">
+                        <view class="t1">{{item.quota}}</view>
+                        <view class="t2">满{{item.moneyLimit}}可用</view>
+                    </view>
+                    <view class="right-part">
+                        <view class="t3">{{item.couponName}}</view>
+<!--                        <view class="t4">新用户专享优惠券新用户专享优惠</view>-->
+                        <view class="t5">
+                            <text>{{item.startTime}}~~{{item.endTime}}</text>
+                            <view class="toPay">去使用</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </tab>
+    </tabs>
+</view>

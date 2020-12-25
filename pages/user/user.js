@@ -20,6 +20,7 @@ Page({
             {url: '../../images/icon/qiandao.png', text: '我的评价', path: ''},
             {url: '../../images/icon/lishi.png', text: '我的活动', path: ''},
             {url: '../../images/icon/kefu.png', text: '我的地址', path: ''},
+            {url: '../../images/icon/kefu.png', text: '我的简历', path: '/pages/addResume/index'},
             {url: '../../images/icon/setting.png', text: '设置', path: ''},
             {url: '../../images/icon/setting.png', text: '关于我们', path: ''},
         ]

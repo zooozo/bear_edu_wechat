@@ -1,103 +1,124 @@
 <view class="container">
     <view class="header-title">
-        <view style="background-image:url({{userData.trainerImg}})  "  class="head-img">
+        <view style="background-image:url('https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2471826223,1654648024&fm=26&gp=0.jpg)"
+              class="head-img">
 
         </view>
 
         <view class="userInfo">
             <view class="flex-box">
-                <image src="{{userData.trainerImg}}" class="avatar"></image>
+                <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1501376118,3278691856&fm=26&gp=0.jpg"
+                       class="avatar"></image>
                 <view style="margin-left:32rpx">
-                    <view class="name">{{userData.nickName}}</view>
+                    <view class="name">Tony</view>
                     <view class="flex-box rate">
-<!--                        <view style="margin-right:20rpx;">-->
-<!--                            <text>服务</text>-->
-<!--                            <text  class="t1">35人</text>-->
-<!--                        </view>-->
-<!--                        <view>-->
-<!--                            <text>好评率</text>-->
-<!--                            <text  class="t2">97%</text>-->
-<!--                        </view>-->
-                    </view>
-                    <view class="copyId">
-                        <view>
-                            ID:{{userData.userId}}
+                        <view style="margin-right:20rpx;">
+                            <text>服务</text>
+                            <text class="t1">35人</text>
                         </view>
-                        <view bindtap="copyId">
-                            复制
-                        </view>
+                        <!--                        <view>-->
+                        <!--                            <text>好评率</text>-->
+                        <!--                            <text  class="t2">97%</text>-->
+                        <!--                        </view>-->
+                        <!--                    </view>-->
+                        <!--                    <view class="copyId">-->
+                        <!--                        <view>-->
+                        <!--                            ID:{{userData.userId}}-->
+                        <!--                        </view>-->
+                        <!--                        <view bindtap="copyId">-->
+                        <!--                            复制-->
+                        <!--                        </view>-->
                     </view>
                 </view>
             </view>
 
-            <view class="follow" bindtap="tapFollow">
-                {{userData.attentionFlag?'已关注':'关注'}}
-            </view>
+            <!--            <view class="follow" bindtap="tapFollow">-->
+            <!--                {{userData.attentionFlag?'已关注':'关注'}}-->
+            <!--            </view>-->
         </view>
     </view>
     <view class="content">
         <view class="intruduce">
-            {{userData.trainerDescribe}}
+
+            　　老师是需要好好的自我介绍的，是给学生和家长的一个放心，今天小编就给大家分享一下个性自我介绍，希望大家来学习哦
         </view>
 
         <view class="trainer">
             <view class="flex-box flex-space flex-y-center">
-                <view class="badmtn-traner">羽毛球陪练</view>
-                <view class="price"><text class="txt">¥{{userData.orderPrice}}</text><text class="txt1">/1小时</text></view>
-            </view>
-            <view style="margin-top:28rpx;margin-bottom:20rpx;">
-                <text style="color:#999">接单时间： </text><text>{{userData.weekList}}  {{userData.orderTime[0]+':00'}} ~ {{userData.orderTime[userData.orderTime.length-1]+':00'}}</text>
-            </view>
-            <view >
-                <text style="color:#999">擅长球技：</text> <text>{{userData.begoodSkill}}</text>
-            </view>
-        </view>
+                <view class="badmtn-traner">Tony老师</view>
 
-        <view class="skill">
-            <view class="badmtn-traner">技能认证</view>
-            <image src="../../images/test/badmtn.png" class="pic"></image>
-            <view><text style="color:#999">业余等级：</text><text style="color:#666">{{userData.skillLevel}}级</text></view>
+                <view class="price">
+                    <text class="txt">¥100</text>
+                    <text class="txt1">/小时</text>
+                </view>
+            </view>
+            <view class="dec">
+                <text>今年：26岁</text>
+                <text>教龄：5年</text>
+            </view>
+            <view class="dec">
+                <text style="color:#999">上课时间：</text>
+                <text>09:00~ 18:00</text>
+            </view>
+            <view class="dec">
+                <text style="color:#999">所教科目：</text>
+                <text>英语、化学、数学、物理</text>
+            </view>
+            <view class="dec">
+                <text style="color:#999">个人优势：</text>
+                <text>毕业于剑桥大学，具有3年国外留学经历</text>
+            </view>
+            <view class="dec">
+                <text style="color:#999">本科经历：</text>
+                <text>毕业于剑桥大学，具有3年国外留学经历</text>
+            </view>
+            <view class="dec">
+                <text style="color:#999">研究生经历：</text>
+                <text>毕业于剑桥大学，具有3年国外留学经历</text>
+            </view>
+            <view class="dec">
+                <text style="color:#999">工作经历：</text>
+                <text>毕业于剑桥大学，具有3年国外留学经历</text>
+            </view>
         </view>
         <view class="answering">
-<!--            <image src="../../images/timg.jpeg" class="avatar1"></image>-->
-            <view class="badmtn-traner">用户评价 <text style="color:#999;font-size:24rpx">(200)</text></view>
+            <!--            <image src="../../images/timg.jpeg" class="avatar1"></image>-->
+            <view class="badmtn-traner">课程介绍
+                <text style="color:#999;font-size:24rpx">(200)</text>
+            </view>
             <view class="skill-list" style="{{skillList.length<3?'width:70%':' justify-content: space-between'}}">
                 <view class="skill-item" wx:for="{{skillList}}" wx:key="index">
                     {{item.text}}{{item.num}}
                 </view>
             </view>
-            <view class="user-order">
-                <image src="../../images/timg.jpeg" class="avatar"></image>
-                <view style="margin-left:24rpx;">
-                    <view class="badmtn-traner">成都小甜甜</view>
-                    <view class="flex-center">
-                        <text>07-30</text>
-                        <view class="order-num">
-                            第一次下单
-                        </view>
-                    </view>
+        </view>
+        <view class="skill">
+            <view class="badmtn-traner">学历证书</view>
+            <image src="../../images/test/badmtn.png" class="pic"></image>
+            <!--            <view><text style="color:#999">业余等级：</text><text style="color:#666">{{userData.skillLevel}}级</text></view>-->
+        </view>
+        <view class="answering">
+            <!--            <image src="../../images/timg.jpeg" class="avatar1"></image>-->
+            <view class="badmtn-traner">用户评价
+                <text style="color:#999;font-size:24rpx">(200)</text>
+            </view>
+            <view class="skill-list" style="{{skillList.length<3?'width:70%':' justify-content: space-between'}}">
+                <view class="skill-item" wx:for="{{skillList}}" wx:key="index">
+                    {{item.text}}{{item.num}}
                 </view>
             </view>
-            <view class="appraise">
-                球技很好很赞，球技很好很赞球技很好很赞，球技很好很赞，球技很好很赞
-            </view>
-            <view class="flex-center">
-                <view class="more">
-                    查看更多评价
-                </view>
-            </view>
-
         </view>
 
 
+
     </view>
-    <view class="recommend">
-        <view style="color:#333;font-size:30rpx;font-weight:700;">相关推荐</view>
-        <recommendItem list="{{RecommendList}}"></recommendItem>
-    </view>
+    <!--    <view class="recommend">-->
+    <!--        <view style="color:#333;font-size:30rpx;font-weight:700;">相关推荐</view>-->
+    <!--        <recommendItem list="{{RecommendList}}"></recommendItem>-->
+    <!--    </view>-->
 
     <view class="foot-btn">
-        <view class="btn1 btn" bindtap="ToImTalk">聊天</view>
-        <view class="btn2 btn theme-color" bindtap="goToPayOrder">下单(¥{{userData.orderPrice}}/小时)</view>
+        <view class="btn2 btn">发起团课</view>
+        <view class="btn2 btn theme-color" bindtap="goToPayOrder">下单(¥100/小时)</view>
     </view>
 </view>

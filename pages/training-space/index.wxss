@@ -37,8 +37,9 @@
 }
 
 .userInfo .name {
-    font-size: 36rpx;
+    font-size: 60rpx;
     color: #fff;
+    font-weight:500;
 
 }
 
@@ -106,7 +107,7 @@
 
 .badmtn-traner {
     color: #333;
-    font-size: 28rpx;
+    font-size: 40rpx;
     font-weight: 700;
 }
 
@@ -122,6 +123,21 @@
     font-size: 24rpx;
 
 }
+.trainer .dec {
+   margin-top:30rpx;
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 .skill {
     margin-top: 80rpx;

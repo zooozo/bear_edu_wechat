@@ -203,7 +203,7 @@ image {
 }
 
 .theme-color{
-    background-color:#304653
+    background-color:#1EC19A
 }
 .theme-font-color{
    color:#1EC19A

@@ -4,22 +4,22 @@ Page({
     data: {
         skillList: [
             {
-                text: '球技很好',
+                text: '通俗易懂',
                 num: 3
             }, {
-                text: '长的漂亮',
+                text: '耐心很好',
                 num: 3
             }, {
-                text: '声音好听',
+                text: '知识渊博',
                 num: 1
             }, {
-                text: '球技很好',
+                text: '一表人才',
                 num: 8
             }, {
-                text: '球技很好',
+                text: '为人师表',
                 num: 11
             }, {
-                text: '球技很好',
+                text: '风趣儒雅',
                 num: 22
             }
         ],

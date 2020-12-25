@@ -123,12 +123,22 @@ Page({
                         content: "请上传头像"
                   })
             }else{
+                  this.query.sex=this.query.sex=='男'?0:1
                   http.request({
                         url:'/apply/addTrainer',
                         method:'POST',
                         data:this.data.query,
                         callBack:(data)=>{
-                              console.log(data,'data---')
+                              wx.showModal({
+                                    title: '提示',
+                                    content: "申请成功",
+                                    success(res) {
+                                          wx.navigateTo({
+                                                url:'/pages/addResume/index'
+                                          })
+                                    }
+                              })
+
                         }
                   })
             }

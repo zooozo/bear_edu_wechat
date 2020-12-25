@@ -24,7 +24,10 @@
                 <text>教师代表</text>
                 <view class="watchAll" bindtap="toCategoryList">查看全部</view>
             </view>
-            <teacher teacher="{{teacher}}"></teacher>
+            <view class="list">
+                <teacher teacher="{{teacher}}"></teacher>
+            </view>
+
         </view>
 
     </view>

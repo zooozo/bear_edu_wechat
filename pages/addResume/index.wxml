@@ -2,9 +2,9 @@
 <view class="container">
     <view>
         <view class="row">
-            <view>姓名</view>
+            <view>昵称</view>
             <view class="flex-center">
-                <input placeholder="姓名" data-item="name" bindblur='getChangeValuse'/>
+                <input placeholder="请输入昵称(例:Tony)" data-item="name" bindblur='getChangeValuse'/>
             </view>
         </view>
         <view class="row">

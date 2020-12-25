@@ -68,13 +68,13 @@ swiper.pic-swiper .banner {
 
 .content {
     background: #fff;
-    border-radius: 36rpx 36rpx 0 0;
+    /*border-radius: 36rpx 36rpx 0 0;*/
 
-    padding: 40rpx 32rpx 40rpx;
+    /*padding: 40rpx 32rpx 40rpx;*/
 }
 
 .content swiper {
-    height: 300rpx;
+    height: 400rpx;
 }
 
 .content swiper-item {
@@ -82,9 +82,9 @@ swiper.pic-swiper .banner {
 }
 
 .swiper-Image {
-    width: 686rpx;
-    height: 300rpx;
-    border-radius: 20rpx;
+    width:100%;
+    height: 400rpx;
+    /*border-radius: 20rpx;*/
 }
 
 .tab {
@@ -119,6 +119,9 @@ swiper.pic-swiper .banner {
     border-radius:14rpx;
     font-weight: normal;
     font-size:22rpx;
+}
+.list{
+    padding:0 32rpx;
 }
 
 

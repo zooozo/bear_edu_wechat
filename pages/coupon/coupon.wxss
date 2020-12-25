@@ -1,0 +1,102 @@
+page {
+    background: #F5F5F5;
+}
+
+.van-tabs__scroll.van-tabs__scroll--line {
+    background: #F5F5F5
+}
+
+.container {
+    padding: 0 32rpx;
+}
+
+.couponItem {
+    display: flex;
+    position: relative;
+    min-width: 686rpx;
+    min-height: 212rpx;
+    margin-bottom: 40rpx;
+    padding: 32rpx 0;
+    box-sizing: border-box;
+}
+
+.couponItem .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 686rpx;
+    height: 212rpx;
+    z-index: -1;
+}
+
+.left-part {
+    width: 176rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.left-part view {
+    text-align: center;
+
+}
+
+.left-part .t1 {
+    font-size: 60rpx;
+
+    font-weight: 600;
+    color: #FB6464;
+}
+
+.left-part .t2 {
+    font-size: 22rpx;
+
+    font-weight: 400;
+    color: #AAAAAA;
+}
+
+.right-part {
+    flex: 1;
+    padding:0 32rpx;
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.right-part .t3 {
+    font-size: 26rpx;
+    font-weight: 600;
+    color: #333333;
+}
+
+.right-part .t4 {
+    font-size: 24rpx;
+    margin-top: 14rpx;
+    margin-bottom: 24rpx;
+    font-weight: 500;
+    color: #AAAAAA;
+}
+
+.right-part .t5 {
+    font-size: 22rpx;
+    font-weight: 500;
+    color: #AAAAAA;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.right-part .t5 .toPay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 116rpx;
+    height: 52rpx;
+    border-radius: 26rpx;
+    border: 1rpx solid #1EC19A;
+    font-size: 24rpx;
+    font-weight: 500;
+    color: #1EC19A;
+}
