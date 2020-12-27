@@ -37,7 +37,7 @@ page {
     color: #333;
     font-size: 30rpx;
     border-bottom: 2rpx solid #EDEDED;
-    height: 102rpx;
+
 }
 .row ::placeholder{
     color: #CECECE;
@@ -71,5 +71,5 @@ page {
 
 
 .addHeight{
-    height:170rpx;
+    min-height:170rpx;
 }

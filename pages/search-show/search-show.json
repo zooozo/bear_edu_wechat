@@ -4,6 +4,6 @@
   "navigationBarTitleText": "搜索结果",
   "navigationBarTextStyle": "black",
   "usingComponents":{
-    "prod":"/components/production/production"
+    "teacher": "../../components/teacher/teacher_item"
   }
 }

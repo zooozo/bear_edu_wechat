@@ -4,10 +4,9 @@
   "navigationBarBackgroundColor": "#1EC19A",
   "enablePullDownRefresh": false,
   "navigationBarTitleText": "中羽协",
-
   "usingComponents": {
-    "tabList": "../../components/tabbar/tabbar",
-    "teacher":"../../components/teacher/teacher_item"
+    "teacher": "../../components/teacher/teacher_item",
+    "tabs": "../../vant/tabs/index",
+    "tab": "../../vant/tab/index"
   }
-
 }

@@ -1,136 +1,87 @@
-/**index.wxss**/
 
-page {
-    background: #f7f7f7;
-    height: auto;
-}
-
-
-.wx-swiper-dots {
-    margin-bottom: 15rpx;
-}
-
-.banner-item {
+.index-page{
+    padding:0 30rpx;
     box-sizing: border-box;
 }
 
-swiper.pic-swiper .banner {
-    position: absolute;
-    width: 690rpx;
-    margin: 0 10rpx;
-    height: 402rpx;
-    border-radius: 8rpx;
-    display: inline-block;
-    box-shadow: 0 4px 10px 0 rgba(83, 83, 83, 0.288);
+.headerTop{
+    position:relative;
+    display:flex;
+    justify-content: center;
+    margin-bottom:24rpx;
 }
+.searchInput{
 
-.container {
-    background: #fff;
-    position: relative;
+    padding:10rpx 0rpx 10rpx 80rpx;
+    border-radius:60rpx;
+    width:650rpx;
+    background:#fff;
+
+    color:#000;
 }
-.top-bg{
-    position: absolute;
-    top:0;
-    left:0;
-    height: 504rpx;
-    width:100%;
+.searchInput::placeholder{
+    color:#999;
+    font-size:24rpx;
+}
+.navBg{
+    width:750rpx;
+    height:275rpx;
+    position:absolute;
     z-index: -1;
+    top:-6px;
 }
-.container .bg-sear {
-    width: 100%;
-    background-color: #1EC19A;
-    padding-bottom: 36rpx;
-    text-align: center;
+.inputBox{
+    height:60rpx;
+    position:relative;
+    margin-top:20rpx;
+}
+.inputBox .icon-sousuo{
+    position:absolute;
+    left:30rpx;
+    top:15rpx;
 }
 
-.searchBox {
-    display: flex;
+.v-index-swiper swiper-item{
+    border-radius:20rpx;
+}
+.v-index-swiper .navigator-hover{
+    background-color:none;
+    opacity: 1;
+}
+
+.swiperContainer{
+    position:relative;
+}
+.swiperContainer image{
+    width:700rpx;
+    height: 300rpx;
+    object-fit:  cover;
+}
+
+
+.swiperContainer .dots{
+    display:flex;
     justify-content: center;
-}
-
-.bg-sear .section {
-    display: flex;
     align-items: center;
-    height: 68rpx;
-    margin-top: 40rpx;
-    border-radius: 50rpx;
-    width: 92%;
-    background: #f7f7f7;
-    padding-left: 30rpx;
+    position:relative;
+    top:-32rpx;
 }
-
-
-.bg-sear .section .placeholder {
-    display: block;
-    font-size: 24rpx;
-    color: #999;
+.swiperContainer .dots .dotsRow{
+    display:flex;
 }
-
-.bg-sear .section .search-img {
-    width: 32rpx;
-    height: 32rpx;
-    margin-right: 10rpx;
+.swiperContainer .dots .dotsRow .active{
+    width:36rpx;
+    height:10rpx;
+    border-radius:6rpx;
+    background:#000;
+    opacity: .8;
+    margin-left:10rpx;
 }
-
-/* 分类栏目 */
-
-.content {
-    background: #fff;
-    /*border-radius: 36rpx 36rpx 0 0;*/
-
-    /*padding: 40rpx 32rpx 40rpx;*/
+.swiperContainer .dots .dotsRow .dotsItem{
+    width:12rpx;
+    height:12rpx;
+    border-radius:50%;
+    background:#000;
+    opacity: .8;
+    margin-left:10rpx;
 }
-
-.content swiper {
-    height: 400rpx;
-}
-
-.content swiper-item {
-    height: auto !important;
-}
-
-.swiper-Image {
-    width:100%;
-    height: 400rpx;
-    /*border-radius: 20rpx;*/
-}
-
-.tab {
-    display: flex;
-}
-
-.tab_item {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #9F9F9F;
-    color: #fff;
-    height: 70rpx;
-    font-size:29rpx;
-    border-radius: 20rpx 20rpx 0  0 ;
-}
-
-.title{
-    font-size:40rpx;
-    font-weight:600;
-    height:80rpx;
-    align-items: center;
-    padding:0 32rpx;
-    margin-top:30rpx;
-}
-
-.watchAll{
-    padding:10rpx 20rpx;
-    color:#fff;
-    background:#304653;
-    border-radius:14rpx;
-    font-weight: normal;
-    font-size:22rpx;
-}
-.list{
-    padding:0 32rpx;
-}
-
-
-

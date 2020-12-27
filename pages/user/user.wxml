@@ -9,7 +9,7 @@
             <view style="margin-left:32rpx;">
                 <view class="user-nickname">
                     <open-data type="userNickName"></open-data>
-                    <image src="../../images/icon/lv.png" class="lvLogo"></image>
+                    <!--<image src="../../images/icon/lv.png" class="lvLogo"></image>-->
                 </view>
                 <view class="message">
                     <text>用走心的签名打动对的人</text>

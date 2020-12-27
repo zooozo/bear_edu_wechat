@@ -1,5 +1,10 @@
 {
   "pages": [
+    "pages/bankList/index",
+    "pages/mybag/index",
+
+    "pages/user/user",
+    "pages/bindBankCard/index",
     "pages/index/index",
     "pages/training-space/index",
 
@@ -7,7 +12,7 @@
 
     "pages/addResume/index",
     "pages/coupon/coupon",
-    "pages/user/user",
+
     "pages/toTeacher/teacher",
 
     "pages/personal-space/index",
@@ -25,7 +30,7 @@
     "pages/news/chat/index",
     "pages/withDraw/index",
     "pages/mybag/account-detail/index",
-    "pages/mybag/index",
+
     "pages/news/news-page",
     "pages/setting/index",
     "pages/order/orderDetail/detail",
@@ -48,7 +53,7 @@
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#304653",
+    "navigationBarBackgroundColor": "#1EC19A",
     "navigationBarTitleText": "小熊教育",
     "navigationBarTextStyle": "white"
   },

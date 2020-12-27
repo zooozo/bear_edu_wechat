@@ -1,4 +1,5 @@
 {
+
   "usingComponents": {
     "tabs": "../../vant/tabs/index",
     "tab": "../../vant/tab/index"

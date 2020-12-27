@@ -1,0 +1,44 @@
+<view class="container">
+    <view style="flex:1">
+        <view class="content-box theme-color" wx:for="{{bankList}}" wx:key="{{item.id}}">
+            <view class="my-price" >
+                <view class="flex-box flex-space flex-y-center">
+                    <view class="title">
+                        <image src="../../images/bear/bank.png" class="bank"></image>
+                        <text>工商银行</text>
+                    </view>
+                    <view>
+                        芙蓉支行
+                    </view>
+                </view>
+                <view class="flex-box flex-space flex-y-center">
+                    <view class="price">{{myAccount.balanceAccount || 10000*11111*11}}</view>
+                    <view class="name">谢*</view>
+                </view>
+                <view class="flex-box flex-space flex-y-center">
+
+                    <view class="price" style="margin-top:30rpx;">添加时间</view>
+                </view>
+
+            </view>
+        </view>
+
+    </view>
+
+    <view class="whiteDefaultBtn flex-center theme-border-color theme-font-color"
+          style="margin-bottom:40rpx;"
+          bindtap="addBank">
+        添加银行卡
+    </view>
+</view>
+
+
+<!--        balanceAccount: 0-->
+<!--        createTime: "2020-08-19 10:40:34"-->
+<!--        id: 72-->
+<!--        totalAccount: 0-->
+<!--        totalRechargeAccount: 0-->
+<!--        trainerAccount: 0-->
+<!--        trainerCanWithdraw: 0-->
+<!--        updateTime: "2020-08-19 10:40:34"-->
+<!--        userId: 90-->

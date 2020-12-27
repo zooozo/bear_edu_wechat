@@ -19,6 +19,7 @@ page{
     margin-bottom: 48rpx;
     min-height: 280rpx;
     box-sizing:border-box;
+    border-radius:10rpx;
 }
 .content-box .bg{
     height:280rpx;
@@ -31,16 +32,24 @@ page{
 
 .my-price{
     margin-top:12rpx;
-}.my-price .title{
-  opacity: .7;
-    padding-left: 8rpx;
-}.my-price .price{
-    color:#fff;
-    font-size:64rpx;
-    font-weight: 700;
-    min-height:80rpx;
-    margin-top: 16rpx;
+}
+ .my-price .title{
 
+    padding-left: 8rpx;
+    display:flex;
+     align-items: center;
+}
+.bank{
+ width:80rpx;
+    height:80rpx;
+}
+.my-price .price{
+    color:#fff;
+    font-size:24rpx;
+    font-weight: 700;
+
+    margin-top: 16rpx;
+    margin-left:100rpx;
     padding: 0;
 }
 

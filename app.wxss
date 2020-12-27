@@ -93,6 +93,17 @@ page {
     justify-content: center;
 }
 
+.whiteDefaultBtn{
+    width: 689rpx;
+    height: 90rpx;
+    background:#fff;
+    border-radius: 46rpx;
+    font-size: 32rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .cutTxt {
     word-break: break-all;
 
@@ -207,6 +218,9 @@ image {
 }
 .theme-font-color{
    color:#1EC19A
+}
+.theme-border-color{
+   border:1rpx solid #1EC19A;
 }
 
 textarea{

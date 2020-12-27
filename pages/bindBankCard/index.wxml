@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<view class="container">
+    <view style="flex:1">
+        <view class="row">
+            <view>银行名称</view>
+            <view class="flex-center">
+                <input placeholder="请输入银行名称(工商银行)" data-item="bankName" bindblur='getChangeValuse'/>
+            </view>
+        </view>
+        <view class="row">
+            <view>支行名称</view>
+            <view class="flex-center">
+                <input placeholder="请输入支行名称" data-item="bankBranch" bindblur='getChangeValuse'/>
+            </view>
+        </view>
+        <view class="row">
+            <view>开户行姓名</view>
+            <view class="flex-center">
+                <input placeholder="请输入开户行姓名" data-item="bankUserName" bindblur='getChangeValuse'/>
+            </view>
+        </view>
+        <view class="row">
+            <view>银行卡号</view>
+            <input placeholder="请输入银行卡号" data-item="bankCardNo" type="number" bindblur='getChangeValuse'/>
+        </view>
+        <view class="row">
+            <view>开卡预留手机号</view>
+            <input placeholder="请输入银行卡号" data-item="bankMobile" type="number" bindblur='getChangeValuse'/>
+        </view>
+    </view>
+    <view class="defaultBtn flex-center" bindtap="submitFormData">
+        确定
+    </view>
+</view>
+
+
+

@@ -23,6 +23,18 @@ Page({
                         'https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3892521478,1695688217&fm=26&gp=0.jpg'],
             ],
             orderEntryList: [],
+            activeIndex:0,
+            categoryList:[{
+                  name:'文化类'
+            },{
+                  name:'文化类'
+            },{
+                  name:'文化类'
+            },],
+            query:{
+                  requestType:0,
+                  content:null
+            }
       },
       onLoad() {
             this.getCateGory();
@@ -41,10 +53,29 @@ Page({
 
         })
       },
+      onChange(e){
+            let type=e.detail.index;
+            this.setData({
+                  'query.requestType':type,
+            })
+            this.getTeacherlist();
+      },
+      getTeacherlist(){
+            http.request({
+                  url:'/index/indexTeacher',
+                  method:'GET',
+                  data:this.data.query,
+                  callBack(res) {
+                        this.setData({
+                              teacher:res.data.records
+                        })
+                  }
+            })
+      },
 
       onShareAppMessage() {
             return {
-
+            
             }
       }
 })

@@ -1,37 +1,49 @@
-<!--stadium.wxml-->
-<view class="container">
-    <view >
-        <image src="../../images/userbg.png" class="top-bg"></image>
-        <!--    分类模块-->
-        <view class="content">
-            <swiper
-                    autoplay="{{true}}" duration="{{800}}" current="{{currentIndex}}">
-                <block wx:for="{{backgroundList}}" wx:key="*this">
-                    <swiper-item class="flex-center">
-                        <image class="swiper-Image " src="{{item}}"></image>
-                    </swiper-item>
-                </block>
-            </swiper>
-        </view>
-        <!--    新人专享-->
-        <view class="tab_content">
-            <view class="tab">
-                <view class="tab_item" wx:for="{{tabList}}" wx:key="{{item.id}}" bindtap="chooseTabList" data-index="{{index}}">
-                    {{item.name}}
-                </view>
-            </view>
+<!--pages/index/homeGoodsItem.wxml-->
+<view class="page index-page">
+    <!--    搜索框-->
+    <view class="headerTop">
 
-            <view class="flex-box flex-space title">
-                <text>教师代表</text>
-                <view class="watchAll" bindtap="toCategoryList">查看全部</view>
+        <image class="navBg" src="../../images/bear/special.png">
+            <!--            渲染背景-->
+        </image>
+        <navigator url="/pages/search-show/search-show">
+            <view class="inputBox">
+                <text class="iconfont icon-sousuo"></text>
+                <input class="searchInput" placeholder="大家都在搜"/>
             </view>
-            <view class="list">
-                <teacher teacher="{{teacher}}"></teacher>
-            </view>
-
-        </view>
+        </navigator>
 
     </view>
+    <!--    swiper组件-->
+    <view class="swiperContainer">
+        <swiper   class="v-index-swiper"
+                autoplay="true" bindchange="getCurrentSwiperIndex">
+            <swiper-item wx:for="{{backgroundList}}" wx:key="index">
+                    <image src="{{item}}"
+                           mode="aspectFill" lazy-load="true"></image>
+                    <view>{{item.height}}</view>
+            </swiper-item>
+        </swiper>
+        <view class="dots">
+            <view class="dotsRow">
+                <view wx:for="{{advert1}}" wx:key="index"
+                      class="{{index == SwiperIndex ? ' active' : 'dotsItem'}}"></view>
+            </view>
+        </view>
+    </view>
 
+    <div>
+        <tabs active="{{ activeIndex }}" bind:change="onChange" line-width="20" line-height="4" animated
+              border="{{false}}" color="#9FC5C7" background="#F5F5F5" sticky >
+            <tab title="{{item.name}}" wx:for="{{categoryList}}" wx:key="index">
+                <view style="margin-top:24rpx;">
+                    <teacher></teacher>
+                </view>
+            </tab>
+        </tabs>
+    </div>
+
+
+    <!--    版块分类-->
 
 </view>

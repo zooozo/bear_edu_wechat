@@ -1,5 +1,9 @@
+
+
 Component({
-      properties: {},
+      properties: {
+            teacher:Array,
+      },
       data: {
             teacher: [
                   {
@@ -76,6 +80,7 @@ Component({
                   wx.navigateTo({
                         url:'/pages/training-space/index'
                   })
-            }
+            },
+            
       }
 });

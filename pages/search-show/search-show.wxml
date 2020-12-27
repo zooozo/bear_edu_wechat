@@ -13,13 +13,7 @@
         <text class='search-hint' bindtap='goBackIndex'>取消</text>
     </view>
     <view class="search-list">
-        <view class="search-list-item">
-            <image src="../../images/timg.jpeg" class="headImg"></image>
-            <view class="flex-box flex-colomn ">
-                <text>成都小甜甜</text>
-                <image src="../../images/icon/lv.png" class="lvLogo"></image>
-            </view>
-        </view>
+        <teacher></teacher>
     </view>
     <view class="search-list">
         <view class="search-list-item" style="justify-content: center">

@@ -1,20 +1,29 @@
 <view class="container">
-    <view class="content-box" bindtap="ToDetailPage" data-type="1">
-        <image src="../../images/rectangle1.png" class="bg"></image>
-        <view style="text-align: right">我的钱包</view>
-        <view class="my-price">
-            <view class="title">我的余额</view>
-            <view class="price">{{myAccount.balanceAccount}}</view>
+    <view style="flex:1">
+        <view class="content-box" bindtap="ToDetailPage" data-type="1">
+            <image src="../../images/rectangle1.png" class="bg"></image>
+            <view style="text-align: right">我的钱包</view>
+            <view class="my-price">
+                <view class="title">我的余额</view>
+                <view class="price">{{myAccount.balanceAccount}}</view>
+            </view>
         </view>
+        <view class="content-box" bindtap="ToDetailPage" data-type="2">
+            <image src="../../images/rectangle.png" class="bg"></image>
+            <view style="text-align: right">陪练账户</view>
+            <view class="my-price">
+                <view class="title">我的余额</view>
+                <view class="price">{{myAccount.trainerAccount}}</view>
+            </view>
+
+        </view>
+
     </view>
-    <view class="content-box" bindtap="ToDetailPage" data-type="2">
-        <image src="../../images/rectangle.png" class="bg"></image>
-        <view style="text-align: right">陪练账户</view>
-        <view class="my-price">
-            <view class="title">我的余额</view>
-            <view class="price">{{myAccount.trainerAccount}}</view>
-        </view>
-        <view>成为陪练边运动边赚钱，账单和提现都在里面</view>
+
+    <view class="whiteDefaultBtn flex-center theme-border-color theme-font-color"
+          style="margin-bottom:40rpx;"
+          bindtap="submitFormData">
+        管理银行卡
     </view>
 </view>
 

@@ -35,10 +35,7 @@ Page({
 
                 break;
             case 1:
-                wx.showToast({
-                    title: '开发中',
-                    icon: 'none'
-                })
+                url = '/pages/coupon/coupon'
                 break;
             case 2:
                 url = '/pages/mybag/index'
@@ -62,7 +59,7 @@ Page({
             case 2:
                 break;
             case 3:
-                url = "/pages/setting/index"
+                url = "/pages/addResume/index"
                 break;
         }
         wx.navigateTo({url: url});
@@ -86,23 +83,7 @@ Page({
      */
     onShow: function () {
 
-        //加载订单数字
-        var ths = this;
-        // var status = ths.data.status
-        wx.showLoading();
-        var params = {
-            url: "/p/myOrder/orderCount",
-            method: "GET",
-            data: {},
-            callBack: function (res) {
-                wx.hideLoading();
-                ths.setData({
-                    orderAmount: res
-                });
-            }
-        };
-        http.request(params);
-        this.showCollectionCount();
+    
     },
 
     /**
