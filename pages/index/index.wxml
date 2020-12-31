@@ -35,9 +35,9 @@
     <div>
         <tabs active="{{ activeIndex }}" bind:change="onChange" line-width="20" line-height="4" animated
               border="{{false}}" color="#9FC5C7" background="#F5F5F5" sticky >
-            <tab title="{{item.name}}" wx:for="{{categoryList}}" wx:key="index">
+            <tab title="{{item.categoryName}}" wx:for="{{categoryList}}" wx:key="index">
                 <view style="margin-top:24rpx;">
-                    <teacher></teacher>
+                    <teacher teacher="{{teacher}}"></teacher>
                 </view>
             </tab>
         </tabs>

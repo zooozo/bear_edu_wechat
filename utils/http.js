@@ -3,7 +3,6 @@ var config = require("config.js");
 //统一的网络请求方法
 function request(params, isGetTonken) {
     // 全局变量
-    console.log(getApp(), 'app---')
     var globalData = getApp() ? getApp().globalData : {};
     // 如果正在进行登陆，就将非登陆请求放在队列中等待登陆完毕后进行调用
     if (!isGetTonken && globalData.isLanding) {

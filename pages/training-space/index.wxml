@@ -7,7 +7,7 @@
 
         <view class="userInfo">
             <view class="flex-box">
-                <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1501376118,3278691856&fm=26&gp=0.jpg"
+                <image :src="{{teacher.headImg}}"
                        class="avatar"></image>
                 <view style="margin-left:32rpx">
                     <view class="name">Tony</view>
@@ -39,46 +39,65 @@
     </view>
     <view class="content">
         <view class="intruduce">
-
-            　　老师是需要好好的自我介绍的，是给学生和家长的一个放心，今天小编就给大家分享一下个性自我介绍，希望大家来学习哦
+                {{teacher.introduce}}
+<!--            　　老师是需要好好的自我介绍的，是给学生和家长的一个放心，今天小编就给大家分享一下个性自我介绍，希望大家来学习哦-->
         </view>
 
         <view class="trainer">
             <view class="flex-box flex-space flex-y-center">
-                <view class="badmtn-traner">Tony老师</view>
+                <view class="badmtn-traner">  {{teacher.name}}</view>
 
                 <view class="price">
-                    <text class="txt">¥100</text>
+                    <text class="txt">¥{{teacher.orderPrice}}</text>
                     <text class="txt1">/小时</text>
                 </view>
             </view>
             <view class="dec">
-                <text>今年：26岁</text>
-                <text>教龄：5年</text>
+                <text>今年：{{teacher.teachAge}}岁</text>
+                <text style="margin-left:20rpx;">教龄：{{teacher.teachAge}}年</text>
             </view>
             <view class="dec">
                 <text style="color:#999">上课时间：</text>
-                <text>09:00~ 18:00</text>
+                <text>{{teacher.weekTime}}</text>
+                <text>({{teacher.orderTime[0] +':00'}}~{{teacher.orderTime[teacher.orderTime.length-1]+':00'}})</text>
             </view>
+<!--            advantage: "擅长1-6年级冲刺/培优"-->
+<!--            createTime: "2020-12-26 10:03:51"-->
+<!--            headImg: null-->
+<!--            id: 15-->
+<!--            introduce: "小提琴十几"-->
+<!--            name: "tony"-->
+<!--            nickName: "李四"-->
+<!--            orderPrice: 10000-->
+<!--            orderTime: "13,14,15,16,17"-->
+<!--            other: "获得英语口语考试"-->
+<!--            postgraduate: "英国曼切斯特大学"-->
+<!--            receivingType: 1-->
+<!--            teachAge: 2-->
+<!--            undergraduate: "本科第四年在美国奥本大学交流生"-->
+<!--            updateTime: "2020-12-28 09:59:27"-->
+<!--            userId: 3-->
+<!--            weekTime: "1,2,3,4,5,6,7"-->
+<!--            working: "2018英国教育中心（UKEC）实习"-->
             <view class="dec">
                 <text style="color:#999">所教科目：</text>
                 <text>英语、化学、数学、物理</text>
             </view>
             <view class="dec">
                 <text style="color:#999">个人优势：</text>
-                <text>毕业于剑桥大学，具有3年国外留学经历</text>
+                <text>{{teacher.advantage}}</text>
             </view>
             <view class="dec">
                 <text style="color:#999">本科经历：</text>
-                <text>毕业于剑桥大学，具有3年国外留学经历</text>
+                <text>{{teacher.undergraduate}}</text>
             </view>
             <view class="dec">
                 <text style="color:#999">研究生经历：</text>
-                <text>毕业于剑桥大学，具有3年国外留学经历</text>
+                <text>{{teacher.postgraduate}}</text>
             </view>
             <view class="dec">
                 <text style="color:#999">工作经历：</text>
-                <text>毕业于剑桥大学，具有3年国外留学经历</text>
+                <text>{{teacher.working}}</text>
             </view>
         </view>
         <view class="answering">
@@ -119,6 +138,6 @@
 
     <view class="foot-btn">
         <view class="btn2 btn">发起团课</view>
-        <view class="btn2 btn theme-color" bindtap="goToPayOrder">下单(¥100/小时)</view>
+        <view class="btn2 btn theme-color" bindtap="goToPayOrder">下单(¥{{teacher.orderPrice}}/小时)</view>
     </view>
 </view>

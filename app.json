@@ -1,19 +1,22 @@
 {
   "pages": [
+    "pages/addResume/index",
+    "pages/index/index",
+
+    "pages/user/user",
+    "pages/toTeacher/teacher",
+    "pages/training-space/index",
+    "pages/create-order/index",
+
+
+
+
     "pages/bankList/index",
     "pages/mybag/index",
 
-    "pages/user/user",
     "pages/bindBankCard/index",
-    "pages/index/index",
-    "pages/training-space/index",
 
-
-
-    "pages/addResume/index",
     "pages/coupon/coupon",
-
-    "pages/toTeacher/teacher",
 
     "pages/personal-space/index",
     "pages/category/index",
@@ -30,11 +33,10 @@
     "pages/news/chat/index",
     "pages/withDraw/index",
     "pages/mybag/account-detail/index",
-
     "pages/news/news-page",
     "pages/setting/index",
     "pages/order/orderDetail/detail",
-    "pages/create-order/index",
+
     "pages/appraise/index",
     "pages/create-order/choose-stadium/stadium",
     "pages/to-trainer/update-trainer/index",

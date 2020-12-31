@@ -47,16 +47,22 @@ Page({
               data:{
                     parentId:0
               },
-              callBack(res){
+              callBack:(res)=>{
                     console.log(res,'res---')
+                    this.setData({
+                          categoryList:res
+
+                    })
+                    this.getTeacherlist();
               }
 
         })
       },
       onChange(e){
-            let type=e.detail.index;
+            console.log(e,'e-----')
+            let index=e.detail.index;
             this.setData({
-                  'query.requestType':type,
+                  'query.requestType':this.data.categoryList[index].categoryId,
             })
             this.getTeacherlist();
       },
@@ -65,10 +71,14 @@ Page({
                   url:'/index/indexTeacher',
                   method:'GET',
                   data:this.data.query,
-                  callBack(res) {
-                        this.setData({
-                              teacher:res.data.records
+                  callBack:(res)=> {
+                        res.records.forEach((item)=>{
+                              item.orderPrice=parseFloat(item.orderPrice/100)
                         })
+                        this.setData({
+                              teacher:res.records
+                        })
+                        console.log(this.data.teacher,'res===')
                   }
             })
       },

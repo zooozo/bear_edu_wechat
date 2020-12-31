@@ -5,7 +5,7 @@ Page({
         bankList:[]
     },
     onLoad: function (options) {
-        this.getMyAccount();
+        this.getMyBankList();
     },
     getMyBankList() {
         wx.showLoading();

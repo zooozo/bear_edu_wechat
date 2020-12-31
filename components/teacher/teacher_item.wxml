@@ -1,16 +1,36 @@
 
 <view class="teacher_list">
     <view class="teacher" wx:for="{{teacher}}">
-        <image src="{{item.image}}"></image>
+        <image src="{{item.headImg}}"></image>
         <view class="teacher_detail">
-            <view class="teacher_name">{{item.name}}</view>
-            <view wx:for="{{item.dec}}" wx:for-item="dec" class="teacher_dec">
-                {{dec}}
+            <view class="teacher_name">{{item.nickName}}</view>
+            <view   class="teacher_dec">
+                <view class="txt cutTxt1">{{item.introduce}}</view>
+                <view class="txt cutTxt1">{{item.postgraduate}}</view>
+                <view class="txt cutTxt1">{{item.undergraduate}}</view>
+                <view class="txt cutTxt1">{{item.other}}</view>
             </view>
-
-            <view class="order_btn" bindtap="toTeacherDetail">
+<!--            advantage: null-->
+<!--            createTime: "2020-12-24 17:34:35"-->
+<!--            headImg: null-->
+<!--            id: 1-->
+<!--            introduce: null-->
+<!--            name: "张三"-->
+<!--            nickName: "张三"-->
+<!--            orderPrice: 10000-->
+<!--            orderTime: "13,14,15,16,17"-->
+<!--            other: null-->
+<!--            postgraduate: null-->
+<!--            receivingType: 1-->
+<!--            teachAge: 3-->
+<!--            undergraduate: null-->
+<!--            updateTime: "2020-12-28 09:51:34"-->
+<!--            userId: 1-->
+<!--            weekTime: "1,2,3,4,5,6,7"-->
+<!--            working: null-->
+            <view class="order_btn" bindtap="toTeacherDetail" data-item="{{item}}">
                 <view class="price">
-                    {{item.price}} / 小时
+                    {{item.orderPrice}} / 小时
                 </view>
                 <view class="order">
                         <text>预</text>

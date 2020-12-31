@@ -1,19 +1,19 @@
 <!--index.wxml-->
 <view class="container">
     <view>
-        <view class="row">
+        <view class="row addHeight">
             <view>昵称</view>
             <view class="flex-center">
                 <input placeholder="请输入昵称(例:Tony)" data-item="name" bindblur='getChangeValuse'/>
             </view>
         </view>
-        <view class="row">
+        <view class="row addHeight">
             <view>年龄</view>
             <view class="flex-center">
                 <input placeholder="请输入年龄" type='number' data-item="age" bindblur='getChangeValuse'/>
             </view>
         </view>
-        <view class="row">
+        <view class="row addHeight">
             <view>教龄</view>
             <view class="flex-center">
                 <input placeholder="请输入教龄" type='number' data-item="teachAge" bindblur='getChangeValuse'/>
@@ -67,6 +67,18 @@
                           data-item="introduce" bindblur='getChangeValuse'/>
             </view>
         </view>
+
+
+            <picker mode ="multiSelector" range="{{multiArray}}"
+                    bindcolumnchange="pickerChange"
+                    bindchange="bindchangeValue"
+                    range-key="categoryName">
+                <view class="row addHeight" bindtap="chooseCategory">
+                <view>选择分类</view> <view>  {{showCategoryName}}</view>
+
+                </view>
+            </picker>
+
 
         <view class="defaultBtn flex-center" bindtap="submitFormData">
             确定

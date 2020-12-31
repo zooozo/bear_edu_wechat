@@ -3,7 +3,7 @@
 .teacher{
     width:100%;
     display:flex;
-    padding:16rpx;
+    padding:10rpx 16rpx 16rpx;
     margin-bottom:30rpx;
     background:#4FA39E;
     border-radius: 18rpx;
@@ -34,6 +34,8 @@
     font-size:22rpx;
     color:#fff;
     opacity: .8;
+}.teacher_dec .txt{
+   width:260rpx;
 }
 .order_btn{
     position:absolute;
@@ -58,5 +60,5 @@
     justify-content: center;
     font-weight:700;
     font-size:32rpx;
-
+    margin-top:8rpx;
 }

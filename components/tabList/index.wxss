@@ -10,7 +10,7 @@
 }
 .tab-self .title .item{
     display:flex;
-    flex:1;
+    min-width:100rpx;
     flex-direction: column;
     justify-content: center;
     align-items: center;
