@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/create-order/index",
     "pages/index/index",
+    "pages/create-order/index",
+
     "pages/appraise/index",
     "pages/bankList/index",
     "pages/addResume/index",
