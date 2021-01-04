@@ -1,14 +1,20 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/training-space/index",
     "pages/create-order/index",
+    "pages/index/index",
+    "pages/toTeacher/teacher",
+    "pages/addResume/index",
+
+
+
 
     "pages/appraise/index",
     "pages/bankList/index",
-    "pages/addResume/index",
+
     "pages/user/user",
-    "pages/toTeacher/teacher",
-    "pages/training-space/index",
+
+
     "pages/mybag/index",
     "pages/bindBankCard/index",
     "pages/coupon/coupon",

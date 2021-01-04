@@ -86,7 +86,9 @@ Page({
                 userId:id || 3
             },
             callBack: (res) => {
-                  let week=res.data.weekTime.split(',');
+                console.log(res.data,'res---')
+                res.data.weekTime='1,2,3,4,5,6,7'
+                let week=res.data.weekTime && res.data.weekTime.split(',');
                   week.sort();
                   let arr=[]
                   week.forEach(item=>{
@@ -96,6 +98,7 @@ Page({
                   res.data.weekTime=arr.toString();
                  res.data.orderTime=res.data.orderTime.split(',')
                   res.data.orderPrice=parseFloat(res.data.orderPrice/100)
+              
                   this.setData({
                         teacher:res.data
                   })

@@ -42,7 +42,7 @@ Page({
             query: {
                   channel: 1,
                   refId: 1,
-                  stadiumId: '',
+                
                   trainerId: 84,
                   timeCount: 0,
                   type: 0,
@@ -58,8 +58,10 @@ Page({
                         console.log(res, 'res---')
                         this.setData({
                               userData: res.data,
-                              'query.trainerId': res.data.userId
+                              'query.trainerId': res.data.id,
+                              'query.refId': res.data.categoryId
                         })
+                        
                         this.getPayOrderQuanTime()
                   },
                   fail(res) {
@@ -91,10 +93,11 @@ Page({
                         let oneData = 86400000;
 
                         // 重组tab数组
-                        let m = today.getMonth() + 1
+                        let m = today.getMonth() + 1;
+                        let dateTime=Number(today.getDate())<10?'0'+today.getDate():today.getDate()
                         let tabList = [{
                               week: '今天',
-                              date: (m < 10 ? '0' + m : m) + '-' + today.getDate()
+                              date: (m < 10 ? '0' + m : m) + '-' + dateTime
                         }]
                         // 推算出后面一个星期
                         console.log(new Date((today.getTime() + oneData)))
@@ -141,7 +144,8 @@ Page({
                               tabList: tabList,
                               'query.actualDate': today.getFullYear()
                         })
-                        console.log(data, 'odertime--');
+                        console.log(tabList, 'odertime--');
+                        console.log(this.data.workTime, 'odertime--');
                         wx.hideLoading()
                   }
 
@@ -151,10 +155,10 @@ Page({
       // 获取每个Item
       getDateTime(date) {
             let m = date.getMonth() + 1
-
+            let dateTime=Number(date.getDate())<10?'0'+date.getDate():date.getDate()
             return {
                   week: this.data.weekList[date.getDay()],
-                  date: (m < 10 ? '0' + m : m) + '-' + date.getDate()
+                  date: (m < 10 ? '0' + m : m) + '-' + dateTime
             }
       },
 
@@ -321,17 +325,11 @@ Page({
       selectPayType(e){
            
             this.setData({
-                  "query.channel":e.detail.value
+                  "query.channel":Number(e.detail.value)
             })
       },
 
       createOrder() {
-            if (!this.data.query.stadiumId) {
-                  wx.showToast({
-                        title: '请选择场馆'
-                  })
-                  return
-            }
 
             if (!this.data.query.timeQuantum) {
                   wx.showToast({
@@ -342,7 +340,7 @@ Page({
             let that = this;
             // qyyyNKno0QhOv7Mgc1Uk1qMkJQxV7WAamQ6I1zA47LA
             wx.requestSubscribeMessage({
-                  tmplIds: ['qyyyNKno0QhOv7Mgc1Uk1qMkJQxV7WAamQ6I1zA47LA'],
+                  tmplIds: ['g6h1Vhd3frq2B85MLoeTLto5I_SXzoDDEesfzKvVfMw'],
                   success() {
 
                   },

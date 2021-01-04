@@ -1,0 +1,8 @@
+<picker mode ="multiSelector" range="{{multiArray}}"
+        bindcolumnchange="pickerChange"
+        bindchange="bindchangeValue"
+        range-key="categoryName">
+  <view class="row addHeight" bindtap="chooseCategory">
+    <slot></slot>
+  </view>
+</picker>
