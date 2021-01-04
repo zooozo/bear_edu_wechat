@@ -2,34 +2,34 @@
     <view class="appraise">
         <view wx:for="{{topList}}" class="item" bindtap="chooseAppraise" wx:key="index" data-index="{{index}}">
             <view class="box">
-                <image class="{{CurrentEmoji==index?item.iconClass1:item.iconClass}}"
-                       src="{{CurrentEmoji==index?item.select:item.unselect}}"></image>
+                <image class="{{query.whetherSatisfied==index?item.iconClass1:item.iconClass}}"
+                       src="{{query.whetherSatisfied==index?item.select:item.unselect}}"></image>
             </view>
 
-            <text class="{{CurrentEmoji==index?item.textClass2:item.textClass1}}">{{item.text}}</text>
+            <text class="{{query.whetherSatisfied==index?item.textClass2:item.textClass1}}">{{item.text}}</text>
         </view>
     </view>
     <view class="appraise-text">
         <textarea placeholder="请说点什么吧"
-                  maxlength="{{200}}"
-                  style="width:650rpx;color:#333;font-size:30rpx"
+                  maxlength="{{450}}"
+                  style="min-height:300rpx;"
+                  auto-height
                   placeholder-style="color:#aaa;font-size:24rpx"
-                  bindinput="getText"
                   bindblur="getAppraiseText"
         ></textarea>
         <view class="num">
-            {{appraiseText}}/200
+            {{appraiseText}}/450
         </view>
     </view>
-    <view class="commons">
-        <view class="title">最多选五个标签</view>
-        <view class="content-box">
-            <view wx:for="{{commentsList}}" wx:key="index" class="item {{item.delFlag==1?'active':''}}"
-                  bindtap="chooseCommon" data-choose="{{index}}">
-                {{item.configName}}
-            </view>
-        </view>
-
+    <view  class="starList"  >
+        <text>评分：</text>
+        <image src="{{icon}}"
+               bindtap="changeStar"
+               wx:for="{{iconList}}"
+               wx:for-item="icon"
+               wx:key="index"
+               class="star"
+               data-num="{{index}}" />
     </view>
     <view class="flex-center" style="margin-top:80rpx;">
 

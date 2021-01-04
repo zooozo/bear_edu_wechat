@@ -17,7 +17,7 @@
     <!--    swiper组件-->
     <view class="swiperContainer">
         <swiper   class="v-index-swiper"
-                autoplay="true" bindchange="getCurrentSwiperIndex">
+                autoplay="true" >
             <swiper-item wx:for="{{backgroundList}}" wx:key="index">
                     <image src="{{item}}"
                            mode="aspectFill" lazy-load="true"></image>

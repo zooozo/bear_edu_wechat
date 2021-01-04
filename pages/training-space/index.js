@@ -41,6 +41,7 @@ Page({
         RecommendList:null
     },
     onLoad: function (options) {
+        console.log(options,'optiosn--')
         this.getTeacherInfo(options.id);
     },
     tapFollow() {

@@ -6,18 +6,18 @@
                 <view>{{userData.nickName}}</view>
                 <view class="lv-box">
                     <view class="lv-text">LV {{item.skillLevel || 1}}</view>
-<!--                    <image src="../../images/icon/lv.png" class="lv2" style="margin-left:12rpx"></image>-->
+                    <!--                    <image src="../../images/icon/lv.png" class="lv2" style="margin-left:12rpx"></image>-->
                 </view>
 
             </view>
         </view>
         <view class="line">
-<!--            中间断层-->
+            <!--            中间断层-->
         </view>
         <view class="choose-list">
             <view class="row" bindtap="selectStadium">
                 <view style="min-width:180rpx;">选择场地</view>
-                <view class="txt cutTxt1 {{showData.stadium?'txtColor':''}}" >
+                <view class="txt cutTxt1 {{showData.stadium?'txtColor':''}}">
                     {{showData.stadium || '请选择场馆 '}} >
                 </view>
             </view>
@@ -29,9 +29,18 @@
                 </view>
             </view>
             <view class="row">
-                <view>购买方式</view>
+                <view>课程价格</view>
                 <view class="txt2">
                     ¥ {{userData.orderPrice}}/小时
+                </view>
+            </view>
+            <view class="row">
+                <view>支付方式</view>
+                <view class="txt2">
+                  <radio-group bindchange="selectPayType">
+                    <radio value="0" checked>零钱支付</radio>
+                    <radio value="1">微信支付</radio>
+                  </radio-group>
                 </view>
             </view>
         </view>
@@ -41,21 +50,23 @@
         <view class="text">
             <view style="margin-bottom:20rpx;">温馨提示</view>
 
-            <view> 1、陪练人员路费处理办法：{{'<3km'}}免路费，{{ '>3km'}}陪练人可根据当日实际打车票据或凭证找您报销</view>
-            <view style="margin:20rpx 0;"> 2、请仔细阅读相关法律法规，避免造成人员损失或财产损失</view>
-            <view> 3、陪练人员到场后，会要求用户出示短信验证码，请及时查看手机信息提示，避免错过订单。</view>
+            <view>1、陪练人员路费处理办法：{{'<3km'}}免路费，{{ '>3km'}}陪练人可根据当日实际打车票据或凭证找您报销
+            </view>
+            <view style="margin:20rpx 0;">2、请仔细阅读相关法律法规，避免造成人员损失或财产损失</view>
+            <view>3、陪练人员到场后，会要求用户出示短信验证码，请及时查看手机信息提示，避免错过订单。</view>
         </view>
     </view>
     <view class="foot-btn">
         <view class="flex-center">
             <text>合计：</text>
-            <text class="icon">¥</text><text class="price">{{userData.orderPrice}}</text>
+            <text class="icon">¥</text>
+            <text class="price">{{userData.orderPrice}}</text>
         </view>
         <view class="btn" bindtap="createOrder">
             立即支付
         </view>
     </view>
-    <view class="skillLeave" wx:if="{{showTimeModal}}" >
+    <view class="skillLeave" wx:if="{{showTimeModal}}">
         <view class="modal"></view>
         <view class="content">
             <view class="flex-box flex-space flex-y-center skill-title">
@@ -64,21 +75,26 @@
                 <view class="sure" bindtap="closeModal" data-choose="chooseSkill">确定</view>
             </view>
             <view>
+
                 <tabBar tabList="{{tabList}}" bind:PostCurrentIndex="getTabIndex" key="week" key1="date"></tabBar>
-                <view class="choose-time">今天(07-11) <text>11:00-13:00 </text>(2个小时)</view>
+                <view class="choose-time">今天(07-11) <text>11:00-13:00</text>(2个小时)
+                </view>
                 <swiper duration="{{500}}" current="{{activeIndex}}">
-                    <block wx:for="{{workTime.weekTime}}" wx:key="*this">
+                    <block wx:for="{{tabList}}" wx:key="*this">
                         <swiper-item class="swiper-box">
-                            <view class="time-item default {{timeItem.select?'active':''}} {{ timeItem.disabled?'disable':''}}" wx:for="{{workTime.orderTime}}" wx:key="index" wx:for-item="timeItem" bindtap="chooseOrderTime" data-choose="{{index}}">
+                            <view class="time-item default {{timeItem.select?'active':''}} {{ timeItem.disabled?'disable':''}}"
+                                  wx:for="{{workTime.orderTime}}" wx:key="index" wx:for-item="timeItem"
+                                  bindtap="chooseOrderTime" data-choose="{{index}}">
                                 {{timeItem.hour+":00"}}
                                 <view class="item-status bg1" wx:if="{{chooseTimeIndex[0]==index}}">
-                                  开始
+                                    开始
                                 </view>
-                                <view class="item-status bg1" wx:elif="{{chooseTimeIndex[chooseTimeIndex.length-1]==index}}">
-                                  结束
+                                <view class="item-status bg1"
+                                      wx:elif="{{chooseTimeIndex[chooseTimeIndex.length-1]==index}}">
+                                    结束
                                 </view>
                                 <view class="item-status bg2" wx:elif="{{timeItem.disabled }}">
-                                  已满
+                                    已满
                                 </view>
                             </view>
                         </swiper-item>

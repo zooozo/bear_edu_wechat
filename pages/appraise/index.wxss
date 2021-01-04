@@ -115,3 +115,16 @@ page {
     border-radius:46rpx;
     opacity:0.5;
 }
+.starList{
+    display:flex;
+    margin-top:40rpx;
+    font-size:26rpx;
+    color:#666;
+    align-items: center;
+    padding-left:30px;
+}
+.star{
+    width:50rpx;
+    height:50rpx;
+    margin-left:40rpx;
+}

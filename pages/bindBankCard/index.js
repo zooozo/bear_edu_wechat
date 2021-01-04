@@ -29,7 +29,7 @@ Page({
             // ^(([0-9]{15})|([0-9]{18})|([0-9]{17}x))$
             //     /^[1-8][1-7]\d{4}(?:19|20)\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])\d{3}[\dX]$/
             console.log(this.data.query, 'query,')
-            let reg = /^1[3456789]d{9}$/
+            let reg = /^[1][3,4,5,6,7,8,9][0-9]{9}$/
             if (!this.data.query.bankName) {
                   wx.showModal({
                         title: '提示',
@@ -42,7 +42,7 @@ Page({
                         showCancel:false,
                         content: "请输入支行名称"
                   })
-            } else if (!reg.test(this.data.query.bankUserName)) {
+            } else if (!this.data.query.bankUserName) {
                   wx.showModal({
                         title: '提示',
                         showCancel:false,
@@ -61,6 +61,7 @@ Page({
                         content: "请输入开卡预留手机号"
                   })
             }else if(!reg.test(this.data.query.bankMobile)){
+                  console.log(this.data.query.bankMobile,'mobile')
                   wx.showModal({
                         title: '提示',
                         showCancel:false,

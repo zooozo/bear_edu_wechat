@@ -7,9 +7,7 @@ Page({
             showCategoryName: '',
             showPicker: false,
 
-            multiArray: [[{
-                  categoryName: '阿里德生科技分'
-            }], [], []],
+            multiArray: [[], [], []],
       },
       onLoad: function (options) {
             http.request({
@@ -29,6 +27,9 @@ Page({
 
 
                               this.getCategoryList(this.data.multiArray[0][0].categoryId, 1)
+                           
+                              // this.getCategoryList(this.data.multiArray[1][0].categoryId, 2)
+                             
 
 
                         })
@@ -52,7 +53,9 @@ Page({
                         this.setData({
                               multiArray: arr
                         }, () => {
-
+                              console.log(this.data.multiArray,'multiarray')
+                              if(this.data.multiArray[2].length>0) return
+                              this.getCategoryList(this.data.multiArray[1][0].categoryId, 2)
                         })
                   }
 

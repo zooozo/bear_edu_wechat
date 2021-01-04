@@ -43,7 +43,6 @@ Component({
     }
     this.setData({
       iconList:arr,
-      'item.distance':distance
     })
   },
   /**

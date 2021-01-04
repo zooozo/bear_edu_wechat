@@ -10,7 +10,7 @@
                 <image :src="{{teacher.headImg}}"
                        class="avatar"></image>
                 <view style="margin-left:32rpx">
-                    <view class="name">Tony</view>
+                    <view class="name">{{teacher.name}}</view>
                     <view class="flex-box rate">
                         <view style="margin-right:20rpx;">
                             <text>服务</text>
@@ -137,7 +137,7 @@
     <!--    </view>-->
 
     <view class="foot-btn">
-        <view class="btn2 btn">发起团课</view>
+        <view class="btn1 btn">发起团课</view>
         <view class="btn2 btn theme-color" bindtap="goToPayOrder">下单(¥{{teacher.orderPrice}}/小时)</view>
     </view>
 </view>

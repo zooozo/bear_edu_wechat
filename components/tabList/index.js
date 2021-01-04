@@ -14,17 +14,18 @@ Component({
     methods: {
         titleClick(e){
             let index=e.currentTarget.dataset.idx;
+            console.log(index,'index---')
             let that=this
 
             this.createSelectorQuery().selectAll('.click'+index).boundingClientRect(function (rect) {
-                console.log(rect,'rect--')
-                let left=Math.ceil(rect[0].left)
+               
+                // let left=Math.ceil(rect[0].right)
                     that.setData({
-                        scrollX:left,//换算成rpx单位
+                        scrollX:index!=0?index*50+15:15,//换算成rpx单位
                         currentIndex:index
                     })
             }).exec()
-            console.log(this.data.currentIndex,'index---')
+            console.log(this.data.scrollX,'rect--')
             this.triggerEvent("PostCurrentIndex",index);
         },
     },

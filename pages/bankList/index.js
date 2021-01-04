@@ -13,13 +13,16 @@ Page({
             url:'/bankCard/list',
             method:'GET',
             callBack:(res)=>{
-                res.data.data.forEach((item)=>{
-                    item.bankCardNo=item.bankCardNo.substring(0,4)+'******'+item.bankCardNo.substring(item.bankCardNo.length-3)
-                })
-                
-                this.setData({
-                    bankList:res.data.data
-                })
+                if(res.length>0){
+                    res.data.data.forEach((item)=>{
+                        item.bankCardNo=item.bankCardNo.substring(0,4)+'******'+item.bankCardNo.substring(item.bankCardNo.length-3)
+                    })
+    
+                    this.setData({
+                        bankList:res.data.data
+                    })
+                }
+               
             }
         })
     },

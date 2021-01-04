@@ -12,23 +12,7 @@ page {
     background-color: #fff;
 }
 
-.page-font {
-    font-size: 24rpx;
-    color: #aaa;
-    margin-bottom: 24rpx;
-}
 
-.page-img {
-    width: 260rpx;
-    height: 260rpx;
-    border-radius: 8rpx;
-}
-
-.page-img2 {
-    width: 326rpx;
-    height: 264rpx;
-    border-radius: 8rpx;
-}
 
 .row {
     display: flex;
@@ -67,6 +51,10 @@ page {
 .row .flex-center {
     flex: 1;
     justify-content: flex-end;
+}
+
+.row input{
+    width:400rpx;
 }
 
 .sex {

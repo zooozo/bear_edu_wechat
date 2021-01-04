@@ -38,6 +38,7 @@ Page({
             chooseTimeIndex: [],
             chooseCurrentIndex: null,
             disableTime: [],
+            payType:0,
             query: {
                   channel: 1,
                   refId: 1,
@@ -101,8 +102,6 @@ Page({
                               let time = new Date((today.getTime() + oneData * i))
                               tabList.push(that.getDateTime(time))
                         }
-                        console.log(tabList, 'tabList---')
-                        let copyArr = arr.concat();
                         //重组orderTime数组。便于选中显示状态
                         arr.forEach((item, index) => {
                               arr[index] = {
@@ -135,13 +134,14 @@ Page({
                         //重组下过单时间的列表数组
 
 
-                        console.log(data.orderTime, 'odertime--');
+                      
                         this.setData({
                               disableTime: data.mapList,
                               workTime: data,
                               tabList: tabList,
                               'query.actualDate': today.getFullYear()
                         })
+                        console.log(data, 'odertime--');
                         wx.hideLoading()
                   }
 
@@ -265,6 +265,7 @@ Page({
                         'query.timeQuantum': timeCount.toString(),
                         showTimeModal: false,
                   })
+                  console.log(this.data.query,'---')
             }
 
 
@@ -272,13 +273,14 @@ Page({
       getTabIndex(data) {
 
             let arr = this.data.workTime.orderTime;
+           
             let disableTime = this.data.disableTime;
             arr.forEach(item => {
                   item.select = false;
                   item.disabled = false
             })
             let currentDay = this.data.tabList[data.detail].date;
-
+            
             disableTime.forEach((item, index) => {
 
                   if (item.actualDate == currentDay) {
@@ -299,6 +301,7 @@ Page({
             })
       },
       titleClick(e) {
+            console.log('titleClick')
             let index = e.currentTarget.dataset.idx;
             let that = this
             util.getDomClientRect('.swiperItem' + index).then(res => {
@@ -315,7 +318,12 @@ Page({
                   showTimeModal: false,
             })
       },
-
+      selectPayType(e){
+           
+            this.setData({
+                  "query.channel":e.detail.value
+            })
+      },
 
       createOrder() {
             if (!this.data.query.stadiumId) {

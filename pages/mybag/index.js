@@ -39,5 +39,10 @@ Page({
         wx.navigateTo({
             url:'./account-detail/index?type='+type
         })
+    },
+    submitFormData(){
+        wx.navigateTo({
+            url:'/pages/bankList/index'
+        })
     }
 });
