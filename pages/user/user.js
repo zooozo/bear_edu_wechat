@@ -11,18 +11,19 @@ Page({
         sts: '',
         collectionCount: 0,
         list: [
-            {url: '../../images/icon/order.png', text: '我的预约'},
+            {url: '../../images/icon/order.png', text: '我的订单'},
             {url: '../../images/icon/quan.png', text: '优惠券'},
             // {url: '../../images/icon/qiandao.png', text: '签到有礼'},
-            {url: '../../images/icon/bag.png', text: '我的账号'},
+            {url: '../../images/icon/bag.png', text: '我的账户'},
         ],
         settingList: [
-            {url: '../../images/icon/qiandao.png', text: '我的评价', path: ''},
-            {url: '../../images/icon/lishi.png', text: '我的活动', path: ''},
-            {url: '../../images/icon/kefu.png', text: '我的地址', path: ''},
-            {url: '../../images/icon/kefu.png', text: '我的简历', path: '/pages/addResume/index'},
-            {url: '../../images/icon/setting.png', text: '设置', path: ''},
-            {url: '../../images/icon/setting.png', text: '关于我们', path: ''},
+            // {url: '../../images/icon/qiandao.png', text: '我的评价', path: ''},
+            // {url: '../../images/icon/lishi.png', text: '我的活动', path: ''},
+            // {url: '../../images/icon/kefu.png', text: '我的地址', path: ''},
+            {url: '../../images/icon/lishi.png', text: '我的简历', path: '/pages/addResume/index'},
+            {url: '../../images/icon/setting.png', text: '设置', path: '/pages/setMyClass/index'},
+            // {url: '../../images/icon/setting.png', text: '设置', path: '/pages/setMyClass/step-three'},
+            // {url: '../../images/icon/setting.png', text: '关于我们', path: ''},
         ]
     },
     tapList(e) {
@@ -45,24 +46,12 @@ Page({
 
     },
     tapSettingList(e) {
-        let type = e.currentTarget.dataset.current;
+        let item = e.currentTarget.dataset.current;
         let url = '';
-        switch (Number(type)) {
-            case 0:
-                // url='/pages/order/orderIndex'
-                // wx.navigateTo({url: url});
-
-                break;
-            case 1:
-                url = "/pages/history/index"
-                break;
-            case 2:
-                break;
-            case 3:
-                url = "/pages/addResume/index"
-                break;
+        if(item.path){
+              wx.navigateTo({url: item.path});
         }
-        wx.navigateTo({url: url});
+
     },
     /**
      * 生命周期函数--监听页面加载

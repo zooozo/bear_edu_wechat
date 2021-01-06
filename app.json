@@ -1,27 +1,24 @@
 {
   "pages": [
-    "pages/training-space/index",
-    "pages/create-order/index",
     "pages/index/index",
+    "pages/training-space/index",
+    "pages/setMyClass/index",
+    "pages/user/user",
+    "pages/mybag/account-detail/index",
+    "pages/order/orderIndex",
+
+    "pages/create-order/index",
+
     "pages/toTeacher/teacher",
     "pages/addResume/index",
-
-
-
-
     "pages/appraise/index",
     "pages/bankList/index",
-
-    "pages/user/user",
-
-
     "pages/mybag/index",
     "pages/bindBankCard/index",
     "pages/coupon/coupon",
     "pages/personal-space/index",
     "pages/category/index",
     "pages/fans/fans",
-    "pages/order/orderIndex",
     "pages/to-trainer/step-three/step-three",
     "pages/to-trainer/step-four/step-four",
     "pages/to-trainer/step-two/step-two",
@@ -32,7 +29,6 @@
     "pages/found/found",
     "pages/news/chat/index",
     "pages/withDraw/index",
-    "pages/mybag/account-detail/index",
     "pages/news/news-page",
     "pages/setting/index",
     "pages/order/orderDetail/detail",
@@ -44,6 +40,7 @@
     "pages/search-page/search-page",
     "pages/logs/logs",
     "pages/search-show/search-show",
+
     "pages/mobile/mobile"
   ],
   "permission": {

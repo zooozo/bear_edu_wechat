@@ -1,0 +1,103 @@
+<view class="container">
+
+    <view class="skillList">
+        <picker mode="multiSelector" range="{{multiArray}}"
+                bindcolumnchange="pickerChange"
+                bindchange="bindchangeValue"
+                range-key="categoryName">
+            <view class="row flex-box flex-space flex-y-center" bindtap="chooseCategory">
+                <view>所教科目</view>
+                <view class="right-part">
+                    <text style="color:{{showCategoryName?'#333':'#666'}}">{{showCategoryName || '选择选择所教科目'}}</text>
+                    <image src="../../images/icon/right.png" class="right-png"></image>
+                </view>
+            </view>
+        </picker>
+        <view class="row flex-box flex-space flex-y-center" bindtap="chooseTime">
+            <view>
+                选择时间段
+            </view>
+            <view class="right-part">
+                <text  style="color:{{certainTimesIndex?'#333':'#666'}}">{{certainTimesIndex?ListIndex[certainTimesIndex]:'选择时间段'}}</text>
+                <image src="../../images/icon/right.png" class="right-png"></image>
+            </view>
+        </view>
+        <view class="row flex-box flex-space flex-y-center">
+            <view>
+                课程定价
+            </view>
+            <view class="right-part">
+                <input   class="price" placeholder="请输入您课程的价格"  type="number"  data-type="orderPrice" bindblur="getOrderPrice"/>
+            </view>
+        </view>
+        <view class="row flex-box flex-space flex-y-center">
+            <view>
+                手机号码
+            </view>
+            <view class="right-part">
+                <input   class="price" placeholder="请收入您的手机号码"  type="number" data-type="mobile" bindblur="getOrderPrice"/>
+            </view>
+        </view>
+    </view>
+    <view class="flex-center">
+        <view class="defaultBtn" bindtap="OnSubmit">确定</view>
+    </view>
+
+    <!--    技能等级-->
+
+
+    <!--选择时间段-->
+    <view class="skillLeave" wx:if="{{showOrderTimeModal}}">
+        <view class="modal"></view>
+        <view class="content">
+            <view class="flex-box flex-space flex-y-center skill-title">
+                <image src="../../images/icon/cancel2.png" class="cancel" bindtap="closeModal"></image>
+                <view style="font-weight:700">选择接单时间</view>
+                <view class="sure" bindtap="closeModal" data-choose="chooseTime">确定</view>
+            </view>
+            <view class="time-list flex-box">
+                <view class="time-head flex-box flex-y-center" bindtap="chooseTimeTum" data-cur="1">
+                    <image src="{{certainTimesIndex==1?'../../images/icon/circle2.png':'../../images/icon/circle.png'}}"
+                           class="icon"></image>
+                    <view>全部时间段</view>
+                </view>
+                <view class="time-head flex-box flex-y-center" bindtap="chooseTimeTum" data-cur="2">
+                    <image src="{{certainTimesIndex==2?'../../images/icon/circle2.png':'../../images/icon/circle.png'}}"
+                           class="icon"></image>
+                    <view>按周</view>
+                </view>
+            </view>
+            <view class="weak-list" wx:if="{{certainTimesIndex==2}}">
+                <view class="week-item {{item.selected?'week-item-active':'week-item-normal'}}" wx:for="{{weekList}}"
+                      wx:key="index" data-week="{{index}}" bindtap="chooseWeekItem">
+                    {{item.name}}
+                </view>
+            </view>
+            <view class="foot-time" wx:if="{{certainTimesIndex==2}}">
+                <view>选择时间段（举例 19:00 至 21:00）</view>
+                <view class="flex-box flex-space" style="width:90%;margin:0 auto;">
+                    <picker-view bindchange="getTimer" indicator-style="height: 40px;"
+                                 style="width: 200rpx; height:200px;" indicator-class="picker-style">
+                        <picker-view-column>
+                            <view wx:for="{{hour}}" wx:key="years" style="line-height: 50px; text-align: center;">
+                                {{item}}
+                            </view>
+                        </picker-view-column>
+                    </picker-view>
+                    <view style="align-self:center">至</view>
+                    <picker-view bindchange="getTimer2" indicator-style="height: 40px;"
+                                 style="width: 200rpx; height:200px;" indicator-class="picker-style">
+                        <picker-view-column>
+                            <view wx:for="{{hour}}" wx:key="years" style="line-height: 50px; text-align: center;">
+                                {{item}}
+                            </view>
+                        </picker-view-column>
+                    </picker-view>
+
+                </view>
+
+            </view>
+        </view>
+    </view>
+
+</view>

@@ -14,8 +14,9 @@ function request(params, isGetTonken) {
         url: config.domain + params.url, //接口请求地址
         data: params.data,
         header: {
-            // 'content-type': params.form && params.form === 1 ? 'content-type:multipart/form-data': 'application/json;charset=utf-8',
-            'Authorization': params.login ? '' : wx.getStorageSync('token')
+            'content-type': params.form && params.form === 1 ? "application/x-www-form-urlencoded; charset=UTF-8": 'application/json;charset=utf-8',
+            'Authorization': params.login ? '' : wx.getStorageSync('token'),
+
         },
         method: params.method == undefined ? "POST" : params.method,
         dataType: 'json',
@@ -110,6 +111,9 @@ function Login() {
 
                     var globalData = getApp().globalData;
                     var userInfo = JSON.parse(res.rawData);
+
+                      getApp().globalData.userInfo=result;
+
                     // globalData.userInfo = result
                     // 没有获取到用户昵称，说明服务器没有保存用户的昵称，也就是用户授权的信息并没有传到服务器
                     if(!result.pic || !result.userId){

@@ -1,0 +1,232 @@
+page{
+    height:100%;
+}
+
+.step-box {
+    height: 120rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    height:100%;
+}
+.step-box .item {
+    width: 60rpx;
+    height: 8rpx;
+    background-color: #E2E2E2;
+    border-radius: 4rpx;
+    margin-right: 20rpx;
+}
+
+.step-box .itemActive {
+    background-color: #1EC19A;
+}
+
+.step {
+    text-align: center;
+    font-size: 30rpx;
+    color: #333;
+    margin-bottom: 12rpx;
+    font-weight: 700;
+}
+
+.step-text {
+    color: #aaa;
+    font-size: 24rpx;
+    text-align: center;
+}
+
+.skillList {
+    margin-top: 100rpx;
+    height:70%;
+}
+
+.skillList .row {
+    height: 100rpx;
+    padding: 0 32rpx;
+    font-size: 30rpx;
+    color: #333;
+    font-weight: 600;
+}
+
+.right-png {
+    height: 30rpx;
+    width: 30rpx;
+
+}
+
+.skillList .right-part {
+    display: flex;
+    align-items: center;
+    font-size: 30rpx;
+    color: #CECECE;
+    font-weight: 400;
+}
+
+.skillList .right-part .price {
+    display: flex;
+    align-items: center;
+    font-size: 30rpx;
+    color: #666666;
+    font-weight: 400;
+    text-align: right;
+}
+
+.defaultBtn {
+    color: #F8F8F8;
+    font-size: 32rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-center {
+    margin-top: 100rpx;
+}
+
+
+/*选择技能等级*/
+.skillLeave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.skillLeave .content {
+    min-height: 1000rpx;
+    background: #fff;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    border-radius: 32rpx 32rpx 0 0;
+    font-size: 28rpx;
+    color: #333;
+    padding: 0 32rpx;
+    box-sizing: border-box;
+}
+
+.skillLeave .content .cancel {
+    width: 24rpx;
+    height: 24rpx;
+}
+
+.skillLeave .content .sure {
+    width: 100rpx;
+    height: 56rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 28rpx;
+    border: 2rpx solid rgba(241, 75, 127, 1);
+    color: #F14B7F;
+    font-size: 24rpx;
+}
+
+.skillLeave .content .skill-title {
+    height: 128rpx;
+}
+
+.skillLeave .modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .5);
+    width: 100%;
+    height: 100%;
+
+}
+
+.list-block {
+    padding: 28rpx;
+    font-size: 26rpx;
+    color: #666;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 4rpx 24rpx 0px rgba(241, 75, 127, 0.07);
+    border-radius: 8px;
+    border: 2rpx solid rgba(207, 207, 207, 1);
+    margin-bottom: 20rpx;
+}
+
+.active {
+    color: #F14B7F;
+    background: rgba(255, 240, 245, 1);
+    border: 2rpx solid rgba(241, 75, 127, 1);
+}
+
+.list-block .title {
+    font-weight: 700;
+    margin-bottom: 10rpx;
+}
+
+.time-list {
+    margin-top: 40rpx;
+    margin-bottom: 28rpx;
+
+}
+
+.time-list .icon {
+    width: 28rpx;
+    height: 28rpx;
+    margin-right: 10rpx;
+}
+
+.time-list .time-head {
+    font-size: 26rpx;
+    color: #666;
+    margin-right: 40rpx;
+}
+
+.weak-list {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.weak-list .week-item {
+    width: 160rpx;
+    height: 60rpx;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-right:10rpx;
+    font-size:26rpx;
+    border-radius:8rpx;
+
+    box-sizing:border-box;
+    margin-bottom:24rpx;
+}
+.week-item:nth-child(4){
+    margin:0;
+}
+
+.week-item-active{
+    color:#F14B7F;
+    border:2rpx solid #F14B7F;
+}
+.week-item-normal{
+    color:#666666;
+    border:2rpx solid #CFCFCF;
+}
+
+.foot-time{
+    color:#aaa;
+    font-size:24rpx;
+}
+
+.picker-style{
+    border-top:2rpx solid #D6D6D6;
+    border-bottom:2rpx solid #D6D6D6;
+    height:52rpx;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+

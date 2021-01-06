@@ -107,7 +107,7 @@
             </view>
             <view class="skill-list" style="{{skillList.length<3?'width:70%':' justify-content: space-between'}}">
                 <view class="skill-item" wx:for="{{skillList}}" wx:key="index">
-                    {{item.text}}{{item.num}}
+                    {{item}}
                 </view>
             </view>
         </view>
@@ -116,17 +116,17 @@
             <image src="../../images/test/badmtn.png" class="pic"></image>
             <!--            <view><text style="color:#999">业余等级：</text><text style="color:#666">{{userData.skillLevel}}级</text></view>-->
         </view>
-        <view class="answering">
-            <!--            <image src="../../images/timg.jpeg" class="avatar1"></image>-->
-            <view class="badmtn-traner">用户评价
-                <text style="color:#999;font-size:24rpx">(200)</text>
-            </view>
-            <view class="skill-list" style="{{skillList.length<3?'width:70%':' justify-content: space-between'}}">
-                <view class="skill-item" wx:for="{{skillList}}" wx:key="index">
-                    {{item.text}}{{item.num}}
-                </view>
-            </view>
-        </view>
+<!--        <view class="answering">-->
+<!--            &lt;!&ndash;            <image src="../../images/timg.jpeg" class="avatar1"></image>&ndash;&gt;-->
+<!--            <view class="badmtn-traner">用户评价-->
+<!--                <text style="color:#999;font-size:24rpx">(200)</text>-->
+<!--            </view>-->
+<!--            <view class="skill-list" style="{{skillList.length<3?'width:70%':' justify-content: space-between'}}">-->
+<!--                <view class="skill-item" wx:for="{{skillList}}" wx:key="index">-->
+<!--                    {{item.text}}{{item.num}}-->
+<!--                </view>-->
+<!--            </view>-->
+<!--        </view>-->
 
 
 

@@ -31,7 +31,7 @@ Page({
 			'../../images/icon/hui.png'],
 		
 		query: {
-			whetherSatisfied: null,
+			whetherSatisfied: 0,
 			evaluateContent: '',
 			stars: 0,
 			trainerId: ''
@@ -43,13 +43,14 @@ Page({
 	},
 	onLoad: function (options) {
 		this.setData({
-			'query.trainerId': options.id
+			'query.trainerId':app.globalData.userInfo.userId
 		})
 	},
 	
 	chooseAppraise(e) {
-		console.log(e);
+
 		let index = e.currentTarget.dataset.index
+          console.log(index);
 		this.setData({
 			'query.whetherSatisfied': index
 		})
@@ -85,25 +86,16 @@ Page({
 			} else {
 				arr[i] = '../../images/icon/hui.png'
 			}
-			
-			
 		}
+		let select=arr.filter(item=>item.indexOf('yike')>-1)
 		this.setData({
 			iconList: arr,
-			'query.stars': arr.length
+			'query.stars': select.length
 		})
 	},
 	
 	toAppraise() {
 		// !CurrentEmoji && chooseCommon.length==0 && appraiseText.length==0
-		console.log(!this.data.CurrentEmoji, 'emoji')
-		if (!this.data.query.whetherSatisfied) {
-			wx.showToast({
-				title: '请选择满意度',
-				icon: "none"
-			})
-			return
-		}
 		if (!this.data.query.evaluateContent) {
 			wx.showToast({
 				title: '请输入评价内容',
@@ -123,16 +115,17 @@ Page({
 		http.request({
 			url: '/trainerComment/createComment',
 			data: this.data.query,
+              form:1,
 			callBack: (res) => {
-				wx.showModal({
-					content: res.msg,
-					showCancel: false,
-					success(res) {
-						wx.navigateTo({
-							url: '/pages/order/orderIndex'
-						})
-					}
-				})
+				wx.showToast({
+                      title:'评价成功'
+                })
+
+                  setTimeout(()=>{
+                        wx.switchTab({
+                              url:'/pages/user/user'
+                        })
+                  },600)
 				
 			}
 		})

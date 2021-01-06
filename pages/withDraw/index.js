@@ -21,9 +21,6 @@ Page({
         })
     },
     checkEntryPrice(e){
-
-
-
         let value=Number(e.detail.value);
 
 
@@ -56,7 +53,7 @@ Page({
             url:'/wallet/weChatCashout',
             data:{
                 moneyNum:this.data.myWithDrawPrice*100,
-                withdrawType:1
+                withdrawType:this.options.type
             },
             callBack:(res)=>{
                 console.log(res);

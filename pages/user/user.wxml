@@ -13,28 +13,32 @@
                 </view>
                 <view class="message">
                     <text>用走心的签名打动对的人</text>
-                    <image src="../../images/icon/editor.png" class="editor" bindtap="tapSettingList"  data-current="3"></image>
+                    <image src="../../images/icon/editor.png" class="editor" bindtap="tapSettingList"
+                           data-current="3"></image>
                 </view>
             </view>
 
         </view>
-        <view class="flex-box" style="margin-top:84rpx;">
-            <view class="item">
-                <view class="t1">关注</view>
-                <view class="t2">968</view>
-            </view> <view class="item">
-            <view class="t1">关注</view>
-            <view class="t2">968</view>
-        </view> <view class="item">
-            <view class="t1">关注</view>
-            <view class="t2">968</view>
-        </view>
-        </view>
+<!--        <view class="flex-box" style="margin-top:84rpx;">-->
+<!--            <view class="item">-->
+<!--                <view class="t1">关注</view>-->
+<!--                <view class="t2">968</view>-->
+<!--            </view>-->
+<!--            <view class="item">-->
+<!--                <view class="t1">关注</view>-->
+<!--                <view class="t2">968</view>-->
+<!--            </view>-->
+<!--            <view class="item">-->
+<!--                <view class="t1">关注</view>-->
+<!--                <view class="t2">968</view>-->
+<!--            </view>-->
+<!--        </view>-->
     </view>
     <view class="content">
         <!--订单 优惠券和钱包按钮-->
         <view class="list flex-box flex-space">
-            <view style="flex:1" class="flex-center flex-colomn" wx:for="{{list}}" wx:key="index" bindtap="tapList" data-current="{{index}}">
+            <view style="flex:1" class="flex-center flex-colomn" wx:for="{{list}}" wx:key="index" bindtap="tapList"
+                  data-current="{{index}}">
                 <image src="{{item.url}}"></image>
                 <view>
                     {{item.text}}
@@ -43,7 +47,8 @@
         </view>
         <!--设置列表-->
         <view class="settingList">
-            <view class="flex-box flex-space list-row" wx:for="{{settingList}}" wx:key="index" bindtap="tapSettingList" data-current="{{index}}">
+            <view class="flex-box flex-space list-row" wx:for="{{settingList}}" wx:key="index" bindtap="tapSettingList"
+                  data-current="{{item}}">
                 <image src="{{item.url}}" class="left-png"></image>
                 <view class="flex-box flex-space row-item">
 

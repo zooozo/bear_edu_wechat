@@ -278,14 +278,14 @@ App({
         // 购物车商品数量
         totalCartCount: 0,
         userInfo: {
-            access_token: "90dfc3ad-a4a6-4d27-8638-d65d38b4ad4f",
-            enabled: true,
-            expires_in: 43199,
-            nickName: "Rainie。",
-            pic: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJHHJRWiaUTmjJFBYvicSJuHn1ia1GTDQkvPM3ykVs9ypE8bI9lfuOG5pq60xKeib9B1bEMbCJKYT2sag/132",
-            refresh_token: "8c4f18aa-3fd3-4471-9c41-f6750cd702f5",
-            token_type: "bearer",
-            userId: 90
+            // access_token: "90dfc3ad-a4a6-4d27-8638-d65d38b4ad4f",
+            // enabled: true,
+            // expires_in: 43199,
+            // nickName: "Rainie。",
+            // pic: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJHHJRWiaUTmjJFBYvicSJuHn1ia1GTDQkvPM3ykVs9ypE8bI9lfuOG5pq60xKeib9B1bEMbCJKYT2sag/132",
+            // refresh_token: "8c4f18aa-3fd3-4471-9c41-f6750cd702f5",
+            // token_type: "bearer",
+            // userId: 90
         },
         imageHost: 'http://eco-culture.oss-cn-shenzhen.aliyuncs.com/',
         params: {},//用于保存成为陪练几个页面保存数据,

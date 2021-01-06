@@ -31,7 +31,7 @@
             <view class="foot flex-box flex-y-center">
                 <view>
                     <text class="txt">零钱余额</text>
-                    <text class="txt2">￥100.00</text>
+                    <text class="txt2">￥{{myWithDrawPrice}}</text>
                 </view>
                 <view class="all-withDraw" bindtap="allWithDraw">
                     全部提现

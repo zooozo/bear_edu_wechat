@@ -82,7 +82,10 @@ page {
     font-size: 22rpx;
     margin-top: 32rpx;
 }
-
+.appreise{
+    font-size:28rpx;
+    margin-top:12rpx;
+}
 .favorite {
     margin-top: 24rpx;
     padding: 0 32rpx;
