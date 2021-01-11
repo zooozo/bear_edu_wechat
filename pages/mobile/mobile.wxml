@@ -1,6 +1,6 @@
 <!--pages/login/mobile.wxml-->
 <image src='../../images/logo.png' class='c-logo'></image>
-<view class="title">中羽协</view>
+<view class="title">小熊教育</view>
 <view class="msg">申请获取你的手机号</view>
 
 <view>

@@ -73,6 +73,7 @@ Page({
                         url:'/bankCard/createBankCard',
                         method:'POST',
                         data:this.data.query,
+                        form:1,
                         callBack:(data)=>{
                               wx.showModal({
                                     title: '提示',

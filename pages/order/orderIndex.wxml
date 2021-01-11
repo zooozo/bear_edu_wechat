@@ -6,24 +6,14 @@
                 <view class="order-list">
                     <view class="order-item" wx:for="{{orderList}}" wx:key="index"
                           >
-                        <!--                        amount: 1-->
-                        <!--                        beginTime: "2020-08-21 12:00:00"-->
-                        <!--                        bizPayNo: "4200000706202008215200476514"-->
-                        <!--                        id: 57-->
-                        <!--                        nickName: "Rainie。"-->
-                        <!--                        orderCode: "1296718718805610496"-->
-                        <!--                        status: 1-->
-                        <!--                        timeCount: "1"-->
-                        <!--                        trainerImg: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJHHJRWiaUTmjJFBYvicSJuHn1ia1GTDQkvPM3ykVs9ypE8bI9lfuOG5pq60xKeib9B1bEMbCJKYT2sag/132"-->
-                        <!--                        userId: 90-->
-                        <view class="flex-box flex-space" bindtap="toOrderDetail" data-order="{{item.id}}">
+                        <view class="flex-box flex-space"  data-order="{{item.id}}">
                             <view class="left-part">
                                 <view class="flex-box">
                                     <image src="{{item.trainerImg}}" class="order-pic"></image>
                                     <view class="flex-space flex-box flex-colomn user">
                                         <view class="name">{{item.nickName}}</view>
                                         <view>
-                                            <view>羽毛球陪练 {{item.timeCount}}小时</view>
+                                            <view>{{item.categoryName}} {{item.timeCount}}小时</view>
                                             <view style="margin-top:8rpx;">{{item.beginTime}}</view>
                                         </view>
                                     </view>
@@ -37,14 +27,9 @@
                                 <view style="margin-top:26rpx">
                                     ¥{{item.amount}}
                                 </view>
-                            </view>
-                        </view>
-                        <view wx:if="{{activeIndex==1}}" class="btnGroup">
-                            <view class="bnt1 theme-font-color flex-center" bindtap="showCancelModal" data-state="1" data-current="{{item}}">
-                                取消订单
-                            </view>
-                            <view class="bnt2 theme-color flex-center">
-                                到达场馆
+                                <view class="appreise theme-font-color" wx:if="{{item.status>=1}}" bindtap="toOrderDetail">
+                                   去评价
+                                </view>
                             </view>
                         </view>
                     </view>
@@ -52,42 +37,5 @@
                 </view>
             </tab>
         </tabs>
-        <view class="notice">
-            <view bindtap="loadMoreOrder">{{orderData.current < orderData.pages ? '加载更多' : '没有更多了'}}</view>
-            <view style="margin-top:20rpx;">仅显示近三个月的订单记录</view>
-        </view>
-
-        <view class="favorite">
-            <view class="newPerson notMargin">
-                <text class="t1">为你推荐</text>
-            </view>
-            <recommendItem list="{{orderEntryList}}"></recommendItem>
-
-        </view>
-    </view>
-    <view class="toastModal v-ani-box {{showModal?'v-ani-show':''}}" >
-        <view class="mask"></view>
-        <view class="Modal">
-            <view class="flex-box flex-space " style="padding: 0 32rpx;">
-                <image src="../../images/icon/cancel2.png" class="cancel" bindtap="showCancelModal" data-state="0"></image>
-
-                <view class="notice">
-                    <view>取消订单提示</view>
-                    <view style="margin-top:4rpx">下单15分钟内或未开始24小时前可免费消费</view>
-                </view>
-                <view class="sure" bindtap="cancelOrder" data-state="0">确定</view>
-            </view>
-
-            <view style="margin-top:40rpx">
-                <view class="{{index==0?'addBorder-bottom':''}} row" wx:for="{{noticeText}}" wx:key="index" bindtap="chooseReason" data-index="{{index}}">
-                    <text style="min-width:300rpx"> {{item}}</text>
-                    <view class="gou">
-                        <image src="../../images/icon/gou.png"  wx:if="{{reasonIndex==index}}"></image>
-                    </view>
-
-                </view>
-            </view>
-
-        </view>
     </view>
 </view>

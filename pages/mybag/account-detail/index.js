@@ -7,7 +7,7 @@ Page({
             requestType:1,
             pageSize:10,
             pageNum:1,
-            trainerId:app.globalData.userInfo.userId
+            trainerId:app.globalData.userInfo.userId || 2
         },
         showMonth:null,
         IsShow:false,
@@ -35,6 +35,7 @@ Page({
                       item.amount=parseFloat(item.amount/100).toFixed(2)
                   })
                    res.data.income=parseFloat( res.data.income/100).toFixed(2)
+                   res.data.disbursement=parseFloat( res.data.disbursement/100).toFixed(2)
 
                     let bool=this.data.params.requestType==3?res.data.trainerWalletRecordList.length<this.data.params.pageNum:true
                    this.setData({
@@ -71,7 +72,7 @@ Page({
     },
     toWithDraw(){
         wx.navigateTo({
-            url:'/pages/withDraw/index?price='+this.data.listData.income
+            url:'/pages/withDraw/index?price='+this.data.listData.amount+'&type='+this.options.type
         })
     },
     onReachBottom(){

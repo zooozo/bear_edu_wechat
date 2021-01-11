@@ -18,7 +18,7 @@
         <view class="records-title">
             <view>
                 <view class="txt">账单</view>
-                <view class="txt2">收入¥200.00 支出¥0.00</view>
+                <view class="txt2">收入¥{{listData.income}} 支出¥{{listData.disbursement}}</view>
             </view>
             <view class="search-btn">
                 <view bindtap="showBlock">{{showMonth || '近一个月'}}</view>

@@ -1,24 +1,30 @@
 <view class="container">
     <view style="flex:1">
-        <view class="content-box theme-color" wx:for="{{bankList}}" wx:key="{{item.id}}">
+        <view class="content-box" wx:for="{{bankList}}" wx:key="{{item.id}}">
             <view class="my-price" >
                 <view class="flex-box flex-space flex-y-center">
                     <view class="title">
                         <image src="../../images/bear/bank.png" class="bank"></image>
-                        <text>工商银行</text>
+                        <text>{{item.bankName}}</text>
                     </view>
                     <view>
-                        芙蓉支行
+<!--                        bankBranch: "芙蓉支行"-->
+<!--                        bankCardNo: "13213132131"-->
+<!--                        bankMobile: "17779935073"-->
+<!--                        bankName: "招商银行"-->
+<!--                        bankUserName: "课课练"-->
+<!--                        createTime: "2021-01-05T20:36:15"-->
+                        {{item.bankBranch}}
                     </view>
                 </view>
                 <view class="flex-box flex-space flex-y-center">
-                    <view class="price">{{myAccount.balanceAccount || 10000*11111*11}}</view>
-                    <view class="name">谢*</view>
+                    <view class="price">{{item.bankCardNo}}</view>
+                    <view class="name">{{item.bankUserName}}</view>
                 </view>
-                <view class="flex-box flex-space flex-y-center">
+<!--                <view class="flex-box flex-space flex-y-center">-->
 
-                    <view class="price" style="margin-top:30rpx;">添加时间</view>
-                </view>
+<!--                    <view class="price" style="margin-top:30rpx;">添加时间</view>-->
+<!--                </view>-->
 
             </view>
         </view>

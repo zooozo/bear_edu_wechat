@@ -81,8 +81,11 @@ Page({
 
     toOrderDetail(e){
         let id=e.currentTarget.dataset.order
-        wx.navigateTo({
-            url:'/pages/order/orderDetail/detail?id='+id+'?type='+this.data.activeIndex
+        // wx.navigateTo({
+        //     url:'/pages/order/orderDetail/detail?id='+id+'?type='+this.data.activeIndex
+        // })
+          wx.navigateTo({
+            url:'/pages/appraise/index'
         })
     },
     showCancelModal(e) {

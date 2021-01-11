@@ -33,7 +33,7 @@
     </view>
     <view class="flex-center" style="margin-top:80rpx;">
 
-        <view class="defaultBtn flex-center {{!CurrentEmoji && chooseCommon.length==0 && appraiseText==0?'disableBtn':''}}"
+        <view class="defaultBtn flex-center {{query.evaluateContent.length==0 || query.stars==0?'disableBtn':''}}"
             bindtap="toAppraise">
             立即评价
         </view>

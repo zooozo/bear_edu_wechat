@@ -2,27 +2,7 @@ const http = require('../../utils/http')
 const app = getApp();
 Page({
     data: {
-        skillList: [
-            {
-                text: '通俗易懂',
-                num: 3
-            }, {
-                text: '耐心很好',
-                num: 3
-            }, {
-                text: '知识渊博',
-                num: 1
-            }, {
-                text: '一表人才',
-                num: 8
-            }, {
-                text: '为人师表',
-                num: 11
-            }, {
-                text: '风趣儒雅',
-                num: 22
-            }
-        ],
+        skillList: [],
         weekList: [
             // '星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六',
             {name: '周日', id: 7},
@@ -98,9 +78,11 @@ Page({
                   res.data.weekTime=arr.toString();
                  res.data.orderTime=res.data.orderTime.split(',')
                   res.data.orderPrice=parseFloat(res.data.orderPrice/100)
-              
+                  let list=[];
+                 list.push(res.data.yeCategoryName,res.data.parentName,res.data.categoryName)
                   this.setData({
-                        teacher:res.data
+                        teacher:res.data,
+                        skillList:list
                   })
 
                console.log(res,'res--')

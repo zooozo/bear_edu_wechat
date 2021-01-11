@@ -10,7 +10,7 @@
         </view>
         <view class="content-box" bindtap="ToDetailPage" data-type="2">
             <image src="../../images/rectangle.png" class="bg"></image>
-            <view style="text-align: right">陪练账户</view>
+            <view style="text-align: right">教师账户</view>
             <view class="my-price">
                 <view class="title">我的余额</view>
                 <view class="price">{{myAccount.trainerAccount}}</view>

@@ -62,6 +62,7 @@ Page({
             })
 
       },
+
       chooseCategory() {
             console.log("chooseCategory")
             this.setData({
@@ -179,8 +180,8 @@ Page({
                                     title: '提示',
                                     content: "添加成功",
                                     success() {
-                                          wx.switchTab({
-                                                url: '/pages/user/user'
+                                          wx.navigateTo({
+                                                url:'/pages/setMyClass/index'
                                           })
                                     }
                               })

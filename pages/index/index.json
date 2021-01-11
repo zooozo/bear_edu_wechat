@@ -3,7 +3,7 @@
   "navigationBarTextStyle": "white",
   "navigationBarBackgroundColor": "#1EC19A",
   "enablePullDownRefresh": false,
-  "navigationBarTitleText": "中羽协",
+  "navigationBarTitleText": "小熊教育",
   "usingComponents": {
     "teacher": "../../components/teacher/teacher_item",
     "tabs": "../../vant/tabs/index",

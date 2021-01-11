@@ -58,7 +58,7 @@ Page({
                         console.log(res, 'res---')
                         this.setData({
                               userData: res.data,
-                              'query.trainerId': res.data.id,
+                              'query.trainerId': res.data.userId,
                               'query.refId': res.data.categoryId
                         })
                         
