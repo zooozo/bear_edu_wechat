@@ -288,7 +288,7 @@ App({
             // userId: 90
         },
         imageHost: 'http://eco-culture.oss-cn-shenzhen.aliyuncs.com/',
-        params: {},//用于保存成为陪练几个页面保存数据,
+        params: {},//用于保存成为授课几个页面保存数据,
         trainerInfo: {},
         systemInfo: {},
         TimData: {},
@@ -298,3 +298,11 @@ App({
 
     }
 })
+
+
+// {
+//       "pagePath": "pages/news/news-page",
+//     "text": "消息",
+//     "iconPath": "images/tabbar/news.png",
+//     "selectedIconPath": "images/tabbar/news-active.png"
+// },

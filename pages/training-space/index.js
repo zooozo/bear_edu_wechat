@@ -44,7 +44,7 @@ Page({
     },
     goToPayOrder(){
       wx.navigateTo({
-          url:'/pages/create-order/index',
+          url:'/pages/createOrder/index',
           success:(res)=> {
               // 把本页面的用户数据用数据带到打开的页面
               // res.eventChannel.emit('postUserData',user)
@@ -55,7 +55,7 @@ Page({
     copyId() {
         app.copyData(this.data.userData.userId)
     },
-    // 获取陪练信息
+    // 获取授课信息
     getTeacherInfo(id){
 
         console.log(this.options,app.globalData.userInfo.userId)

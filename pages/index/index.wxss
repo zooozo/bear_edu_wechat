@@ -53,8 +53,8 @@
     position:relative;
 }
 .swiperContainer image{
-    width:700rpx;
-    height: 300rpx;
+    width:800rpx;
+    height: 400rpx;
     object-fit:  cover;
 }
 

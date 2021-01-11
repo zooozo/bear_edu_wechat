@@ -1,13 +1,15 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/createGroupClass/index",
+    "pages/user/user",
+
     "pages/training-space/index",
     "pages/setMyClass/index",
-    "pages/user/user",
+
     "pages/mybag/account-detail/index",
     "pages/order/orderIndex",
-
-    "pages/create-order/index",
+    "pages/createOrder/index",
 
     "pages/toTeacher/teacher",
     "pages/addResume/index",
@@ -16,8 +18,6 @@
     "pages/mybag/index",
     "pages/bindBankCard/index",
     "pages/coupon/coupon",
-    "pages/personal-space/index",
-    "pages/category/index",
     "pages/fans/fans",
     "pages/to-trainer/step-three/step-three",
     "pages/to-trainer/step-four/step-four",
@@ -32,16 +32,17 @@
     "pages/news/news-page",
     "pages/setting/index",
     "pages/order/orderDetail/detail",
-    "pages/create-order/choose-stadium/stadium",
+
     "pages/to-trainer/update-trainer/index",
-    "pages/create-order/search-stadium/search",
+
     "pages/moment-time/moment-time",
     "pages/login/login",
-    "pages/search-page/search-page",
+
     "pages/logs/logs",
     "pages/search-show/search-show",
 
     "pages/mobile/mobile"
+
   ],
   "permission": {
     "scope.userLocation": {
@@ -64,18 +65,12 @@
         "iconPath": "images/tabbar/home.png",
         "selectedIconPath": "images/tabbar/home-active.png"
       },
-      {
-        "pagePath": "pages/found/found",
-        "text": "发现",
-        "iconPath": "images/tabbar/found.png",
-        "selectedIconPath": "images/tabbar/found-active.png"
-      },
-      {
-        "pagePath": "pages/news/news-page",
-        "text": "消息",
-        "iconPath": "images/tabbar/news.png",
-        "selectedIconPath": "images/tabbar/news-active.png"
-      },
+       {
+             "pagePath": "pages/found/found",
+           "text": "发现",
+           "iconPath": "images/tabbar/found.png",
+           "selectedIconPath": "images/tabbar/found-active.png"
+       },
       {
         "pagePath": "pages/user/user",
         "text": "我的",

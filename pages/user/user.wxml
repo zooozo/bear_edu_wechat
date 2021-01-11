@@ -47,23 +47,24 @@
         </view>
         <!--设置列表-->
         <view class="settingList">
-            <view class="flex-box flex-space list-row" wx:for="{{settingList}}" wx:key="index" bindtap="tapSettingList"
-                  data-current="{{item}}">
-                <image src="{{item.url}}" class="left-png"></image>
-                <view class="flex-box flex-space row-item">
+            <view style="flex:1">
+                <view class="flex-box flex-space list-row" wx:for="{{settingList}}" wx:key="index" bindtap="tapSettingList"
+                      data-current="{{item}}">
+                    <image src="{{item.url}}" class="left-png"></image>
+                    <view class="flex-box flex-space row-item">
 
-                    <text>{{item.text}}</text>
-                    <image src="../../images/icon/right.png" class="right-png"></image>
+                        <text>{{item.text}}</text>
+                        <image src="../../images/icon/right.png" class="right-png"></image>
+                    </view>
+
                 </view>
-
             </view>
+            <navigator url="/pages/toTeacher/teacher" class="flex-center foot">
+                <view class="btn">
+                    申请成为教师
+                </view>
+            </navigator>
         </view>
-        <navigator url="/pages/toTeacher/teacher" class="flex-center foot">
-            <view class="btn">
-                申请成为教师
-            </view>
-        </navigator>
     </view>
-    <!--陪练按钮-->
-
+    <!--授课按钮-->
 </view>

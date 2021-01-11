@@ -98,6 +98,7 @@ var getToken = function () {
 function Login() {
     wx.getUserInfo({
         success(res) {
+              console.log(res,'getUserInfo----')
             request({
                 login: true,
                 url: '/login?grant_type=mini_app',

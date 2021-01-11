@@ -26,7 +26,7 @@ Component({
         res.splice(0, 1)
         let arr = this.data.multiArray;
         arr[0] = res
-      
+            console.log(arr[0],'arr[0====]')
         this.setData({
           multiArray: arr
         }, () => {
@@ -62,7 +62,7 @@ Component({
         callBack: (res) => {
           let arr = this.data.multiArray;
           arr[index] = res
-        
+
           this.setData({
             multiArray: arr
           }, () => {
@@ -92,7 +92,7 @@ Component({
       console.log(this.data.multiArray[column][value], 'e---')
     },
     bindchangeValue(e) {
-      console.log(e, '拉克打飞机')
+
       let selectArr = e.detail.value;
       if(!selectArr[2]){
         selectArr[2]=0;
@@ -102,14 +102,13 @@ Component({
       let three = this.data.multiArray[2][selectArr[2]]
       console.log(this.data.multiArray[0][selectArr[0]], this.data.multiArray[1][selectArr[1]], this.data.multiArray[2][selectArr[2]])
       let str = first.categoryName + "-" + second.categoryName + '-' + three.categoryName
-      this.setData({
-        showCategoryName: str,
-        'query.yeCategoryId': first.categoryId,
-        "query.parentId":second.categoryId,
-        "query.CategoryId":three.categoryId,
-      })
-    
-    
+
+          this.triggerEvent('getCategory', {
+                showCategoryName: str,
+                yeCategoryId: first.categoryId,
+                parentId:second.categoryId,
+                CategoryId:three.categoryId,
+          });
     },
   }
 })

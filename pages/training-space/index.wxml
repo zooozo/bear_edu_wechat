@@ -103,7 +103,7 @@
         <view class="answering">
             <!--            <image src="../../images/timg.jpeg" class="avatar1"></image>-->
             <view class="badmtn-traner">课程介绍
-                <text style="color:#999;font-size:24rpx">(200)</text>
+<!--                <text style="color:#999;font-size:24rpx">(200)</text>-->
             </view>
             <view class="skill-list" style="{{skillList.length<3?'width:70%':' justify-content: space-between'}}">
                 <view class="skill-item" wx:for="{{skillList}}" wx:key="index">

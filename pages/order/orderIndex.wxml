@@ -3,7 +3,7 @@
         <tabs bind:change="onChange" line-width="20" line-height="4" animated color="#1EC19A">
             <tab wx:for="{{tabList}}" wx:key="index" title="{{item.name}}"
                  title-style="color:{{activeIndex==index?'#333':'#999999'}};font-weight:{{activeIndex==index?'700':'500'}}">
-                <view class="order-list">
+                <view class="order-list" wx:if="{{orderList.length>0}}">
                     <view class="order-item" wx:for="{{orderList}}" wx:key="index"
                           >
                         <view class="flex-box flex-space"  data-order="{{item.id}}">
@@ -33,7 +33,9 @@
                             </view>
                         </view>
                     </view>
-
+                </view>
+                <view wx:else>
+                    <empty type="{{0}}"></empty>
                 </view>
             </tab>
         </tabs>

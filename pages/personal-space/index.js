@@ -51,7 +51,7 @@ Page({
       },
       ToConfirmOrder() {
             wx.navigateTo({
-                  url:'/pages/create-order/index'
+                  url:'/pages/createOrder/index'
             })
       },
       ToImTalk() {

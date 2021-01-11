@@ -1,8 +1,9 @@
 <!--pages/login/mobile.wxml-->
-<image src='../../images/logo.png' class='c-logo'></image>
+<image src='../../images/icon/logo.jpg' class='c-logo'></image>
 <view class="title">小熊教育</view>
 <view class="msg">申请获得你的公开信息（昵称、头像等）</view>
 <view>
     <button  color="#eb2444"  open-type="getUserInfo" lang = "zh_CN" bindgetuserinfo = "onGotUserInfo" class=''>微信授权</button>
+
 </view>
 

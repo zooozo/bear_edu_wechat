@@ -3,7 +3,7 @@
     <tabs active="{{ activeIndex }}" bind:change="onChange" line-width="20" line-height="4" animated
           border="{{false}}" color="#9FC5C7" background="#F5F5F5" sticky>
         <tab title="{{item.name}}" wx:for="{{categoryList}}" wx:key="index">
-            <view style="margin-top:24rpx;">
+            <view style="margin-top:24rpx;" wx:if="{{couponList.length>0}}">
                 <view class="couponItem" wx:for="{{couponList}}" wx:key="{{item.id}}">
                     <image src="../../images/bear/coupon.png" class="bg"></image>
                     <view class=" left-part">
@@ -19,6 +19,9 @@
                         </view>
                     </view>
                 </view>
+            </view>
+            <view wx:else>
+                <empty type="{{1}}"></empty>
             </view>
         </tab>
     </tabs>

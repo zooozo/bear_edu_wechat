@@ -69,15 +69,6 @@
         </view>
 
 
-            <picker mode ="multiSelector" range="{{multiArray}}"
-                    bindcolumnchange="pickerChange"
-                    bindchange="bindchangeValue"
-                    range-key="categoryName">
-                <view class="row addHeight" bindtap="chooseCategory">
-                <view>选择分类</view> <view>  {{showCategoryName}}</view>
-
-                </view>
-            </picker>
 
 
         <view class="defaultBtn flex-center" bindtap="submitFormData">
