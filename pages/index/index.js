@@ -33,7 +33,7 @@ Page({
             },],
             query:{
                   requestType:0,
-                  content:null
+                  content:''
             }
       },
       onLoad() {

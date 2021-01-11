@@ -7,6 +7,6 @@
   "usingComponents": {
     "tabs": "../../vant/tabs/index",
     "tab": "../../vant/tab/index",
-    "recommendItem":"../../components/recommendItem/recommendItem"
+    "empty":"../../components/empty/empty"
   }
 }

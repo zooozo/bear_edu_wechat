@@ -3,7 +3,7 @@
     <view class="teacher" wx:for="{{teacher}}">
         <image src="{{item.headImg}}"></image>
         <view class="teacher_detail">
-            <view class="teacher_name">{{item.nickName}}</view>
+            <view class="teacher_name">{{item.name}}</view>
             <view   class="teacher_dec">
                 <view class="txt cutTxt1">{{item.introduce}}</view>
                 <view class="txt cutTxt1">{{item.postgraduate}}</view>

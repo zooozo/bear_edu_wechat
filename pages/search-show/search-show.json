@@ -4,6 +4,8 @@
   "navigationBarTitleText": "搜索结果",
   "navigationBarTextStyle": "black",
   "usingComponents":{
-    "teacher": "../../components/teacher/teacher_item"
+    "teacher": "../../components/teacher/teacher_item",
+    "tabs": "../../vant/tabs/index",
+    "tab": "../../vant/tab/index"
   }
 }

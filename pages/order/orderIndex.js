@@ -3,7 +3,7 @@ const http = require('../../utils/http')
 
 Page({
     data: {
-        tabList: [{name: '我的订单', id: 1}, {name: '陪练订单', id: 2}],
+        tabList: [{name: '我的订单', id: 1}, {name: '授课订单', id: 2}],
         activeIndex: 0,
         orderData: {},
         reasonIndex: 0,

@@ -2,9 +2,9 @@
 <view class='container'>
     <view class='search-bar'>
         <view class='search-box'>
-            <input placeholder="请输入昵称/ID"
+            <input placeholder="请输入昵称或者Id"
                    class='sear-input'
-                   confirm-type='search'
+                   confirm-type='搜索'
                    bindconfirm='toSearchProdPage'
                    bindinput='getSearchContent' value='{{prodName}}'></input>
             <image src='../../images/icon/search.png' class='search-img'></image>
@@ -12,8 +12,14 @@
         </view>
         <text class='search-hint' bindtap='goBackIndex'>取消</text>
     </view>
+    <tabs active="{{ activeIndex }}" bind:change="onChange" line-width="20" line-height="4" animated
+          border="{{false}}" color="#9FC5C7" sticky type="card" class="flex-box">
+
+        <tab title="{{item.name}}" wx:for="{{categoryList}}" wx:key="index">
+        </tab>
+    </tabs>
     <view class="search-list">
-        <teacher></teacher>
+        <teacher teacher="{{teacher}}"></teacher>
     </view>
     <view class="search-list">
         <view class="search-list-item" style="justify-content: center">
@@ -21,4 +27,4 @@
         </view>
     </view>
 </view>
-<wxs module="wxs" src="../../wxs/number.wxs" />
+<wxs module="wxs" src="../../wxs/number.wxs"/>

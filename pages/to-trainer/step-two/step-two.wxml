@@ -12,7 +12,7 @@
         </view>
         <view class="flex-center border-box flex-colomn">
             <textarea placeholder="一句话介绍下自己" placeholder-style="font-size:28rpx;color:#CECECE" bind:blur="getIntroduce"></textarea>
-            <view class="middle-txt">发布一个动态，正式加入陪练~</view>
+            <view class="middle-txt">发布一个动态，正式加入授课~</view>
             <textarea placeholder="说点什么，让大家看到不一样的你..." placeholder-style="font-size:28rpx;color:#CECECE" bindblur="getContent"></textarea>
         </view>
         <view class="foot">

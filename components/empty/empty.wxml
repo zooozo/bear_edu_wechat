@@ -1,0 +1,7 @@
+<view class="empty">
+    <view>
+        <view><image src="{{emptyImg[type]}}"></image></view>
+        <view>{{emptyText[type]}}</view>
+
+    </view>
+</view>
