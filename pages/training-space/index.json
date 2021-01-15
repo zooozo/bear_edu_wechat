@@ -3,6 +3,6 @@
   "navigationBarBackgroundColor": "#fff",
   "navigationBarTextStyle": "black",
   "usingComponents": {
-    "recommendItem":"../../components/recommendItem/recommendItem"
+
   }
 }

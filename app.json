@@ -1,10 +1,25 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/createGroupClass/index",
-    "pages/user/user",
+    "pages/search-show/search-show",
+
+
+
+
+
+    "pages/myComments/comments",
+    "pages/matchTeacher/match",
 
     "pages/training-space/index",
+    "pages/user/user",
+
+
+
+
+    "pages/createGroupClass/index",
+
+
+
     "pages/setMyClass/index",
 
     "pages/mybag/account-detail/index",
@@ -39,9 +54,10 @@
     "pages/login/login",
 
     "pages/logs/logs",
-    "pages/search-show/search-show",
+
 
     "pages/mobile/mobile"
+
 
   ],
   "permission": {

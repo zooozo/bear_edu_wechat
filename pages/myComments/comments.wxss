@@ -1,0 +1,73 @@
+
+
+.apprise{
+    padding:0 32rpx;
+}
+
+.box{
+    border-bottom:1rpx solid #ededed;
+    padding:30rpx 0;
+}
+.user-order {
+    display: flex;
+
+
+}
+
+.user-order .avatar{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+.user-order .flex-center{
+    color:#C6C6C6;
+    font-size:24rpx;
+    margin-top:10rpx;
+}
+.user-order .order-num{
+    width:116rpx;
+    height:32rpx;
+    border-radius:4rpx;
+    border:2rpx solid rgba(56,168,255,1);
+    font-size:22rpx;
+    padding:4rpx;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(56,168,255,1);
+    margin-left:20rpx;
+
+}
+
+.appraise{
+    margin-top:36rpx;
+    color:#666;
+    font-size:28rpx;
+    display:flex;
+    justify-content: space-between;
+
+}
+.deleteBtn{
+    width:100rpx
+}
+
+
+.starList{
+    display:flex;
+    margin-top:40rpx;
+    font-size:26rpx;
+    color:#666;
+    align-items: center;
+
+}
+.star{
+    width:30rpx;
+    height:30rpx;
+    margin-left:20rpx;
+
+}
+
+.delete{
+    align-self: flex-end;
+    flex-shrink: 0;
+    margin-left:14rpx;
+}

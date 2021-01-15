@@ -51,7 +51,7 @@ Page({
             }
       },
       onLoad: function (options) {
-
+            console.log(options,'options--')
             wx.getStorage({
                   key: 'trainerUser',
                   success: (res) => {
@@ -61,7 +61,7 @@ Page({
                               'query.trainerId': res.data.userId,
                               'query.refId': res.data.categoryId
                         })
-                        
+
                         this.getPayOrderQuanTime()
                   },
                   fail(res) {

@@ -116,17 +116,26 @@
             <image src="../../images/test/badmtn.png" class="pic"></image>
             <!--            <view><text style="color:#999">业余等级：</text><text style="color:#666">{{userData.skillLevel}}级</text></view>-->
         </view>
-<!--        <view class="answering">-->
-<!--            &lt;!&ndash;            <image src="../../images/timg.jpeg" class="avatar1"></image>&ndash;&gt;-->
-<!--            <view class="badmtn-traner">用户评价-->
-<!--                <text style="color:#999;font-size:24rpx">(200)</text>-->
-<!--            </view>-->
-<!--            <view class="skill-list" style="{{skillList.length<3?'width:70%':' justify-content: space-between'}}">-->
-<!--                <view class="skill-item" wx:for="{{skillList}}" wx:key="index">-->
-<!--                    {{item.text}}{{item.num}}-->
-<!--                </view>-->
-<!--            </view>-->
-<!--        </view>-->
+        <view class="user-order">
+            <image src="../../images/timg.jpeg" class="avatar"></image>
+            <view style="margin-left:24rpx;">
+                <view class="badmtn-traner">成都小甜甜</view>
+                <view class="flex-center">
+                    <text>07-30</text>
+                    <view class="order-num">
+                        第一次下单
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="appraise">
+            球技很好很赞，球技很好很赞球技很好很赞，球技很好很赞，球技很好很赞
+        </view>
+        <view class="flex-center">
+            <view class="more">
+                查看更多评价
+            </view>
+        </view>
 
 
 
@@ -137,7 +146,7 @@
     <!--    </view>-->
 
     <view class="foot-btn">
-        <view class="btn1 btn">发起团课</view>
+        <view class="btn1 btn" bindtap="goToGroupOrder">参加团课</view>
         <view class="btn2 btn theme-color" bindtap="goToPayOrder">下单(¥{{teacher.orderPrice}}/小时)</view>
     </view>
 </view>

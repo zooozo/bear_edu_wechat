@@ -1,4 +1,4 @@
-// pages/user/user.js
+// pages/user/match.js
 
 var http = require("../../utils/http.js");
 Page({
@@ -17,7 +17,9 @@ Page({
             {url: '../../images/icon/bag.png', text: '我的账户'},
         ],
         settingList: [
+            {url: '../../images/icon/lishi.png', text: '我的评价', path: '/pages/myComments/comments'},
             {url: '../../images/icon/lishi.png', text: '我的简历', path: '/pages/addResume/index'},
+           
             {url: '../../images/icon/setting.png', text: '课程设置', path: '/pages/setMyClass/index'},
             {url: '../../images/icon/setting.png', text: '创建团课', path: '/pages/setMyClass/index'},
 

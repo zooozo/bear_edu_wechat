@@ -5,23 +5,24 @@
             <input placeholder="请输入昵称或者Id"
                    class='sear-input'
                    confirm-type='搜索'
-                   bindconfirm='toSearchProdPage'
-                   bindinput='getSearchContent' value='{{prodName}}'></input>
+                   bindconfirm='getSearchContent'
+                   bindblur="getSearchContent"
+                   value='{{prodName}}'></input>
             <image src='../../images/icon/search.png' class='search-img'></image>
             <image src='../../images/icon/cancel3.png' class='search-cancel' bindtap="clearValue"></image>
         </view>
         <text class='search-hint' bindtap='goBackIndex'>取消</text>
     </view>
-    <tabs active="{{ activeIndex }}" bind:change="onChange" line-width="20" line-height="4" animated
-          border="{{false}}" color="#9FC5C7" sticky type="card" class="flex-box">
-
-        <tab title="{{item.name}}" wx:for="{{categoryList}}" wx:key="index">
-        </tab>
-    </tabs>
-    <view class="search-list">
+    <view class="tabList">
+        <view data-type="{{index}}"
+              wx:for="{{tabList}}"
+              bindtap="chooseCategory"
+              class="tab {{active==index?'theme-color':'default'}}">{{item.name}}</view>
+    </view>
+    <view class="search-list" wx:if="{{teacher.length>0}}">
         <teacher teacher="{{teacher}}"></teacher>
     </view>
-    <view class="search-list">
+    <view class="search-list" wx:else="">
         <view class="search-list-item" style="justify-content: center">
             未搜索到相关信息
         </view>

@@ -59,7 +59,9 @@
 }
 /*搜索列表*/
 .search-list{
-    padding-left:32rpx;
+    padding:0 32rpx;
+    box-sizing: border-box;
+    margin-top:30rpx;
 }
 .search-list .search-list-item{
     display:flex;
@@ -81,4 +83,19 @@
     width:88rpx;
     height:30rpx;
     margin-top:12rpx;
+}
+.tabList{
+    display:flex;
+}
+.tab{
+    flex:1;
+    cursor: pointer;
+    color:#fff;
+    height:60rpx;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+.default{
+    background:#fdfdfd;
 }
