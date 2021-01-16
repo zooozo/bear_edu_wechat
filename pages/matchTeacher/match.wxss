@@ -8,6 +8,7 @@ page{
     align-items: center;
     justify-content: center;
     height: 100%;
+    background: rgba(0,0,0,.5);
 }
 
 .match_btn{
@@ -24,5 +25,43 @@ page{
         transform: scale(1);
     }
 
+
+}
+
+.box{
+    width:600rpx;
+    min-height:600rpx;
+    background:#fff;
+    border-radius:30rpx;
+    padding:40rpx 20rpx;
+
+}.box .title{
+   font-weight: 600;
+    color:#333;
+    font-size: 30rpx;
+    text-indent: 40rpx;
+
+}
+
+ .category_btn{
+     width:400rpx;
+     height:100rpx;
+     margin-top:40rpx;
+ }
+
+ .btn_group{
+     display:flex;
+ }
+.btn_group .customBtn1{
+    border-radius: 46rpx;
+    border: 2rpx solid #1EC19A;
+    color: #1EC19A;
+    font-size: 32rpx;
+    font-weight: 600;
+    width:200rpx;
+    height:80rpx;
+ }
+
+..btn_group .defaultBtn{
 
 }

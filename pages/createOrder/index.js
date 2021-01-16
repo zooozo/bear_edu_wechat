@@ -40,7 +40,7 @@ Page({
             disableTime: [],
             payType:0,
             query: {
-                  channel: 1,
+                  channel: 0,
                   refId: 1,
                 
                   trainerId: 84,

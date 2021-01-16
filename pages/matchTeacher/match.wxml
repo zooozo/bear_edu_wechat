@@ -1,5 +1,39 @@
 <view class="match">
-    <view class="defaultBtn match_btn">
+    <view class="defaultBtn match_btn" wx:if="{{step==0}}" bindtap="setStep">
         教师匹配
     </view>
+    <view wx:else>
+        <view bindtap="setStep"
+
+              data-step="{{index+1}}"
+              wx:for="{{multiArray}}">
+            <view class="box" wx:if="{{step==index}}">
+                <view class="title">
+                    {{item}}
+                </view>
+                <view class="flex-center flex-colomn">
+                    <view class="category_btn defaultBtn"
+                          bindtap="getNextCateGory"
+                          data-current="{{cate}}"
+                          wx:for="{{categoryList}}"
+                          wx:for-item="cate"
+                          wx:key="{{index}}">
+                        {{cate.categoryName}}
+                    </view>
+                </view>
+                <view class="btn_group" wx:if="{{step==index}}">
+                    <view class="customBtn1" wx:if="{{index>0}}">
+                        返回
+                    </view>
+                    <view class="defaultBtn">
+                        继续
+                    </view>
+                </view>
+            </view>
+
+
+        </view>
+    </view>
+
+
 </view>

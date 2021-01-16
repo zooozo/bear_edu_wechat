@@ -23,7 +23,7 @@ Component({
         parentId: 0
       },
       callBack: (res) => {
-        res.splice(0, 1)
+
         let arr = this.data.multiArray;
         arr[0] = res
             console.log(arr[0],'arr[0====]')

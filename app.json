@@ -1,17 +1,12 @@
 {
   "pages": [
-    "pages/matchTeacher/match",
-    "pages/found/found",
     "pages/index/index",
+    "pages/matchTeacher/match",
+
+
+    "pages/found/found",
     "pages/search-show/search-show",
-
-
-
-
-
     "pages/myComments/comments",
-
-
     "pages/createGroupClass/index",
     "pages/user/user",
     "pages/training-space/index",
@@ -37,10 +32,8 @@
     "pages/to-trainer/update-trainer/index",
     "pages/login/login",
     "pages/logs/logs",
-
     "pages/mobile/mobile",
     "pages/discoverInfo/index"
-
   ],
   "permission": {
     "scope.userLocation": {
