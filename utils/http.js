@@ -146,7 +146,7 @@ function getIsTeacher(params) {
 		data: params,
 		method: 'GET',
 		callBack: (res) => {
-			console.log(res.data, 'res-----')
+			console.log(res.data, '是否是教师')
 			getApp().globalData.isTeacher = res.data;
 			
 		}

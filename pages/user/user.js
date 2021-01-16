@@ -58,12 +58,14 @@ Page({
               wx.navigateTo({url: item.path});
         }
 
+        
     },
+    
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        console.log('onload')
     
     },
 
@@ -78,6 +80,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        console.log('onShow')
         let state=app.globalData.isTeacher.trainerStatus;
         console.log(state,'state------')
         let txt=''
