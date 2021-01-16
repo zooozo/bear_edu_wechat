@@ -1,6 +1,6 @@
 <!--pages/search-prod-show/search-prod-show.wxml-->
 <view class='container'>
-    <view class='search-bar'>
+    <view class='search-bar' wx:if="{{showType!=1}}">
         <view class='search-box' >
             <input placeholder="请输入昵称或者Id"
                    class='sear-input'
@@ -24,7 +24,7 @@
     </view>
     <view class="search-list" wx:else="">
         <view class="search-list-item" style="justify-content: center">
-            未搜索到相关信息
+            未查询到相关信息
         </view>
     </view>
 </view>

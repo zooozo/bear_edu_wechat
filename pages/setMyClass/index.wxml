@@ -18,7 +18,9 @@
                 选择时间段
             </view>
             <view class="right-part">
-                <text  style="color:{{certainTimesIndex?'#333':'#666'}}">{{certainTimesIndex?ListIndex[certainTimesIndex]:'选择时间段'}}</text>
+                <text  style="color:{{certainTimesIndex?'#333':'#666'}}">
+                    {{certainTimesIndex?ListIndex[certainTimesIndex]:'选择时间段'}}
+                </text>
                 <image src="../../images/icon/right.png" class="right-png"></image>
             </view>
         </view>
@@ -27,17 +29,20 @@
                 课程定价
             </view>
             <view class="right-part">
-                <input   class="price" placeholder="请输入您课程的价格"  type="number"  data-type="orderPrice" bindblur="getOrderPrice"/>
+                <input   class="price" placeholder="请输入您课程的价格"
+                         type="number"
+                         data-type="orderPrice"
+                         bindblur="getOrderPrice"/>
             </view>
         </view>
-        <view class="row flex-box flex-space flex-y-center">
-            <view>
-                手机号码
-            </view>
-            <view class="right-part">
-                <input   class="price" placeholder="请收入您的手机号码"  type="number" data-type="mobile" bindblur="getOrderPrice"/>
-            </view>
-        </view>
+<!--        <view class="row flex-box flex-space flex-y-center">-->
+<!--            <view>-->
+<!--                手机号码-->
+<!--            </view>-->
+<!--            <view class="right-part">-->
+<!--                <input   class="price" placeholder="请收入您的手机号码"  type="number" data-type="mobile" bindblur="getOrderPrice"/>-->
+<!--            </view>-->
+<!--        </view>-->
     </view>
     <view class="flex-center">
         <view class="defaultBtn" bindtap="OnSubmit">确定</view>

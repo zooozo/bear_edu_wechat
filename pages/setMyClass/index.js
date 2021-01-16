@@ -111,7 +111,7 @@ Page({
                   showCategoryName: str,
                   'query.yeCategoryId': first.categoryId,
                   "query.parentId": second.categoryId,
-                  "query.CategoryId": three.categoryId,
+                  "query.categoryId": three.categoryId,
             })
 
 
@@ -141,7 +141,7 @@ Page({
       },
       OnSubmit() {
 
-            if (!this.data.query.yeCategoryId || !this.data.query.parentId || !this.data.query.CategoryId) {
+            if (!this.data.query.yeCategoryId || !this.data.query.parentId || !this.data.query.categoryId) {
                   wx.showModal({
                         title: '提示',
                         content: '请选择所教的课程',
@@ -165,14 +165,7 @@ Page({
                   })
                   return
             }
-            if (!this.data.query.mobile) {
-                  wx.showModal({
-                        title: '提示',
-                        content: '请输您的手机号 ',
-                        showCancel: false
-                  })
-                  return
-            }
+
             let arr = []
             console.log(this.data.chooseWeekList, '阿里山的咖啡机')
             this.data.chooseWeekList.forEach((week) => {
@@ -181,7 +174,7 @@ Page({
             if (arr.length == 0) arr = [1, 2, 3, 4, 5, 6, 7]
             this.setData({
                   "query.weekTime": arr.toString(),
-                  'query.orderPrice': this.data.orderPrice * 100
+                  'query.orderPrice': this.data.query.orderPrice * 100
             })
             console.log(this.data.query, 'query--')
 
@@ -240,7 +233,7 @@ Page({
       // 获取当前输入的价格
       getOrderPrice(e) {
             let type = e.currentTarget.dataset.type;
-
+            console.log(e.detail.value,'-----')
             this.setData({
                   [`query.${type}`]: e.detail.value
             })

@@ -113,8 +113,10 @@ function Login() {
                     var globalData = getApp().globalData;
                     var userInfo = JSON.parse(res.rawData);
 
-                      getApp().globalData.userInfo=result;
-
+                       getApp().globalData.userInfo=result;
+                       getApp().getIsTeacher({
+                             userId:result.userId
+                       })
                     // globalData.userInfo = result
                     // 没有获取到用户昵称，说明服务器没有保存用户的昵称，也就是用户授权的信息并没有传到服务器
                     if(!result.pic || !result.userId){
@@ -152,57 +154,6 @@ function updateUserInfo(userInfo) {
 
         }
     },);
-}
-
-function getImUserInfo() {
-    request({
-        url: '/instanmessaging/generateIMusers',
-        method: 'GET',
-        callBack: (res) => {
-            console.log(res, 'res----');
-            // 如果是新注册的用户
-            if (res.code == 200) {
-                getApp().globalData.ImUserInfo = res.data;
-                LoginIm();
-            } else {
-                // 已经生成过IM用户数据的
-                checkImUser();
-            }
-
-        }
-    },true)
-}
-
-// 登录IM聊天
-function LoginIm() {
-    let that = this;
-    request({
-        url: '/instanmessaging/genSigByUserId',
-        method: 'GET',
-        callBack: (res) => {
-            getApp().globalData.$TIM.tim.login({
-                userID: getApp().globalData.ImUserInfo.identifier,
-                userSig: res.data.sign
-            })
-        }
-    },true)
-}
-
-function checkImUser() {
-    request({
-        url: '/instanmessaging/getIMusers',
-        method: 'GET',
-        callBack: (res) => {
-            if (res.code == 200) {
-                getApp().globalData.ImUserInfo = res.data;
-                LoginIm();
-            }
-            // $TIM.tim.login({
-            //     userID: 'user1',
-            //     userSig: 'eJyrVgrxCdZLrSjILEpVsjI2NDU2MwACHbBwWWqRkpWSkZ6BEoRfnJKdWFCQmaJkZWhiYGBsaWBuYASRyUxJzSvJTMsEaygtTi0yhGnJTAeKeBUZe4eb*IT5eVZEBEb6WhZ7V5a7uBhrhzpHePgaOZU65bhGprtb*ht6W9hCNZZk5gIdZGhqaWFibGBsbFQLACAVME8_'
-            // })
-        }
-    },true)
 }
 
 //获取购物车商品数量

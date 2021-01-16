@@ -12,7 +12,7 @@ page{
     justify-content: center;
     width:200rpx;
     height:80rpx;
-
+    flex-shrink: 0;
 }
 
 .match{
@@ -46,9 +46,9 @@ page{
     background:#fff;
     border-radius:30rpx;
     padding:40rpx 20rpx 80rpx;
-
+    position:relative;
     max-height: 900rpx;
-    overflow-y:auto;
+
 }.box .title{
    font-weight: 600;
     color:#333;
@@ -61,6 +61,7 @@ page{
      width:400rpx;
      height:100rpx;
      margin-top:40rpx;
+     flex-shrink: 0;
  }
 
  .btn_group{

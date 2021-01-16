@@ -129,16 +129,14 @@ Page({
                         method:'POST',
                         data:this.data.query,
                         callBack:(data)=>{
-                              wx.showModal({
-                                    title: '提示',
-                                    content: "申请成功",
-                                    success(res) {
-                                          wx.navigateTo({
-                                                url:'/pages/addResume/index'
-                                          })
-                                    }
+                              wx.showToast({
+                                    title:'已提交审核'
                               })
-
+                              setTimeout(()=>{
+                                    wx.switchTab({
+                                          url:'/pages/user/user'
+                                    })
+                              })
                         }
                   })
             }
