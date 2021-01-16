@@ -333,6 +333,7 @@ Page({
 
             if (!this.data.query.timeQuantum) {
                   wx.showToast({
+                        icon:'none',
                         title: '请选择授课时间段'
                   })
                   return

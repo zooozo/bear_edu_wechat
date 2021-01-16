@@ -17,7 +17,7 @@
         <view data-type="{{index}}"
               wx:for="{{tabList}}"
               bindtap="chooseCategory"
-              class="tab {{active==index?'theme-color':'default'}}">{{item.name}}</view>
+              class="tab {{active==index?'active':'default'}}">{{item.name}}</view>
     </view>
     <view class="search-list" wx:if="{{teacher.length>0}}">
         <teacher teacher="{{teacher}}"></teacher>

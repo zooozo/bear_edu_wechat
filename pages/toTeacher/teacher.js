@@ -21,10 +21,18 @@ Page({
             },
       },
       onLoad: function (options) {
-
+            this.setData({
+                  sex:app.globalData.sex,
+                  name:app.globalData.name,
+                  userPhone:app.globalData.userPhone,
+                  idCard:app.globalData.idCard,
+                  credentialsImg:app.globalData.credentialsImg,
+                  diplomaImg:app.globalData.diplomaImg,
+                  diplomaImg:app.globalData.cardImg,
+                  diplomaImg:app.globalData.headImg,
+            })
       },
       onShow(options) {
-
       },
       chooseSex(e) {
             console.log(e, 'e0000000')
@@ -33,6 +41,7 @@ Page({
                   'query.sex': e.currentTarget.dataset.sex
             })
       },
+
       getChangeValuse(e) {
             let key = e.currentTarget.dataset.item
             this.setData({
@@ -136,7 +145,7 @@ Page({
                                     wx.switchTab({
                                           url:'/pages/user/user'
                                     })
-                              })
+                              },800)
                         }
                   })
             }

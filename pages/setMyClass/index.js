@@ -183,11 +183,14 @@ Page({
                   data: this.data.query,
                   callBack: (res) => {
                         wx.showToast({
-                              title: '修改成功'
+                              title: '修改成功',
+                              success(res) {
+                                    wx.switchTab({
+                                          url: '/pages/user/user'
+                                    })
+                              }
                         })
-                        wx.switchTab({
-                              url: '/pages/user/user'
-                        })
+
                   }
             })
       },

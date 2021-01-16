@@ -18,9 +18,9 @@
                 选择时间段
             </view>
             <view class="right-part">
-                <text  style="color:{{certainTimesIndex?'#333':'#666'}}">
+                <view  style="color:{{certainTimesIndex?'#333':'#666'}}">
                     {{certainTimesIndex?ListIndex[certainTimesIndex]:'选择时间段'}}
-                </text>
+                </view>
                 <image src="../../images/icon/right.png" class="right-png"></image>
             </view>
         </view>

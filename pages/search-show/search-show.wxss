@@ -86,16 +86,23 @@
 }
 .tabList{
     display:flex;
+    margin-top:40rpx;
 }
 .tab{
     flex:1;
     cursor: pointer;
-    color:#fff;
+
     height:60rpx;
     display:flex;
     align-items:center;
     justify-content: center;
 }
 .default{
-    background:#fdfdfd;
+    background:#ededed;
+    color:#1EC19A;
+}
+
+.active{
+    background:#1EC19A;
+    color:#fff;
 }

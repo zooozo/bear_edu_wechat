@@ -1,15 +1,15 @@
 // pages/user/match.js
 
 var http = require("../../utils/http.js");
+const app=getApp();
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        orderAmount: '',
-        sts: '',
-        collectionCount: 0,
+          BtnStatus:'',
+          BtnTxt:'',
         list: [
             {url: '../../images/icon/order.png', text: '我的订单'},
             {url: '../../images/icon/quan.png', text: '优惠券'},
@@ -47,6 +47,13 @@ Page({
     tapSettingList(e) {
         let item = e.currentTarget.dataset.current;
         let url = '';
+        if(item.text!='我的评价' && this.data.BtnStatus!=2){
+              wx.showToast({
+                    icon:"none",
+                    title:'成为教师后开放功能'
+              })
+              return
+        }
         if(item.path){
               wx.navigateTo({url: item.path});
         }
@@ -57,6 +64,21 @@ Page({
      */
     onLoad: function (options) {
 
+          let state=app.globalData.isTeacher.trainerStatus;
+          console.log(state,'state------')
+          let txt=''
+          // 审核状态{0：待审核，1：审核通过，2：审核未通过}
+            if(state==0){
+                  txt='待审核'
+            }else if(state==2){
+                  txt='审核通过'
+            }else{
+                  txt=''
+            }
+            this.setData({
+                  BtnTxt:txt,
+                  BtnStatus:state
+            })
     },
 
     /**
@@ -108,80 +130,6 @@ Page({
     onShareAppMessage: function () {
 
     },
-
-    toDistCenter: function () {
-        wx.showToast({
-            icon: "none",
-            title: '该功能未开源'
-        })
-    },
-
-    toCouponCenter: function () {
-        wx.showToast({
-            icon: "none",
-            title: '该功能未开源'
-        })
-    },
-
-    toMyCouponPage: function () {
-        wx.showToast({
-            icon: "none",
-            title: '该功能未开源'
-        })
-    },
-
-    toAddressList: function () {
-        wx.navigateTo({
-            url: '/pages/delivery-address/delivery-address',
-        })
-    },
-
-    // 跳转绑定手机号
-    toBindingPhone: function () {
-        wx.navigateTo({
-            url: '/pages/binding-phone/binding-phone',
-        })
-    },
-
-    toOrderListPage: function (e) {
-        var sts = e.currentTarget.dataset.sts;
-        wx.navigateTo({
-            url: '/pages/orderList/orderList?sts=' + sts,
-        })
-    },
-    /**
-     * 查询所有的收藏量
-     */
-    showCollectionCount: function () {
-        var ths = this;
-        wx.showLoading();
-        var params = {
-            url: "/p/user/collection/count",
-            method: "GET",
-            data: {},
-            callBack: function (res) {
-                wx.hideLoading();
-                ths.setData({
-                    collectionCount: res
-                });
-            }
-        };
-        http.request(params);
-    },
-    /**
-     * 我的收藏跳转
-     */
-    myCollectionHandle: function () {
-        var url = '/pages/prod-classify/prod-classify?sts=5';
-        var id = 0;
-        var title = "我的收藏商品";
-        if (id) {
-            url += "&tagid=" + id + "&title=" + title;
-        }
-        wx.navigateTo({
-            url: url
-        })
-    }
 
 
 })

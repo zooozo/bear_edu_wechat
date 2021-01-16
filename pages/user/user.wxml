@@ -59,9 +59,11 @@
 
                 </view>
             </view>
-            <navigator url="/pages/toTeacher/teacher" class="flex-center foot">
+<!--            // 审核状态{0：待审核，1：审核通过，2：审核未通过}-->
+
+            <navigator url="/pages/toTeacher/teacher" class="flex-center foot" wx:if="{{BtnStatus==0 ||BtnStatus ==2}}">
                 <view class="btn">
-                    申请成为教师
+                    申请成为教师 <text class="theme-font-color" style="margin-left:10rpx;">({{BtnTxt}})</text>
                 </view>
             </navigator>
         </view>
