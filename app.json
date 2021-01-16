@@ -10,7 +10,7 @@
 
 
     "pages/myComments/comments",
-    "pages/matchTeacher/match",
+
 
     "pages/createGroupClass/index",
     "pages/user/user",
@@ -37,7 +37,7 @@
     "pages/to-trainer/update-trainer/index",
     "pages/login/login",
     "pages/logs/logs",
-    "pages/search-show/search-show",
+
     "pages/mobile/mobile",
     "pages/discoverInfo/index"
 
