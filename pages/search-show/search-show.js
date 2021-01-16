@@ -11,6 +11,7 @@ Page({
 		prodName: "",
 		teacher: [],
 		active: 0,
+          showType:0,
 		tabList: [
 			{name: '文化类', id: 99},
 			{name: '艺术类', id: 103},
@@ -26,7 +27,14 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-	
+	      if(options.id){
+                this.setData({
+                      showType:options.type,
+                      'query.requestType':options.id
+                })
+                this.getSearchContent();
+          }
+
 	},
 	
 	/**
@@ -53,9 +61,12 @@ Page({
 		console.log(this.data.active)
 	},
 	getSearchContent(e) {
-		this.setData({
-			'query.content': e.detail.value
-		})
+	      if(e){
+                this.setData({
+                      'query.content': e.detail.value
+                })
+          }
+
 		
 		http.request({
 			url: "/index/indexTeacher",

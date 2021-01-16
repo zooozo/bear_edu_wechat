@@ -1,31 +1,42 @@
 <view class="match">
-    <view class="defaultBtn match_btn" wx:if="{{step==0}}" bindtap="setStep">
+    <view class="defaultBtn match_btn" wx:if="{{step==0}}"
+          data-type="2"
+          data-step="0"
+          bindtap="setStep">
         教师匹配
     </view>
     <view wx:else>
-        <view bindtap="setStep"
-
-              data-step="{{index+1}}"
-              wx:for="{{multiArray}}">
-            <view class="box" wx:if="{{step==index}}">
+        <view
+              wx:for="{{multiArray}}" style=" position:relative;">
+            <view class="box" wx:if="{{step==index}}" animation="{{animationData}}">
                 <view class="title">
                     {{item}}
                 </view>
+<!--                bindtap="getNextCateGory"-->
                 <view class="flex-center flex-colomn">
-                    <view class="category_btn defaultBtn"
-                          bindtap="getNextCateGory"
-                          data-current="{{cate}}"
+                    <view class="{{activeIndex==index?'defaultBtn':'customBtn1'}} category_btn "
+                          bindtap="chooseCurrentItem"
+                          data-current="{{index}}"
                           wx:for="{{categoryList}}"
                           wx:for-item="cate"
-                          wx:key="{{index}}">
+                          wx:key="{{cate.categoryId}}">
                         {{cate.categoryName}}
                     </view>
                 </view>
-                <view class="btn_group" wx:if="{{step==index}}">
-                    <view class="customBtn1" wx:if="{{index>0}}">
+                <view class="btn_group" wx:if="{{step==index}}" >
+                    <view class="customBtn1" wx:if="{{index>0}}"
+
+                          bindtap="setStep"
+                          data-step="{{index}}"
+                          data-type="{{1}}"
+                    >
                         返回
                     </view>
-                    <view class="defaultBtn">
+                    <view class="defaultBtn" bindtap="setStep"
+
+                          data-step="{{index}}"
+                          data-type="{{2}}"
+                    >
                         继续
                     </view>
                 </view>

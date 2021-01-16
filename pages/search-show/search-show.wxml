@@ -1,7 +1,7 @@
 <!--pages/search-prod-show/search-prod-show.wxml-->
 <view class='container'>
     <view class='search-bar'>
-        <view class='search-box'>
+        <view class='search-box' >
             <input placeholder="请输入昵称或者Id"
                    class='sear-input'
                    confirm-type='搜索'
@@ -13,7 +13,7 @@
         </view>
         <text class='search-hint' bindtap='goBackIndex'>取消</text>
     </view>
-    <view class="tabList">
+    <view class="tabList" wx:if="{{showType!=1}}">
         <view data-type="{{index}}"
               wx:for="{{tabList}}"
               bindtap="chooseCategory"
