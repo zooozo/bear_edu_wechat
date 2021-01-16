@@ -148,7 +148,7 @@ function getIsTeacher(params) {
 		callBack: (res) => {
 			console.log(res.data, 'res-----')
 			getApp().globalData.isTeacher = res.data;
-			re()
+			
 		}
 	})
 	
