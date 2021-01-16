@@ -86,8 +86,15 @@ Page({
                         data:this.data.query,
                         methods:'POST',
                         form:1,
+                        errCallBack:()=>{
+                              this.setData({
+                                    'query.price':this.data.query.price/100
+                              })
+                        },
                         callBack:(res)=>{
-                             console.log(res,'res-----')
+                              wx.showToast({
+                                    title:'创建成功'
+                              })
                         }
                   })
             }

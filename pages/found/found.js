@@ -3,68 +3,37 @@
 var http = require("../../utils/http.js");
 var config = require("../../utils/config.js");
 var utils = require("../../utils/util.js");
+const app=getApp();
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        // list: [
-        //     {
-        //         type: 1,
-        //         imagelist: [
-        //             "../../images/test/j1.png",
-        //             "../../images/test/j2.png",
-        //             "../../images/test/j3.png",
-        //         ],
-        //         pos:'22km',
-        //         time:'2小时'
-        //     },{
-        //         type: 2,
-        //         imagelist: [
-        //             "../../images/test/j1.png",
-        //
-        //         ],
-        //         pos:'1km',
-        //         time:'4小时'
-        //     },{
-        //         type: 1,
-        //         imagelist: [
-        //             "../../images/test/j1.png",
-        //             "../../images/test/j2.png",
-        //
-        //         ],
-        //         pos:'1km',
-        //         time:'11:50'
-        //     },{
-        //         type: 2,
-        //         imagelist: [
-        //             "../../images/test/j1.png",
-        //             "../../images/test/j2.png",
-        //             "../../images/test/j3.png",
-        //         ],
-        //         pos:'6km',
-        //         time:'6:50'
-        //     },
-        // ],
+
         list: [],
         activeIndex: 0,
+          listData:{},
+          // 1文化类 2艺术类 3综合类.
         categoryList: [
             {
-                name: '广场',
+                name: '文化类',
+                id: 1,
+            },
+              {
+                name: '艺术类',
                 id: 2,
             },
             {
-                name: '关注',
+                name: '综合类',
                 id: 3,
             },
         ],
         stopLoad: false,
         params: {
-            requestType: 2,
-            userId: 0,
-            pageSize: 10,
-            pageNum: 1
+              type: 1,
+              size: 10,
+              current: 1
         }
 
     },
@@ -72,23 +41,13 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    clickThumbs(e) {
-        let currentIndex = e.currentTarget.dataset.current
-        http.request({
-            url: '/userLike/saveUserLike',
-            data: {
-                momentsId: this.data.list[currentIndex].id,
-                beLikeUid: this.data.list[currentIndex].userId,
-                likeFlag: 1
-            }
-        })
-    },
+
     onChange(event) {
 
         this.setData({
             activeIndex: event.detail.name,
-            'params.requestType': this.data.categoryList[event.detail.name].id,
-            'params.pageNum': 1,
+            'params.type': this.data.categoryList[event.detail.name].id,
+            'params.current': 1,
             list: [],
         })
         this.getMomentsList();
@@ -99,42 +58,30 @@ Page({
             }
         );
         let params = {
-            url: '/moments/pageMoments',
+            url: '/discoverInfo/page/'+this.data.params.type,
             method: 'GET',
             data: this.data.params,
             callBack: (res) => {
-                // let time=utils.formatTime(res.data.records[0].timeAgo*60*60*1000)
-                // pic: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLGqibUOngLiboNMY5b8qkUeDDX6sFl5Wa62libPTHgib1tibrEiayTXhUMJyfrDJqtqh9T52yRfFgPQqhA/132"
+                  res.records.forEach(item=>{
+                        item.thumbnail=app.globalData.imageHost+item.thumbnail
+                  })
 
-                let arr = [];
-                let now = Date.now() / 1000;
-                let createTime;
+                  this.listData=res;
 
-                res.data.records.forEach((item) => {
-                    // 先换算一下时间  后端返回有距离多少个小时，和创建时间
-                    createTime = new Date(item.createTime).getTime() / 1000;
-
-                    item.timeLong = utils.formatTimeObject(now - createTime)
-
-                    arr.push(item)
-
-
-                })
-                this.setData({
-                    stopLoad: this.data.params.pageNum <= res.data.pages
-                })
-                this.setData({
-                    list: [...this.data.list, ...arr]
-                })
+                  this.setData({
+                        list:[...this.data.list,...res.records],
+                        stopLoad:res.total<=this.data.params.size
+                  })
                 wx.hideLoading();
             }
 
         }
         http.request(params);
     },
-    goToPage() {
+    goToPage(e) {
+          let current=e.currentTarget.dataset.item
         wx.navigateTo({
-            url: '../moment-time/moment-time'
+            url: '../discoverInfo/index?id='+current.id
         })
     },
     onLoad: function (options) {

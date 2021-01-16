@@ -1,30 +1,57 @@
 <view class="container">
-    <view class="flex-box">
-        <tabs active="{{ activeIndex }}" bind:change="onChange" line-width="20" line-height="4" animated
-              border="{{false}}" style="flex:1;width:750rpx;" class="flex-box" sticky>
 
-
+        <tabs active="{{ activeIndex }}"
+              bind:change="onChange"
+              line-width="20"
+                  color="#ddd"
+              animated
+              border="{{false}}"
+              type="card"
+              style="height:100%;flex:1"
+              title-active-color=" #fff"
+              title-inactive-color="#1EC19A"
+              sticky>
             <tab title="{{item.name}}" wx:for="{{categoryList}}"
-                 title-style="color:{{activeIndex==index?'#333':'#999999'}};font-weight:{{activeIndex==index?'700':'500'}}"
+
                  wx:key="index">
-                <view class="content" >
+                <!--            title-style="color:{{activeIndex==index?'#333':'#999999'}};font-weight:{{activeIndex==index?'700':'500'}}"-->
+                <view class="content" wx:if="{{list.length>0}}">
                     <view wx:for="{{list}}" wx:key="index">
-                        <userItem item="{{item}}"></userItem>
+                        <!--                        content: "<p><img src="http://img-test.gz-yami.com/2021/01/474ef80efe164c3584ce2d8530166014.jpg" alt="" /></p>"-->
+                        <!--                        createTime: "2021-01-08 10:55:06"-->
+                        <!--                        delFlag: 0-->
+                        <!--                        id: 6-->
+                        <!--                        tagId: 2-->
+                        <!--                        tagName: null-->
+                        <!--                        thumbnail: "2021/01/38a8a26c42414b16aba8c2bef57df356.jpg"-->
+                        <!--                        title: "33"-->
+                        <!--                        updateTime: "2021-01-08 10:55:06"-->
+                        <view class="item" bindtap="goToPage" data-item="{{item}}">
+
+                            <view class="right_part">
+                                <view class="title cutTxt">{{item.title}}</view>
+                                <view class="dec">发布时间:{{item.updateTime}}</view>
+                            </view>
+                            <image src="{{item.thumbnail}}" class="img"></image>
+                        </view>
                     </view>
-                    <view style="height:60rpx;color:#aaa;font-size:24rpx;" class="flex-center">
-                        {{!stopLoad?'加载更多':'没有更多了'}}
-                    </view>
+
+                </view>
+                <view class="content" wx:else>
+                    <empty></empty>
                 </view>
             </tab>
 
         </tabs>
 
-    </view>
 
-    <view  class="flex-center btn-box">
-<!--        <view class="btn flex-center" bindtap="goToPage">-->
-<!--            发动态-->
-<!--        </view>-->
-        <image src="../../images/icon/jiahao.png" style="width:48rpx;height:48rpx;" bindtap="goToPage"></image>
-    </view>
+        <view style="height:60rpx;color:#aaa;font-size:24rpx;" class="flex-center">
+            {{!stopLoad?'加载更多':'没有更多了'}}
+        </view>
+    <!--    <view  class="flex-center btn-box">-->
+    <!--        <view class="btn flex-center" bindtap="goToPage">-->
+    <!--            发动态-->
+    <!--        </view>-->
+    <!--        <image src="../../images/icon/jiahao.png" style="width:48rpx;height:48rpx;" bindtap="goToPage"></image>-->
+    <!--    </view>-->
 </view>

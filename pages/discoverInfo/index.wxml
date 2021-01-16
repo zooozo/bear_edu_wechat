@@ -1,0 +1,7 @@
+<view class="content">
+    <view>
+        <view class="title">{{detail.title}}</view>
+        <view>发布时间:{{item.updateTime}}</view>
+    </view>
+    <rich-text nodes="{{detail.content}}"></rich-text>
+</view>

@@ -1,16 +1,15 @@
 {
   "pages": [
+    "pages/matchTeacher/match",
+    "pages/found/found",
     "pages/index/index",
     "pages/createGroupClass/index",
     "pages/user/user",
-
     "pages/training-space/index",
     "pages/setMyClass/index",
-
     "pages/mybag/account-detail/index",
     "pages/order/orderIndex",
     "pages/createOrder/index",
-
     "pages/toTeacher/teacher",
     "pages/addResume/index",
     "pages/appraise/index",
@@ -18,30 +17,20 @@
     "pages/mybag/index",
     "pages/bindBankCard/index",
     "pages/coupon/coupon",
-    "pages/fans/fans",
     "pages/to-trainer/step-three/step-three",
     "pages/to-trainer/step-four/step-four",
     "pages/to-trainer/step-two/step-two",
     "pages/to-trainer/step-one/step-one",
     "pages/to-trainer/index",
-    "pages/history/index",
-    "pages/moment-time/detail/detail",
-    "pages/found/found",
-    "pages/news/chat/index",
     "pages/withDraw/index",
-    "pages/news/news-page",
     "pages/setting/index",
     "pages/order/orderDetail/detail",
-
     "pages/to-trainer/update-trainer/index",
-
-    "pages/moment-time/moment-time",
     "pages/login/login",
-
     "pages/logs/logs",
     "pages/search-show/search-show",
-
-    "pages/mobile/mobile"
+    "pages/mobile/mobile",
+    "pages/discoverInfo/index"
 
   ],
   "permission": {
@@ -65,12 +54,18 @@
         "iconPath": "images/tabbar/home.png",
         "selectedIconPath": "images/tabbar/home-active.png"
       },
-       {
-             "pagePath": "pages/found/found",
-           "text": "发现",
-           "iconPath": "images/tabbar/found.png",
-           "selectedIconPath": "images/tabbar/found-active.png"
-       },
+      {
+        "pagePath": "pages/found/found",
+        "text": "发现",
+        "iconPath": "images/tabbar/news.png",
+        "selectedIconPath": "images/tabbar/news-active.png"
+      },
+      {
+        "pagePath": "pages/matchTeacher/match",
+        "text": "匹配",
+        "iconPath": "images/tabbar/found.png",
+        "selectedIconPath": "images/tabbar/found-active.png"
+      },
       {
         "pagePath": "pages/user/user",
         "text": "我的",

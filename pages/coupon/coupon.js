@@ -34,6 +34,7 @@ Page({
       getCouponList(){
             http.request({
                   url:"/userCoupon/listUserCoupon",
+                  method:'GET',
                   data:{
                         type:this.data.tabIndex
                   },

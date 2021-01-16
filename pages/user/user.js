@@ -19,7 +19,7 @@ Page({
         settingList: [
             {url: '../../images/icon/lishi.png', text: '我的简历', path: '/pages/addResume/index'},
             {url: '../../images/icon/setting.png', text: '课程设置', path: '/pages/setMyClass/index'},
-            {url: '../../images/icon/setting.png', text: '创建团课', path: '/pages/setMyClass/index'},
+            {url: '../../images/icon/setting.png', text: '创建团课', path: '/pages/createGroupClass/index'},
 
         ]
     },

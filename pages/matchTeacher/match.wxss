@@ -1,0 +1,28 @@
+page{
+    height:100%;
+}
+
+
+.match{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.match_btn{
+    width:300rpx;
+    animation: ani 1s infinite;
+}
+
+@keyframes ani {
+    0% {
+        transform: scale(.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+
+}

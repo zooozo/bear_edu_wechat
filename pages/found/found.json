@@ -6,7 +6,7 @@
   "usingComponents": {
     "tabs": "../../vant/tabs/index",
     "tab": "../../vant/tab/index",
+    "empty": "../../components/empty/empty"
 
-    "userItem":"../../components/userMoment/item"
   }
 }

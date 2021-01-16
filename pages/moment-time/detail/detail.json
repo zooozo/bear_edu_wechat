@@ -1,9 +1,0 @@
-{
-  "backgroundTextStyle": "light",
-  "navigationBarTitleText": "动态详情",
-  "navigationBarTextStyle": "white",
-  "navigationBarBackgroundColor":  "#1EC19A",
-  "usingComponents": {
-    "userItem":"../../components/userMoment/item"
-  }
-}

@@ -37,9 +37,11 @@ Page({
             }
       },
       onLoad() {
+
+      },
+      onShow(){
             this.getCateGory();
       },
-
       getCateGory(){
         http.request({
               method: 'GET',
