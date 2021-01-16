@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/user/user",
     "pages/index/index",
     "pages/matchTeacher/match",
 
@@ -9,7 +10,7 @@
     "pages/search-show/search-show",
     "pages/myComments/comments",
     "pages/createGroupClass/index",
-    "pages/user/user",
+
     "pages/training-space/index",
     "pages/setMyClass/index",
     "pages/mybag/account-detail/index",

@@ -61,6 +61,7 @@ Component({
         },
         callBack: (res) => {
           let arr = this.data.multiArray;
+          console.log(arr,'arr----')
           arr[index] = res
 
           this.setData({
@@ -107,7 +108,7 @@ Component({
                 showCategoryName: str,
                 yeCategoryId: first.categoryId,
                 parentId:second.categoryId,
-                CategoryId:three.categoryId,
+                categoryId:three.categoryId,
           });
     },
   }
