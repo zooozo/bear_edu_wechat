@@ -183,11 +183,15 @@ Page({
                   data: this.data.query,
                   callBack: (res) => {
                         wx.showToast({
+                              duration:3000,
                               title: '修改成功',
                               success(res) {
-                                    wx.switchTab({
-                                          url: '/pages/user/user'
-                                    })
+                                    console.log(res,'res---')
+                                   setTimeout(()=>{
+                                         wx.switchTab({
+                                               url: '/pages/user/user'
+                                         })
+                                   },500)
                               }
                         })
 

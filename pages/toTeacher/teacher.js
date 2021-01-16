@@ -21,15 +21,15 @@ Page({
             },
       },
       onLoad: function (options) {
+            console.log(app.globalData,'globaldata')
+            let obj=this.data.query;
+           for(let key in  app.globalData.isTeacher){
+                 obj[key]=app.globalData.isTeacher[key];
+           }
+            
+            
             this.setData({
-                  sex:app.globalData.sex,
-                  name:app.globalData.name,
-                  userPhone:app.globalData.userPhone,
-                  idCard:app.globalData.idCard,
-                  credentialsImg:app.globalData.credentialsImg,
-                  diplomaImg:app.globalData.diplomaImg,
-                  diplomaImg:app.globalData.cardImg,
-                  diplomaImg:app.globalData.headImg,
+                 query:obj
             })
       },
       onShow(options) {

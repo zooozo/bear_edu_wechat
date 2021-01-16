@@ -19,7 +19,7 @@
               bindtap="chooseCategory"
               class="tab {{active==index?'active':'default'}}">{{item.name}}</view>
     </view>
-    <view class="search-list" wx:if="{{teacher.length>0}}">
+    <view class="search-list" wx:if="{{teacher.length>0}}" animation="{{animation}}">
         <teacher teacher="{{teacher}}"></teacher>
     </view>
     <view class="search-list" wx:else="">

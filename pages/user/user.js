@@ -47,7 +47,7 @@ Page({
     tapSettingList(e) {
         let item = e.currentTarget.dataset.current;
         let url = '';
-        if(item.text!='我的评价' && this.data.BtnStatus!=2){
+        if(item.text!='我的评价' && this.data.BtnStatus!=1){
               wx.showToast({
                     icon:"none",
                     title:'成为教师后开放功能'
@@ -64,21 +64,7 @@ Page({
      */
     onLoad: function (options) {
 
-          let state=app.globalData.isTeacher.trainerStatus;
-          console.log(state,'state------')
-          let txt=''
-          // 审核状态{0：待审核，1：审核通过，2：审核未通过}
-            if(state==0){
-                  txt='待审核'
-            }else if(state==2){
-                  txt='审核通过'
-            }else{
-                  txt=''
-            }
-            this.setData({
-                  BtnTxt:txt,
-                  BtnStatus:state
-            })
+    
     },
 
     /**
@@ -92,7 +78,24 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        let state=app.globalData.isTeacher.trainerStatus;
+        console.log(state,'state------')
+        let txt=''
+        // 审核状态{0：待审核，1：审核通过，2：审核未通过}
+        if(state==0){
+            txt='待审核'
+        }else if(state==2){
+            txt='审核通过'
+        }else{
+            txt=''
+        }
+        this.setData({
+            BtnTxt:txt,
+            BtnStatus:state
+        })
+        
+        
+        
     
     },
 

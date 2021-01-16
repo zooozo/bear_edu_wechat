@@ -68,25 +68,11 @@ App({
                   },
             })
       },
-
-
-      // 获取粉丝和关注数据，
-
-      getIsTeacher(params) {
-
-            http.request({
-                  url: '/apply/getisTeacher',
-                  data: params,
-                  method: 'GET',
-                  callBack: (res) => {
-                        console.log(res.data, 'res-----')
-                        this.globalData.isTeacher = res.data;
-                  }
-            })
-      },
+      
+      
 
       globalData: {
-            isTeacher: 0,
+            isTeacher: null,
             // 定义全局请求队列
             requestQueue: [],
             // 是否正在进行登陆

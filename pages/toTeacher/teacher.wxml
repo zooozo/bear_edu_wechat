@@ -4,26 +4,33 @@
         <view class="row">
             <view>姓名</view>
             <view class="flex-center" >
-                <input placeholder="请输入真实姓名" data-item="name" bindblur='getChangeValuse'/>
+                <input placeholder="请输入真实姓名" data-item="name"
+                       value="{{query.trainerName}}"
+                       bindblur='getChangeValuse'/>
             </view>
         </view>
         <view class="row">
             <view>身份证号码</view>
             <view class="flex-center">
-                <input placeholder="请输入身份号码" data-item="idCard" bindblur='getChangeValuse'/>
+                <input placeholder="请输入身份号码"
+                       data-item="idCard"
+                       value="{{query.idNumber}}"
+                       bindblur='getChangeValuse'/>
             </view>
         </view>
         <view class="row">
             <view>联系方式</view>
             <view class="flex-center">
-                <input placeholder="请输入手机号码"  data-item="userPhone" bindblur='getChangeValuse'/>
+                <input placeholder="请输入手机号码"
+                       value="{{query.userPhone}}"
+                       data-item="userPhone" bindblur='getChangeValuse'/>
             </view>
         </view>
         <view class="row">
             <view>性别</view>
             <view class="flex-box">
-                <view class="sex {{query.sex=='男'?'sex_active':''}}"  bindtap="chooseSex" data-sex="男">男</view>
-                <view class="sex {{query.sex=='女'?'sex_active':''}}"  bindtap="chooseSex" data-sex="女">女</view>
+                <view class="sex {{query.sex=='0'?'sex_active':''}}"  bindtap="chooseSex" data-sex="0">男</view>
+                <view class="sex {{query.sex=='1'?'sex_active':''}}"  bindtap="chooseSex" data-sex="1">女</view>
             </view>
         </view>
     </view>
@@ -55,6 +62,10 @@
                 <image src="{{query.diplomaImg?query.diplomaImg:'../../images/setting/images.png'}}"
                        class="page-img2" bindtap="uploadVideo" data-item="diplomaImg"></image>
             </view>
+        </view>
+
+        <view wx:if="{{query.reason}}">
+            {{query.reason}}
         </view>
     </view>
     <view class="defaultBtn flex-center" bindtap="submitFormData">

@@ -9,6 +9,7 @@ Page({
       data: {
             searchProdList: [],
             prodName: "",
+            animation:{},
             teacher: [],
             active: 0,
             showType: 0,
@@ -20,7 +21,11 @@ Page({
             query: {
                   requestType: 0,
                   content: ''
+            },
+            params:{
+            
             }
+            
       },
 
       /**
@@ -47,6 +52,7 @@ Page({
        * 生命周期函数--监听页面显示
        */
       onShow: function () {
+      
 
       },
       toSearchProdPage() {
@@ -58,7 +64,26 @@ Page({
                   active: current,
                   'query.requestType': this.data.tabList[current].id
             })
-            console.log(this.data.active)
+            this.getSearchContent()
+            // var animation = wx.createAnimation({
+            //       duration: 300,
+            //       timingFunction: "linear",
+            //       delay: 0
+            // })
+            // animation.scale(.5).step()
+            // setTimeout(()=>{
+            //       console.log("阿按时来到开发区；")
+            //       animation.scale(1).step();
+            //       this.setData({
+            //             animation:animation.export(),
+            //       },()=>{
+            //
+            //             this.getSearchContent()
+            //       })
+            // },200)
+            
+            
+            
       },
       getSearchContent(e) {
             if (e) {

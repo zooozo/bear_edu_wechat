@@ -23,15 +23,15 @@ Component({
         parentId: 0
       },
       callBack: (res) => {
-
+       
         let arr = this.data.multiArray;
         arr[0] = res
-            console.log(arr[0],'arr[0====]')
+        
         this.setData({
           multiArray: arr
         }, () => {
-        
-        
+          console.log(res,'arr[0====]')
+          
           this.getCategoryList(this.data.multiArray[0][0].categoryId, 1)
         
           // this.getCategoryList(this.data.multiArray[1][0].categoryId, 2)
@@ -64,7 +64,7 @@ Component({
           arr[index] = res
 
           this.setData({
-            multiArray: arr
+            multiArray:this.data.multiArray.concat(arr)
           }, () => {
             console.log(this.data.multiArray,'multiarray')
             if(this.data.multiArray[2].length>0) return

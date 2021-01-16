@@ -26,6 +26,7 @@ page {
     width: 326rpx;
     height: 264rpx;
     border-radius: 8rpx;
+    object-fit: cover;
 }
 
 .row {

@@ -1,7 +1,6 @@
 .empty{
     min-height:800rpx;
-    width:750rpx;
-
+    width:100%;
     display:flex;
     align-items: center;
     justify-content: center;
