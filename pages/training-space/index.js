@@ -97,7 +97,7 @@ Page({
                        arr.push(data.name);
                   })
                   res.data.weekTime=arr.toString();
-                 res.data.orderTime=res.data.orderTime.split(',')
+                 if(res.data.receivingType==2) res.data.orderTime=res.data.orderTime.split(',')
                   res.data.orderPrice=parseFloat(res.data.orderPrice/100)
                   let list=[];
                  list.push(res.data.yeCategoryName,res.data.parentName,res.data.categoryName)

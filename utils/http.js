@@ -147,11 +147,27 @@ function getIsTeacher(params) {
 		method: 'GET',
 		callBack: (res) => {
 			console.log(res.data, '是否是教师')
+			
 			getApp().globalData.isTeacher = res.data;
+			if(res.data){
+				getTeacherInfo(params)
+			}
 			
 		}
 	})
 	
+}
+function getTeacherInfo(id){
+	
+
+	request({
+		method: 'GET',
+		url: '/apply/getTeacherResume',
+		data: id,
+		callBack: (res) => {
+		  getApp().globalData.resume=res.data;
+		}
+	})
 }
 
 // 更新用户头像昵称

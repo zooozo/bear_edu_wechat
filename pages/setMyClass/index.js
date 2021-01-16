@@ -26,7 +26,11 @@ Page({
 
             multiArray: [[], [], []],
             showCategoryName: '',
-            query: {}
+            query: {
+                  receivingType:1,
+                  
+                  orderTime:[]
+            }
       },
       onLoad: function (options) {
             let arr = []
@@ -152,7 +156,7 @@ Page({
             if (!this.data.chooseWeekList) {
                   wx.showModal({
                         title: '提示',
-                        content: '请选择接单时间',
+                        content: '请选择上课时间',
                         showCancel: false
                   })
                   return
@@ -171,7 +175,18 @@ Page({
             this.data.chooseWeekList.forEach((week) => {
                   arr.push(week.id);
             })
+            
+            
+            
             if (arr.length == 0) arr = [1, 2, 3, 4, 5, 6, 7]
+            let diffence=this.data.query.orderTime[this.data.query.orderTime.length-1]-this.data.query.orderTime[0]
+            let current=Number(this.data.query.orderTime[0]),timeArr=[]
+            for(let i=0;i<diffence+1;i++){
+                 timeArr.push(current++)
+            }
+            this.data.query.orderTime=current.toString()
+            console.log(timeArr,'current--');
+      
             this.setData({
                   "query.weekTime": arr.toString(),
                   'query.orderPrice': this.data.query.orderPrice * 100
@@ -199,6 +214,7 @@ Page({
             })
       },
       chooseWeekItem(e) {
+           
             let index = Number(e.currentTarget.dataset.week);
             // 保存当前数组中的值
             let currentItemStatus = "weekList[" + index + "].selected";
@@ -230,10 +246,30 @@ Page({
 
       },
       closeModal(e) {
-
-            this.setData({
-                  showOrderTimeModal: false
-            })
+            console.log(this.data.chooseWeekList,'======')
+            if(this.data.chooseWeekList.length==0 && this.data.query.receivingType==2){
+                  wx.showToast({
+                        title:"请选择上课时间",
+                        icon:'none'
+                  })
+            }
+            if(this.data.query.orderTime.length==0 && this.data.query.receivingType==2){
+                  wx.showToast({
+                        title:"请选择上课时间",
+                        icon:'none'
+                  })
+            }else if( Number(this.data.query.orderTime[1])<Number(this.data.query.orderTime[0]) && this.data.query.receivingType==2){
+                  wx.showToast({
+                        title:'结束时间不能小于开始时间',
+                        icon:'none'
+                  })
+                  
+            }else{
+                  this.setData({
+                        showOrderTimeModal: false
+                  })
+            }
+            
 
       },
 
@@ -245,12 +281,28 @@ Page({
                   [`query.${type}`]: e.detail.value
             })
       },
+      getTimer(time,time1){
+            console.log(time,time1,'time1---')
+            let arr=this.data.query.orderTime;
+            arr[0]=(time.detail.value[0]+1).toString();
+            this.setData({
+                  orderTime:[...arr]
+            })
+      },
+      getTimer2(time,time1){
+            let arr=this.data.query.orderTime;
+            arr[1]=(time.detail.value[0]+1).toString();
+            this.setData({
+                  orderTime:[...arr]
+            })
+            console.log(this.data.query.orderTime,'orderTime---')
+      },
       // 点击模块时间分类事件
       chooseTimeTum(e) {
 
 
             this.setData({
-                  certainTimesIndex: e.currentTarget.dataset.cur,
+                  'query.receivingType': e.currentTarget.dataset.cur,
 
             })
       },

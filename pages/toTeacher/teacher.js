@@ -139,13 +139,26 @@ Page({
                         data:this.data.query,
                         callBack:(data)=>{
                               wx.showToast({
-                                    title:'已提交审核'
+                                    title:'已提交审核',
+                                    success(res) {
+                                          http.request({
+                                                url: '/apply/getisTeacher',
+                                                data: {userId:app.globalData.userInfo.userId},
+                                                method: 'GET',
+                                                callBack: (res) => {
+                                                      console.log(res.data, '是否是教师')
+                                                      getApp().globalData.isTeacher = res.data;
+                                                      wx.switchTab({
+                                                            url:'/pages/user/user'
+                                                      })
+                  
+                                                }
+                                          })
+                                         
+                                          
+                                    }
                               })
-                              setTimeout(()=>{
-                                    wx.switchTab({
-                                          url:'/pages/user/user'
-                                    })
-                              },800)
+                             
                         }
                   })
             }

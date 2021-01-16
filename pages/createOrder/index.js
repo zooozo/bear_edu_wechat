@@ -87,7 +87,7 @@ Page({
                         wx.showLoading()
                         let data = res.data;
                         console.log(data, 'data-----')
-                        let arr = data.orderTime.split(',');
+                        let arr = data.orderTime ? data.orderTime.split(','):[];
                         let today = new Date();
                         // 单日毫秒数
                         let oneData = 86400000;

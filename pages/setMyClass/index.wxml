@@ -18,8 +18,8 @@
                 选择时间段
             </view>
             <view class="right-part">
-                <view  style="color:{{certainTimesIndex?'#333':'#666'}}">
-                    {{certainTimesIndex?ListIndex[certainTimesIndex]:'选择时间段'}}
+                <view  style="color:{{query.receivingType?'#333':'#666'}}">
+                    {{query.receivingType?ListIndex[query.receivingType]:'选择时间段'}}
                 </view>
                 <image src="../../images/icon/right.png" class="right-png"></image>
             </view>
@@ -57,28 +57,28 @@
         <view class="content">
             <view class="flex-box flex-space flex-y-center skill-title">
                 <image src="../../images/icon/cancel2.png" class="cancel" bindtap="closeModal"></image>
-                <view style="font-weight:700">选择接单时间</view>
+                <view style="font-weight:700">选择上课时间</view>
                 <view class="sure" bindtap="closeModal" data-choose="chooseTime">确定</view>
             </view>
             <view class="time-list flex-box">
                 <view class="time-head flex-box flex-y-center" bindtap="chooseTimeTum" data-cur="1">
-                    <image src="{{certainTimesIndex==1?'../../images/icon/circle2.png':'../../images/icon/circle.png'}}"
+                    <image src="{{query.receivingType==1?'../../images/icon/circle2.png':'../../images/icon/circle.png'}}"
                            class="icon"></image>
                     <view>全部时间段</view>
                 </view>
                 <view class="time-head flex-box flex-y-center" bindtap="chooseTimeTum" data-cur="2">
-                    <image src="{{certainTimesIndex==2?'../../images/icon/circle2.png':'../../images/icon/circle.png'}}"
+                    <image src="{{query.receivingType==2?'../../images/icon/circle2.png':'../../images/icon/circle.png'}}"
                            class="icon"></image>
                     <view>按周</view>
                 </view>
             </view>
-            <view class="weak-list" wx:if="{{certainTimesIndex==2}}">
+            <view class="weak-list" wx:if="{{query.receivingType==2}}">
                 <view class="week-item {{item.selected?'week-item-active':'week-item-normal'}}" wx:for="{{weekList}}"
                       wx:key="index" data-week="{{index}}" bindtap="chooseWeekItem">
                     {{item.name}}
                 </view>
             </view>
-            <view class="foot-time" wx:if="{{certainTimesIndex==2}}">
+            <view class="foot-time" wx:if="{{query.receivingType==2}}">
                 <view>选择时间段（举例 19:00 至 21:00）</view>
                 <view class="flex-box flex-space" style="width:90%;margin:0 auto;">
                     <picker-view bindchange="getTimer" indicator-style="height: 40px;"

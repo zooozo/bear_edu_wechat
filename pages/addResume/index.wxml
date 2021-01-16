@@ -4,19 +4,26 @@
         <view class="row addHeight">
             <view>昵称</view>
             <view class="flex-center">
-                <input placeholder="请输入昵称(例:Tony)" data-item="name" bindblur='getChangeValuse'/>
+                <input placeholder="请输入昵称(例:Tony)"
+                       data-item="name"
+                       :value="{{query.name}}"
+                       bindblur='getChangeValuse'/>
             </view>
         </view>
         <view class="row addHeight">
             <view>年龄</view>
             <view class="flex-center">
-                <input placeholder="请输入年龄" type='number' data-item="age" bindblur='getChangeValuse'/>
+                <input placeholder="请输入年龄"
+                       :value="{{query.age}}"
+                       type='number' data-item="age" bindblur='getChangeValuse'/>
             </view>
         </view>
         <view class="row addHeight">
             <view>教龄</view>
             <view class="flex-center">
-                <input placeholder="请输入教龄" type='number' data-item="teachAge" bindblur='getChangeValuse'/>
+                <input placeholder="请输入教龄"
+                       :value="{{query.teachAge}}"
+                       type='number' data-item="teachAge" bindblur='getChangeValuse'/>
             </view>
         </view>
         <view class="row addHeight">
@@ -24,7 +31,9 @@
             <view class="flex-center">
                 <textarea placeholder="请输入个人优势"
                           auto-height
-                          data-item="advantage" bindblur='getChangeValuse'/>
+                          :value="{{query.advantage}}"
+                          data-item="advantage"
+                          bindblur='getChangeValuse'/>
             </view>
         </view>
         <view class="row addHeight">
@@ -32,6 +41,7 @@
             <view class="flex-center">
                 <textarea placeholder="请输入本科经历"
                           auto-height
+                          :value="{{query.undergraduate}}"
                           data-item="undergraduate" bindblur='getChangeValuse'/>
             </view>
         </view>
@@ -40,6 +50,7 @@
             <view class="flex-center">
                 <textarea placeholder="请输入研究生经历"
                           auto-height
+                          :value="{{query.postgraduate}}"
                           data-item="postgraduate" bindblur='getChangeValuse'/>
             </view>
         </view>
@@ -48,6 +59,7 @@
             <view class="flex-center">
                 <textarea placeholder="请输入其他学业成就"
                           auto-height
+                          :value="{{query.other}}"
                           data-item="other" bindblur='getChangeValuse'/>
             </view>
         </view>
@@ -56,6 +68,7 @@
             <view class="flex-center">
                 <textarea placeholder="请输入工作经历"
                           auto-height
+                          :value="{{query.working}}"
                           data-item="working" bindblur='getChangeValuse'/>
             </view>
         </view>
@@ -64,6 +77,7 @@
             <view class="flex-center">
                 <textarea placeholder="请输入自我介绍"
                           auto-height
+                          :value="{{query.introduce}}"
                           data-item="introduce" bindblur='getChangeValuse'/>
             </view>
         </view>

@@ -1,15 +1,40 @@
 const http = require('../../utils/http')
-
+const app=getApp()
 Page({
       data: {
-            query: {},
+            query: {
+                  advantage: "",
+                  age: "",
+                  introduce: "",
+                  name: "",
+                  other: "",
+                  postgraduate: "",
+                  teachAge: "",
+                  undergraduate: "",
+                  working: "",
+            },
             currentNumber: 0,
             showCategoryName: '',
             showPicker: false,
 
             multiArray: [[], [], []],
       },
+      onShow(){
+            let data=this.data.query
+            console.log(app.globalData.resume)
+            for(let key in app.globalData.resume){
+                  data[key]=app.globalData.resume[key];
+            
+            }
+            this.setData({
+                  query:data
+            })
+      },
       onLoad: function (options) {
+           
+           
+            
+            
             http.request({
                   method: 'GET',
                   url: '/category/categoryInfo',
@@ -175,13 +200,15 @@ Page({
                         method: 'POST',
                         data: this.data.query,
                         callBack: (data) => {
+                              app.globalData.resume=this.data.query;
+                              
                               wx.showModal({
                                     showCancel: false,
                                     title: '提示',
                                     content: "添加成功",
                                     success() {
-                                          wx.navigateTo({
-                                                url:'/pages/setMyClass/index'
+                                          wx.switchTab({
+                                                url:'/pages/user/user'
                                           })
                                     }
                               })
