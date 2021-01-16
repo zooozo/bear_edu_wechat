@@ -1,4 +1,4 @@
-<!--pages/user/user.wxml-->
+<!--pages/user/match.wxml-->
 <view class='container'>
     <image src="../../images/userbg.png" class="top-bg"></image>
     <view class="header">

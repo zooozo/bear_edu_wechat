@@ -39,14 +39,15 @@
 }
 .order_btn{
     position:absolute;
-    right:20rpx;
-    bottom:20rpx;
+    right:10rpx;
+    bottom:10rpx;
 }
 
 .price{
     color:#FFE567;
-    font-size:26rpx;
+    font-size:24rpx;
     font-weight:600;
+    text-align: center;
 }
 
 .order{
@@ -61,4 +62,5 @@
     font-weight:700;
     font-size:32rpx;
     margin-top:8rpx;
+    align-self: flex-end;
 }

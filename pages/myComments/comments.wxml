@@ -1,0 +1,49 @@
+<view class="apprise">
+    <view wx:for="{{commentsData}}" class="box">
+        <view class="user-order">
+            <image src="../../images/timg.jpeg" class="avatar"></image>
+            <view style="margin-left:24rpx;">
+                <view class="badmtn-traner">{{item.userName}}</view>
+                <view class="flex-center">
+                    <text>{{item.createTime}}</text>
+                    <!--<view class="order-num">-->
+                    <!--第一次下单-->
+                    <!--</view>-->
+                </view>
+            </view>
+        </view>
+        <!--createTime: "2021-01-06,21:17:37"-->
+        <!--delFlag: 0-->
+        <!--evaluateContent: "1000"-->
+        <!--icons: (3) [{…}, {…}, {…}]-->
+        <!--id: 8-->
+        <!--stars: 3-->
+        <!--trainerId: 2-->
+        <!--trainerName: ""-->
+        <!--userId: 2-->
+        <!--userName: ""-->
+        <!--whetherSatisfied:-->
+        <view class="starList">
+            <text>评分：</text>
+            <image src="{{item.icon}}"
+                   wx:for="{{item.icons}}"
+
+                   wx:key="index"
+                   class="star"
+                   data-num="{{index}}" />
+        </view>
+
+        <view class="appraise">
+            <view class="cutTxt">
+                {{item.evaluateContent}}
+            </view>
+            <view class="customBtn theme-border-color theme-font-color delete"
+                  data-item="{{item}}"
+                  bindtap="deleteComment">
+                    删除
+            </view>
+        </view>
+    </view>
+
+
+</view>

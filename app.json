@@ -3,6 +3,15 @@
     "pages/matchTeacher/match",
     "pages/found/found",
     "pages/index/index",
+    "pages/search-show/search-show",
+
+
+
+
+
+    "pages/myComments/comments",
+    "pages/matchTeacher/match",
+
     "pages/createGroupClass/index",
     "pages/user/user",
     "pages/training-space/index",

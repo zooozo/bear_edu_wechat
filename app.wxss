@@ -223,6 +223,17 @@ image {
    border:1rpx solid #1EC19A;
 }
 
+
+.customBtn{
+    width:80rpx;
+    height:40rpx;
+
+    border-radius:10rpx;
+    display:flex;
+    align-self: center;
+    justify-content: center;
+    font-size:24rpx;
+}
 textarea{
     width:346rpx;
     height:100rpx;

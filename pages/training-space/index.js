@@ -2,7 +2,7 @@ const http = require('../../utils/http')
 const app = getApp();
 Page({
     data: {
-        skillList: [],
+        commentsList: [],
         weekList: [
             // '星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六',
             {name: '周日', id: 7},
@@ -21,8 +21,9 @@ Page({
         RecommendList:null
     },
     onLoad: function (options) {
-        console.log(options,'optiosn--')
+      
         this.getTeacherInfo(options.id);
+        this.getCommnetsList(options.id);
     },
     tapFollow() {
         let bool=Number(!this.data.userData.attentionFlag)
@@ -44,11 +45,31 @@ Page({
     },
     goToPayOrder(){
       wx.navigateTo({
+          url:'/pages/createOrder/index?type=1&teacher='+this.data.teacher,
+          success:(res)=> {
+              // 把本页面的用户数据用数据带到打开的页面
+              // res.eventChannel.emit('postUserData',user)
+              this.setData({
+                  teacher:Object.assign({type:1},this.data.teacher)
+              },()=>{
+                  wx.setStorageSync('trainerUser',this.data.teacher)
+              })
+
+          }
+      })
+    },
+    goToGroupOrder(){
+      wx.navigateTo({
           url:'/pages/createOrder/index',
           success:(res)=> {
               // 把本页面的用户数据用数据带到打开的页面
               // res.eventChannel.emit('postUserData',user)
-              wx.setStorageSync('trainerUser',this.data.teacher)
+              this.setData({
+                  teacher:Object.assign({type:2},this.data.teacher)
+              },()=>{
+                  wx.setStorageSync('trainerUser',this.data.teacher)
+              })
+        
           }
       })
     },
@@ -82,12 +103,25 @@ Page({
                  list.push(res.data.yeCategoryName,res.data.parentName,res.data.categoryName)
                   this.setData({
                         teacher:res.data,
-                        skillList:list
+                       
                   })
 
                console.log(res,'res--')
             }
         })
+    },
+    
+    getCommnetsList(id){
+           http.request({
+               url:'/trainerComment/teacherComments',
+               method:'GET',
+               data:{
+                   trainerId:id || 3
+               },
+               callBack:()=>{
+               
+               }
+           })
     },
     // 获取推荐列表
     onShow() {

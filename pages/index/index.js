@@ -32,7 +32,7 @@ Page({
                   name:'文化类'
             },],
             query:{
-                  requestType:0,
+                  requestType:99,
                   content:''
             }
       },
@@ -59,6 +59,14 @@ Page({
               }
 
         })
+      },
+      getBanners(){
+            http.request({
+                  method:'GET',
+                  url:'/indexImgs',
+                  // data
+                  
+            })
       },
       onChange(e){
             console.log(e,'e-----')
