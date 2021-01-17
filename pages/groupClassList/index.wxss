@@ -1,0 +1,31 @@
+
+page{
+    background:#F5F5F5;
+    height:100%;
+}
+.list{
+    padding:32rpx;
+
+}
+
+.group_item{
+    width:100%;
+    box-sizing: border-box;
+    min-height:300rpx;
+    background:#fff;
+    color:#333;
+    border-radius:14rpx;
+    padding:20rpx;
+    font-size:26rpx;
+
+}
+.title{
+    height:60rpx;
+    border-bottom:1rpx solid #fdfdfd;
+}
+.state{
+    color:red;
+    font-size:24rpx;
+}
+
+

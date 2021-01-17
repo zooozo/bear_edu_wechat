@@ -14,7 +14,7 @@
         <view class="line">
             <!--            中间断层-->
         </view>
-        <view class="choose-list">
+        <view class="choose-list" wx:if="{{userData.type==1}}">
 
             <!--<view style="min-width:180rpx;">选择场地</view>-->
             <!--<view class="txt cutTxt1 {{showData.stadium?'txtColor':''}}">-->
@@ -52,6 +52,7 @@
                 </view>
             </view>
         </view>
+         
         <view class="line">
             <!--            中间断层-->
         </view>
@@ -64,6 +65,7 @@
             <!--<view>3、授课人员到场后，会要求用户出示短信验证码，请及时查看手机信息提示，避免错过订单。</view>-->
         <!--</view>-->
     </view>
+   
     <view class="foot-btn">
         <view class="flex-center">
             <text>合计：</text>

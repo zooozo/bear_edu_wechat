@@ -1,0 +1,18 @@
+
+
+
+<view class="list">
+   <view class="group_item">
+        <view class="title flex-box flex-space">
+            <view>团课名称:舞蹈</view>
+            <view class="state">进行中</view>
+        </view><view class="title flex-box flex-space">
+            <view>团课名称:舞蹈</view>
+            <view class="state">进行中</view>
+        </view>
+       <view>团课价格:110000</view>
+       <view>团课人数:舞蹈</view>
+       <view>购买人数:舞蹈</view>
+       <view>课程小时:3小时</view>
+   </view>
+</view>

@@ -1,7 +1,9 @@
 {
   "pages": [
-    "pages/createOrder/index",
     "pages/index/index",
+    "pages/groupClassList/index",
+    "pages/createOrder/index",
+
     "pages/training-space/index",
 
     "pages/myComments/comments",
