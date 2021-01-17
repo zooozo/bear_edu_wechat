@@ -22,6 +22,7 @@ Page({
            
             {url: '../../images/icon/setting.png', text: '课程设置', path: '/pages/setMyClass/index'},
             {url: '../../images/icon/setting.png', text: '创建团课', path: '/pages/createGroupClass/index'},
+            {url: '../../images/icon/setting.png', text: '我的团课', path: '/pages/groupClassList/index'},
 
         ]
     },
@@ -80,8 +81,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        console.log(app.globalData.isTeacher.trainerStatus,'onShow')
-        
+       
         let state=app.globalData.isTeacher.trainerStatus ;
         console.log(state,'state------')
         let txt=''
@@ -97,6 +97,7 @@ Page({
             BtnTxt:txt,
             BtnStatus:state
         })
+       
         
         
         

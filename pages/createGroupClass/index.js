@@ -45,10 +45,11 @@ Page({
             console.log(data,'data---')
             this.setData({
                   showCategoryName:data.detail.showCategoryName,
-                  'query.courseId':data.detail.CategoryId
+                  'query.courseId':data.detail.categoryId
             })
       },
       createGroupClass(){
+            console.log(this.data.query.courseId)
             if(!this.data.query.courseId){
                   wx.showToast({
                         title:'请选择课程'

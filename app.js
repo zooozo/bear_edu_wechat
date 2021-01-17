@@ -40,17 +40,8 @@ App({
       },
       // 百度经纬度转腾讯的经纬度
 
-      watch: function (ctx, obj, callBack) {
-            Object.keys(obj).forEach(key => {
-                  this.observer(ctx.data, key, ctx.data[key], function (value) {
-                        obj[key].call(ctx, value)
-                  })
-            })
-            if (callBack) {
-                  callBack(obj)
-            } else {
-                  return obj
-            }
+      watch: function (obj,key) {
+      
 
       },
 // 监听属性，并执行监听函数

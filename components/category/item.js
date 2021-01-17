@@ -101,7 +101,9 @@ Component({
       }
       let first = this.data.multiArray[0][selectArr[0]]
       let second = this.data.multiArray[1][selectArr[1]]
+      
       let three = this.data.multiArray[2][selectArr[2]]
+     
       console.log(this.data.multiArray[0][selectArr[0]], this.data.multiArray[1][selectArr[1]], this.data.multiArray[2][selectArr[2]])
       let str = first.categoryName + "-" + second.categoryName + '-' + three.categoryName
 

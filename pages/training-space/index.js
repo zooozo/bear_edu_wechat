@@ -20,7 +20,7 @@ Page({
         showMore:false
     },
     onLoad: function (options) {
-      
+        console.log(options,'options----')
         this.getTeacherInfo(options.id);
       
     },
@@ -113,7 +113,7 @@ Page({
     getGroupClassList(id){
         http.request({
             url:'/groupClass/listTeacherClass',
-            data:{  trainerId:id},
+            data:{  teacherId:id},
             method:'GET',
             callBack:(res)=>{
             
