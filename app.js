@@ -72,6 +72,7 @@ App({
       
 
       globalData: {
+            resumen:{},
             isTeacher: {},
             // 定义全局请求队列
             requestQueue: [],

@@ -93,7 +93,8 @@ Page({
 
       },
       submitFormData() {
-           if( app.globalData.isTeacher.trainerStatus &&  app.globalData.isTeacher.trainerStatus==0){
+            console.log(app.globalData.isTeacher.trainerStatus,'isTAEAHCER---')
+           if( app.globalData.isTeacher.trainerStatus==0){
                   wx.showToast({
                         title:'正在为您审核',
                         icon:'none'

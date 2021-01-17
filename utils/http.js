@@ -155,8 +155,9 @@ function getIsTeacher(params) {
 		callBack: (res) => {
 			console.log(res.data, '是否是教师')
 			
-			getApp().globalData.isTeacher = res.data;
+			
 			if(res.data){
+				getApp().globalData.isTeacher = res.data;
 				getTeacherInfo(params)
 			}
 			
@@ -172,7 +173,10 @@ function getTeacherInfo(id){
 		url: '/apply/getTeacherResume',
 		data: id,
 		callBack: (res) => {
-		  getApp().globalData.resume=res.data;
+		  if(res.data){
+		  		console.log(res.data,'getTeacherInfo---')
+			  getApp().globalData.resume=res.data;
+		  }
 		}
 	})
 }
