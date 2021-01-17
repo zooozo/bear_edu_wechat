@@ -1,26 +1,19 @@
 {
   "pages": [
+    "pages/createOrder/index",
     "pages/index/index",
+    "pages/training-space/index",
+
+    "pages/myComments/comments",
     "pages/user/user",
-
-
-
-
-
     "pages/matchTeacher/match",
-
-
-
     "pages/found/found",
     "pages/search-show/search-show",
-    "pages/myComments/comments",
     "pages/createGroupClass/index",
-
-    "pages/training-space/index",
     "pages/setMyClass/index",
     "pages/mybag/account-detail/index",
     "pages/order/orderIndex",
-    "pages/createOrder/index",
+
     "pages/toTeacher/teacher",
     "pages/addResume/index",
     "pages/appraise/index",

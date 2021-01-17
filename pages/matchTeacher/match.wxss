@@ -67,7 +67,7 @@ page{
  .btn_group{
      display:flex;
      position:absolute;
-     bottom:-20rpx;
+     bottom:-35rpx;
      width:100%;
      justify-content: center;
      left:0;

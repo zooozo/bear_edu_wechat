@@ -109,6 +109,15 @@
     color: #333;
     font-size: 40rpx;
     font-weight: 700;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+}.badmtn-traner .time{
+    color: #666;
+    font-size: 24rpx;
+
+
 }
 
 .trainer .price .txt {
@@ -174,16 +183,20 @@
     flex-shrink: 0;
     margin-bottom: 16rpx;
 }
-
+.item{
+    padding:30rpx 0 ;
+    border-bottom:1rpx solid #ededed;
+}
 .user-order {
     display: flex;
-    margin-top:52rpx;
+
 }
 
 .user-order .avatar{
     width: 100rpx;
     height: 100rpx;
     border-radius: 50%;
+    flex-shrink: 0;
 }
 .user-order .flex-center{
    color:#C6C6C6;
@@ -268,4 +281,11 @@
     font-size: 32rpx;
     width:406rpx;
     height:90rpx;
+}
+.star{
+    width:30rpx;
+    height:30rpx;
+    margin-right:20rpx;
+    margin-top:10rpx;
+
 }

@@ -35,6 +35,7 @@ page {
     color: #eb2444;
     padding-bottom: 10rpx;
     padding-left: 10rpx;
+    flex-shrink: 0;
 
 }
 

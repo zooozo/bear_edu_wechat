@@ -11,8 +11,8 @@
 }
 .teacher image{
     border-radius: 50%;
-    width:200rpx;
-    height:200rpx;
+    width:160rpx;
+    height:160rpx;
     align-self: center;
 }
 
@@ -36,6 +36,8 @@
     opacity: .8;
 }.teacher_dec .txt{
    width:260rpx;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .order_btn{
     position:absolute;

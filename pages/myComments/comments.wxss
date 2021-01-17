@@ -71,3 +71,11 @@
     flex-shrink: 0;
     margin-left:14rpx;
 }
+
+.userAvatar {
+    width: 128rpx;
+    height: 128rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    display: block;
+}

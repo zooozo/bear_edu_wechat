@@ -40,7 +40,7 @@ Page({
             disableTime: [],
             payType:0,
             query: {
-                  channel: 0,
+                  channel: 1,
                   refId: 1,
                 
                   trainerId: 84,
@@ -58,7 +58,7 @@ Page({
                         console.log(res, 'res---')
                         this.setData({
                               userData: res.data,
-                              'query.trainerId': res.data.userId,
+                              'query.trainerId': res.data.id,
                               'query.refId': res.data.categoryId
                         })
 
@@ -340,26 +340,56 @@ Page({
             }
             let that = this;
             // qyyyNKno0QhOv7Mgc1Uk1qMkJQxV7WAamQ6I1zA47LA
-            wx.requestSubscribeMessage({
-                  tmplIds: ['g6h1Vhd3frq2B85MLoeTLto5I_SXzoDDEesfzKvVfMw'],
-                  success() {
-
-                  },
-                  fail(err) {
-                        console.log(err)
-                  },
-                  complete() {
-                        http.request({
-                              url: '/ballOrder/payOrder',
-                              data: that.data.query,
-                              callBack: (res) => {
-                                    wx.hideToast();
-                                    console.log(res, 'res---')
-                                    that.requestPaymentForWX(res.data);
-                              }
-                        })
-                  }
-            })
+            if(this.data.query.channel==0){
+                  wx.requestSubscribeMessage({
+                        tmplIds: ['g6h1Vhd3frq2B85MLoeTLto5I_SXzoDDEesfzKvVfMw'],
+                        success() {
+                  
+                        },
+                        fail(err) {
+                              console.log(err)
+                        },
+                        complete() {
+                              http.request({
+                                    url: '/ballOrder/payOrder',
+                                    data: that.data.query,
+                                    callBack: (res) => {
+                                          wx.hideToast();
+                                          if(res.code==200){
+                                               
+                                                console.log(res, 'res---')
+                                                that.requestPaymentForWX(res.data);
+                                          }else{
+                                                wx.showToast({
+                                                      title:res.msg,
+                                                      icon:'none'
+                                                })
+                                          }
+                                         
+                                    }
+                              })
+                        }
+                  })
+            }else{
+                  http.request({
+                        url: '/ballOrder/payOrder',
+                        data: that.data.query,
+                        callBack: (res) => {
+                              wx.hideToast();
+                             if(res.code!=200){
+                                   wx.showToast({
+                                         title:res.msg,
+                                         icon:'none'
+                                   })
+                             }else{
+                                   wx.navigateTo({
+                                         url: '/pages/order/orderIndex'
+                                   })
+                             }
+                        }
+                  })
+            }
+            
 
       },
       requestPaymentForWX(data) {

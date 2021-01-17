@@ -88,7 +88,7 @@ Page({
         if(state==0){
             txt='待审核'
         }else if(state==2){
-            txt='审核通过'
+            txt='审核未通过'
         }else{
             txt=''
         }

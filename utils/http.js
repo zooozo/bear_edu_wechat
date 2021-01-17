@@ -22,6 +22,7 @@ function request(params, isGetTonken) {
 		dataType: 'json',
 		responseType: params.responseType == undefined ? 'text' : params.responseType,
 		success: function (res) {
+			console.log(res,'res=====')
 			if (res.statusCode == 200) {
 				//如果有定义了params.callBack，则调用 params.callBack(res.data)
 				if (params.callBack) {
@@ -48,6 +49,12 @@ function request(params, isGetTonken) {
 					icon: "none"
 				})
 				
+			}else if(res.data.code!=200){
+				
+				wx.showToast({
+					title: res.data.msg,
+					icon: "none"
+				})
 			} else {
 				//如果有定义了params.errCallBack，则调用 params.errCallBack(res.data)
 				if (params.errCallBack) {

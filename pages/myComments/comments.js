@@ -49,18 +49,22 @@ Page({
             title:'提示',
             content:'确认删除这条评论？',
             success(res) {
-                http.request({
-                    url:'/trainerComment/removeMyComment',
-                    method:'POST',
-                    data:{
-                        id:current.id
-                    },
-                    callBack:(res)=>{
-                        wx.showToast({
-                            title:'删除成功'
-                        })
-                    }
-                })
+                console.log(res,'res---')
+                if(res.confirm){
+                    http.request({
+                        url:'/trainerComment/removeMyComment',
+                        method:'POST',
+                        data:{
+                            id:current.id
+                        },
+                        callBack:(res)=>{
+                            wx.showToast({
+                                title:'删除成功'
+                            })
+                        }
+                    })
+                }
+                
             }
         })
     },

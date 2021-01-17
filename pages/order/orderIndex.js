@@ -80,12 +80,12 @@ Page({
     },
 
     toOrderDetail(e){
-        let id=e.currentTarget.dataset.order
+        let id=e.currentTarget.dataset.item.id
         // wx.navigateTo({
         //     url:'/pages/order/orderDetail/detail?id='+id+'?type='+this.data.activeIndex
         // })
           wx.navigateTo({
-            url:'/pages/appraise/index'
+            url:'/pages/appraise/index?id='+id
         })
     },
     showCancelModal(e) {

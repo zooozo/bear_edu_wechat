@@ -20,19 +20,22 @@ Page({
             multiArray: [[], [], []],
       },
       onShow(){
+      
+      },
+      onLoad: function (options) {
+      
             let data=this.data.query
             console.log(app.globalData.resume)
-            for(let key in app.globalData.resume){
+            for(let key in data){
+                  console.log(key,'key-====')
                   data[key]=app.globalData.resume[key];
             
+            
             }
+            console.log( data)
             this.setData({
                   query:data
             })
-      },
-      onLoad: function (options) {
-           
-           
             
             
             http.request({
@@ -42,7 +45,7 @@ Page({
                         parentId: 0
                   },
                   callBack: (res) => {
-                        res.splice(0, 1)
+                     
                         let arr = this.data.multiArray;
                         arr[0] = res
 

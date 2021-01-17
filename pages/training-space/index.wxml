@@ -116,24 +116,46 @@
             <image src="../../images/test/badmtn.png" class="pic"></image>
             <!--            <view><text style="color:#999">业余等级：</text><text style="color:#666">{{userData.skillLevel}}级</text></view>-->
         </view>
-        <view class="user-order">
-            <image src="../../images/timg.jpeg" class="avatar"></image>
-            <view style="margin-left:24rpx;">
-                <view class="badmtn-traner">成都小甜甜</view>
-                <view class="flex-center">
-                    <text>07-30</text>
-                    <view class="order-num">
-                        第一次下单
+        <!--createTime: "2021-01-16T23:08:48"-->
+        <!--delFlag: 0-->
+        <!--evaluateContent: "大说服力；卡是打飞机奥斯卡了达芬奇还是自考人脉圈；虽然是考虑到放弃；周日上课目前；收入状况目前；思之如狂目前； "-->
+        <!--id: 11-->
+        <!--stars: 3-->
+        <!--trainerId: 27-->
+        <!--trainerName: "啦啦"-->
+        <!--userAvatar: "https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJfiahy0Hia2ytHUAbc2xia9nOf9h19QQYBxIsFd66xel0cB4GgtuD2NPU1g3AFO3I7tpnp40HibIhjZw/132"-->
+        <!--userId: 27-->
+        <!--userName: "Rainie。"-->
+        <!--whetherSatisfied: 1-->
+
+        <view  wx:for="{{currentMomentList}}" class="item">
+            <view class="user-order">
+                <image src="{{item.userAvatar}}" class="avatar"></image>
+                <view style="margin-left:24rpx;width:100%;">
+                    <!--<view class="badmtn-traner"></view>-->
+                    <view class="badmtn-traner">
+                        <text>{{item.userName}}</text>
+                        <text class="time">{{item.createTime}}</text>
+
                     </view>
+                    <image src="{{item.icon}}"
+                           wx:for="{{item.icons}}"
+
+                           wx:key="index"
+                           class="star"
+                           data-num="{{index}}" />
                 </view>
+
+            </view>
+
+            <view class="appraise">
+                {{item.evaluateContent}}
             </view>
         </view>
-        <view class="appraise">
-            球技很好很赞，球技很好很赞球技很好很赞，球技很好很赞，球技很好很赞
-        </view>
+
         <view class="flex-center">
-            <view class="more">
-                查看更多评价
+            <view class="more" bindtap="showMoreList">
+                {{showMore?'收起':'查看更多'}}
             </view>
         </view>
 

@@ -14,16 +14,15 @@ Page({
             {name: '周六', id: 6},
         ],
         skillLeave: ['业余一级', '业余二级', '业余三级'],
-        teacher: {
-
-
-        },
-        RecommendList:null
+        teacher: {},
+        commentsList:null,
+        currentMomentList:[],
+        showMore:false
     },
     onLoad: function (options) {
       
         this.getTeacherInfo(options.id);
-        this.getCommnetsList(options.id);
+      
     },
     tapFollow() {
         let bool=Number(!this.data.userData.attentionFlag)
@@ -84,7 +83,7 @@ Page({
             method: 'GET',
             url: '/apply/getTeacherResume',
             data: {
-                userId:id || 3
+                userId:id || 27
             },
             callBack: (res) => {
                 console.log(res.data,'res---')
@@ -105,12 +104,22 @@ Page({
                         teacher:res.data,
                        
                   })
-
+                this.getCommnetsList(id);
+                 this.getGroupClassList(id);
                console.log(res,'res--')
             }
         })
     },
-    
+    getGroupClassList(id){
+        http.request({
+            url:'/groupClass/listTeacherClass',
+            data:{  trainerId:id},
+            method:'GET',
+            callBack:(res)=>{
+            
+            }
+        })
+    },
     getCommnetsList(id){
            http.request({
                url:'/trainerComment/teacherComments',
@@ -118,10 +127,46 @@ Page({
                data:{
                    trainerId:id || 3
                },
-               callBack:()=>{
-               
+               callBack:(result)=>{
+                   for(let i=0;i<result.length;i++){
+                       result[i].createTime=result[i].createTime.split('T').toString().replace(',','  ')
+                       result[i].icons=[]
+                       for(let j=0;j<result[i].stars;j++){
+            
+                           result[i].icons.push({
+                               icon:'../../images/icon/yike.png'
+                           })
+                       }
+                   }
+                   console.log(result,'result---')
+                   let arr=result
+                   this.setData({
+                     
+                       commentsList:result,
+    
+                       currentMomentList:result.length>3?result.slice(3):result
+                   })
+                
                }
            })
+    },
+    showMoreList(){
+        this.setData({
+            showMore:!this.data.showMore,
+            
+        },()=>{
+            if(this.data.showMore){
+                this.setData({
+                    currentMomentList:this.data.commentsList,
+                })
+            }else{
+                this.setData({
+                    currentMomentList:this.data.commentsList.slice(3),
+                })
+            }
+            
+           
+        })
     },
     // 获取推荐列表
     onShow() {

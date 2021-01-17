@@ -220,6 +220,7 @@ page {
     display: flex;
     height: auto !important;
     flex-wrap: wrap;
+    justify-content: space-between;
 
 }
 
@@ -231,7 +232,7 @@ page {
     justify-content: center;
     font-size: 26rpx;
     border-radius: 8rpx;
-    margin-left: 14rpx;
+
     box-sizing: border-box;
     margin-bottom: 24rpx;
     position: relative;

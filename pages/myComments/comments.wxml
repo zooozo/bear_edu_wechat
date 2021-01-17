@@ -1,7 +1,9 @@
 <view class="apprise">
     <view wx:for="{{commentsData}}" class="box">
         <view class="user-order">
-            <image src="../../images/timg.jpeg" class="avatar"></image>
+            <view class="userAvatar">
+                <open-data type="userAvatarUrl"></open-data>
+            </view>
             <view style="margin-left:24rpx;">
                 <view class="badmtn-traner">{{item.userName}}</view>
                 <view class="flex-center">

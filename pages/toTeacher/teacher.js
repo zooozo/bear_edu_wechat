@@ -26,8 +26,11 @@ Page({
            for(let key in  app.globalData.isTeacher){
                  obj[key]=app.globalData.isTeacher[key];
            }
-            
-            
+      
+           
+            obj.name=obj.trainerName
+            obj.idCard=obj.idNumber;
+           
             this.setData({
                  query:obj
             })

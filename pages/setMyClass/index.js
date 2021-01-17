@@ -28,11 +28,26 @@ Page({
             showCategoryName: '',
             query: {
                   receivingType:1,
+                  orderPrice:"",
+                  orderTime:[],
+                  weekTime:[],
+                  categoryId:'',
+                  parentId:'',
+                  yeCategoryId:''
                   
-                  orderTime:[]
+                
             }
       },
       onLoad: function (options) {
+            // ategoryId: 101
+            // orderPrice: 13300
+            // orderTime: ""
+            // parentId: 100
+            // receivingType: 2
+            // weekTime: "1,2,3,4,5,6,7"
+            // yeCategoryId: 99
+            this.initData()
+            
             let arr = []
             for (let i = 1; i <= 24; i++) {
                   if (i < 10) {
@@ -70,6 +85,48 @@ Page({
                         })
                   }
 
+            })
+      },
+      initData(){
+            if(!app.globalData.resume) return
+            let data=this.data.query;
+            //
+            for(let key in data){
+                  if(key=='orderPrice'){
+                        data[key]=app.globalData.resume[key]/100
+                  }else if(key=='orderTime'){
+                        data[key]=app.globalData.resume.orderTime.split(',')
+                  }else{
+                        data[key]=app.globalData.resume[key];
+                  }
+            
+            
+            }
+            let arr1=this.data.weekList;
+            let weekTime=app.globalData.resume.weekTime.split(',')
+            for(let i=0;i<arr1.length;i++){
+                  for(let j=0;j<weekTime.length;j++){
+                        if(weekTime[j]==arr1[i].id){
+                              arr1[i].selected=true
+                        }
+                  
+                  }
+            
+            }
+            let str=app.globalData.resume.yeCategoryName+'-'+app.globalData.resume.parentName+'-'+app.globalData.resume.categoryName;
+      
+            let chooseList=[]
+            arr1.forEach((item)=>{
+                  if(item.selected){
+                        chooseList.push(item)
+                  }
+            })
+            console.log(data,'arr---------')
+            this.setData({
+                  chooseWeekList:chooseList,
+                  weekList:arr1,
+                  showCategoryName:str,
+                  query:data
             })
       },
       chooseTime() {
@@ -144,7 +201,7 @@ Page({
 
       },
       OnSubmit() {
-
+            console.log(this.data.query,'query---')
             if (!this.data.query.yeCategoryId || !this.data.query.parentId || !this.data.query.categoryId) {
                   wx.showModal({
                         title: '提示',
@@ -184,9 +241,9 @@ Page({
             for(let i=0;i<diffence+1;i++){
                  timeArr.push(current++)
             }
-            this.data.query.orderTime=current.toString()
+            this.data.query.orderTime=timeArr.toString()
             console.log(timeArr,'current--');
-      
+            arr=arr.sort();
             this.setData({
                   "query.weekTime": arr.toString(),
                   'query.orderPrice': this.data.query.orderPrice * 100
@@ -200,8 +257,10 @@ Page({
                         wx.showToast({
                               duration:3000,
                               title: '修改成功',
-                              success(res) {
+                              success:(res)=> {
                                     console.log(res,'res---')
+                                    
+                                    app.globalData.resume=Object.assign(app.globalData.resume,this.data.query)
                                    setTimeout(()=>{
                                          wx.switchTab({
                                                url: '/pages/user/user'
@@ -244,6 +303,11 @@ Page({
 
             console.log(arr, 'arr--')
 
+      },
+      closeModal1(){
+            this.setData({
+                  showOrderTimeModal: false
+            })
       },
       closeModal(e) {
             console.log(this.data.chooseWeekList,'======')

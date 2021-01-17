@@ -43,7 +43,7 @@ Page({
 	},
 	onLoad: function (options) {
 		this.setData({
-			'query.trainerId':app.globalData.userInfo.userId
+			'query.trainerId':options.id
 		})
 	},
 	
