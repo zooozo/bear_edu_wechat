@@ -47,7 +47,7 @@ Page({
         
         wx.setStorage({
             key:'trainerUser',
-            data:this.data.teacher,
+            data:Object.assign(this.data.teacher,{type:1}),
             success:(res)=> {
                 wx.navigateTo({
                     url:'/pages/createOrder/index?type=1&teacher='+this.data.teacher,

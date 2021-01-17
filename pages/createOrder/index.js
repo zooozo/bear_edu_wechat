@@ -195,19 +195,22 @@ Page({
 		// 	chooseCurrentIndex: idx
 		// })
 		
+		let idx = e.currentTarget.dataset.choose;
+		let between;
+		
+		
 		// 显示的数组
 		let arr = this.data.workTime.orderTime;
-
+		
 		// 记录点击的数组
 		let arr2 = this.data.chooseTimeIndex
 		arr2 = Array.from(new Set(arr2))
 		//如果点击的是同一个
-
+		
 		let index = arr2.findIndex((item) => item == idx);
 		if (arr[idx].disabled) return
 		// 点击选中
 		if (index > -1) {
-			console.log("222")
 			arr2.sort();
 			if (idx != arr2[0] && idx != arr2[arr2.length - 1]) {
 				let spliceArr = arr2.splice(index, arr.length - 1);
@@ -220,65 +223,68 @@ Page({
 				}
 			} else {
 				// 如果是第一个或者最后一个就把状态改变并把存入选中的数组删掉
-
+				
 				arr[idx].select = !arr[idx].select
 				arr2.splice(index, 1)
 				// console.log(arr2,'arr2---')
 			}
-
+			
 		} else {
-
-
+			
+			
 			arr2 = arr2.concat(idx)
-
+			
 			// 先去重
 			arr2 = Array.from(new Set(arr2))
 			arr2.sort()
-			console.log(arr2, '选中的arr')
-			if (idx - arr2[arr2.length - 1] > 1 && arr2[0] - idx < 0) return
-
-
+			console.log(arr2,'选中的arr')
+			if(idx-arr2[arr2.length-1]>1 && arr2[0]-idx<0) return
+			
+			
+			
 			// 算出数组第一个和最后一个的差额
 			between = arr2[arr2.length - 1] - arr2[0];
 			for (let i = -1; i < between; i++) {
-				console.log(arr[arr2[0] + i + 1], '---')
-				if (arr[arr2[0] + i + 1].disabled) {
-
-
-				} else {
-					arr[arr2[0] + i + 1].select = true;
-
-					arr2 = arr2.concat(arr2[0] + i + 1)
-					console.log(arr2, 'arr2---')
-				}
-
+				console.log( arr[arr2[0] + i + 1],'---')
+				if(arr[arr2[0] + i + 1].disabled) break;
+				arr[arr2[0] + i + 1].select = true;
+				
+				arr2 = arr2.concat(arr2[0] + i + 1)
+				
 				// 把中间的也存入选中的数组当中
-
-
+				
+				
 			}
 			return
 			//如果between小于0
 			if (between <= 0) {
-			      // 说明是选中的相连的两个，改变其中一个值就可以了
-			      arr[arr2[0]].select = !arr[arr2[0]].select;
+				// 说明是选中的相连的两个，改变其中一个值就可以了
+				arr[arr2[0]].select = !arr[arr2[0]].select;
 			} else {
-			      // i=-1   因为要把自己也删掉
-			      console.log('选中')
-			      for (let i = -1; i < between; i++) {
-			            console.log( arr[arr2[0] + i + 1],'---')
-			            if(arr[arr2[0] + i + 1].disabled) break;
-			            arr[arr2[0] + i + 1].select = true;
-
-			            arr2 = arr2.concat(arr2[0] + i + 1)
-
-			            // 把中间的也存入选中的数组当中
-
-
-			      }
+				// i=-1   因为要把自己也删掉
+				console.log('选中')
+				for (let i = -1; i < between; i++) {
+					console.log( arr[arr2[0] + i + 1],'---')
+					if(arr[arr2[0] + i + 1].disabled) break;
+					arr[arr2[0] + i + 1].select = true;
+					
+					arr2 = arr2.concat(arr2[0] + i + 1)
+					
+					// 把中间的也存入选中的数组当中
+					
+					
+				}
 			}
 			
 		}
-		
+		arr2 = Array.from(new Set(arr2))
+		arr2 = arr2.sort();
+		console.log(idx,'idx---')
+		this.setData({
+			'workTime.orderTime': arr,
+			chooseTimeIndex: arr2,
+			chooseCurrentIndex: idx
+		})
 		
 		
 	},
