@@ -50,6 +50,13 @@ page{
     color: #333;
     font-weight: 600;
 }
+.skillList .row1 {
+    min-height:150rpx;
+    padding: 0 32rpx;
+    font-size: 30rpx;
+    color: #333;
+    font-weight: 600;
+}
 
 .right-png {
     height: 30rpx;
@@ -68,7 +75,7 @@ page{
 .skillList .right-part .price {
     display: flex;
     align-items: center;
-    font-size: 30rpx;
+    font-size: 28rpx;
     color: #666666;
     font-weight: 400;
     text-align: right;

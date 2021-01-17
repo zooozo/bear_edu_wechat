@@ -18,7 +18,7 @@
                 选择时间段
             </view>
             <view class="right-part">
-                <view  style="color:{{query.receivingType?'#333':'#666'}}">
+                <view style="color:{{query.receivingType?'#333':'#666'}}">
                     {{query.receivingType?ListIndex[query.receivingType]:'选择时间段'}}
                 </view>
                 <image src="../../images/icon/right.png" class="right-png"></image>
@@ -26,24 +26,28 @@
         </view>
         <view class="row flex-box flex-space flex-y-center">
             <view>
-                课程定价
+                课程小时价
             </view>
             <view class="right-part">
-                <input   class="price" placeholder="请输入您课程的价格"
-                         type="number"
-                         value="{{query.orderPrice}}"
-                         data-type="orderPrice"
-                         bindblur="getOrderPrice"/>
+                <input class="price" placeholder="请输入您课程的每小时价格"
+                       type="number"
+                       value="{{query.orderPrice}}"
+                       data-type="orderPrice"
+                       bindblur="getOrderPrice"/>
             </view>
         </view>
-<!--        <view class="row flex-box flex-space flex-y-center">-->
-<!--            <view>-->
-<!--                手机号码-->
-<!--            </view>-->
-<!--            <view class="right-part">-->
-<!--                <input   class="price" placeholder="请收入您的手机号码"  type="number" data-type="mobile" bindblur="getOrderPrice"/>-->
-<!--            </view>-->
-<!--        </view>-->
+        <view class="row1 flex-box flex-space flex-y-center">
+            <view>
+                手机号码
+            </view>
+            <view class="right-part">
+                <textarea
+                        auto-height
+                        style="min-height:200rpx;"
+                        class="price"
+                        placeholder="请收入课程介绍" type="number" data-type="courseDesc" bindinput="getOrderPrice"/>
+            </view>
+        </view>
     </view>
     <view class="flex-center">
         <view class="defaultBtn" bindtap="OnSubmit">确定</view>

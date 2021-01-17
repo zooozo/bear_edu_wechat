@@ -64,7 +64,7 @@
 <!--            working: "2018英国教育中心（UKEC）实习"-->
             <view class="dec">
                 <text style="color:#999">所教科目：</text>
-                <text>英语、化学、数学、物理</text>
+                <text>{{teacher.skillList}}理</text>
             </view>
             <view class="dec">
                 <text style="color:#999">个人优势：</text>
@@ -88,10 +88,9 @@
             <view class="badmtn-traner">课程介绍
 <!--                <text style="color:#999;font-size:24rpx">(200)</text>-->
             </view>
-            <view class="skill-list" style="{{skillList.length<3?'width:70%':' justify-content: space-between'}}">
-                <view class="skill-item" wx:for="{{skillList}}" wx:key="index">
-                    {{item}}
-                </view>
+
+            <view>
+                {{teacher.courseDesc}}
             </view>
         </view>
         <view class="skill">

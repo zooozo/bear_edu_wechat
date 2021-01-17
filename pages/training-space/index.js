@@ -91,8 +91,9 @@ Page({
                   res.data.weekTime=arr.toString();
                  if(res.data.receivingType==2) res.data.orderTime=res.data.orderTime.split(',')
                   res.data.orderPrice=parseFloat(res.data.orderPrice/100)
-                  let list=[];
-                 list.push(res.data.yeCategoryName,res.data.parentName,res.data.categoryName)
+                 //  let list=[];
+                 // list.push(res.data.yeCategoryName,res.data.parentName,res.data.categoryName)
+                let list=res.data.yeCategoryName+"-"+res.data.parentName+"-"+res.data.categoryName
                   this.setData({
                         skillList:list,
                         teacher:res.data,

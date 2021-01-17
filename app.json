@@ -2,9 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/createOrder/index",
-
-
-
     "pages/matchTeacher/match",
     "pages/user/user",
     "pages/groupClassList/index",
