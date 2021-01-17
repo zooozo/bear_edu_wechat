@@ -2,23 +2,36 @@
 
 
 <view class="list">
-   <view class="group_item">
+    <!--"buyPersons": 0,  // 已购买人数-->
+    <!--"classes": 3,   // 几节课。团购课程数量-->
+    <!--"courseId": 12,  //课程id-->
+    <!--"courseName": "舞蹈",  // 课程名称-->
+    <!--"createTime": "2020-12-17T16:44:08",-->
+    <!--"hours": 3,   //团课一节课小时数-->
+    <!--"id": 9,-->
+    <!--"persons": 1,   //团课最低人数-->
+    <!--"price": 20000,   //团课的价格，单位分-->
+    <!--"startTime": "2021-03-11T10:10:10",   //授课开始时间-->
+    <!--"status": 1,    //状态0：拼团失败，1：进行中，2：拼团成功, 3:已取消，4: 拼团成功(已结算)-->
+    <!--"userId": 1001-->
+
+   <view class="group_item" wx:for="{{classList}}">
         <view class="title flex-box flex-space">
-            <view>团课名称:舞蹈</view>
+            <view>团课名称:{{item.courseName}}</view>
             <view class="state">进行中</view>
         </view>
 
-       <view  class="row">团课价格:110000</view>
+       <view  class="row flex-box">团课价格:110000</view>
        <view class="row flex-box flex-space">
-           <view>团课人数:舞蹈</view>
-           <view >购买人数:</view>
+           <view>团课人数:{{item.persons}}</view>
+           <view >购买人数:{{item.buyPersons}}</view>
        </view>
        <view class="row flex-box flex-space">
-           <view>课程小时:3小时</view>
-           <view >节课:3小时</view>
+           <view>课程小时:{{item.hours}}小时</view>
+           <view >节课:{{item.classes}}小时</view>
        </view>
        <view class="title flex-box flex-space">
-           <view>开始时间:3小时</view>
+           <view>开始时间:{{item.createTime}}</view>
        </view>
 
 

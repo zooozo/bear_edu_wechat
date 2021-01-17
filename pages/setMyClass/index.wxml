@@ -57,9 +57,9 @@
         <view class="modal"></view>
         <view class="content">
             <view class="flex-box flex-space flex-y-center skill-title">
-                <image src="../../images/icon/cancel2.png" class="cancel" bindtap="closeModal"></image>
+                <image src="../../images/icon/cancel2.png" class="cancel" bindtap="closeModal1"></image>
                 <view style="font-weight:700">选择上课时间</view>
-                <view class="sure" bindtap="closeModal1" data-choose="chooseTime">确定</view>
+                <view class="sure" bindtap="closeModal" data-choose="chooseTime">确定</view>
             </view>
             <view class="time-list flex-box">
                 <view class="time-head flex-box flex-y-center" bindtap="chooseTimeTum" data-cur="1">

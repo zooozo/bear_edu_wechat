@@ -6,7 +6,7 @@
             <view class="flex-center">
                 <input placeholder="请输入昵称(例:Tony)"
                        data-item="name"
-                       :value="{{query.name}}"
+                       value="{{query.name}}"
                        bindblur='getChangeValuse'/>
             </view>
         </view>
@@ -22,7 +22,7 @@
             <view>教龄</view>
             <view class="flex-center">
                 <input placeholder="请输入教龄"
-                       :value="{{query.teachAge}}"
+                       value="{{query.teachAge}}"
                        type='number' data-item="teachAge" bindblur='getChangeValuse'/>
             </view>
         </view>

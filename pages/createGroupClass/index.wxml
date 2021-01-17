@@ -8,25 +8,22 @@
         </category>
         <view class="row">
             <view>课程节数</view>
-            <view class="flex-box">
-                <view class="sex {{query.classes=='1'?'sex_active':''}}" bindtap="chooseSex" data-sex="1">1</view>
-                <view class="sex {{query.classes=='2'?'sex_active':''}}" bindtap="chooseSex" data-sex="2">2</view>
-            </view>
+            <input data-type="classes" type="number" placeholder="请输入团课小时" bindblur="getCurrentData"/>
         </view>
         <view class="row">
-            <view class="t1">团课名称</view>
+            <view class="t1">课程名称</view>
             <input data-type="courseName" placeholder="请输入团课名称" bindblur="getCurrentData"/>
         </view>
         <view class="row">
-            <view class="t1">团课人数</view>
+            <view class="t1">课程最低人数</view>
             <input data-type="persons" type="number" placeholder="请输入团课人数" bindblur="getCurrentData"/>
         </view>
         <view class="row">
-            <view class="t1">团课小时</view>
+            <view class="t1">每节课小时数</view>
             <input data-type="hours" type="number" placeholder="请输入团课小时" bindblur="getCurrentData"/>
         </view>
         <view class="row">
-            <view class="t1">团课价格</view>
+            <view class="t1">课程单价</view>
             <input data-type="price" type="number" placeholder="请输入团课价格" bindblur="getCurrentData"/>
         </view>
         <picker mode="date" bindchange="getDateTime">

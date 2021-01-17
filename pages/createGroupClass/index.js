@@ -93,14 +93,19 @@ Page({
                               })
                         },
                         callBack:(res)=>{
-                              wx.showToast({
-                                    title:'创建成功',
+                              wx.switchTab({
+                                    url:'/pages/user/user',
                                     success(res) {
-                                          wx.switchTab({
-                                                url:'/pages/user/user'
+                                          wx.showToast({
+                                                title:'创建成功',
+                                                success(res) {
+                  
+                  
+                                                }
                                           })
                                     }
                               })
+                              
                         }
                   })
             }

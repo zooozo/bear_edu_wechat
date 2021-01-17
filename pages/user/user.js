@@ -72,7 +72,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        console.log('onload')
+  
     
     },
 
@@ -80,13 +80,14 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+    
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+    
         http.request({
             url: '/apply/getisTeacher',
             data: {userId:app.globalData.userInfo.userId},
@@ -113,7 +114,7 @@ Page({
                         BtnStatus:4
                     })
                 }
-                
+            
             }
         })
     
@@ -125,14 +126,13 @@ Page({
             },
             callBack: (res) => {
                 if(res.data){
-                 this.setData({
-                     isHaveResume:true
-                 })
+                    this.setData({
+                        isHaveResume:true
+                    })
                     getApp().globalData.resume=res.data;
                 }
             }
         })
-        
     },
 
     /**

@@ -22,7 +22,7 @@
             <!--</view>-->
 
             <view class="row">
-                <view>选择时间段</view>
+                <view>课程名称</view>
                 <view class="txt {{showData.QuanTime?'txtColor':''}}">
                     {{userData.yeCategoryName+'-'+userData.parentName+'-'+userData.categoryName}}
 
@@ -52,7 +52,7 @@
                 </view>
             </view>
         </view>
-         
+
         <view class="line">
             <!--            中间断层-->
         </view>
