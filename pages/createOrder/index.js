@@ -255,26 +255,26 @@ Page({
 				
 				
 			}
-			return
-			//如果between小于0
-			if (between <= 0) {
-				// 说明是选中的相连的两个，改变其中一个值就可以了
-				arr[arr2[0]].select = !arr[arr2[0]].select;
-			} else {
-				// i=-1   因为要把自己也删掉
-				console.log('选中')
-				for (let i = -1; i < between; i++) {
-					console.log( arr[arr2[0] + i + 1],'---')
-					if(arr[arr2[0] + i + 1].disabled) break;
-					arr[arr2[0] + i + 1].select = true;
-					
-					arr2 = arr2.concat(arr2[0] + i + 1)
-					
-					// 把中间的也存入选中的数组当中
-					
-					
-				}
-			}
+			// return
+			// //如果between小于0
+			// if (between <= 0) {
+			// 	// 说明是选中的相连的两个，改变其中一个值就可以了
+			// 	arr[arr2[0]].select = !arr[arr2[0]].select;
+			// } else {
+			// 	// i=-1   因为要把自己也删掉
+			// 	console.log('选中')
+			// 	for (let i = -1; i < between; i++) {
+			// 		console.log( arr[arr2[0] + i + 1],'---')
+			// 		if(arr[arr2[0] + i + 1].disabled) break;
+			// 		arr[arr2[0] + i + 1].select = true;
+			//
+			// 		arr2 = arr2.concat(arr2[0] + i + 1)
+			//
+			// 		// 把中间的也存入选中的数组当中
+			//
+			//
+			// 	}
+			// }
 			
 		}
 		arr2 = Array.from(new Set(arr2))
