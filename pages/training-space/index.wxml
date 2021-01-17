@@ -36,7 +36,7 @@
                 </view>
             </view>
             <view class="dec">
-                <text>今年：{{teacher.teachAge}}岁</text>
+                <text>今年：{{teacher.age}}岁</text>
                 <text style="margin-left:20rpx;">教龄：{{teacher.teachAge}}年</text>
             </view>
             <view class="dec">

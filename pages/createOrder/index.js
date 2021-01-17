@@ -127,7 +127,7 @@ Page({
 					
 					data.mapList[0].disableTimeArr.forEach((item, index) => {
 						let current = arr.findIndex((current) => current.hour == item);
-						arr[current].disabled = true
+						if(arr[current]) arr[current].disabled = true
 					})
 				}
 				
