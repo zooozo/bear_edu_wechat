@@ -22,8 +22,8 @@ function request(params, isGetTonken) {
 		dataType: 'json',
 		responseType: params.responseType == undefined ? 'text' : params.responseType,
 		success: function (res) {
-			console.log(res,'res=====')
-			if (res.statusCode == 200 && (res.data.code==200 || !res.data.code)) {
+		// && (res.data.code==200 || !res.data.code)
+			if (res.statusCode == 200 ) {
 				//如果有定义了params.callBack，则调用 params.callBack(res.data)
 				if (params.callBack) {
 					params.callBack(res.data);
@@ -43,18 +43,19 @@ function request(params, isGetTonken) {
 					//重新获取token,再次请求接口
 					getToken();
 				}
-			} else if(res.data.code!=200){
-				
-				wx.showToast({
-					title: res.data.msg,
-					icon: "none"
-				})
-			} else {
+			}  else {
 				//如果有定义了params.errCallBack，则调用 params.errCallBack(res.data)
 				if (params.errCallBack) {
 					params.errCallBack(res);
 				}
 			}
+		// else if(res.data.code!=200){
+		// 		console.log(res.data.msg,'res.data.code!=20000')
+		// 		wx.showToast({
+		// 			title: res.data.msg,
+		// 			icon: "none"
+		// 		})
+		// 	}
 			if (!globalData.isLanding) {
 				wx.hideLoading();
 			}

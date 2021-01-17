@@ -8,7 +8,7 @@ Page({
         orderData: {},
         reasonIndex: 0,
         params: {
-            pageSize: 3,
+            pageSize:10,
             pageNum: 1
         },
         noticeText: ['临时有事，不想约了', '距离太远，不想约了'],
@@ -16,6 +16,13 @@ Page({
         orderEntryList:[],
         showModal:false,
         cancelData:{}
+    },
+    onReachBottom(){
+      this.setData({
+          'params.pageSize':this.data.pageSize+1,
+          'params.pageNum':this.data.pageNum+1
+      })
+        this.getOrderList();
     },
     onLoad: function (options) {
         this.getOrderList();
@@ -26,6 +33,7 @@ Page({
             activeIndex: e.detail.name,
             orderList:[]
         })
+        console.log(e.detail.name,'name---')
         this.getOrderList();
     },
     getOrderList() {

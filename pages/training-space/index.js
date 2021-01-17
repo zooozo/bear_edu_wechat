@@ -43,44 +43,26 @@ Page({
         })
     },
     goToPayOrder(){
-      wx.navigateTo({
-          url:'/pages/createOrder/index?type=1&teacher='+this.data.teacher,
-          success:(res)=> {
-              // 把本页面的用户数据用数据带到打开的页面
-              // res.eventChannel.emit('postUserData',user)
-              this.setData({
-                  teacher:Object.assign({type:1},this.data.teacher)
-              },()=>{
-                  wx.setStorageSync('trainerUser',this.data.teacher)
-              })
-
-          }
-      })
+        wx.removeStorage({key:'trainerUser'})
+        
+        wx.setStorage({
+            key:'trainerUser',
+            data:this.data.teacher,
+            success:(res)=> {
+                wx.navigateTo({
+                    url:'/pages/createOrder/index?type=1&teacher='+this.data.teacher,
+        
+                })
+            }
+        })
       
     },
     goToGroupOrder(e){
         let type=e.currentTarget.dataset.type
-        wx.removeStorageSync('trainerUser')
-        if(type==2){
-           
-            wx.navigateTo({
-                url:'/pages/createOrder/index',
-                success:(res)=> {
-                    // 把本页面的用户数据用数据带到打开的页面
-                    // res.eventChannel.emit('postUserData',user)
-                    this.setData({
-                        teacher:Object.assign({type:type},this.data.teacher)
-                    },()=>{
-                        wx.setStorageSync('trainerUser',this.data.teacher)
-                    })
-            
-                }
-            })
-        }else{
-            wx.navigateTo({
-                url:'/pages/groupClassList/index?id='+this.data.teacher.userId,
-            })
-        }
+        wx.removeStorage({key:'trainerUser'})
+        wx.navigateTo({
+            url:'/pages/groupClassList/index?id='+this.data.teacher.userId,
+        })
       
     },
     copyId() {

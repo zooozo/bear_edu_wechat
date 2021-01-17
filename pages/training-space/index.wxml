@@ -11,24 +11,7 @@
                        class="avatar"></image>
                 <view style="margin-left:32rpx">
                     <view class="name">{{teacher.name}}</view>
-                    <view class="flex-box rate">
-                        <view style="margin-right:20rpx;">
-                            <text>服务</text>
-                            <text class="t1">35人</text>
-                        </view>
-                        <!--                        <view>-->
-                        <!--                            <text>好评率</text>-->
-                        <!--                            <text  class="t2">97%</text>-->
-                        <!--                        </view>-->
-                        <!--                    </view>-->
-                        <!--                    <view class="copyId">-->
-                        <!--                        <view>-->
-                        <!--                            ID:{{userData.userId}}-->
-                        <!--                        </view>-->
-                        <!--                        <view bindtap="copyId">-->
-                        <!--                            复制-->
-                        <!--                        </view>-->
-                    </view>
+
                 </view>
             </view>
 

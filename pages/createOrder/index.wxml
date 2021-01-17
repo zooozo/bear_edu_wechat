@@ -1,7 +1,7 @@
 <view class="container">
     <view class="content-info" wx:if="{{userData.type==1}}">
         <view class="userInfo">
-            <image src="{{userData.trainerImg}}" class="avatar"></image>
+            <image src="{{userData.headImg}}" class="avatar"></image>
             <view class="nickName">
                 <view>{{userData.name}}</view>
                 <view class="lv-box">
@@ -87,7 +87,7 @@
          <view class="row">
              <view>课程最低人数</view>
              <view class="txt2">
-                 {{userData.person}}人
+                 {{userData.persons}}人
              </view>
          </view>
 

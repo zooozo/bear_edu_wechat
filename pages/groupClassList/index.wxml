@@ -21,14 +21,14 @@
             <view class="state">进行中</view>
         </view>
 
-       <view  class="row flex-box">团课价格:{{item.price}}</view>
+       <view  class="row flex-box">团课单价:{{item.price}}</view>
        <view class="row flex-box flex-space">
-           <view>团课人数:{{item.persons}}</view>
+           <view>团课最低人数:{{item.persons}}</view>
            <view >购买人数:{{item.buyPersons}}</view>
        </view>
        <view class="row flex-box flex-space">
            <view>课程小时:{{item.hours}}小时</view>
-           <view >节课:{{item.classes}}小时</view>
+           <view >节课:{{item.classes}}节课</view>
        </view>
        <view class="title flex-box flex-space">
            <view>开始时间:{{item.startTime}}</view>

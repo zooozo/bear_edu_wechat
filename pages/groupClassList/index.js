@@ -42,15 +42,17 @@ Page({
 		},
 		toPayOrder(e) {
 			let current=e.currentTarget.dataset.item;
-			wx.navigateTo({
-				url: '/pages/createOrder/index',
-				success:(res)=> {
-					console.log(this.options.id,'options.id---')
-					current=Object.assign(current,{type:2,teacherId:this.options.id})
-					wx.setStorageSync('trainerUser',current)
-					
+			current=Object.assign(current,{type:2,teacherId:this.options.id})
+			wx.setStorage({
+				key:'trainerUser',
+				data:current,
+				success(res) {
+					wx.navigateTo({
+						url: '/pages/createOrder/index',
+					})
 				}
 			})
+			
 		}
 	}
 );

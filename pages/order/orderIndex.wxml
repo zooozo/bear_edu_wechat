@@ -14,7 +14,7 @@
                                         <view class="name">{{item.nickName}}</view>
                                         <view>
                                             <view>{{item.categoryName}} {{item.timeCount}}小时</view>
-                                            <view style="margin-top:8rpx;">{{item.beginTime}}</view>
+                                            <view style="margin-top:8rpx;">{{item.timeQuantum}}</view>
                                         </view>
                                     </view>
                                 </view>
@@ -28,8 +28,8 @@
                                     ¥{{item.amount}}
                                 </view>
                                 <view
-                                        wx:if="{{activeIndex==1}}"
-                                        class="appreise theme-font-color" data-item="{{item}}" wx:if="{{item.status>=1}}" bindtap="toOrderDetail">
+                                        wx:if="{{activeIndex==0 && item.status>=1}}"
+                                        class="appreise theme-font-color" data-item="{{item}}"  bindtap="toOrderDetail">
                                    去评价
                                 </view>
                             </view>
