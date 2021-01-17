@@ -60,7 +60,9 @@ Page({
     },
     goToGroupOrder(e){
         let type=e.currentTarget.dataset.type
+        wx.removeStorageSync('trainerUser')
         if(type==2){
+           
             wx.navigateTo({
                 url:'/pages/createOrder/index',
                 success:(res)=> {

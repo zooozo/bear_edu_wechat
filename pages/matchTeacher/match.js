@@ -164,6 +164,7 @@ Page({
                         },
                         callBack:(res)=>{
                               console.log(this.data.step,'step=======')
+                              let arr=this.data.chooseCateId.pus
                               this.setData({
                                     categoryList:res,
                                     chooseCateId:res[this.data.step].categoryId

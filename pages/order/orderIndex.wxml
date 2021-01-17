@@ -27,7 +27,9 @@
                                 <view style="margin-top:26rpx">
                                     ¥{{item.amount}}
                                 </view>
-                                <view class="appreise theme-font-color" data-item="{{item}}" wx:if="{{item.status>=1}}" bindtap="toOrderDetail">
+                                <view
+                                        wx:if="{{activeIndex==1}}"
+                                        class="appreise theme-font-color" data-item="{{item}}" wx:if="{{item.status>=1}}" bindtap="toOrderDetail">
                                    去评价
                                 </view>
                             </view>

@@ -1,13 +1,13 @@
 <view class="container">
     <view class="header-title">
-        <view style="background-image:url('https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2471826223,1654648024&fm=26&gp=0.jpg)"
+        <view style="background-image:url({{teacher.headImg}}"
               class="head-img">
 
         </view>
 
         <view class="userInfo">
             <view class="flex-box">
-                <image :src="{{teacher.headImg}}"
+                <image src="{{teacher.headImg}}"
                        class="avatar"></image>
                 <view style="margin-left:32rpx">
                     <view class="name">{{teacher.name}}</view>
