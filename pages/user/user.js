@@ -24,7 +24,8 @@ Page({
             {url: '../../images/icon/setting.png', text: '创建团课', path: '/pages/createGroupClass/index'},
             {url: '../../images/icon/setting.png', text: '我的团课', path: '/pages/groupClassList/index'},
 
-        ]
+        ],
+        isHaveResume:false,
     },
     tapList(e) {
         let type = e.currentTarget.dataset.current;
@@ -54,10 +55,15 @@ Page({
                     title:'成为教师后开放功能'
               })
               return
+        }else if(item.text=='课程设置' && !this.data.isHaveResume){
+            wx.showToast({
+                icon:'none',
+                title:'请先添加简历'
+            })
+        }else{
+            wx.navigateTo({url: item.path});
         }
-        if(item.path){
-              wx.navigateTo({url: item.path});
-        }
+        
 
         
     },
@@ -81,27 +87,52 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-       
-        let state=app.globalData.isTeacher.trainerStatus ;
-        console.log(state,'state------')
-        let txt=''
-        // 审核状态{0：待审核，1：审核通过，2：审核未通过}
-        if(state==0){
-            txt='待审核'
-        }else if(state==2){
-            txt='审核未通过'
-        }else{
-            txt=''
-        }
-        this.setData({
-            BtnTxt:txt,
-            BtnStatus:state
+        http.request({
+            url: '/apply/getisTeacher',
+            data: {userId:app.globalData.userInfo.userId},
+            method: 'GET',
+            callBack: (res) => {
+                if(res.data){
+                    app.globalData.isTeacher = res.data;
+                    let state=res.data.trainerStatus ;
+                    let txt=''
+                    // 审核状态{0：待审核，1：审核通过，2：审核未通过}
+                    if(state==0){
+                        txt='待审核'
+                    }else if(state==2){
+                        txt='审核未通过'
+                    }else{
+                        txt=''
+                    }
+                    this.setData({
+                        BtnTxt:txt,
+                        BtnStatus:state
+                    })
+                }else{
+                    this.setData({
+                        BtnStatus:4
+                    })
+                }
+                
+            }
         })
-       
-        
-        
-        
     
+        http.request({
+            method: 'GET',
+            url: '/apply/getTeacherResume',
+            data: {
+                userId: app.globalData.userInfo.userId
+            },
+            callBack: (res) => {
+                if(res.data){
+                 this.setData({
+                     isHaveResume:true
+                 })
+                    getApp().globalData.resume=res.data;
+                }
+            }
+        })
+        
     },
 
     /**

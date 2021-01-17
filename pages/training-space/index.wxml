@@ -168,7 +168,7 @@
     <!--    </view>-->
 
     <view class="foot-btn">
-        <view class="btn1 btn" bindtap="goToGroupOrder">参加团课</view>
-        <view class="btn2 btn theme-color" bindtap="goToPayOrder">下单(¥{{teacher.orderPrice}}/小时)</view>
+        <view class="btn1 btn" bindtap="goToGroupOrder" data-type="1">参加团课</view>
+        <view class="btn2 btn theme-color" bindtap="goToPayOrder" data-type="2">下单(¥{{teacher.orderPrice}}/小时)</view>
     </view>
 </view>

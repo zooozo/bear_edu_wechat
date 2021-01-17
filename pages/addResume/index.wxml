@@ -78,7 +78,10 @@
                 <textarea placeholder="请输入自我介绍"
                           auto-height
                           value="{{query.introduce}}"
-                          data-item="introduce" bindblur='getChangeValuse'/>
+                          data-item="introduce"
+                          bindblur='getChangeValuse'
+                          bindconfirm="getChangeValuse"
+                />
             </view>
         </view>
 

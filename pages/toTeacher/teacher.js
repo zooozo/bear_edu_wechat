@@ -143,7 +143,6 @@ Page({
                   })
             }else{
                   wx.showLoading()
-                  this.data.query.sex=this.data.query.sex=='男'?0:1
                   http.request({
                         url:'/apply/addTrainer',
                         method:'POST',
@@ -152,21 +151,10 @@ Page({
                               wx.showToast({
                                     title:'已提交审核',
                                     success(res) {
-                                          http.request({
-                                                url: '/apply/getisTeacher',
-                                                data: {userId:app.globalData.userInfo.userId},
-                                                method: 'GET',
-                                                callBack: (res) => {
-                                                      wx.showLoading()
-                                                      console.log(res.data, '是否是教师')
-                                                      app.globalData.isTeacher = res.data;
-                                                      wx.switchTab({
-                                                            url:'/pages/user/user'
-                                                      })
-                  
-                                                }
+                                          wx.showLoading()
+                                          wx.switchTab({
+                                                url:'/pages/user/user'
                                           })
-                                         
                                           
                                     }
                               })
