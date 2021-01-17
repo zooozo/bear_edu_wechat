@@ -36,8 +36,9 @@ Page({
     },
     ToDetailPage(e){
         let type=e.currentTarget.dataset.type;
+        let price=type==1?this.data.myAccount.balanceAccount:this.data.myAccount.trainerAccount
         wx.navigateTo({
-            url:'./account-detail/index?type='+type
+            url:'./account-detail/index?type='+type+'&price='+price
         })
     },
     submitFormData(){

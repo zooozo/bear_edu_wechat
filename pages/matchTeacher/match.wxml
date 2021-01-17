@@ -25,15 +25,15 @@
                     </view>
                 </view>
                 <view class="btn_group" wx:if="{{step==index}}" >
-                    <view class="customBtn1" wx:if="{{index>0}}"
+                    <!--<view class="customBtn1" wx:if="{{index>0}}"-->
 
-                          bindtap="setStep"
-                          data-step="{{index}}"
-                          data-type="{{1}}"
-                    >
-                        返回
-                    </view>
-                    <view class="defaultBtn" bindtap="stepCount"
+                          <!--bindtap="setStep"-->
+                          <!--data-step="{{index}}"-->
+                          <!--data-type="{{1}}"-->
+                    <!--&gt;-->
+                        <!--返回-->
+                    <!--</view>-->
+                    <view class="defaultBtn" bindtap="setStep"
 
                           data-step="{{index}}"
                           data-type="{{2}}"

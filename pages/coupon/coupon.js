@@ -29,7 +29,12 @@ Page({
                   })
             }
 
-            // this.getCouponList();
+            this.getCouponList();
+      },
+      toUse(){
+        wx.switchTab({
+              url:'/pages/index/index'
+        })
       },
       getCouponList(){
             http.request({
@@ -40,12 +45,23 @@ Page({
                   },
                   callBack:(res)=>{
                         console.log(res,'res=====')
-
-                        this.setData({
-                              couponList:res.filter((item)=>item.useFlag==1),
-                              notUse:res.filter((item)=>item.useFlag==1),
-                              used:res.filter((item)=>item.useFlag==0)
+                        // couponId: 1
+                        // couponName: "新人券"
+                        // endTime: "2021-01-18"
+                        // id: 14
+                        // moneyLimit: 2
+                        // quota: 2
+                        // startTime: "2021-01-16"
+                        // useFlag: 0
+                        // userId: 27
+                        
+                        res.forEach((item)=>{
+                              item.moneyLimit=parseFloat(item.moneyLimit/100)
+                              item.quota=parseFloat(item.quota/100)
                         })
+                       this.setData({
+                             couponList:res
+                       })
                   }
             })
       }

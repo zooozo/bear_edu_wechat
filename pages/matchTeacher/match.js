@@ -14,71 +14,47 @@ Page({
             multiArray:['尊敬的用户您好，欢迎使用小熊教育匹配系统，请问您需要如下哪种类型辅导','请选择需要学习什么科目','','']
       },
       onLoad: function (options) {
-
+            
             that=this;
       },
       onShow(){
-        this.setData({
-              step:-1,
-              categoryList:[],
-              chooseCateId:[],
-              animation:[],
-              activeIndex:0
-        })
+            this.setData({
+                  step:-1,
+                  categoryList:[],
+                  chooseCateId:[],
+                  animation:[],
+                  activeIndex:0
+            })
       },
       chooseCurrentItem(e){
             let current=e.currentTarget.dataset.current
             this.setData({
                   activeIndex:current
             })
-
+            
       },
-      
-      stepCount(e){
-            let step=e.currentTarget.dataset.step
-            let type=e.currentTarget.dataset.type
-            let stepNum=Number(type)==1?Number(step)-1:Number(step)+1
-            console.log(stepNum,'stepNum-----')
-            console.log(this.data.chooseCateId,'------')
-            that.setData({
-                  step:stepNum,
-            })
-            this.getCateGoryList(this.data.chooseCateId).then(bool=>{
-                  if(bool){
-                        if(bool){
-                              wx.navigateTo({
-                                    url:'/pages/search-show/search-show?type=1&id='+this.data.chooseCateId[this.data.chooseCateId.length-1]
-                              })
-                             
-                        }
-                  
-                  }
-            })
-      },
-      
-      
       setStep(e){
             let step=e.currentTarget.dataset.step
             let type=e.currentTarget.dataset.type
+            console.log(step,'step============')
             let stepNum=Number(type)==1?Number(step)-1:Number(step)+1
-            console.log(stepNum,'stepNum------')
-          
+            
             that.setData({
                   step:stepNum,
             })
-
-
-
-
-
-
+            
+            
+            
+            
+            
+            
             var animation = wx.createAnimation({
                   duration: 300,
                   timingFunction: "linear",
                   delay: 0
             })
             this.animation=animation
-
+            
             animation.translateX(600).step()
             if(that.data.step>=3){
                   let arr=[]
@@ -95,8 +71,7 @@ Page({
                   // console.log(animation,"init---")
                   animation.translateX(0).step()
                   if(type==1){
-                        console.log(this.data.chooseCateId,'arr000')
-                        this.getCateGoryList(this.data.chooseCateId[this.data.step]).then(bool=>{
+                        this.getCateGoryList(this.data.chooseCateId[this.data.step-1]).then(bool=>{
                               if(bool){
                                     let arr=[]
                                     arr.push(this.data.categoryList[this.data.activeIndex].categoryId)
@@ -109,7 +84,7 @@ Page({
                                           })
                                           return;
                                     }
-
+                                    
                               }
                         })
                   }
@@ -117,7 +92,7 @@ Page({
                         let id=this.data.categoryList.length>0 ?this.data.categoryList[this.data.activeIndex].categoryId : 0
                         that.getCateGoryList(id)
                             .then(bool=>{
-                                
+                                  console.log(bool,'bool----')
                                   if(bool){
                                         let arr=[]
                                         arr.push(this.data.categoryList[this.data.activeIndex].categoryId)
@@ -131,13 +106,13 @@ Page({
                                   }
                             })
                   }
-
-                  // console.log(this.data.chooseCateId,'step====')
+                  
+                  console.log(this.data.chooseCateId,'step====')
                   that.setData({
-
-
+                        
+                        
                         animationData: animation.export(),
-
+                        
                   },()=>{
                         
                         // 设置完后会执行动画在把把清空一下
@@ -146,14 +121,14 @@ Page({
                               animation:null
                         })
                   })
-
+                  
             }.bind(this), 200)
-
-
-
-
+            
+            
+            
+            
       },
-
+      
       getCateGoryList(id){
             return new Promise((re,rj)=>{
                   http.request({
@@ -163,17 +138,15 @@ Page({
                               parentId: id || 0
                         },
                         callBack:(res)=>{
-                              console.log(this.data.step,'step=======')
-                              let arr=this.data.chooseCateId.pus
+                              console.log(res,'res---')
                               this.setData({
-                                    categoryList:res,
-                                    chooseCateId:res[this.data.step].categoryId
+                                    categoryList:res
                               })
                               re(res.length==0)
                         }
-
+                        
                   })
             })
-
+            
       }
 });

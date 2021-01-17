@@ -15,7 +15,7 @@
 <!--                        <view class="t4">新用户专享优惠券新用户专享优惠</view>-->
                         <view class="t5">
                             <text>{{item.startTime}}~~{{item.endTime}}</text>
-                            <view class="toPay">去使用</view>
+                            <view class="toPay" bindtap="toUse">去使用</view>
                         </view>
                     </view>
                 </view>

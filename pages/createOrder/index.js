@@ -163,126 +163,60 @@ Page({
 	
 	// 选择时间逻辑
 	chooseOrderTime(e) {
-		// let idx = e.currentTarget.dataset.choose;
-		// let between;
-		// let orderTime=this.data.workTime.orderTime
-		// let chooseIndexList=this.data.chooseTimeIndex;
-		//
-		// if(orderTime[idx].disabled) return;
-		//
-		//
-		//
-		// if(orderTime[idx]){
-		// 	orderTime[idx].select=!orderTime[idx].select;
-		// }
-		//
-		// /**
-		// * 如果里面没有就添加
-		// * 如果是取消了就删除
-		// * **/
-		// if(chooseIndexList.indexOf(idx)==-1 && !(idx-chooseIndexList[chooseIndexList.length-1]>1)){
-		// 	chooseIndexList.push(idx)
-		// }else if(!orderTime[idx].select){
-		// 	let i=chooseIndexList.indexOf(idx)
-		// 	chooseIndexList.splice(i,1)
-		// }
-		//
-		// console.log(chooseIndexList, 'chooseIndexList---')
-		// chooseIndexList.sort();
-		// this.setData({
-		// 	'workTime.orderTime': orderTime,
-		// 	chooseTimeIndex: chooseIndexList,
-		// 	chooseCurrentIndex: idx
-		// })
-		
 		let idx = e.currentTarget.dataset.choose;
 		let between;
+		let orderTime = this.data.workTime.orderTime
+		let chooseIndexList = this.data.chooseTimeIndex;
+		
+		if (orderTime[idx].disabled) return;
+		console.log(idx, 'idx-----')
 		
 		
-		// 显示的数组
-		let arr = this.data.workTime.orderTime;
-		
-		// 记录点击的数组
-		let arr2 = this.data.chooseTimeIndex
-		arr2 = Array.from(new Set(arr2))
-		//如果点击的是同一个
-		
-		let index = arr2.findIndex((item) => item == idx);
-		if (arr[idx].disabled) return
-		// 点击选中
-		if (index > -1) {
-			arr2.sort();
-			if (idx != arr2[0] && idx != arr2[arr2.length - 1]) {
-				let spliceArr = arr2.splice(index, arr.length - 1);
-				// console.log(spliceArr,'spliceArr----')
-				// arr[idx].select = !arr[idx].select;
-				//从中间选的把后面的截掉并把状态改成未选中
-				for (let i = 0; i < spliceArr.length; i++) {
-					// console.log(arr[i],'arr2====')
-					arr[spliceArr[i]].select = false;
-				}
-			} else {
-				// 如果是第一个或者最后一个就把状态改变并把存入选中的数组删掉
-				
-				arr[idx].select = !arr[idx].select
-				arr2.splice(index, 1)
-				// console.log(arr2,'arr2---')
-			}
-			
-		} else {
-			
-			
-			arr2 = arr2.concat(idx)
-			
-			// 先去重
-			arr2 = Array.from(new Set(arr2))
-			arr2.sort()
-			console.log(arr2,'选中的arr')
-			if(idx-arr2[arr2.length-1]>1 && arr2[0]-idx<0) return
-			
-			
-			
-			// 算出数组第一个和最后一个的差额
-			between = arr2[arr2.length - 1] - arr2[0];
-			for (let i = -1; i < between; i++) {
-				console.log( arr[arr2[0] + i + 1],'---')
-				if(arr[arr2[0] + i + 1].disabled) break;
-				arr[arr2[0] + i + 1].select = true;
-				
-				arr2 = arr2.concat(arr2[0] + i + 1)
-				
-				// 把中间的也存入选中的数组当中
-				
-				
-			}
-			// return
-			// //如果between小于0
-			// if (between <= 0) {
-			// 	// 说明是选中的相连的两个，改变其中一个值就可以了
-			// 	arr[arr2[0]].select = !arr[arr2[0]].select;
-			// } else {
-			// 	// i=-1   因为要把自己也删掉
-			// 	console.log('选中')
-			// 	for (let i = -1; i < between; i++) {
-			// 		console.log( arr[arr2[0] + i + 1],'---')
-			// 		if(arr[arr2[0] + i + 1].disabled) break;
-			// 		arr[arr2[0] + i + 1].select = true;
-			//
-			// 		arr2 = arr2.concat(arr2[0] + i + 1)
-			//
-			// 		// 把中间的也存入选中的数组当中
-			//
-			//
-			// 	}
-			// }
-			
+		/**
+		 * 如果里面没有就添加
+		 * 如果是取消了就删除
+		 * **/
+		orderTime[idx].select = !orderTime[idx].select;
+		if (chooseIndexList.indexOf(idx) == -1) {
+			chooseIndexList.push(idx)
+		} else if (!orderTime[idx].select) {
+			let i = chooseIndexList.indexOf(idx)
+			chooseIndexList.splice(i, 1)
 		}
-		arr2 = Array.from(new Set(arr2))
-		arr2 = arr2.sort();
-		console.log(idx,'idx---')
+		
+		if (chooseIndexList.length > 1) {
+			let back = chooseIndexList[chooseIndexList.length - 1] - chooseIndexList[chooseIndexList.length - 2] > 1
+		
+			let front = chooseIndexList[chooseIndexList.length - 1] - chooseIndexList[chooseIndexList.length - 2] < -1
+			console.log(back,front,'true--------')
+			if (back || front) {
+				
+				chooseIndexList.splice(chooseIndexList.length - 1, 1)
+				// orderTime[idx].select=false;
+				for (let i = 0; i < orderTime.length; i++) {
+					for(let j=0;j<chooseIndexList.length;j++){
+						
+						if(i==chooseIndexList[j]){
+							orderTime[i].select=true
+						}else{
+							if(orderTime[i]){
+								orderTime[i].select=false
+							}
+							
+						}
+					}
+					
+				}
+			
+			}
+		}
+		
+		
+		console.log(chooseIndexList, 'chooseIndexList---')
+		chooseIndexList.sort();
 		this.setData({
-			'workTime.orderTime': arr,
-			chooseTimeIndex: arr2,
+			'workTime.orderTime': orderTime,
+			chooseTimeIndex: chooseIndexList,
 			chooseCurrentIndex: idx
 		})
 		
@@ -424,11 +358,11 @@ Page({
 			data: this.data.params,
 			method: "POST",
 			callBack: (res) => {
-				console.log(type,'type====')
+				console.log(type, 'type====')
 				if (type == 0) {
 					this.requestPaymentForWX(res.data);
 				} else {
-					if(res.code==200){
+					if (res.code == 200) {
 						wx.navigateTo({
 							url: '/pages/order/orderIndex',
 							success: (res) => {
@@ -437,10 +371,10 @@ Page({
 								})
 							}
 						})
-					}else{
+					} else {
 						wx.showToast({
-							title:res.msg,
-							icon:"none"
+							title: res.msg,
+							icon: "none"
 						})
 					}
 					
@@ -462,7 +396,7 @@ Page({
 		// qyyyNKno0QhOv7Mgc1Uk1qMkJQxV7WAamQ6I1zA47LA
 		
 		// 微信支付
-		if (this.data.query.channel == 0 || this.data.params.channel==0) {
+		if (this.data.query.channel == 0 || this.data.params.channel == 0) {
 			console.log('')
 			wx.requestSubscribeMessage({
 				tmplIds: ['g6h1Vhd3frq2B85MLoeTLto5I_SXzoDDEesfzKvVfMw'],
@@ -479,9 +413,9 @@ Page({
 		} else {
 			// 余额支付
 			wx.showModal({
-				title:'确认支付购买课程吗',
-				success:(res)=> {
-					if(res.confirm){
+				title: '确认支付购买课程吗',
+				success: (res) => {
+					if (res.confirm) {
 						if (this.data.userData.type == 1) {
 							that.payOrder(1)
 						} else {

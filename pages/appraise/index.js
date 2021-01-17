@@ -117,15 +117,16 @@ Page({
 			data: this.data.query,
               form:1,
 			callBack: (res) => {
-				wx.showToast({
-                      title:'评价成功'
-                })
-
-                  setTimeout(()=>{
-                        wx.switchTab({
-                              url:'/pages/user/user'
-                        })
-                  },600)
+				
+				
+				wx.switchTab({
+					url:'/pages/user/user',
+					success(res) {
+						wx.showToast({
+							title:'评价成功'
+						})
+					}
+				})
 				
 			}
 		})

@@ -12,13 +12,13 @@
     <view class="appraise-text">
         <textarea placeholder="请说点什么吧"
                   maxlength="{{450}}"
-                  style="min-height:300rpx;"
+                  style="min-height:300rpx;width:100%;"
                   auto-height
                   placeholder-style="color:#aaa;font-size:24rpx"
-                  bindblur="getAppraiseText"
+                  bindinput="getAppraiseText"
         ></textarea>
         <view class="num">
-            {{appraiseText}}/450
+            {{query.evaluateContent.length}}/450
         </view>
     </view>
     <view  class="starList"  >

@@ -7,7 +7,7 @@ Page({
             requestType:1,
             pageSize:10,
             pageNum:1,
-            trainerId:app.globalData.userInfo.userId || 2
+            
         },
         showMonth:null,
         IsShow:false,
@@ -21,6 +21,11 @@ Page({
         if(!options){
             options.type=1;
         }
+        
+        this.setData({
+            'params.trainerId':app.globalData.userInfo.userId,
+           
+        })
         this.getAccountRecords();
     },
     getAccountRecords(){
