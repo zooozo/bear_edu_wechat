@@ -21,7 +21,7 @@
             <view class="state">进行中</view>
         </view>
 
-       <view  class="row flex-box">团课价格:110000</view>
+       <view  class="row flex-box">团课价格:{{item.price}}</view>
        <view class="row flex-box flex-space">
            <view>团课人数:{{item.persons}}</view>
            <view >购买人数:{{item.buyPersons}}</view>
@@ -31,12 +31,12 @@
            <view >节课:{{item.classes}}小时</view>
        </view>
        <view class="title flex-box flex-space">
-           <view>开始时间:{{item.createTime}}</view>
+           <view>开始时间:{{item.startTime}}</view>
        </view>
 
-
-       <view class="row1 flex-box flex-y-center" >
-           <view class="toOrder defaultBtn">
+       <!---->
+       <view class="row1 flex-box flex-y-center" wx:if="{{isSelf}}">
+           <view class="toOrder defaultBtn" bindtap="toPayOrder" data-item="{{item}}">
                去下单
            </view>
        </view>

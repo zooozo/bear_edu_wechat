@@ -155,7 +155,7 @@
 
 .skill .pic {
     width: 100%;
-    height: 320rpx;
+
     border-radius: 10rpx;
     margin: 28rpx 0;
 }

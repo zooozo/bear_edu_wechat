@@ -4,20 +4,6 @@ const util = require('../../utils/util')
 Page({
       data: {
             userData: {
-                  attentionFlag: false,
-                  begoodSkill: "扑球、高远球、斜线球、挑球、滑板吊球",
-                  infoId: null,
-                  nickName: "Rainie。",
-                  orderPrice: 200,
-                  orderTime: (2) ["13", "20"],
-                  pic: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTK49BapO9sOKX6Nk0r0uHoyibkumNZVQVBznERD2zjnXeTsvAz6GVE474MbLgUkQsOoKThOyj0zo6Q/132",
-                  receivingType: 2,
-                  skillLevel: 2,
-                  trainerDescribe: "爱上了对方开具",
-                  trainerImg: "2020/08/3e3d7fe79f5a472a9e93bcc0b509e5bc.jpg",
-                  userId: 84,
-                  weekList: "周一、周二、周三、周五、周六、",
-                  weekTime: "5,1,2,6,3",
             },
             showData: {
                   stadium: null,
@@ -48,6 +34,12 @@ Page({
                   type: 0,
                   actualDate: '',
                   timeQuantum: ''
+            },
+            params:{
+                  groupClassId:'',
+                  channel:1,
+                  trainerId:'',
+                  type:1
             }
       },
       onLoad: function (options) {
@@ -56,13 +48,22 @@ Page({
                   key: 'trainerUser',
                   success: (res) => {
                         console.log(res, 'res---')
-                        this.setData({
-                              userData: res.data,
-                              'query.trainerId': res.data.userId,
-                              'query.refId': res.data.categoryId
-                        })
-
-                        this.getPayOrderQuanTime()
+                        if(res.data.type==1){
+                              this.setData({
+                                    userData: res.data,
+                                    'query.trainerId': res.data.userId,
+                                    'query.refId': res.data.categoryId
+                              })
+      
+                              this.getPayOrderQuanTime()
+                        }else{
+                              this.setData({
+                                    userData: res.data,
+                                    'params.trainerId': res.data.teacherId,
+                                    'params.groupClassId': res.data.id
+                              })
+                        }
+                        
                   },
                   fail(res) {
                         console.log(res, 'error')
@@ -323,72 +324,96 @@ Page({
             })
       },
       selectPayType(e){
+           if(this.data.userData.type==1){
+                 this.setData({
+                       "query.channel":Number(e.detail.value)
+                 })
+           }else{
+                 this.setData({
+                       "params.channel":Number(e.detail.value)
+                 })
+           }
            
-            this.setData({
-                  "query.channel":Number(e.detail.value)
-            })
       },
-
-      createOrder() {
-
-            if (!this.data.query.timeQuantum) {
-                  wx.showToast({
-                        icon:'none',
-                        title: '请选择授课时间段'
-                  })
-                  return
-            }
-            let that = this;
-            // qyyyNKno0QhOv7Mgc1Uk1qMkJQxV7WAamQ6I1zA47LA
-            if(this.data.query.channel==0){
-                  wx.requestSubscribeMessage({
-                        tmplIds: ['g6h1Vhd3frq2B85MLoeTLto5I_SXzoDDEesfzKvVfMw'],
-                        success() {
-                  
-                        },
-                        fail(err) {
-                              console.log(err)
-                        },
-                        complete() {
-                              http.request({
-                                    url: '/ballOrder/payOrder',
-                                    data: that.data.query,
-                                    callBack: (res) => {
-                                          wx.hideToast();
-                                          if(res.code==200){
-                                               
-                                                console.log(res, 'res---')
-                                                that.requestPaymentForWX(res.data);
-                                          }else{
-                                                wx.showToast({
-                                                      title:res.msg,
-                                                      icon:'none'
-                                                })
-                                          }
-                                         
-                                    }
+      payOrder(type){
+            http.request({
+                  url: '/ballOrder/payOrder',
+                  data: this.data.query,
+                  callBack: (res) => {
+                        wx.hideToast();
+                        if(res.code==200){
+                              if(type==0){
+                                    this.requestPaymentForWX(res.data);
+                              }else{
+                                    wx.navigateTo({
+                                          url: '/pages/order/orderIndex'
+                                    })
+                              }
+                           
+                        }else{
+                              wx.showToast({
+                                    title:res.msg,
+                                    icon:'none'
                               })
                         }
-                  })
-            }else{
-                  http.request({
-                        url: '/ballOrder/payOrder',
-                        data: that.data.query,
-                        callBack: (res) => {
-                              wx.hideToast();
-                             if(res.code!=200){
-                                   wx.showToast({
-                                         title:res.msg,
-                                         icon:'none'
-                                   })
-                             }else{
-                                   wx.navigateTo({
-                                         url: '/pages/order/orderIndex'
-                                   })
-                             }
+                  
+                  }
+            })
+      },
+      groupClassOrder(type){
+            http.request({
+                  url:'/groupOrder/create',
+                  data:this.data.params,
+                  method:"POST",
+                  callBack:(res)=>{
+                        if(type==0){
+                              this.requestPaymentForWX(res.data);
+                        }else{
+                              wx.navigateTo({
+                                    url: '/pages/order/orderIndex'
+                              })
                         }
-                  })
-            }
+                  }
+            })
+      },
+      createOrder() {
+           
+                  if (!this.data.query.timeQuantum && this.data.userData.type==1) {
+                        wx.showToast({
+                              icon:'none',
+                              title: '请选择授课时间段'
+                        })
+                        return
+                  }
+                  let that = this;
+                  // qyyyNKno0QhOv7Mgc1Uk1qMkJQxV7WAamQ6I1zA47LA
+                  if(this.data.query.channel==0){
+                        wx.requestSubscribeMessage({
+                              tmplIds: ['g6h1Vhd3frq2B85MLoeTLto5I_SXzoDDEesfzKvVfMw'],
+                              success() {
+                        
+                              },
+                              fail(err) {
+                                    console.log(err)
+                              },
+                              complete() {
+                                    if(that.data.userData.type==1){
+                                          that.payOrder(0)
+                                    }else{
+                                        that.groupClassOrder(0)
+                                    }
+                                   
+                              }
+                        })
+                  }else{
+                        if(this.data.userData.type==1){
+                              that.payOrder(1)
+                        }else{
+                              that.groupClassOrder(1)
+                        }
+                  }
+            
+            
             
 
       },

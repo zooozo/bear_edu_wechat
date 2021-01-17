@@ -112,8 +112,7 @@
             </view>
         </view>
         <view class="skill">
-            <view class="badmtn-traner">学历证书</view>
-            <image src="../../images/test/badmtn.png" class="pic"></image>
+            <image src="../../images/icon/logo.jpg" class="pic"></image>
             <!--            <view><text style="color:#999">业余等级：</text><text style="color:#666">{{userData.skillLevel}}级</text></view>-->
         </view>
         <!--createTime: "2021-01-16T23:08:48"-->
@@ -127,41 +126,47 @@
         <!--userId: 27-->
         <!--userName: "Rainie。"-->
         <!--whetherSatisfied: 1-->
+        <view class="answering">
+            <!--            <image src="../../images/timg.jpeg" class="avatar1"></image>-->
+            <view class="badmtn-traner">评价
+                <!--                <text style="color:#999;font-size:24rpx">(200)</text>-->
+            </view>
+            <view  wx:for="{{currentMomentList}}" class="item">
+                <view class="user-order">
+                    <image src="{{item.userAvatar}}" class="avatar"></image>
+                    <view style="margin-left:24rpx;width:100%;">
+                        <!--<view class="badmtn-traner"></view>-->
+                        <view class="badmtn-traner">
+                            <text>{{item.userName}}</text>
+                            <text class="time">{{item.createTime}}</text>
 
-        <view  wx:for="{{currentMomentList}}" class="item">
-            <view class="user-order">
-                <image src="{{item.userAvatar}}" class="avatar"></image>
-                <view style="margin-left:24rpx;width:100%;">
-                    <!--<view class="badmtn-traner"></view>-->
-                    <view class="badmtn-traner">
-                        <text>{{item.userName}}</text>
-                        <text class="time">{{item.createTime}}</text>
+                        </view>
+                        <image src="{{item.icon}}"
+                               wx:for="{{item.icons}}"
 
+                               wx:key="index"
+                               class="star"
+                               data-num="{{index}}" />
                     </view>
-                    <image src="{{item.icon}}"
-                           wx:for="{{item.icons}}"
 
-                           wx:key="index"
-                           class="star"
-                           data-num="{{index}}" />
                 </view>
 
+                <view class="appraise">
+                    {{item.evaluateContent}}
+                </view>
             </view>
 
-            <view class="appraise">
-                {{item.evaluateContent}}
+            <view class="flex-center">
+                <view class="more" bindtap="showMoreList">
+                    {{showMore?'收起':'查看更多'}}
+                </view>
             </view>
+
+
+
+        </view>
         </view>
 
-        <view class="flex-center">
-            <view class="more" bindtap="showMoreList">
-                {{showMore?'收起':'查看更多'}}
-            </view>
-        </view>
-
-
-
-    </view>
     <!--    <view class="recommend">-->
     <!--        <view style="color:#333;font-size:30rpx;font-weight:700;">相关推荐</view>-->
     <!--        <recommendItem list="{{RecommendList}}"></recommendItem>-->

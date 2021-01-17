@@ -1,23 +1,18 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/groupClassList/index",
-
-
-    "pages/createOrder/index",
-
-    "pages/training-space/index",
-
-    "pages/myComments/comments",
-    "pages/user/user",
     "pages/matchTeacher/match",
+    "pages/index/index",
+    "pages/user/user",
+    "pages/groupClassList/index",
+    "pages/createOrder/index",
+    "pages/training-space/index",
+    "pages/myComments/comments",
     "pages/found/found",
     "pages/search-show/search-show",
     "pages/createGroupClass/index",
     "pages/setMyClass/index",
     "pages/mybag/account-detail/index",
     "pages/order/orderIndex",
-
     "pages/toTeacher/teacher",
     "pages/addResume/index",
     "pages/appraise/index",

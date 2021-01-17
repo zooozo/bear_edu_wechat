@@ -1,5 +1,5 @@
 <view class="container">
-    <view class="content-info">
+    <view class="content-info" wx:if="{{userData.type==1}}">
         <view class="userInfo">
             <image src="{{userData.trainerImg}}" class="avatar"></image>
             <view class="nickName">
@@ -14,7 +14,7 @@
         <view class="line">
             <!--            中间断层-->
         </view>
-        <view class="choose-list" wx:if="{{userData.type==1}}">
+        <view class="choose-list" >
 
             <!--<view style="min-width:180rpx;">选择场地</view>-->
             <!--<view class="txt cutTxt1 {{showData.stadium?'txtColor':''}}">-->
@@ -52,25 +52,79 @@
                 </view>
             </view>
         </view>
-
+        
         <view class="line">
             <!--            中间断层-->
         </view>
         <!--<view class="text">-->
-            <!--<view style="margin-bottom:20rpx;">温馨提示</view>-->
+        <!--<view style="margin-bottom:20rpx;">温馨提示</view>-->
 
-            <!--<view>1、授课人员路费处理办法：{{'<3km'}}免路费，{{ '>3km'}}授课人可根据当日实际打车票据或凭证找您报销-->
-            <!--</view>-->
-            <!--<view style="margin:20rpx 0;">2、请仔细阅读相关法律法规，避免造成人员损失或财产损失</view>-->
-            <!--<view>3、授课人员到场后，会要求用户出示短信验证码，请及时查看手机信息提示，避免错过订单。</view>-->
+        <!--<view>1、授课人员路费处理办法：{{'<3km'}}免路费，{{ '>3km'}}授课人可根据当日实际打车票据或凭证找您报销-->
+        <!--</view>-->
+        <!--<view style="margin:20rpx 0;">2、请仔细阅读相关法律法规，避免造成人员损失或财产损失</view>-->
+        <!--<view>3、授课人员到场后，会要求用户出示短信验证码，请及时查看手机信息提示，避免错过订单。</view>-->
         <!--</view>-->
     </view>
-   
+     <view class="choose-list"  wx:else style="flex:1">
+         <view class="row">
+             <view>课程名称</view>
+             <view class="txt2">
+                 {{userData.courseName}}
+             </view>
+         </view>
+         <view class="row">
+             <view>课程节数</view>
+             <view class="txt2">
+                 {{userData.classes}}节课
+             </view>
+         </view>
+         <view class="row">
+             <view>每课程小时数</view>
+             <view class="txt2">
+                 {{userData.hours}}小时
+             </view>
+         </view>
+         <view class="row">
+             <view>课程最低人数</view>
+             <view class="txt2">
+                 {{userData.person}}人
+             </view>
+         </view>
+
+         <view class="row">
+             <view>已购人数</view>
+             <view class="txt2">
+                 {{userData.buyPersons}}人
+             </view>
+         </view>
+         <view class="row">
+             <view>课程价格</view>
+             <view class="txt2">
+                 {{userData.price}}
+             </view>
+         </view>
+
+         <view class="row">
+             <view>开始时间</view>
+             <view class="txt2">
+                 {{userData.startTime}}
+             </view>
+         </view>
+         <view class="row">
+             <view>支付方式</view>
+             <view class="txt2">
+                 <radio-group bindchange="selectPayType">
+                     <radio value="1" checked style="margin-right:12rpx;">余额支付</radio>
+                     <radio value="0">微信支付</radio>
+                 </radio-group>
+             </view>
+         </view>
+     </view>
     <view class="foot-btn">
         <view class="flex-center">
             <text>合计：</text>
             <text class="icon">¥</text>
-            <text class="price">{{userData.orderPrice}}</text>
+            <text class="price">{{userData.orderPrice || userData.price}}</text>
         </view>
         <view class="btn" bindtap="createOrder">
             立即支付

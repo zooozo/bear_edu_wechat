@@ -23,7 +23,7 @@ function request(params, isGetTonken) {
 		responseType: params.responseType == undefined ? 'text' : params.responseType,
 		success: function (res) {
 			console.log(res,'res=====')
-			if (res.statusCode == 200) {
+			if (res.statusCode == 200 && (res.data.code==200 || !res.data.code)) {
 				//如果有定义了params.callBack，则调用 params.callBack(res.data)
 				if (params.callBack) {
 					params.callBack(res.data);
@@ -43,13 +43,7 @@ function request(params, isGetTonken) {
 					//重新获取token,再次请求接口
 					getToken();
 				}
-			} else if (res.statusCode == 400) {
-				wx.showToast({
-					title: res.data,
-					icon: "none"
-				})
-				
-			}else if(res.data.code!=200){
+			} else if(res.data.code!=200){
 				
 				wx.showToast({
 					title: res.data.msg,
@@ -173,9 +167,12 @@ function getTeacherInfo(id){
 		url: '/apply/getTeacherResume',
 		data: id,
 		callBack: (res) => {
+			const app=getApp()
 		  if(res.data){
 		  		console.log(res.data,'getTeacherInfo---')
-			  getApp().globalData.resume=res.data;
+			  app.globalData.resume=res.data;
+			  app.watch(app, app.globalData.isTeacher)
+			  app.watch(app, app.globalData.resume)
 		  }
 		}
 	})

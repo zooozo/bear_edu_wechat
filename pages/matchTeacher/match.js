@@ -33,12 +33,36 @@ Page({
             })
 
       },
+      
+      stepCount(e){
+            let step=e.currentTarget.dataset.step
+            let type=e.currentTarget.dataset.type
+            let stepNum=Number(type)==1?Number(step)-1:Number(step)+1
+            console.log(stepNum,'stepNum-----')
+            console.log(this.data.chooseCateId,'------')
+            that.setData({
+                  step:stepNum,
+            })
+            this.getCateGoryList(this.data.chooseCateId).then(bool=>{
+                  if(bool){
+                        if(bool){
+                              wx.navigateTo({
+                                    url:'/pages/search-show/search-show?type=1&id='+this.data.chooseCateId[this.data.chooseCateId.length-1]
+                              })
+                             
+                        }
+                  
+                  }
+            })
+      },
+      
+      
       setStep(e){
             let step=e.currentTarget.dataset.step
             let type=e.currentTarget.dataset.type
-            console.log(step,'step============')
             let stepNum=Number(type)==1?Number(step)-1:Number(step)+1
-
+            console.log(stepNum,'stepNum------')
+          
             that.setData({
                   step:stepNum,
             })
@@ -71,7 +95,8 @@ Page({
                   // console.log(animation,"init---")
                   animation.translateX(0).step()
                   if(type==1){
-                        this.getCateGoryList(this.data.chooseCateId[this.data.step-1]).then(bool=>{
+                        console.log(this.data.chooseCateId,'arr000')
+                        this.getCateGoryList(this.data.chooseCateId[this.data.step]).then(bool=>{
                               if(bool){
                                     let arr=[]
                                     arr.push(this.data.categoryList[this.data.activeIndex].categoryId)
@@ -89,8 +114,10 @@ Page({
                         })
                   }
                   else{
-                        that.getCateGoryList(this.data.categoryList.length>0 ?this.data.categoryList[this.data.activeIndex].categoryId : 0)
+                        let id=this.data.categoryList.length>0 ?this.data.categoryList[this.data.activeIndex].categoryId : 0
+                        that.getCateGoryList(id)
                             .then(bool=>{
+                                
                                   if(bool){
                                         let arr=[]
                                         arr.push(this.data.categoryList[this.data.activeIndex].categoryId)
@@ -105,13 +132,15 @@ Page({
                             })
                   }
 
-                  console.log(this.data.chooseCateId,'step====')
+                  // console.log(this.data.chooseCateId,'step====')
                   that.setData({
 
 
                         animationData: animation.export(),
 
                   },()=>{
+                        
+                        // 设置完后会执行动画在把把清空一下
                         that.setData({
                               animationData:null,
                               animation:null
@@ -134,9 +163,10 @@ Page({
                               parentId: id || 0
                         },
                         callBack:(res)=>{
-                              console.log(res,'res---')
+                              console.log(this.data.step,'step=======')
                               this.setData({
-                                    categoryList:res
+                                    categoryList:res,
+                                    chooseCateId:res[this.data.step].categoryId
                               })
                               re(res.length==0)
                         }

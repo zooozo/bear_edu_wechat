@@ -26,6 +26,7 @@ Page({
 
         ],
         isHaveResume:false,
+        myTeacherDetail:{}
     },
     tapList(e) {
         let type = e.currentTarget.dataset.current;
@@ -50,16 +51,19 @@ Page({
         let item = e.currentTarget.dataset.current;
         let url = '';
         if(item.text!='我的评价' && this.data.BtnStatus!=1){
-              wx.showToast({
-                    icon:"none",
-                    title:'成为教师后开放功能'
-              })
-              return
+            this.data.isHaveResume=true;
+            wx.showToast({
+                icon:"none",
+                title:'成为教师后开放功能'
+            })
+              
+            
         }else if(item.text=='课程设置' && !this.data.isHaveResume){
             wx.showToast({
                 icon:'none',
                 title:'请先添加简历'
             })
+          
         }else{
             wx.navigateTo({url: item.path});
         }
@@ -72,8 +76,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-  
     
+    
+       
     },
 
     /**
@@ -86,8 +91,12 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {
     
+    onShow: function () {
+        // this.setData({
+        //     myTeacherDetail: app.watch(this,app.globalData.isTeacher )
+        // })
+        // console.log(app.watch(app, app.globalData.isTeacher),'myTeacherDetail' )
         http.request({
             url: '/apply/getisTeacher',
             data: {userId:app.globalData.userInfo.userId},
@@ -114,7 +123,7 @@ Page({
                         BtnStatus:4
                     })
                 }
-            
+
             }
         })
     

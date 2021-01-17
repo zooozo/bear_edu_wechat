@@ -58,8 +58,8 @@ page{
 }
 
  .category_btn{
-     width:400rpx;
-     height:100rpx;
+     width:200rpx;
+     height:80rpx;
      margin-top:40rpx;
      flex-shrink: 0;
  }

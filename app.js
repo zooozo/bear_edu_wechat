@@ -39,10 +39,19 @@ App({
             })
       },
       // 百度经纬度转腾讯的经纬度
-
-      watch: function (obj,key) {
       
-
+      watch: function (ctx, obj, callBack) {
+            Object.keys(obj).forEach(key => {
+                  this.observer(obj, key, obj[key], function (value) {
+                        obj[key].call(ctx, value)
+                  })
+            })
+            if (callBack) {
+                  callBack(obj)
+            } else {
+                  return obj
+            }
+            
       },
 // 监听属性，并执行监听函数
       observer: function (data, key, val, fn) {

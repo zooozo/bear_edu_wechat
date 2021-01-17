@@ -33,7 +33,7 @@
                     >
                         返回
                     </view>
-                    <view class="defaultBtn" bindtap="setStep"
+                    <view class="defaultBtn" bindtap="stepCount"
 
                           data-step="{{index}}"
                           data-type="{{2}}"
