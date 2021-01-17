@@ -48,7 +48,10 @@
         <!--设置列表-->
         <view class="settingList">
             <view style="flex:1">
-                <view class="flex-box flex-space list-row" wx:for="{{settingList}}" wx:key="index" bindtap="tapSettingList"
+                <view class="flex-box flex-space list-row"
+                      wx:if="{{item.isShow}}"
+                      wx:for="{{settingList}}"
+                      wx:key="index" bindtap="tapSettingList"
                       data-current="{{item}}">
                     <image src="{{item.url}}" class="left-png"></image>
                     <view class="flex-box flex-space row-item">

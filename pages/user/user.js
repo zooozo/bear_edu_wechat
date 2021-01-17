@@ -17,16 +17,17 @@ Page({
             {url: '../../images/icon/bag.png', text: '我的账户'},
         ],
         settingList: [
-            {url: '../../images/icon/lishi.png', text: '我的评价', path: '/pages/myComments/comments'},
-            {url: '../../images/icon/lishi.png', text: '我的简历', path: '/pages/addResume/index'},
+            {url: '../../images/icon/lishi.png', text: '我的评价', path: '/pages/myComments/comments',isShow:true},
+            {url: '../../images/icon/lishi.png', text: '我的简历', path: '/pages/addResume/index',isShow:true},
            
-            {url: '../../images/icon/setting.png', text: '课程设置', path: '/pages/setMyClass/index'},
-            {url: '../../images/icon/setting.png', text: '创建团课', path: '/pages/createGroupClass/index'},
-            {url: '../../images/icon/setting.png', text: '我的团课', path: '/pages/groupClassList/index'},
+            {url: '../../images/icon/setting.png', text: '课程设置', path: '/pages/setMyClass/index',isShow:true},
+            {url: '../../images/icon/setting.png', text: '创建团课', path: '/pages/createGroupClass/index',isShow:true},
+            {url: '../../images/icon/setting.png', text: '我的团课', path: '/pages/groupClassList/index',isShow:true},
 
         ],
         isHaveResume:false,
-        myTeacherDetail:{}
+        myTeacherDetail:{},
+        isSetClass:false
     },
     tapList(e) {
         let type = e.currentTarget.dataset.current;
@@ -116,7 +117,8 @@ Page({
                     }
                     this.setData({
                         BtnTxt:txt,
-                        BtnStatus:state
+                        BtnStatus:state,
+                       
                     })
                 }else{
                     this.setData({
@@ -135,8 +137,12 @@ Page({
             },
             callBack: (res) => {
                 if(res.data){
+                    console.log(res.data.yeCategoryId && res.data.yeCategoryId>0,'------')
+                    let arr=this.data.settingList
+                    arr[2].isShow=!res.data.yeCategoryId && res.data.yeCategoryId>0
                     this.setData({
-                        isHaveResume:true
+                        isHaveResume:true,
+                        settingList: arr
                     })
                     getApp().globalData.resume=res.data;
                 }

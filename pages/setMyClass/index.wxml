@@ -29,7 +29,8 @@
                 课程小时价
             </view>
             <view class="right-part">
-                <input class="price" placeholder="请输入您课程的每小时价格"
+                <input class="price"
+                       placeholder="请输入每小时价格"
                        type="number"
                        value="{{query.orderPrice}}"
                        data-type="orderPrice"
@@ -38,7 +39,7 @@
         </view>
         <view class="row1 flex-box flex-space flex-y-center">
             <view>
-                手机号码
+                课程介绍
             </view>
             <view class="right-part">
                 <textarea
