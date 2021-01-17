@@ -93,7 +93,13 @@ Page({
 
       },
       submitFormData() {
-
+           if( app.globalData.isTeacher.trainerStatus &&  app.globalData.isTeacher.trainerStatus==0){
+                  wx.showToast({
+                        title:'正在为您审核',
+                        icon:'none'
+                  })
+                 return
+           }
             // ^(([0-9]{15})|([0-9]{18})|([0-9]{17}x))$
             //     /^[1-8][1-7]\d{4}(?:19|20)\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])\d{3}[\dX]$/
             console.log(this.data.query, 'query,')
@@ -135,6 +141,7 @@ Page({
                         content: "请上传头像"
                   })
             }else{
+                  wx.showLoading()
                   this.data.query.sex=this.data.query.sex=='男'?0:1
                   http.request({
                         url:'/apply/addTrainer',
@@ -149,8 +156,9 @@ Page({
                                                 data: {userId:app.globalData.userInfo.userId},
                                                 method: 'GET',
                                                 callBack: (res) => {
+                                                      wx.showLoading()
                                                       console.log(res.data, '是否是教师')
-                                                      getApp().globalData.isTeacher = res.data;
+                                                      app.globalData.isTeacher = res.data;
                                                       wx.switchTab({
                                                             url:'/pages/user/user'
                                                       })

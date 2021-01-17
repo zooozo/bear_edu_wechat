@@ -23,9 +23,25 @@ page{
     height:60rpx;
     border-bottom:1rpx solid #fdfdfd;
 }
+
+.row{
+    height:60rpx;
+}
+.row1{
+    height:80rpx;
+    justify-content: flex-end;
+}
 .state{
     color:red;
     font-size:24rpx;
 }
 
+
+.toOrder{
+    width:140rpx;
+    height:70rpx;
+    border-radius:10rpx;
+    font-size:28rpx;
+
+}
 

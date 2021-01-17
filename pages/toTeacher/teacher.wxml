@@ -65,7 +65,7 @@
         </view>
 
         <view wx:if="{{query.reason}}" style="margin-top:30rpx;">
-           拒绝原因: <text style="color:'red'">{{query.reason}}</text>
+           拒绝原因: <text style="color:red">*{{query.reason}}</text>
         </view>
     </view>
     <view class="defaultBtn flex-center" bindtap="submitFormData">
