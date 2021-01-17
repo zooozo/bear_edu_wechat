@@ -12,9 +12,11 @@
                                     <image src="{{item.trainerImg}}" class="order-pic"></image>
                                     <view class="flex-space flex-box flex-colomn user">
                                         <view class="name">{{item.nickName}}</view>
+                                        <view style="margin:10rpx 0">{{item.mobile}}</view>
                                         <view>
                                             <view>{{item.categoryName}} {{item.timeCount}}小时</view>
                                             <view style="margin-top:8rpx;">{{item.timeQuantum}}</view>
+
                                         </view>
                                     </view>
                                 </view>

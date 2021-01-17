@@ -14,8 +14,8 @@ Page({
 			},
 			
 			{
-				select: '../../images/appraise/select2.png',
-				unselect: '../../images/appraise/unselect2.png',
+				select: '../../images/appraise/select1.png',
+				unselect: '../../images/appraise/unselect1.png',
 				text: '不满意',
 				iconClass: 'icon1',
 				iconClass1: 'icon2',

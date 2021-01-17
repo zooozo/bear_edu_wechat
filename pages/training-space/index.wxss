@@ -119,6 +119,12 @@
 
 
 }
+ .dec{
+     color: #333;
+     font-size: 28rpx;
+     text-indent: 40rpx;
+     margin-top:20rpx;
+ }
 
 .trainer .price .txt {
     color: #FF6060;

@@ -85,29 +85,15 @@
         </view>
         <view class="answering">
             <!--            <image src="../../images/timg.jpeg" class="avatar1"></image>-->
-            <view class="badmtn-traner">课程介绍
-<!--                <text style="color:#999;font-size:24rpx">(200)</text>-->
-            </view>
+            <view class="badmtn-traner">课程介绍</view>
 
-            <view>
+            <view class="dec">
                 {{teacher.courseDesc}}
             </view>
         </view>
         <view class="skill">
             <image src="../../images/icon/logo.jpg" class="pic"></image>
-            <!--            <view><text style="color:#999">业余等级：</text><text style="color:#666">{{userData.skillLevel}}级</text></view>-->
         </view>
-        <!--createTime: "2021-01-16T23:08:48"-->
-        <!--delFlag: 0-->
-        <!--evaluateContent: "大说服力；卡是打飞机奥斯卡了达芬奇还是自考人脉圈；虽然是考虑到放弃；周日上课目前；收入状况目前；思之如狂目前； "-->
-        <!--id: 11-->
-        <!--stars: 3-->
-        <!--trainerId: 27-->
-        <!--trainerName: "啦啦"-->
-        <!--userAvatar: "https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJfiahy0Hia2ytHUAbc2xia9nOf9h19QQYBxIsFd66xel0cB4GgtuD2NPU1g3AFO3I7tpnp40HibIhjZw/132"-->
-        <!--userId: 27-->
-        <!--userName: "Rainie。"-->
-        <!--whetherSatisfied: 1-->
         <view class="answering">
             <!--            <image src="../../images/timg.jpeg" class="avatar1"></image>-->
             <view class="badmtn-traner">评价
