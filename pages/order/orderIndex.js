@@ -19,8 +19,8 @@ Page({
     },
     onReachBottom(){
       this.setData({
-          'params.pageSize':this.data.pageSize+1,
-          'params.pageNum':this.data.pageNum+1
+         
+          'params.pageNum':this.data.params.pageNum+1
       })
         this.getOrderList();
     },

@@ -139,7 +139,7 @@ Page({
                 if(res.data){
                     console.log(res.data.yeCategoryId && res.data.yeCategoryId>0,'------')
                     let arr=this.data.settingList
-                    arr[2].isShow=!res.data.yeCategoryId && res.data.yeCategoryId>0
+                    arr[2].isShow=!(res.data.yeCategoryId && res.data.yeCategoryId)
                     this.setData({
                         isHaveResume:true,
                         settingList: arr
