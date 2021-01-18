@@ -18,7 +18,15 @@
         </view>
         <view class="withDraw-box ">
             <view>提现金额</view>
-            <view class="flex-box flex-y-center" style="margin-top: 68rpx">
+            <picker bindchange="bindPickerChange"
+                    range-key="bankName"
+                    range="{{bankList}}">
+                <view class="picker">
+                   <text style='font-size:28rpx;margin-right:30rpx;'> 提现到银行卡:{{bankList[chooseIndex].bankName}}</text>
+                   <text>{{bankList[chooseIndex].bankCardNo}}</text>
+                </view>
+            </picker>
+            <view class="flex-box flex-y-center">
                 <view class="rmb">¥</view>
                 <input type="number"
                        placeholder-class="holder"

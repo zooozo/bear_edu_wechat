@@ -95,7 +95,7 @@ Page({
     },
     toWithDraw(){
         wx.navigateTo({
-            url:'/pages/withDraw/index?price='+this.data.listData.amount+'&type='+this.options.type
+            url:'/pages/withDraw/index?price='+this.data.listData.income+'&type='+this.options.type
         })
     },
     onReachBottom(){

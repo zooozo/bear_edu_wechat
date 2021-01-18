@@ -147,6 +147,7 @@
                     <block wx:for="{{tabList}}" wx:key="*this">
                         <swiper-item class="swiper-box">
                             <view class="time-item default {{timeItem.select?'active':''}} {{ timeItem.disabled?'disable':''}}"
+                                  style="{{index %4 !=0? 'margin-left:20rpx;':0}}"
                                   wx:for="{{workTime.orderTime}}" wx:key="index" wx:for-item="timeItem"
                                   bindtap="chooseOrderTime" data-choose="{{index}}">
                                 {{timeItem.hour+":00"}}

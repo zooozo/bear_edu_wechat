@@ -177,12 +177,22 @@ Page({
 		 * 如果是取消了就删除
 		 * **/
 		orderTime[idx].select = !orderTime[idx].select;
+    /** 如果里面没有就添加 **/
 		if (chooseIndexList.indexOf(idx) == -1) {
 			chooseIndexList.push(idx)
 		} else if (!orderTime[idx].select) {
+              /** 如果里面没有就添加 **/
 			let i = chooseIndexList.indexOf(idx)
-			chooseIndexList.splice(i, 1)
+			chooseIndexList.splice(i)
+              orderTime.forEach((item,index)=>{
+                    if(index>idx){
+                          item.select=false;
+                    }
+              })
 		}
+
+
+
 		
 		if (chooseIndexList.length > 1) {
 			let back = chooseIndexList[chooseIndexList.length - 1] - chooseIndexList[chooseIndexList.length - 2] > 1
@@ -192,21 +202,24 @@ Page({
 			if (back || front) {
 				
 				chooseIndexList.splice(chooseIndexList.length - 1, 1)
-				// orderTime[idx].select=false;
+				orderTime[idx].select=false;
 				for (let i = 0; i < orderTime.length; i++) {
 					for(let j=0;j<chooseIndexList.length;j++){
-						
+
 						if(i==chooseIndexList[j]){
-							orderTime[i].select=true
+							orderTime[j].select=true
 						}else{
 							if(orderTime[i]){
 								orderTime[i].select=false
 							}
-							
+
 						}
 					}
-					
+
 				}
+                  for(let i=0;i<chooseIndexList.length;i++){
+                        orderTime[i].select=true;
+                  }
 			
 			}
 		}

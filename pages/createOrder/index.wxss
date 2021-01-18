@@ -146,7 +146,7 @@ page {
     border-radius: 32rpx 32rpx 0 0;
     font-size: 28rpx;
     color: #333;
-    padding: 0 32rpx;
+    padding: 0 24rpx;
     box-sizing: border-box;
 
 }
@@ -220,7 +220,7 @@ page {
     display: flex;
     height: auto !important;
     flex-wrap: wrap;
-    justify-content: space-between;
+
 
 }
 
