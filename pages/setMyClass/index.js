@@ -231,6 +231,14 @@ Page({
 			})
 			return
 		}
+		if (!this.data.query.courseDesc) {
+			wx.showModal({
+				title: '提示',
+				content: '请输入您的课程介绍 ',
+				showCancel: false
+			})
+			return
+		}
 		let arr = [], current, diffence, timeArr = [];
 		/*
 		* 1.是全部时间段

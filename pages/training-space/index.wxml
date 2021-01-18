@@ -83,7 +83,7 @@
                 <text>{{teacher.working}}</text>
             </view>
         </view>
-        <view class="answering">
+        <view class="answering" wx:if="{{teacher.courseDesc}}">
             <!--            <image src="../../images/timg.jpeg" class="avatar1"></image>-->
             <view class="badmtn-traner">课程介绍</view>
 

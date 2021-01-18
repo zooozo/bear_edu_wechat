@@ -14,6 +14,7 @@ Page({
         listData:{},
         recordList:[],
         stopLoad:false,
+          showType:1,
 
     },
     onLoad: function (options) {
@@ -24,30 +25,47 @@ Page({
         
         this.setData({
             'params.trainerId':app.globalData.userInfo.userId,
+              showType:options.type
            
         })
         this.getAccountRecords();
     },
     getAccountRecords(){
+        let url=this.data.showType==1?'/walletRecord/walletRecordPages':'/trainerWalletRecord/trainerWalletRecordPages'
         http.request({
-            url:'/trainerWalletRecord/trainerWalletRecordPages',
+            url:url,
             method:'GET',
             data:this.data.params,
             callBack:(res)=>{
                if(res.code==200){
+                  if(this.data.showType==2){
+                        res.data.trainerWalletRecordList.forEach((item,index)=>{
+                              item.amount=parseFloat(item.amount/100).toFixed(2)
+                        })
+                        res.data.income=parseFloat( res.data.income/100).toFixed(2)
+                        res.data.disbursement=parseFloat( res.data.disbursement/100).toFixed(2)
 
-                  res.data.trainerWalletRecordList.forEach((item,index)=>{
-                      item.amount=parseFloat(item.amount/100).toFixed(2)
-                  })
-                   res.data.income=parseFloat( res.data.income/100).toFixed(2)
-                   res.data.disbursement=parseFloat( res.data.disbursement/100).toFixed(2)
+                        let bool=this.data.params.requestType==3?res.data.trainerWalletRecordList.length<this.data.params.pageNum:true
+                        this.setData({
+                              listData:res.data,
+                              recordList:[...this.data.recordList,...res.data.trainerWalletRecordList],
+                              stopLoad:bool
+                        })
+                  }else{
+                        res.data.walletRecordList.forEach((item,index)=>{
+                              item.amount=parseFloat(item.amount/100).toFixed(2)
+                        })
+                        res.data.income=parseFloat( res.data.income/100).toFixed(2)
+                        res.data.disbursement=parseFloat( res.data.disbursement/100).toFixed(2)
 
-                    let bool=this.data.params.requestType==3?res.data.trainerWalletRecordList.length<this.data.params.pageNum:true
-                   this.setData({
-                       listData:res.data,
-                       recordList:[...this.data.recordList,...res.data.trainerWalletRecordList],
-                       stopLoad:bool
-                   })
+                        let bool=this.data.params.requestType==3?res.data.walletRecordList.length<this.data.params.pageNum:true
+                        this.setData({
+                              listData:res.data,
+                              recordList:[...this.data.recordList,...res.data.walletRecordList],
+                              stopLoad:bool
+                        })
+                  }
+
                }
             }
         })

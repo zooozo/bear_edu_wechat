@@ -31,7 +31,8 @@ Page({
     onChange(e) {
         this.setData({
             activeIndex: e.detail.name,
-            orderList:[]
+            orderList:[],
+              'params.pageNum':1
         })
         console.log(e.detail.name,'name---')
         this.getOrderList();
