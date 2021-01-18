@@ -79,8 +79,8 @@
                           auto-height
                           value="{{query.introduce}}"
                           data-item="introduce"
-                          bindblur='getChangeValuse'
-                          bindconfirm="getChangeValuse"
+                          bindinput='getChangeValuse'
+
                 />
             </view>
         </view>
